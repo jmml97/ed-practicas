@@ -6,9 +6,9 @@ INCREMENTO=100
 
 I=$INICIO
 
-echo > tiempos.dat
+echo > tiempos_ordenacion.dat
 while [[ $I -lt $FIN ]]; do
   echo Ejecución de tamaño $I
-  echo `./busqueda_lineal $I 10000` >> tiempos.dat
+  echo `./bin/ordenacion $I 10000` >> tiempos_ordenacion.dat
   I=$(($I+$INCREMENTO))
 done
