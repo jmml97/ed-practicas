@@ -7,4 +7,10 @@ set xlabel '{/Arial-RegularItalic tamaño del vector}'
 set output "./gráficos/$1.png"
 
 plot "$1"
+
+f(x) = a*x*x + b*x + c
+fit f(x) "$1" via a, b, c
+set output "./gráficos/$1_ajustado.png"
+plot "$1", f(x)
+
 EOF
