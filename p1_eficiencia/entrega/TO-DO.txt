@@ -28,3 +28,5 @@ Ejercicios 6,7,8.
 
   - Voluntarios.
 
+
+**NOTA: El archivo 'burbuja.cpp' está en la carpeta de entrega para compilar el pdf. Una vez compilado, no es necesario entregarlo.
