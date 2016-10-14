@@ -12,6 +12,7 @@
 \usepackage[margin=1in]{geometry}
 \usepackage{xcolor, color}
 \usepackage{soul}
+\usepackage{epstopdf}
 
 % Meta
 \title{\textbf{ESTRUCTURA DE DATOS}\\
@@ -69,7 +70,7 @@
 \maketitle
 
 \section*{Ejercicio 1.}
-En este ejercicio, comprobaremos tanto la eficiencia teórica como la eficiencia empírica del algoritmo de ordenación \emph{burbuja}: 
+En este ejercicio, comprobaremos tanto la eficiencia teórica como la eficiencia empírica del algoritmo de ordenación \emph{burbuja}:
 
 \begin{lstlisting}[numbers=left]
 void ordenar_burbuja(int *v, int n)
@@ -110,9 +111,16 @@ Ahora creamos un programa de prueba para analizar la eficiencia empírica, hacie
 
 Al analizar la eficiencia empírica del algoritmo, obtenemos la siguiente gráfica:\\
 
+\begin{center}
+	\includegraphics{img/tiempos_ordenacion.pdf}
+\end{center}
 %%% gráfica eficiencia empírica
 
 Si representamos superpuestas la función de la eficiencia teórica y la empírica, obtenemos lo siguiente:\\
+
+\begin{center}
+	\includegraphics{img/tiempos_ordenacion_teorica_superpuesta.pdf}
+\end{center}
 
 %%% gráfica superpuesta
 
@@ -122,6 +130,10 @@ Observamos que %%%conclusión (depende de lo que salga)
 Veamos que podemos ajustar, mediante \textit{gnuplot}, los puntos obtenidos al analizar la eficiencia teórica en una función de la forma $f(n) = an^2 + bn + c$.\\
 
 En efecto, obtenemos que la función en cuestión es: $\bm{f(n) = n^2 + n + }$, y la representación gráfica es la siguiente:    %%% función ajustada
+
+\begin{center}
+	\includegraphics{img/tiempos_ordenacion_ajustado.pdf}
+\end{center}
 
 \section*{Ejercicio 3.}
 
