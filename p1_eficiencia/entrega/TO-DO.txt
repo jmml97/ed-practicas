@@ -1,24 +1,16 @@
-Ejercicio 1.
-
-  - Gráfica eficiencia empírica.
-  - Gráfica empírica y teórica superpuestas.
-
-Ejercicio 2.
-
-  - Parámetros (a,b,c) del ajuste cuadrático.
-  - Gráfica ajuste burbuja.
-  - Conclusión.
-
 Ejercicio 3.
+
+  - Poner gráfica obtenida mediante el archivo "tiempos_binaria.dat" (la mía se ve borrosa).
 
   - Mejorar gráfica empírica (1000 ejecuciones para cada n, sumar el tiempo total 
     que ha tardado, y dividir por 1000. Ese es el nuevo tiempo para ese n). Habría que hacer un script.
-  - Ajustar curva teórica a la empírica mediante regresión. Escribir los parámetros,  
+
+  - Ajustar curva teórica a la empírica (la última) mediante regresión. Escribir los parámetros,  
     y poner la gráfica.
 
 Ejercicio 4.
 
-  - Gráfica eficiencia teórica casos peor y mejor, con sus respectivas funciones ajustadas.
+  - Gráfica eficiencia teórica casos peor y mejor, con sus respectivas funciones ajustadas (parámetros).
 
 Ejercicio 5.
 

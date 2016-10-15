@@ -108,13 +108,13 @@ Por tanto, afirmamos que $T(n) \in O(n^2)$, y el algoritmo de ordenación burbuj
 Ahora creamos un programa de prueba para analizar la eficiencia empírica, haciendo uso de la biblioteca \emph{ctime} del lenguaje C++:
 
 \lstinputlisting{burbuja.cpp}
+\newpage
 
 Al analizar la eficiencia empírica del algoritmo, obtenemos la siguiente gráfica:\\
 
 \begin{center}
 	\includegraphics{img/tiempos_ordenacion.pdf}
 \end{center}
-%%% gráfica eficiencia empírica
 
 Si representamos superpuestas la función de la eficiencia teórica y la empírica, obtenemos lo siguiente:\\
 
@@ -122,14 +122,12 @@ Si representamos superpuestas la función de la eficiencia teórica y la empíri
 	\includegraphics{img/tiempos_ordenacion_teorica_superpuesta.pdf}
 \end{center}
 
-%%% gráfica superpuesta
-
-Observamos que %%%conclusión (depende de lo que salga)
+Observamos que, aunque la curva de la eficiencia teórica tiene la misma forma que la nube de puntos obtenidas experimentalmente, ambas curvas no coinciden al representarlas superpuestas. Esto se debe a que las constantes no coinciden, pues el costo de una operación elemental, e incluso el tiempo total de ejecución del algoritmo, dependen de las condiciones particulares de la máquina en la que se ejecuta.
 
 \section*{Ejercicio 2.}
-Veamos que podemos ajustar, mediante \textit{gnuplot}, los puntos obtenidos al analizar la eficiencia teórica en una función de la forma $f(n) = an^2 + bn + c$.\\
+Veamos que podemos ajustar, mediante \textit{gnuplot}, los puntos obtenidos al analizar la eficiencia empírica en una función de la forma $f(n) = an^2 + bn + c$.\\
 
-En efecto, obtenemos que la función en cuestión es: $\bm{f(n) = n^2 + n + }$, y la representación gráfica es la siguiente:    %%% función ajustada
+En efecto, obtenemos que la función en cuestión es: $$\bm{f(n) = 3.03496^{-9}n^2 - 3.50199^{-6} n + 0.00221794}.$$ Observamos que las constantes obtenidas son mucho más pequeñas que las calculadas para la eficiencia teórica. La representación gráfica es la siguiente, que ya si se ajusta mucho mejor a la nube de puntos:
 
 \begin{center}
 	\includegraphics{img/tiempos_ordenacion_ajustado.pdf}
@@ -146,10 +144,11 @@ Para el correcto funcionamiento del algoritmo, es imprescindible que el vector e
 \begin{enumerate}
 \item Se establece la posición $med = (inf+sup)/2$.
 \item Se comprueba si el elemento $x$ está en la posición $med$.
-\item Si está, hemos acabado. Si no está, se comprueba si el elemento $v[med]$ es mayor o menor que $x$.
+\item Si está, hemos acabado. Si no está, se comprueba si el elemento $v[med]$ es mayor o menor que $x$.\\
+
     \begin{itemize}
-    \item Si $v[med] < x$, actualizamos $inf = med + 1$
-    \item Si $v[med] > x$, actualizamos $sup = med - 1$
+    \item Si $v[med] < x$, actualizamos $inf = med + 1$.
+    \item Si $v[med] > x$, actualizamos $sup = med - 1$.
     \end{itemize}
 \item Repetimos el proceso, hasta encontrar el elemento, o concluir que no está en el vector.
 \end{enumerate}
@@ -165,12 +164,12 @@ Como el resto de operaciones son elementales ($O(1)$), concluímos que la eficie
 \textbf{c)} Para analizar la eficiencia empírica, repetimos el proceso de los ejercicios anteriores, obteniendo la siguiente nube de puntos:
 
 \begin{center}
-\includegraphics[width=15cm]{img/tiempo_binaria.png}       %%% mejorar gráfica (?)
+\includegraphics[width=12cm]{img/tiempo_binaria.png}
 \end{center}
 
 Vemos que ocurre algo extraño: la eficiencia parece constante. Esto se contradice con nuestro análisis teórico, pero ocurre por dos motivos: el algoritmo se ejecuta tan rápidamente que no es posible medir el tiempo con \textit{ctime}, y la función logaritmo crece lentamente. Para solucionarlo, podemos optar por realizar un número grande de ejecuciones para cada tamaño del vector, y dividir el tiempo total entre el número de ejecuciones.\\
 
-Vemos la gráfica resultante, con $1000$ ejecuciones para cada $n$, y la curva de regresión correspondiente. Ahora sí es bueno el ajuste de la eficiencia empírica a la teórica, mediante la función $\bm{f(n) = }$ %%% parámetros
+Vemos la gráfica resultante, con $1000$ ejecuciones para cada $n$, y la curva de regresión correspondiente. Ahora sí es bueno el ajuste de la eficiencia empírica a la teórica, mediante la función $$\bm{f(n) = }$$
 
 %%% gráfico puntos + curva regresión
 
@@ -183,7 +182,7 @@ Vemos la gráfica resultante, con $1000$ ejecuciones para cada $n$, y la curva d
   int *v=new int[tam];       // Reserva de memoria
   v[0] = 0;
   for (int i=1; i<tam; i++)  // Recorrer vector
-    v[i] = v[i-1] + 1;    // Generar aleatorio [0,vmax[
+    v[i] = v[i-1] + 1;    // Generar vector ordenado
 \end{lstlisting}
 
 La gráfica que representa la eficiencia empírica es la siguiente, cuya función ajustada a la eficiencia teórica es: $\bm{f(n) = }$\\  %%% función ajustada
@@ -198,7 +197,7 @@ La gráfica que representa la eficiencia empírica es la siguiente, cuya funció
   int *v=new int[tam];       // Reserva de memoria
   v[0] = vmax;
   for (int i=1; i<tam; i++)  // Recorrer vector
-    v[i] = v[i-1] - 1;    // Generar aleatorio [0,vmax[
+    v[i] = v[i-1] - 1;    // Generar vector ordenado inversamente
 \end{lstlisting}
 
 La gráfica que representa la eficiencia empírica es la siguiente, cuya función ajustada a la eficiencia teórica es: $\bm{f(n) = }$\\  %%% función ajustada
@@ -234,7 +233,7 @@ Si realizamos un estudio teórico de la eficiencia en el mejor caso, es decir, c
 Analicemos ahora la eficiencia empírica de este algoritmo en el caso mejor. Veamos la gráfica asociada:
 
 \begin{center}
-\includegraphics[width=15cm]{img/tiempo_burbuja_modificada}
+\includegraphics[width=12cm]{img/tiempo_burbuja_modificada}
 \end{center}
 
 Como podemos observar, el orden de eficiencia es efectivamente lineal, tal y como había predicho nuestro estudio teórico.
