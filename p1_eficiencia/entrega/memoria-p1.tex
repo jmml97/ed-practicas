@@ -114,7 +114,7 @@ Comencemos analizando la eficiencia teórica del algoritmo, en el caso peor. Vea
 
 Entonces, la eficiencia del algoritmo es:
 
-$$ T(n) = 1+ \sum_{i=0}^{n-2} \left( 4 + 1 + \sum_{j=0}^{n-i-2} 18 \right) = 1+ \sum_{i=0}^{n-2} \left( 5 + 18(n-i-1) \right) = 1 + \sum_{i=0}^{n-2} 18n\ - \sum_{i=0}^{n-2} 18i\ - \sum_{i=0}^{n-2} 13 = $$ $$ = 1 + 18n(n-1) - 18 \left( \frac{0 + (n-2)}{2} \cdot (n-1) \right) - 13(n-1) = \frac{18}{2}n^2 - \frac{111}{2} n - \frac{21}{2}.$$
+$$ T(n) = 1+ \sum_{i=0}^{n-2} \left( 4 + 1 + \sum_{j=0}^{n-i-2} 18 \right) = 1+ \sum_{i=0}^{n-2} \left( 5 + 18(n-i-1) \right) = 1 + \sum_{i=0}^{n-2} 18n\ - \sum_{i=0}^{n-2} 18i\ - \sum_{i=0}^{n-2} 13 = $$ $$ = 1 + 18n(n-1) - 18 \left( \frac{0 + (n-2)}{2} \cdot (n-1) \right) - 13(n-1) = 9n^2 - \frac{111}{2} n - \frac{21}{2}.$$
 
 Por tanto, afirmamos que $T(n) \in O(n^2)$, y el algoritmo de ordenación burbuja es de orden de eficiencia $O(n^2)$.\\
 
