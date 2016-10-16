@@ -6,10 +6,13 @@ OBJ = obj
 BIN = bin
 SRC = src
 
-all : burbuja binaria burbuja_mejor_caso burbuja_peor_caso burbuja_optimizado
+all : burbuja binaria burbuja_mejor_caso burbuja_peor_caso burbuja_optimizado burbuja_opt_compilador
 
 $(OBJ)/burbuja.o : $(SRC)/ordenacion.cpp
 	$(CXX) -c $(CXXFLAGS) -o $(OBJ)/burbuja.o $(SRC)/ordenacion.cpp
+
+$(OBJ)/burbuja_opt_compilador.o : $(SRC)/ordenacion.cpp
+	$(CXX) -c $(CXXFLAGS) -O3 -o $(OBJ)/burbuja_opt_compilador.o $(SRC)/ordenacion.cpp
 
 $(OBJ)/binaria.o : $(SRC)/ejercicio_desc.cpp
 	$(CXX) -c $(CXXFLAGS) -o $(OBJ)/binaria.o $(SRC)/ejercicio_desc.cpp
@@ -25,6 +28,9 @@ $(OBJ)/burbuja_optimizado.o : $(SRC)/burbuja_optimizado.cpp
 
 burbuja : $(OBJ)/burbuja.o
 	$(CXX) -o $(BIN)/burbuja $(OBJ)/burbuja.o
+
+burbuja_opt_compilador : $(OBJ)/burbuja_opt_compilador.o
+	$(CXX) -o $(BIN)/burbuja_opt_compilador $(OBJ)/burbuja_opt_compilador.o
 
 binaria : $(OBJ)/binaria.o
 	$(CXX) -o $(BIN)/binaria $(OBJ)/binaria.o

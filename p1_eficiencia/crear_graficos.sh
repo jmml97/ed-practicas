@@ -10,7 +10,7 @@ cd ./gnuplot
 
 gnuplot << EOF
 
-set terminal epslatex standalone color colortext
+set terminal epslatex standalone color colortext linewidth 5
 set ylabel '{tiempo (s)}'
 set xlabel '{tamaño del vector (elementos)}'
 set output "tiempos_burbuja.tex"
@@ -43,6 +43,9 @@ fit f(x) "$path/tiempos_burbuja_optimizado.dat" via a, b
 set output "tiempos_burbuja_optimizado.tex"
 plot "$path/tiempos_burbuja_optimizado.dat" title 'Eficiencia empírica', f(x) title 'Eficiencia teórica'
 
+set output "tiempos_burbuja_opt_compilador.tex"
+plot "$path/tiempos_burbuja.dat" title 'Burbuja sin optimizar', "$path/tiempos_burbuja_opt_compilador.dat" title 'Burbuja con optimizaciones'
+
 EOF
 
 gsed -i '/\documentclass{minimal}/a\\\usepackage[utf8]{inputenc}' tiempos_burbuja.tex
@@ -52,6 +55,7 @@ gsed -i '/\documentclass{minimal}/a\\\usepackage[utf8]{inputenc}' tiempos_binari
 gsed -i '/\documentclass{minimal}/a\\\usepackage[utf8]{inputenc}' tiempos_burbuja_mejor_caso.tex
 gsed -i '/\documentclass{minimal}/a\\\usepackage[utf8]{inputenc}' tiempos_burbuja_peor_caso.tex
 gsed -i '/\documentclass{minimal}/a\\\usepackage[utf8]{inputenc}' tiempos_burbuja_optimizado.tex
+gsed -i '/\documentclass{minimal}/a\\\usepackage[utf8]{inputenc}' tiempos_burbuja_opt_compilador.tex
 
 latex tiempos_burbuja.tex
 latex tiempos_burbuja_teorica_superpuesta.tex
@@ -60,6 +64,7 @@ latex tiempos_binaria.tex
 latex tiempos_burbuja_mejor_caso.tex
 latex tiempos_burbuja_peor_caso.tex
 latex tiempos_burbuja_optimizado.tex
+latex tiempos_burbuja_opt_compilador.tex
 dvipdf tiempos_burbuja.dvi
 dvipdf tiempos_burbuja_teorica_superpuesta.dvi
 dvipdf tiempos_burbuja_ajustado.dvi
@@ -67,6 +72,7 @@ dvipdf tiempos_binaria.dvi
 dvipdf tiempos_burbuja_mejor_caso.dvi
 dvipdf tiempos_burbuja_peor_caso.dvi
 dvipdf tiempos_burbuja_optimizado.dvi
+dvipdf tiempos_burbuja_opt_compilador.dvi
 
 cp *.pdf ./../entrega/img
 rm ./* .??*

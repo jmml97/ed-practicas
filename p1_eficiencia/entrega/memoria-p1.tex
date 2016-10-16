@@ -13,12 +13,16 @@
 \usepackage{xcolor, color}
 \usepackage{soul}
 \usepackage{epstopdf}
+\usepackage{hyperref}
+\hypersetup{
+     colorlinks   = true,
+}
 
 % Meta
 \title{\textbf{ESTRUCTURA DE DATOS}\\
 	   \textit{Práctica 1. Eficiencia de algoritmos}\\
 	   \large \vspace{0.25em} Doble Grado de Informática y Matemáticas}
-\author{José María Martín Luque\\ Antonio Coín Castro}
+\author{Antonio Coín Castro\\ José María Martín Luque}
 \date{\today}
 
 % Custom
@@ -69,6 +73,15 @@
 \begin{document}
 \maketitle
 
+\section*{Condiciones de ejecución.}
+
+Dado que en los siguientes ejercicios hablaremos de la eficiencia de distintos programas, conviene detallar las condiciones en las que se han llevado a cabo las pruebas. \\
+
+\textbf{Hardware:} Apple MacBook Pro 13" mid 2015, Intel(R) Core(TM) i5-5257U CPU @ 2.70GHz, 8GB RAM. \\
+\textbf{Sistema Operativo:} macOS Sierra 10.12.1 beta (16B2327e). \\
+\textbf{Compilador:} clang-800.0.38 \\
+\textbf{Opciones de compilación:} -Wall -g
+
 \section*{Ejercicio 1.}
 En este ejercicio, comprobaremos tanto la eficiencia teórica como la eficiencia empírica del algoritmo de ordenación \emph{burbuja}:
 
@@ -101,14 +114,13 @@ Comencemos analizando la eficiencia teórica del algoritmo, en el caso peor. Vea
 
 Entonces, la eficiencia del algoritmo es:
 
-$$ T(n) = \sum_{i=0}^{n-2} \left( 5 + \sum_{j=0}^{n-i-2} 19 \right) = \sum_{i=0}^{n-2} \left( 5 + 19(n-i-1) \right) = \sum_{i=0}^{n-2} 19n\ - \sum_{i=0}^{n-2} 19i\ - \sum_{i=0}^{n-2} 14 = $$ $$ = 19n(n-1) - 19 \left( \frac{0 + (n-2)}{2} \cdot (n-1) \right) - 14(n-1) = \frac{19}{2}n^2 - \frac{9}{2} n - 5$$.
+$$ T(n) = \sum_{i=0}^{n-2} \left( 5 + \sum_{j=0}^{n-i-2} 19 \right) = \sum_{i=0}^{n-2} \left( 5 + 19(n-i-1) \right) = \sum_{i=0}^{n-2} 19n\ - \sum_{i=0}^{n-2} 19i\ - \sum_{i=0}^{n-2} 14 = $$ $$ = 19n(n-1) - 19 \left( \frac{0 + (n-2)}{2} \cdot (n-1) \right) - 14(n-1) = \frac{19}{2}n^2 - \frac{9}{2} n - 5.$$
 
 Por tanto, afirmamos que $T(n) \in O(n^2)$, y el algoritmo de ordenación burbuja es de orden de eficiencia $O(n^2)$.\\
 
 Ahora creamos un programa de prueba para analizar la eficiencia empírica, haciendo uso de la biblioteca \emph{ctime} del lenguaje C++:
 
 \lstinputlisting{burbuja.cpp}
-\newpage
 
 Al analizar la eficiencia empírica del algoritmo, obtenemos la siguiente gráfica:\\
 
@@ -144,8 +156,7 @@ Para el correcto funcionamiento del algoritmo, es imprescindible que el vector e
 \begin{enumerate}
 \item Se establece la posición $med = (inf+sup)/2$.
 \item Se comprueba si el elemento $x$ está en la posición $med$.
-\item Si está, hemos acabado. Si no está, se comprueba si el elemento $v[med]$ es mayor o menor que $x$.\\
-
+\item Si está, hemos acabado. Si no está, se comprueba si el elemento $v[med]$ es mayor o menor que $x$.
     \begin{itemize}
     \item Si $v[med] < x$, actualizamos $inf = med + 1$.
     \item Si $v[med] > x$, actualizamos $sup = med - 1$.
@@ -161,17 +172,13 @@ Por definición, el número máximo de veces que se puede dividir por la mitad u
 
 Como el resto de operaciones son elementales ($O(1)$), concluímos que la eficiencia del algoritmo es logarítmica, es decir, $T(n) \in O(\log (n))$.\\
 
-\textbf{c)} Para analizar la eficiencia empírica, repetimos el proceso de los ejercicios anteriores, obteniendo la siguiente nube de puntos:
+\textbf{c)} Para analizar la eficiencia empírica, no podemos simplemente repetir el proceso que hemos seguido anteriormente. Si lo hacemos así, obtendremos una gráfica que es prácticamente horizontal. Esto ocurre porque el algoritmo es tan rápido que es imposible apreciar cambios en el tiempo de ejecución para vectores de tamaño mayor. Por tanto, para analizar empíricamente la eficiencia de este algoritmo debemos ejecutarlo más de una vez por cada tamaño del vector. En nuestro caso lo hemos ejecutado 1000 veces por cada tamaño, obteniendo la siguiente gráfica:
 
 \begin{center}
 	\includegraphics{img/tiempos_binaria.pdf}
 \end{center}
 
-Vemos que ocurre algo extraño: la eficiencia parece constante. Esto se contradice con nuestro análisis teórico, pero ocurre por dos motivos: el algoritmo se ejecuta tan rápidamente que no es posible medir el tiempo con \textit{ctime}, y la función logaritmo crece lentamente. Para solucionarlo, podemos optar por realizar un número grande de ejecuciones para cada tamaño del vector, y dividir el tiempo total entre el número de ejecuciones.\\
-
-Vemos la gráfica resultante, con $1000$ ejecuciones para cada $n$, y la curva de regresión correspondiente. Ahora sí es bueno el ajuste de la eficiencia empírica a la teórica, mediante la función $$\bm{f(n) = }$$
-
-%%% gráfico puntos + curva regresión
+Ajustando la nube de puntos a una función exponencial, se puede observar claramente que la eficiencia empírica describe una gráfica de forma logarítimica, coincidiendo así con nuestros resultados teóricos.
 
 \section*{Ejercicio 4.}
 
@@ -185,12 +192,13 @@ Vemos la gráfica resultante, con $1000$ ejecuciones para cada $n$, y la curva d
     v[i] = v[i-1] + 1;    // Generar vector ordenado
 \end{lstlisting}
 
-La gráfica que representa la eficiencia empírica es la siguiente, cuya función ajustada a la eficiencia teórica es: $\bm{f(n) = }$\\  %%% función ajustada
+La gráfica que representa la eficiencia empírica es la siguiente:
 
 \begin{center}
 	\includegraphics{img/tiempos_burbuja_mejor_caso.pdf}
 \end{center}
 
+Como se puede observar, el tiempo de ejecución es mucho menor para el mejor caso que para el vector con los elementos generados aleatoriamente.
 
 \textbf{b)} Para este apartado, construimos un vector ordenado en orden inverso, para representar el caso peor. Usaremos, el siguiente código:
 
@@ -202,13 +210,15 @@ La gráfica que representa la eficiencia empírica es la siguiente, cuya funció
     v[i] = v[i-1] - 1;    // Generar vector ordenado inversamente
 \end{lstlisting}
 
-La gráfica que representa la eficiencia empírica es la siguiente, cuya función ajustada a la eficiencia teórica es: $\bm{f(n) = }$\\  %%% función ajustada
+La gráfica que representa la eficiencia empírica es la siguiente:
 
 \begin{center}
 	\includegraphics{img/tiempos_burbuja_peor_caso.pdf}
 \end{center}
 
-Si comparamos ambas funciones ajustadas con la del \textit{Ejercicio 1}, observamos que el algoritmo es más eficiente en el caso mejor, y menos eficiente en el caso peor, tal y como indicaba la teoría.
+\hypersetup{linkcolor=green}
+
+Observando esta gráfica nos damos cuenta de algo extraño. A pesar de encontrarnos en el 'caso peor', la ordenación de este vector es más rápida que la del vector aleatorio. ¿Por qué? La respuesta a este misterio la encontramos aquí: \href{http://stackoverflow.com/questions/11227809/why-is-it-faster-to-process-a-sorted-array-than-an-unsorted-array}{Why is it faster to process a sorted array than an unsorted array?} Cada vez que hay un salto condicional en una serie de instrucciones los procesadores sufren retardos, debido a que la condición de salto no se evalúa en el acto. Por este motivo, los procesadores cuentan con un circuito llamado \textbf{predictor de saltos} cuyo cometido es analizar el comportamiento de los saltos anteriores para intentar predecir los siguientes. En nuestro caso, dado que el vector con el que trabajamos está ordenado en su totalidad de forma decreciente, el procesador lo tiene fácil para predecir el salto que debe dar. Esto no ocurre en el vector generado aleatoriamente, por lo que el tiempo de ejecución de nuestro 'caso peor' es realmente menor que el del vector aleatorio.
 
 \section*{Ejercicio 5.}
 
@@ -243,6 +253,13 @@ Analicemos ahora la eficiencia empírica de este algoritmo en el caso mejor. Vea
 Como podemos observar, el orden de eficiencia es efectivamente lineal, tal y como había predicho nuestro estudio teórico.
 
 \section*{Ejercicio 6.}
-%%% ejercicios voluntarios. ¿Hacer algunos?
+
+Compilando el algoritmo de la burbuja con la opción \textit{-O3} conseguimos que el compilador optimice el código de nuestro programa. Así, midiendo el tiempo de ejecución para distintos tamaños de vector y comparándolo con el que obtuvimos en el ejercicio 1, conseguimos la siguiente gráfica:
+
+\begin{center}
+	\includegraphics{img/tiempos_burbuja_opt_compilador.pdf}
+\end{center}
+
+Podemos observar claramente que el programa con las optimizaciones es mucho más rápido que sin ellas, como era de esperar.
 
 \end{document}
