@@ -12,6 +12,6 @@ filename="${filename%.*}"
 echo > ./datos/tiempos_$filename.dat
 while [[ $I -lt $FIN ]]; do
   echo Ejecución de tamaño $I
-  echo `./$1 $I 30000` >> ./datos/tiempos_$filename.dat
+  echo `./$1 $I ` >> ./datos/tiempos_$filename.dat
   I=$(($I+$INCREMENTO))
 done

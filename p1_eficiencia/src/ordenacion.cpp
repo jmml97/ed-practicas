@@ -1,18 +1,17 @@
 #include <iostream>
-#include <ctime>    // Medir tiempos
-#include <cstdlib>  // Generación de números pseudoaleatorios
+#include <ctime>    // Recursos para medir tiempos
+#include <cstdlib>  // Para generación de números pseudoaleatorios
 
 using namespace std;
 
-void ordenar_burbuja(int *v, int n) {
-    for (int i=0; i<n-1; i++) {
-        for (int j=0; j<n-i-1; j++)
-            if (v[j]>v[j+1]) {
-            int aux = v[j];
-            v[j] = v[j+1];
-            v[j+1] = aux;
-        }
-    }
+void ordenar(int *v, int n) {
+  for (int i=0; i<n-1; i++)
+    for (int j=0; j<n-i-1;j++)
+      if (v[j]>v[j+1]) {
+        int aux = v[j];
+        v[j] = v[j+1];
+        v[j+1] = aux;
+      }
 }
 
 void sintaxis()
@@ -36,14 +35,16 @@ int main(int argc, char * argv[])
 
   // Generación del vector aleatorio
   int *v=new int[tam];       // Reserva de memoria
-  v[0] = vmax;
-  for (int i=1; i<tam; i++)  // Recorrer vector
-    v[i] = v[i-1] - 1;   
+  srand(time(0));            // Inicialización del generador de números pseudoaleatorios
+  for (int i=0; i<tam; i++) {
+    // Recorrer vector
+    v[i] = rand() % vmax;    // Generar aleatorio [0,vmax[
+  }
 
   clock_t tini;    // Anotamos el tiempo de inicio
   tini=clock();
 
-  ordenar_burbuja(v,tam);
+  ordenar(v, tam);
 
   clock_t tfin;    // Anotamos el tiempo de finalización
   tfin=clock();

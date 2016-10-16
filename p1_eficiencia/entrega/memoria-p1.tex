@@ -113,13 +113,13 @@ Ahora creamos un programa de prueba para analizar la eficiencia empírica, hacie
 Al analizar la eficiencia empírica del algoritmo, obtenemos la siguiente gráfica:\\
 
 \begin{center}
-	\includegraphics{img/tiempos_ordenacion.pdf}
+	\includegraphics{img/tiempos_burbuja.pdf}
 \end{center}
 
 Si representamos superpuestas la función de la eficiencia teórica y la empírica, obtenemos lo siguiente:\\
 
 \begin{center}
-	\includegraphics{img/tiempos_ordenacion_teorica_superpuesta.pdf}
+	\includegraphics{img/tiempos_burbuja_teorica_superpuesta.pdf}
 \end{center}
 
 Observamos que, aunque la curva de la eficiencia teórica tiene la misma forma que la nube de puntos obtenidas experimentalmente, ambas curvas no coinciden al representarlas superpuestas. Esto se debe a que las constantes no coinciden, pues el costo de una operación elemental, e incluso el tiempo total de ejecución del algoritmo, dependen de las condiciones particulares de la máquina en la que se ejecuta.
@@ -130,7 +130,7 @@ Veamos que podemos ajustar, mediante \textit{gnuplot}, los puntos obtenidos al a
 En efecto, obtenemos que la función en cuestión es: $$\bm{f(n) = 3.03496^{-9}n^2 - 3.50199^{-6} n + 0.00221794}.$$ Observamos que las constantes obtenidas son mucho más pequeñas que las calculadas para la eficiencia teórica. La representación gráfica es la siguiente, que ya si se ajusta mucho mejor a la nube de puntos:
 
 \begin{center}
-	\includegraphics{img/tiempos_ordenacion_ajustado.pdf}
+	\includegraphics{img/tiempos_burbuja_ajustado.pdf}
 \end{center}
 
 \section*{Ejercicio 3.}
@@ -164,7 +164,7 @@ Como el resto de operaciones son elementales ($O(1)$), concluímos que la eficie
 \textbf{c)} Para analizar la eficiencia empírica, repetimos el proceso de los ejercicios anteriores, obteniendo la siguiente nube de puntos:
 
 \begin{center}
-\includegraphics[width=12cm]{img/tiempo_binaria.png}
+	\includegraphics{img/tiempos_binaria.pdf}
 \end{center}
 
 Vemos que ocurre algo extraño: la eficiencia parece constante. Esto se contradice con nuestro análisis teórico, pero ocurre por dos motivos: el algoritmo se ejecuta tan rápidamente que no es posible medir el tiempo con \textit{ctime}, y la función logaritmo crece lentamente. Para solucionarlo, podemos optar por realizar un número grande de ejecuciones para cada tamaño del vector, y dividir el tiempo total entre el número de ejecuciones.\\
@@ -187,7 +187,9 @@ Vemos la gráfica resultante, con $1000$ ejecuciones para cada $n$, y la curva d
 
 La gráfica que representa la eficiencia empírica es la siguiente, cuya función ajustada a la eficiencia teórica es: $\bm{f(n) = }$\\  %%% función ajustada
 
-%%% gráfica
+\begin{center}
+	\includegraphics{img/tiempos_burbuja_mejor_caso.pdf}
+\end{center}
 
 
 \textbf{b)} Para este apartado, construimos un vector ordenado en orden inverso, para representar el caso peor. Usaremos, el siguiente código:
@@ -202,7 +204,9 @@ La gráfica que representa la eficiencia empírica es la siguiente, cuya funció
 
 La gráfica que representa la eficiencia empírica es la siguiente, cuya función ajustada a la eficiencia teórica es: $\bm{f(n) = }$\\  %%% función ajustada
 
-%%% gráfica
+\begin{center}
+	\includegraphics{img/tiempos_burbuja_peor_caso.pdf}
+\end{center}
 
 Si comparamos ambas funciones ajustadas con la del \textit{Ejercicio 1}, observamos que el algoritmo es más eficiente en el caso mejor, y menos eficiente en el caso peor, tal y como indicaba la teoría.
 
@@ -233,7 +237,7 @@ Si realizamos un estudio teórico de la eficiencia en el mejor caso, es decir, c
 Analicemos ahora la eficiencia empírica de este algoritmo en el caso mejor. Veamos la gráfica asociada:
 
 \begin{center}
-\includegraphics[width=12cm]{img/tiempo_burbuja_modificada}
+	\includegraphics{img/tiempos_burbuja_optimizado.pdf}
 \end{center}
 
 Como podemos observar, el orden de eficiencia es efectivamente lineal, tal y como había predicho nuestro estudio teórico.

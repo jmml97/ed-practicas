@@ -36,9 +36,11 @@ int main(int argc, char * argv[])
 
   // Generación del vector aleatorio
   int *v=new int[tam];       // Reserva de memoria
-  v[0] = 0;
-  for (int i=1; i<tam; i++)  // Recorrer vector
-    v[i] = v[i-1] + 1;   
+  v[0] = vmax;
+  for (int i=1; i<tam; i++) {
+    // Recorrer vector
+    v[i] = v[i-1] - 1;
+  }
 
   clock_t tini;    // Anotamos el tiempo de inicio
   tini=clock();

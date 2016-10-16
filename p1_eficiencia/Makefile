@@ -4,17 +4,39 @@ CXXFLAGS = -Wall -g
 
 OBJ = obj
 BIN = bin
+SRC = src
 
-all : ordenacion
+all : burbuja binaria burbuja_mejor_caso burbuja_peor_caso burbuja_optimizado
 
-$(OBJ)/ordenacion.o : ordenacion.cpp
-	$(CXX) -c $(CXXFLAGS) -o $(OBJ)/ordenacion.o ordenacion.cpp
+$(OBJ)/burbuja.o : $(SRC)/ordenacion.cpp
+	$(CXX) -c $(CXXFLAGS) -o $(OBJ)/burbuja.o $(SRC)/ordenacion.cpp
 
-$(OBJ)/desconocido.o : desconocido.cpp
-	$(CXX) -c $(CXXFLAGS) -o $(OBJ)/desconocido.o desconocido.cpp
+$(OBJ)/binaria.o : $(SRC)/ejercicio_desc.cpp
+	$(CXX) -c $(CXXFLAGS) -o $(OBJ)/binaria.o $(SRC)/ejercicio_desc.cpp
 
-ordenacion : $(OBJ)/ordenacion.o
-	$(CXX) -o $(BIN)/ordenacion $(OBJ)/ordenacion.o
+$(OBJ)/burbuja_mejor_caso.o : $(SRC)/burbuja_mejor_caso.cpp
+	$(CXX) -c $(CXXFLAGS) -o $(OBJ)/burbuja_mejor_caso.o $(SRC)/burbuja_mejor_caso.cpp
+
+$(OBJ)/burbuja_peor_caso.o : $(SRC)/burbuja_peor_caso.cpp
+	$(CXX) -c $(CXXFLAGS) -o $(OBJ)/burbuja_peor_caso.o $(SRC)/burbuja_peor_caso.cpp
+
+$(OBJ)/burbuja_optimizado.o : $(SRC)/burbuja_optimizado.cpp
+	$(CXX) -c $(CXXFLAGS) -o $(OBJ)/burbuja_optimizado.o $(SRC)/burbuja_optimizado.cpp
+
+burbuja : $(OBJ)/burbuja.o
+	$(CXX) -o $(BIN)/burbuja $(OBJ)/burbuja.o
+
+binaria : $(OBJ)/binaria.o
+	$(CXX) -o $(BIN)/binaria $(OBJ)/binaria.o
+
+burbuja_mejor_caso : $(OBJ)/burbuja_mejor_caso.o
+	$(CXX) -o $(BIN)/burbuja_mejor_caso $(OBJ)/burbuja_mejor_caso.o
+
+burbuja_peor_caso : $(OBJ)/burbuja_peor_caso.o
+	$(CXX) -o $(BIN)/burbuja_peor_caso $(OBJ)/burbuja_peor_caso.o
+
+burbuja_optimizado : $(OBJ)/burbuja_optimizado.o
+	$(CXX) -o $(BIN)/burbuja_optimizado $(OBJ)/burbuja_optimizado.o
 
 clean :
 	echo "Limpiando..."
