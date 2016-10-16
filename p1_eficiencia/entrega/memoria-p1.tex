@@ -114,7 +114,7 @@ Comencemos analizando la eficiencia teórica del algoritmo, en el caso peor. Vea
 
 Entonces, la eficiencia del algoritmo es:
 
-$$ T(n) = \sum_{i=0}^{n-2} \left( 5 + \sum_{j=0}^{n-i-2} 19 \right) = \sum_{i=0}^{n-2} \left( 5 + 19(n-i-1) \right) = \sum_{i=0}^{n-2} 19n\ - \sum_{i=0}^{n-2} 19i\ - \sum_{i=0}^{n-2} 14 = $$ $$ = 19n(n-1) - 19 \left( \frac{0 + (n-2)}{2} \cdot (n-1) \right) - 14(n-1) = \frac{19}{2}n^2 - \frac{9}{2} n - 5.$$
+$$ T(n) = 1+ \sum_{i=0}^{n-2} \left( 4 + 1 + \sum_{j=0}^{n-i-2} 18 \right) = 1+ \sum_{i=0}^{n-2} \left( 5 + 18(n-i-1) \right) = 1 + \sum_{i=0}^{n-2} 18n\ - \sum_{i=0}^{n-2} 18i\ - \sum_{i=0}^{n-2} 13 = $$ $$ = 1 + 18n(n-1) - 18 \left( \frac{0 + (n-2)}{2} \cdot (n-1) \right) - 13(n-1) = \frac{18}{2}n^2 - \frac{111}{2} n - \frac{21}{2}.$$
 
 Por tanto, afirmamos que $T(n) \in O(n^2)$, y el algoritmo de ordenación burbuja es de orden de eficiencia $O(n^2)$.\\
 
@@ -172,7 +172,9 @@ Por definición, el número máximo de veces que se puede dividir por la mitad u
 
 Como el resto de operaciones son elementales ($O(1)$), concluímos que la eficiencia del algoritmo es logarítmica, es decir, $T(n) \in O(\log (n))$.\\
 
-\textbf{c)} Para analizar la eficiencia empírica, no podemos simplemente repetir el proceso que hemos seguido anteriormente. Si lo hacemos así, obtendremos una gráfica que es prácticamente horizontal. Esto ocurre porque el algoritmo es tan rápido que es imposible apreciar cambios en el tiempo de ejecución para vectores de tamaño mayor. Por tanto, para analizar empíricamente la eficiencia de este algoritmo debemos ejecutarlo más de una vez por cada tamaño del vector. En nuestro caso lo hemos ejecutado 1000 veces por cada tamaño, obteniendo la siguiente gráfica:
+\textbf{c)} Para analizar la eficiencia empírica, no podemos simplemente repetir el proceso que hemos seguido anteriormente. Si lo hacemos así, obtendremos una gráfica que es prácticamente horizontal. \\
+
+Esto ocurre porque el algoritmo es tan rápido que es imposible apreciar cambios en el tiempo de ejecución para vectores de tamaño mayor. Por tanto, para analizar empíricamente la eficiencia de este algoritmo debemos ejecutarlo más de una vez por cada tamaño del vector. En nuestro caso lo hemos ejecutado 1000 veces por cada tamaño, obteniendo la siguiente gráfica:
 
 \begin{center}
 	\includegraphics{img/tiempos_binaria.pdf}
@@ -191,14 +193,14 @@ Ajustando la nube de puntos a una función exponencial, se puede observar claram
   for (int i=1; i<tam; i++)  // Recorrer vector
     v[i] = v[i-1] + 1;    // Generar vector ordenado
 \end{lstlisting}
-
+\hfill \\
 La gráfica que representa la eficiencia empírica es la siguiente:
 
 \begin{center}
 	\includegraphics{img/tiempos_burbuja_mejor_caso.pdf}
 \end{center}
 
-Como se puede observar, el tiempo de ejecución es mucho menor para el mejor caso que para el vector con los elementos generados aleatoriamente.
+Como se puede observar, el tiempo de ejecución es mucho menor para el mejor caso que para el vector con los elementos generados aleatoriamente.\\
 
 \textbf{b)} Para este apartado, construimos un vector ordenado en orden inverso, para representar el caso peor. Usaremos, el siguiente código:
 
@@ -209,7 +211,7 @@ Como se puede observar, el tiempo de ejecución es mucho menor para el mejor cas
   for (int i=1; i<tam; i++)  // Recorrer vector
     v[i] = v[i-1] - 1;    // Generar vector ordenado inversamente
 \end{lstlisting}
-
+\hfill \\
 La gráfica que representa la eficiencia empírica es la siguiente:
 
 \begin{center}
