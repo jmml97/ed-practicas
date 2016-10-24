@@ -1,0 +1,142 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>Racional: Fichero Fuente include/Racional.h</title>
+
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+
+
+</head>
+<body>
+<div id="top"><!-- do not remove this div! -->
+
+
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  
+  
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Racional
+   
+   </div>
+   
+  </td>
+  
+  
+  
+ </tr>
+ </tbody>
+</table>
+</div>
+
+<!-- Generado por Doxygen 1.7.6.1 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Página&#160;principal</span></a></li>
+      <li><a href="pages.html"><span>Páginas&#160;relacionadas</span></a></li>
+      <li><a href="annotated.html"><span>Clases</span></a></li>
+      <li class="current"><a href="files.html"><span>Archivos</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Lista&#160;de&#160;archivos</span></a></li>
+    </ul>
+  </div>
+</div>
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+  initNavTree('Racional_8h.html','');
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="headertitle">
+<div class="title">include/Racional.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="Racional_8h.html">Ir a la documentación de este archivo.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
+<a name="l00007"></a>00007 <span class="preprocessor">#ifndef __RACIONAL</span>
+<a name="l00008"></a>00008 <span class="preprocessor"></span><span class="preprocessor">#define __RACIONAL</span>
+<a name="l00009"></a>00009 <span class="preprocessor"></span>
+<a name="l00010"></a>00010 <span class="preprocessor">#include &lt;iostream&gt;</span>
+<a name="l00011"></a>00011 
+<a name="l00012"></a>00012 <span class="keyword">using namespace </span>std;
+<a name="l00013"></a>00013 
+<a name="l00031"></a><a class="code" href="classRacional.html">00031</a> <span class="keyword">class </span><a class="code" href="classRacional.html" title="T.D.A. Racional.">Racional</a> {
+<a name="l00032"></a>00032 
+<a name="l00033"></a>00033  <span class="keyword">private</span>:
+<a name="l00049"></a><a class="code" href="classRacional.html#a1a053a6a9d6adee4cfc73b1cb8e3305c">00049</a>   <span class="keywordtype">int</span> <a class="code" href="classRacional.html#a1a053a6a9d6adee4cfc73b1cb8e3305c">num</a>; 
+<a name="l00050"></a><a class="code" href="classRacional.html#aee8b1719744e807c0498b89b9ff90276">00050</a>   <span class="keywordtype">int</span> <a class="code" href="classRacional.html#aee8b1719744e807c0498b89b9ff90276">den</a>; 
+<a name="l00052"></a>00052  <span class="keyword">public</span>:
+<a name="l00053"></a>00053 
+<a name="l00057"></a>00057   <a class="code" href="classRacional.html" title="T.D.A. Racional.">Racional</a>();
+<a name="l00058"></a>00058 
+<a name="l00066"></a>00066   <a class="code" href="classRacional.html" title="T.D.A. Racional.">Racional</a>(<span class="keywordtype">int</span> n, <span class="keywordtype">int</span> d);  
+<a name="l00067"></a>00067   <span class="comment">// Racional(int n=0, int d=1): num(n),den(d) {}</span>
+<a name="l00068"></a>00068 
+<a name="l00074"></a>00074   <a class="code" href="classRacional.html" title="T.D.A. Racional.">Racional</a> (<span class="keyword">const</span> <a class="code" href="classRacional.html" title="T.D.A. Racional.">Racional</a>&amp; c);  
+<a name="l00075"></a>00075 
+<a name="l00080"></a>00080   <span class="keywordtype">int</span> numerador ();
+<a name="l00081"></a>00081 
+<a name="l00086"></a>00086   <span class="keywordtype">int</span> denominador();
+<a name="l00087"></a>00087 
+<a name="l00095"></a>00095   <span class="keywordtype">void</span> asignar(<span class="keywordtype">int</span> n, <span class="keywordtype">int</span> d);
+<a name="l00096"></a>00096 
+<a name="l00104"></a>00104   <span class="keywordtype">bool</span> comparar(<a class="code" href="classRacional.html" title="T.D.A. Racional.">Racional</a> r);
+<a name="l00105"></a>00105 
+<a name="l00109"></a>00109   <span class="keywordtype">void</span>  print();
+<a name="l00110"></a>00110 
+<a name="l00115"></a>00115   <a class="code" href="classRacional.html" title="T.D.A. Racional.">Racional</a> operator+(<span class="keyword">const</span> <a class="code" href="classRacional.html" title="T.D.A. Racional.">Racional</a> &amp; r);
+<a name="l00116"></a>00116 
+<a name="l00121"></a>00121   <span class="keywordtype">void</span> operator+=(<span class="keyword">const</span> <a class="code" href="classRacional.html" title="T.D.A. Racional.">Racional</a> &amp;r);
+<a name="l00122"></a>00122   
+<a name="l00128"></a>00128   <span class="keywordtype">bool</span> operator ==(<span class="keyword">const</span> <a class="code" href="classRacional.html" title="T.D.A. Racional.">Racional</a> &amp;r);
+<a name="l00129"></a>00129 
+<a name="l00137"></a>00137   <span class="keyword">friend</span> ostream&amp; operator&lt;&lt; (ostream&amp; os, <span class="keyword">const</span> <a class="code" href="classRacional.html" title="T.D.A. Racional.">Racional</a>&amp; r);
+<a name="l00138"></a>00138 
+<a name="l00147"></a>00147   <span class="keyword">friend</span> istream&amp; operator&gt;&gt; (istream&amp; is, <a class="code" href="classRacional.html" title="T.D.A. Racional.">Racional</a>&amp; r);
+<a name="l00148"></a>00148 
+<a name="l00152"></a>00152   <a class="code" href="classRacional.html" title="T.D.A. Racional.">Racional</a>  simplifica();
+<a name="l00153"></a>00153 
+<a name="l00159"></a>00159 <span class="comment">/************* INCLUIR OTRAS FUNCIONES y OPERADORES *********/</span>
+<a name="l00160"></a>00160 
+<a name="l00161"></a>00161 <span class="comment">/* Por ejemplo:</span>
+<a name="l00162"></a>00162 <span class="comment">   la funcion irreducible que nos convierta un racional r</span>
+<a name="l00163"></a>00163 <span class="comment">   en irreducible, ej. 12/4 -&gt; 3/1</span>
+<a name="l00164"></a>00164 <span class="comment">   la funcion real que devuelva el valor real asociado al racional</span>
+<a name="l00165"></a>00165 <span class="comment">   ej, 1/2 -&gt; 0.5</span>
+<a name="l00166"></a>00166 <span class="comment"></span>
+<a name="l00167"></a>00167 <span class="comment">   Operador de resta, multiplicacion, division,etc.  </span>
+<a name="l00168"></a>00168 <span class="comment">*/</span>
+<a name="l00169"></a>00169  
+<a name="l00170"></a>00170 };
+<a name="l00171"></a>00171 
+<a name="l00172"></a>00172 <span class="preprocessor">#endif</span>
+</pre></div></div><!-- contents -->
+</div>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="Racional_8h.html">Racional.h</a>      </li>
+<hr>
+<small>ETS Ingeniería Informática y Telecomunicaciones. Universidad de Granada.
+</small>
