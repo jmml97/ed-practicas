@@ -13,7 +13,7 @@ LDFLAGS   = -L./$(LIB)
 LDLIBS    = -lcronologia
 
 # ****** Compilación de módulos **********
-$(BIN)/pruebaCronologia : $(OBJ)/pruebacronologia.o $(LIB)/libcronologia.a
+$(BIN)/usoCronologia : $(OBJ)/usoCronologia.o $(LIB)/libcronologia.a
 	$(CXX) $(LDFLAGS)-o $@ $^ $(LDLIBS)
 
 $(LIB)/libcronologia.a : $(OBJ)/eventoHistorico.o $(OBJ)/cronologia.o

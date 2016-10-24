@@ -1,38 +1,56 @@
-##ifndef __EVENTO_HISTORICO_HPP__
+#ifndef  __EVENTO_HISTORICO_HPP__
 #define  __EVENTO_HISTORICO_HPP__
 
-typedef int Fecha;
-typedef Acontecimiento Acontecimiento;
+#include <iostream>
+#include <vector>
 
-class EventoHistorico
-{
-   private:
-      Fecha f;
-      std::vector<Acontecimiento> acontecimientos;
-
-   public:
-      EventoHistorico(): f(-1) {}
-      EventoHistorico(Fecha f);
-      EventoHistorico(Fecha f, std::vector<Acontecimiento> a);
-   // EventoHistorico(EventoHistorico e);
-   // EventoHistorico~() {}
-
-   //   EventoHistorico& operator =(EventoHistorico e);
-
-      Fecha getFecha() { return f; }
-      Acontecimiento getEvento(int pos);
-      std::vector<Acontecimiento> getEvento();
-      void setFecha(Fecha f);
-      void setEvento(std::vector<Acontecimiento> a);
-
-      void addEvento(Acontecimiento a);
-      void eliminarEvento(int pos);
-
-      std::ostream& mostrarEvento(std::ostream& os);
-      std::istream& cargarEvento(std::istream& is);
+struct Fecha {
+  int anio;
+  bool dc;  // AC / DC
 };
 
-std::istream& operator >>(std::istream& is, EventoHistorico e);
-std::ostream& operator <<(std::ostream& os, EventoHistorico e);
+typedef std::string Acontecimiento;
+
+class EventoHistorico {
+   private:
+      Fecha f;
+      std::vector<Acontecimiento> evento;
+
+      std::vector<Acontecimiento>::const_iterator buscarAcontecimiento(Acontecimiento a) const;
+   public:
+      // Constructores
+      EventoHistorico();
+      EventoHistorico(Fecha f);
+      EventoHistorico(Fecha f, std::vector<Acontecimiento> a);
+
+      // EventoHistorico(EventoHistorico e);
+      // EventoHistorico~() {}
+      // EventoHistorico& operator=(EventoHistorico e);
+
+      // Get & Set
+      Fecha getFecha() const { return f; }
+      std::vector<Acontecimiento> getEvento() const { return evento; }
+      void setFecha(Fecha f); // machaca fecha
+      void setEvento(std::vector<Acontecimiento> a) { this->evento = a; }
+      bool addEvento(Acontecimiento a); //devuelve si se ha añadido
+      void addEvento(std::vector<Acontecimiento> a);  // unión de eventos
+
+      // Eliminar
+      bool eliminarAcontecimiento(Acontecimiento a);  // elimina el que coincida
+      int eliminar (std::string key);  // elimina todos los que contengan 'key'; devuelve num eliminados
+
+      // Búsqueda
+      std::vector<Acontecimiento> buscarAcontecimientos (std::string key) const; // busca los que contengan 'key'
+
+      // E/S
+      std::istream& cargarEvento(std::istream& is);
+      std::ostream& mostrarEvento(std::ostream& os) const;
+      std::ostream& prettyPrint(std::ostream& os) const;
+};
+
+std::istream& operator>>(std::istream& is, EventoHistorico& e);
+std::ostream& operator<<(std::ostream& os, const EventoHistorico& e);
 
 #endif
+
+/* Fin fichero: eventoHistorico.hpp */
