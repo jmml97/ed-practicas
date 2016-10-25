@@ -37,15 +37,15 @@ class EventoHistorico {
 
       // Eliminar
       bool eliminarAcontecimiento(Acontecimiento a);  // elimina el que coincida
-      int eliminar (std::string key);  // elimina todos los que contengan 'key'; devuelve num eliminados
+      int eliminarPorClave (std::string key);  // elimina todos los que contengan 'key'; devuelve num eliminados
 
       // Búsqueda
-      std::vector<Acontecimiento> buscarAcontecimientos (std::string key) const; // busca los que contengan 'key'
+      std::vector<Acontecimiento> buscarPorClave (std::string key) const; // busca los que contengan 'key'
 
       // E/S
       std::istream& cargarEvento(std::istream& is);
       std::ostream& mostrarEvento(std::ostream& os) const;
-      std::ostream& prettyPrint(std::ostream& os) const;
+      std::ostream& prettyPrint(std::ostream& os = std::cout) const;
 };
 
 std::istream& operator>>(std::istream& is, EventoHistorico& e);

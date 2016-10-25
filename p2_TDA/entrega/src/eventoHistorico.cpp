@@ -73,7 +73,7 @@ bool EventoHistorico::eliminarAcontecimiento(Acontecimiento a)
   return false;
 }
 
-int EventoHistorico::eliminar (string key)
+int EventoHistorico::eliminarPorClave (string key)
 {
   int n = 0;
   for (vector<Acontecimiento>::iterator p = evento.begin(); p != evento.end(); ++p) {
@@ -86,7 +86,7 @@ int EventoHistorico::eliminar (string key)
 }
 
 // Búsqueda
-vector<Acontecimiento> EventoHistorico::buscarAcontecimientos (string key) const
+vector<Acontecimiento> EventoHistorico::buscarPorClave (string key) const
 {
   vector<Acontecimiento> a;
   for (vector<Acontecimiento>::const_iterator p = evento.begin(); p != evento.end(); ++p) {
@@ -99,25 +99,25 @@ vector<Acontecimiento> EventoHistorico::buscarAcontecimientos (string key) const
 // E/S
 istream& EventoHistorico::cargarEvento(istream& is)
 {
-  Fecha f;
+  Fecha fecha;
   vector<Acontecimiento> a;
   string aux;
+
   getline(is, aux, SEP);
-  f.dc = stoi(aux);
+  fecha.dc = stoi(aux);
   getline(is, aux, SEP);
-  f.anio = stoi(aux);
+  fecha.anio = stoi(aux);
 
   getline(is, aux);
   istringstream ss(aux);
-
   while (getline(ss, aux, SEP)) {
     a.push_back(aux);
   }
 
-  a.push_back(aux); // último acontecimiento
-
-  if (is)
-    EventoHistorico(f, a);
+  if (is) {
+    setFecha(fecha);
+    setEvento(a);
+  }
 
   return is;
 }
@@ -126,26 +126,32 @@ ostream& EventoHistorico::mostrarEvento(ostream& os) const
 {
   os << f.dc << SEP;
   os << f.anio << SEP;
-  for (vector<Acontecimiento>::const_iterator p = evento.begin(); p != evento.end(); ++p)
-    os << *p << SEP;
-  os << endl;
+  vector<Acontecimiento>::const_iterator p = evento.begin();
+
+  // Escribir un evento
+  if (p != evento.end()) {
+    os << *p;
+
+    for (++p; p != evento.end(); ++p)
+      os << SEP << *p;  // No hay SEP al final
+  }
   return os;
 }
 
-std::ostream& EventoHistorico::prettyPrint(std::ostream& os) const
+ostream& EventoHistorico::prettyPrint(ostream& os) const
 {
   os << "Año: " << f.anio << (f.dc ? " DC." : " AC.") << endl;
   for (vector<Acontecimiento>::const_iterator p = evento.begin(); p != evento.end(); ++p)
-    os << *p << endl;
+    os << "- " << *p << endl;
   return os;
 }
 
-std::istream& operator>>(std::istream& is, EventoHistorico& e)
+istream& operator>>(istream& is, EventoHistorico& e)
 {
   return e.cargarEvento(is);
 }
 
-std::ostream& operator<<(std::ostream& os, const EventoHistorico& e)
+ostream& operator<<(ostream& os, const EventoHistorico& e)
 {
   return e.mostrarEvento(os);
 }

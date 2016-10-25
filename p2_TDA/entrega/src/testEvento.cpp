@@ -18,14 +18,26 @@ int main(int argc, char * argv[])
     return 1;
    }
 
+   // Leer evento de archivo
    EventoHistorico mi_evento;
    f >> mi_evento;
 
-   int anio;
-   cout << "Dime un año a consultar: ";
-   cin >> anio;
+   /*
+    Hacer pruebas, añadiendo código a este archivo, para ver que funciona:
+      - Constructor con un parámetro
+      - Constructor con dos parámetros
+      - addEvento (en sus 2 variantes)
+      - eliminarAcontecimiento
+      - eliminarPorClave
+      - buscarPorClave
+   */
 
-   cout << mi_evento << endl;
+   // Mostrar evento en pantalla
+   mi_evento.prettyPrint();
+
+   // Escribir evento a archivo 'test.txt'
+   ofstream output("test.txt");
+   output << mi_evento;
 
    return 0;
 }

@@ -1,6 +1,6 @@
 # ***** Variables *****
 LIBNAME   = cronologia
-HPP_FILES = $(wildcard $(INCLUDE)/*.h)
+HPP_FILES = $(wildcard $(INCLUDE)/*.hpp)
 
 # ****** Directorios ********
 INCLUDE   = include
