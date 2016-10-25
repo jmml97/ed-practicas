@@ -1,23 +1,36 @@
+# ***** Variables *****
+LIBNAME   = cronologia
+HPP_FILES = $(wildcard $(INCLUDE)/*.h)
+
 # ****** Directorios ********
 INCLUDE   = include
 LIB       = lib
 OBJ       = obj
 SRC       = src
 BIN       = bin
+DOC       = doc
 
 # ****** Opciones de compilación ********
 AR        = ar
 CXX       = g++
-CXXFLAGS  = -Wall -g -c -I./$(INCLUDE)
+CXXFLAGS  = -Wall -g -std=c++11 -c -I./$(INCLUDE)
 LDFLAGS   = -L./$(LIB)
-LDLIBS    = -lcronologia
+LDLIBS    = -l$(LIBNAME)
 
 # ****** Compilación de módulos **********
-$(BIN)/usoCronologia : $(OBJ)/usoCronologia.o $(LIB)/libcronologia.a
+
+.PHONY: all docs clean mrproper
+
+all: $(BIN)/usoCronologia
+
+$(BIN)/usoCronologia : $(OBJ)/usoCronologia.o $(LIB)/lib$(LIBNAME).a
 	$(CXX) $(LDFLAGS)-o $@ $^ $(LDLIBS)
 
-$(LIB)/libcronologia.a : $(OBJ)/eventoHistorico.o $(OBJ)/cronologia.o
+$(LIB)/lib$(LIBNAME).a : $(OBJ)/eventoHistorico.o $(OBJ)/cronologia.o
 	ar rvs $@ $^
+
+$(OBJ)/usoCronologia.o : $(SRC)/usoCronologia.cpp $(HPP_FILES)
+	$(CXX) $(CXXFLAGS) -o $@ $< 
 
 $(OBJ)/eventoHistorico.o : $(SRC)/eventoHistorico.cpp $(INCLUDE)/eventoHistorico.hpp
 	$(CXX) $(CXXFLAGS) -o $@ $< 
@@ -25,17 +38,28 @@ $(OBJ)/eventoHistorico.o : $(SRC)/eventoHistorico.cpp $(INCLUDE)/eventoHistorico
 $(OBJ)/cronologia.o : $(SRC)/cronologia.cpp $(INCLUDE)/cronologia.hpp
 	$(CXX) $(CXXFLAGS) -o $@ $<
 
-# *********** Generación de documentación **************
+# --- Test ---
+$(BIN)/testEvento : $(OBJ)/testEvento.o $(OBJ)/eventoHistorico.o
+	$(CXX) -o $@ $^
+
+$(OBJ)/testEvento.o : $(SRC)/testEvento.cpp $(HPP_FILES)
+	$(CXX) $(CXXFLAGS) -o $@ $< 
+
+
+
+# ************ Generación de documentación **************
 docs:
-	@doxygen doc/doxys/Doxyfile
-  @echo "Documentación generada en $(DOC)/html"
+	@doxygen $(DOC)/doxys/Doxyfile
+	@echo "Documentación disponible en $(DOC)/html"
 
 
 # ************ Limpieza ************
-clean :
-	-@rm $(OBJ)/* $(SRC)/*~ $(INC)/*~ ./*~
-  @echo "Limpiando..."
 
-mrproper : clean
-	-@rm $(BIN)/* doc/html/*
-  @echo "Limpieza completada." 
+clean:
+	-@rm -f $(OBJ)/* $(SRC)/*~ $(INC)/*~ ./*~
+	@echo "Limpiando..."
+
+mrproper: clean
+	-@rm -f $(BIN)/* $(DOC)/html/*
+	@echo "Limpieza completada."
+
