@@ -16,7 +16,7 @@ class EventoHistorico {
       Fecha f;
       std::vector<Acontecimiento> evento;
 
-      std::vector<Acontecimiento>::const_iterator buscarAcontecimiento(Acontecimiento a) const;
+      std::vector<Acontecimiento>::iterator buscarAcontecimiento(Acontecimiento a);
    public:
       // Constructores
       EventoHistorico();

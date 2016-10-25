@@ -9,10 +9,10 @@ namespace {
 }
 
 // Private
-vector<Acontecimiento>::const_iterator EventoHistorico::buscarAcontecimiento(Acontecimiento a) const
+vector<Acontecimiento>::iterator EventoHistorico::buscarAcontecimiento(Acontecimiento a)
 {
   bool encontrado = false;
-  vector<Acontecimiento>::const_iterator p = evento.begin();
+  vector<Acontecimiento>::iterator p = evento.begin();
   while (p != evento.end() && !encontrado) {
     encontrado = *p == a;
     ++p;
@@ -108,7 +108,7 @@ istream& EventoHistorico::cargarEvento(istream& is)
   getline(is, aux, SEP);
   fecha.anio = stoi(aux);
 
-  getline(is, aux);
+  getline(is, aux);   // coger el resto de la línea
   istringstream ss(aux);
   while (getline(ss, aux, SEP)) {
     a.push_back(aux);
