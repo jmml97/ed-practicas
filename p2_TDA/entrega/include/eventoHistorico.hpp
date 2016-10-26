@@ -21,7 +21,7 @@ class EventoHistorico {
       // Constructores
       EventoHistorico();
       EventoHistorico(Fecha f);
-      EventoHistorico(Fecha f, std::vector<Acontecimiento> a);
+      EventoHistorico(Fecha f, std::vector<Acontecimiento> a);  // pre: no repetidos
 
       // EventoHistorico(EventoHistorico e);
       // EventoHistorico~() {}

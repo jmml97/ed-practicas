@@ -76,11 +76,14 @@ bool EventoHistorico::eliminarAcontecimiento(Acontecimiento a)
 int EventoHistorico::eliminarPorClave (string key)
 {
   int n = 0;
-  for (vector<Acontecimiento>::iterator p = evento.begin(); p != evento.end(); ++p) {
-    if (p->find(key) != string::npos) {
+  vector<Acontecimiento>::iterator p = evento.begin();
+  while (p != evento.end()) {
+    if ((p->find(key)) != string::npos) {
       evento.erase(p);
       n++;
     }
+    else
+      ++p;
   }
   return n;
 }

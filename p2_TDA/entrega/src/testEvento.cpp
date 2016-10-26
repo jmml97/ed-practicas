@@ -26,8 +26,6 @@ int main(int argc, char * argv[])
 
    /*
     Hacer pruebas, añadiendo código a este archivo, para ver que funciona:
-      - Constructor con un parámetro
-      - Constructor con dos parámetros
       - addEvento (en sus 2)
       - eliminarAcontecimiento
       - eliminarPorClave
@@ -49,10 +47,11 @@ int main(int argc, char * argv[])
    mi_evento2.prettyPrint();
    cout << endl;
 
-   cout << "Añadimos a mi_evento1 un acontecimiento y un vector. Debería tener ahora los mismos que mi_evento2 y otro adicional." << endl;
+   cout << "Añadimos a mi_evento1 un acontecimiento y un vector. Debería tener ahora los mismos que mi_evento2 y otros dos adicionales." << endl;
    mi_evento1.addEvento("La OMS declara oficialmente la erradicación de la viruela");
    mi_evento1.addEvento(acontecimientos);
    mi_evento1.addEvento("Constitución Española");
+   mi_evento1.addEvento("El primer caso.");
    mi_evento1.prettyPrint();
    cout << endl;
 
@@ -62,8 +61,12 @@ int main(int argc, char * argv[])
    mi_evento1.prettyPrint();
    cout << endl;
 
-   cout << "Imprimimos ahora los acontecimientos de mi_evento2 que contengan 'el': " << endl;
-   cout << mi_evento2.buscarPorClave("el").front() << endl;
+   cout << "Imprimimos ahora los acontecimientos de mi_evento2 (hemos añadido uno nuevo) que contengan 'el': " << endl;
+   mi_evento2.addEvento("el mundo");
+   
+   vector<string> aa = mi_evento2.buscarPorClave("el");
+   for (unsigned int i = 0; i < aa.size(); i++)
+    cout << "- " << aa[i] << endl;
 
    // Mostrar evento en pantalla
    // mi_evento.prettyPrint();
