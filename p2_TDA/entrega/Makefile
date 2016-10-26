@@ -30,20 +30,22 @@ $(LIB)/lib$(LIBNAME).a : $(OBJ)/eventoHistorico.o $(OBJ)/cronologia.o
 	ar rvs $@ $^
 
 $(OBJ)/usoCronologia.o : $(SRC)/usoCronologia.cpp $(HPP_FILES)
-	$(CXX) $(CXXFLAGS) -o $@ $< 
+	$(CXX) $(CXXFLAGS) -o $@ $<
 
 $(OBJ)/eventoHistorico.o : $(SRC)/eventoHistorico.cpp $(INCLUDE)/eventoHistorico.hpp
-	$(CXX) $(CXXFLAGS) -o $@ $< 
+	$(CXX) $(CXXFLAGS) -o $@ $<
 
 $(OBJ)/cronologia.o : $(SRC)/cronologia.cpp $(INCLUDE)/cronologia.hpp
 	$(CXX) $(CXXFLAGS) -o $@ $<
+
+test: $(BIN)/testEvento
 
 # --- Test ---
 $(BIN)/testEvento : $(OBJ)/testEvento.o $(OBJ)/eventoHistorico.o
 	$(CXX) -o $@ $^
 
 $(OBJ)/testEvento.o : $(SRC)/testEvento.cpp $(HPP_FILES)
-	$(CXX) $(CXXFLAGS) -o $@ $< 
+	$(CXX) $(CXXFLAGS) -o $@ $<
 
 
 
@@ -62,4 +64,3 @@ clean:
 mrproper: clean
 	-@rm -f $(BIN)/* $(DOC)/html/*
 	@echo "Limpieza completada."
-

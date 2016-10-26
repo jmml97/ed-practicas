@@ -1,4 +1,4 @@
-#include "cronologia.h"
+#include "cronologia.hpp"
 #include <fstream>
 #include <iostream>
 
@@ -16,16 +16,16 @@ int main(int argc, char * argv[]){
     cout<<"No puedo abrir el fichero "<<argv[1]<<endl;
     return 0;
    }
-   
+
    Cronologia mi_cronologia;
    f>>mi_cronologia; //Cargamos en memoria, en el traductor.
-   
+
    int anio;
    cout<<"Dime un año a consultar:";
    cin >> anio;
-   
+
    vector<string> eventos = mi_cronologia.GetEventos(anio);
-   
+
    /* Escribimos */
    cout << anio << ":";
    for (int i=0;i<eventos.size(); ++i)
