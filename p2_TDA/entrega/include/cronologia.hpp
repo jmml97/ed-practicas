@@ -5,18 +5,12 @@
 #include <vector>
 #include "eventoHistorico.hpp"
 
-class Cronologia
-{
+class Cronologia {
   private:
     std::vector<EventoHistorico> c;
 
     // ordenar por fecha
     std::vector<EventoHistorico>::iterator busquedaBinaria(Fecha f);
-    void merge(int izq, int med, int der);
-    void mergeSort(int izq, int der);
-
-
-
   public:
     Cronologia(std::vector<EventoHistorico> v); //pre: vector ordenado
 

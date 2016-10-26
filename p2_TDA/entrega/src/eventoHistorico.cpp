@@ -4,8 +4,7 @@
 #include "eventoHistorico.hpp"
 using namespace std;
 
-namespace
-{
+namespace {
   const char SEP = '#';
 }
 

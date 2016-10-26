@@ -4,16 +4,14 @@
 #include <iostream>
 #include <vector>
 
-struct Fecha
-{
+struct Fecha {
   int anio;
   bool dc;  // AC / DC
 };
 
 typedef std::string Acontecimiento;
 
-class EventoHistorico
-{
+class EventoHistorico {
    private:
       Fecha f;
       std::vector<Acontecimiento> evento;
