@@ -1,15 +1,22 @@
+/**
+  * @file eventoHistorico.cpp
+  * @brief Implementación del TDA EventoHistorico
+  *
+  */
+
 #include <iostream>
 #include <sstream>
 #include <cassert>
 #include "eventoHistorico.hpp"
 using namespace std;
 
+// Constantes de archivo
 namespace
 {
   const char SEP = '#';
 }
 
-// Private
+// Método privado: buscar un Acontecimiento
 vector<Acontecimiento>::iterator EventoHistorico::buscarAcontecimiento(Acontecimiento a)
 {
   bool encontrado = false;
@@ -23,31 +30,34 @@ vector<Acontecimiento>::iterator EventoHistorico::buscarAcontecimiento(Acontecim
   return p;
 }
 
-// Constructores
+// Constructor por defecto
 EventoHistorico::EventoHistorico()
 {
-  f.anio = -1;
+  f.anio = 1;
   f.dc = 1;
 }
 
+// Constructor con un parámetro
 EventoHistorico::EventoHistorico(Fecha f)
 {
   setFecha(f);
 }
 
+// Constructor con dos parámetros
 EventoHistorico::EventoHistorico(Fecha f, vector<Acontecimiento> a)
   : EventoHistorico(f)
 {
   setEvento(a);
 }
 
-// Get & Set
+// Modificar fecha
 void EventoHistorico::setFecha(Fecha f)
 {
   assert(f.anio >= 0);
   this->f = f;
 }
 
+// Añadir acontecimiento
 bool EventoHistorico::addEvento(Acontecimiento a)
 {
   vector<Acontecimiento>::const_iterator p = buscarAcontecimiento(a);
@@ -59,13 +69,14 @@ bool EventoHistorico::addEvento(Acontecimiento a)
   return false;
 }
 
+// Mezclar Acontecimientos
 void EventoHistorico::addEvento(vector<Acontecimiento> a)
 {
   for (vector<Acontecimiento>::iterator p = a.begin(); p != a.end(); ++p)
     addEvento(*p);
 }
 
-// Eliminar
+// Eliminar acoontecimiento
 bool EventoHistorico::eliminarAcontecimiento(Acontecimiento a)
 {
   vector<Acontecimiento>::const_iterator p = buscarAcontecimiento(a);
@@ -77,6 +88,7 @@ bool EventoHistorico::eliminarAcontecimiento(Acontecimiento a)
   return false;
 }
 
+// Eliminar todos los acontecimientos que contengan "key"
 int EventoHistorico::eliminarPorClave (string key)
 {
   int n = 0;
@@ -94,7 +106,7 @@ int EventoHistorico::eliminarPorClave (string key)
   return n;
 }
 
-// Búsqueda
+// Buscar todos los acontecimientos que contengan "key"
 vector<Acontecimiento> EventoHistorico::buscarPorClave (string key) const
 {
 
@@ -105,19 +117,23 @@ vector<Acontecimiento> EventoHistorico::buscarPorClave (string key) const
   return a;
 }
 
-// E/S
+// Cargar EventoHistorico desde un flujo de entrada
 istream& EventoHistorico::cargarEvento(istream& is)
 {
   Fecha fecha;
   vector<Acontecimiento> a;
   string aux;
 
+  // Leer si es AC o DC
   getline(is, aux, SEP);
   fecha.dc = stoi(aux);
+  // Leer el año
   getline(is, aux, SEP);
   fecha.anio = stoi(aux);
+  // Leer el resto de la ĺínea
+  getline(is, aux);
 
-  getline(is, aux);   // coger el resto de la línea
+  // Crear buffer de entrada a partir de un string
   istringstream ss(aux);
   while (getline(ss, aux, SEP))
   {
@@ -133,6 +149,7 @@ istream& EventoHistorico::cargarEvento(istream& is)
   return is;
 }
 
+// Mostrar EventoHistorico a un flujo de salida
 ostream& EventoHistorico::mostrarEvento(ostream& os) const
 {
   os << f.dc << SEP;
@@ -150,6 +167,7 @@ ostream& EventoHistorico::mostrarEvento(ostream& os) const
   return os;
 }
 
+// Mostar un EventoHistorico en Human Readable Format
 ostream& EventoHistorico::prettyPrint(ostream& os) const
 {
   os << "Año: " << f.anio << (f.dc ? " DC." : " AC.") << endl;
@@ -158,11 +176,13 @@ ostream& EventoHistorico::prettyPrint(ostream& os) const
   return os;
 }
 
+// Operator>>
 istream& operator>>(istream& is, EventoHistorico& e)
 {
   return e.cargarEvento(is);
 }
 
+// Operator<<
 ostream& operator<<(ostream& os, const EventoHistorico& e)
 {
   return e.mostrarEvento(os);
