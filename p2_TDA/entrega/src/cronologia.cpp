@@ -1,3 +1,34 @@
+#include <iostream>
+#include <vector>
+#include "cronologia.hpp"
+using namespace std;
+
+vector<EventoHistorico>::iterator busquedaBinaria(Fecha f)
+{
+    int med;
+    int inf = 0;
+    int sup = c.size() - 1;
+    bool enc = false;
+
+    while ((inf<sup) && (!enc))
+    {
+        med = (inf + sup) / 2;
+        Fecha aux = v[med].getFecha();
+        if (aux.anio == f.anio && aux.dc == f.dc)
+            enc = true;
+        else if ((aux.dc < f.dc) || (f.dc && aux.anio < f.anio)
+                    || (!aux.dc && aux.anio > f.anio))
+            inf = med + 1;
+        else
+            sup = med - 1;
+    }
+
+    if (enc)
+        return v.at(med);
+    else
+        return c.end();
+}
+
 void Cronologia::merge(int izq, int med, int der)
 {
     int i, j, k;
@@ -18,10 +49,10 @@ void Cronologia::merge(int izq, int med, int der)
     // Mezcla los vectores temporales en el array original
     for (i = 0, j = 0, k = 1; i < n1 && j < n2; k++)
     {
-        if ((v1[i].getFecha().dc < v2[i].getFecha().dc) || (v2[i].getFecha().dc
-                && v1[i].getFecha().anio <= v2[j].getFecha().anio)
-                || (v1[i].getFecha().dc && v1[i].getFecha().anio
-                > v2[i].getFecha().anio));
+        Fecha f1 = v1[i].getFecha();
+        Fecha f2 = v2[i].getFecha();
+        if ((f1.dc < f2.dc) || (f2.dc && f1.anio <= f2.anio)
+                || (f1.dc && f1.anio >= f2.anio));
             c[k] = v1[i++];
         else
             c[k] = v2[j++];
