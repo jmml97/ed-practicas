@@ -4,7 +4,8 @@
 #include "eventoHistorico.hpp"
 using namespace std;
 
-namespace {
+namespace
+{
   const char SEP = '#';
 }
 
@@ -13,7 +14,8 @@ vector<Acontecimiento>::iterator EventoHistorico::buscarAcontecimiento(Acontecim
 {
   bool encontrado = false;
   vector<Acontecimiento>::iterator p = evento.begin();
-  while (p != evento.end() && !encontrado) {
+  while (p != evento.end() && !encontrado)
+  {
     encontrado = *p == a;
     ++p;
   }
@@ -49,7 +51,8 @@ void EventoHistorico::setFecha(Fecha f)
 bool EventoHistorico::addEvento(Acontecimiento a)
 {
   vector<Acontecimiento>::const_iterator p = buscarAcontecimiento(a);
-  if (p == evento.end()) {
+  if (p == evento.end())
+  {
     evento.push_back(a);
     return true;
   }
@@ -66,7 +69,8 @@ void EventoHistorico::addEvento(vector<Acontecimiento> a)
 bool EventoHistorico::eliminarAcontecimiento(Acontecimiento a)
 {
   vector<Acontecimiento>::const_iterator p = buscarAcontecimiento(a);
-  if (p != evento.end()) {
+  if (p != evento.end())
+  {
     evento.erase(p);
     return true;
   }
@@ -77,8 +81,10 @@ int EventoHistorico::eliminarPorClave (string key)
 {
   int n = 0;
   vector<Acontecimiento>::iterator p = evento.begin();
-  while (p != evento.end()) {
-    if ((p->find(key)) != string::npos) {
+  while (p != evento.end())
+  {
+    if ((p->find(key)) != string::npos)
+    {
       evento.erase(p);
       n++;
     }
@@ -93,10 +99,9 @@ vector<Acontecimiento> EventoHistorico::buscarPorClave (string key) const
 {
 
   vector<Acontecimiento> a;
-  for (vector<Acontecimiento>::const_iterator p = evento.begin(); p != evento.end(); ++p) {
+  for (vector<Acontecimiento>::const_iterator p = evento.begin(); p != evento.end(); ++p)
     if (p->find(key) != string::npos)
       a.push_back(*p);
-  }
   return a;
 }
 
@@ -114,11 +119,13 @@ istream& EventoHistorico::cargarEvento(istream& is)
 
   getline(is, aux);   // coger el resto de la línea
   istringstream ss(aux);
-  while (getline(ss, aux, SEP)) {
+  while (getline(ss, aux, SEP))
+  {
     a.push_back(aux);
   }
 
-  if (is) {
+  if (is)
+  {
     setFecha(fecha);
     setEvento(a);
   }
@@ -133,7 +140,8 @@ ostream& EventoHistorico::mostrarEvento(ostream& os) const
   vector<Acontecimiento>::const_iterator p = evento.begin();
 
   // Escribir un evento
-  if (p != evento.end()) {
+  if (p != evento.end())
+  {
     os << *p;
 
     for (++p; p != evento.end(); ++p)
