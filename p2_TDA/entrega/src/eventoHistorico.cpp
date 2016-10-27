@@ -91,6 +91,7 @@ int EventoHistorico::eliminarPorClave (string key)
 // Búsqueda
 vector<Acontecimiento> EventoHistorico::buscarPorClave (string key) const
 {
+
   vector<Acontecimiento> a;
   for (vector<Acontecimiento>::const_iterator p = evento.begin(); p != evento.end(); ++p) {
     if (p->find(key) != string::npos)

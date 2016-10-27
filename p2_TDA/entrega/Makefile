@@ -13,7 +13,7 @@ DOC       = doc
 # ****** Opciones de compilación ********
 AR        = ar
 CXX       = g++
-CXXFLAGS  = -Wall -g -std=c++11 -c -I./$(INCLUDE)
+CXXFLAGS  = -Wall -g -std=c++11 -c -I./$(INCLUDE) -DNDEBUG
 LDFLAGS   = -L./$(LIB)
 LDLIBS    = -l$(LIBNAME)
 

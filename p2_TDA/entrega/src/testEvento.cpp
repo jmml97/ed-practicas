@@ -63,7 +63,7 @@ int main(int argc, char * argv[])
 
    cout << "Imprimimos ahora los acontecimientos de mi_evento2 (hemos añadido uno nuevo) que contengan 'el': " << endl;
    mi_evento2.addEvento("el mundo");
-   
+
    vector<string> aa = mi_evento2.buscarPorClave("el");
    for (unsigned int i = 0; i < aa.size(); i++)
     cout << "- " << aa[i] << endl;
