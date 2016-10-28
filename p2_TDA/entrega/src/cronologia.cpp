@@ -3,7 +3,7 @@
 #include "cronologia.hpp"
 using namespace std;
 
-vector<EventoHistorico>::iterator busquedaBinaria(Fecha f)
+vector<EventoHistorico>::iterator Cronologia::busquedaBinaria(Fecha f)
 {
     int med;
     int inf = 0;
@@ -24,11 +24,15 @@ vector<EventoHistorico>::iterator busquedaBinaria(Fecha f)
     }
 
     if (enc)
+<<<<<<< 60ec2f3ca7ad1e843b8adb5eda5ead7355862ef0
 <<<<<<< 6c9b1a497060eaf5f66b0567f16e4cec26d0b6e0
         return c.begin() + med;
 =======
         return c.at(med);
 >>>>>>> Corregidos errores en cronologia.cpp
+=======
+        return c.begin() + med;
+>>>>>>> Corregidos errores menores y salto de línea
     else
         return c.end();
 }
@@ -92,7 +96,7 @@ istream& Cronologia::cargarCronologia(istream& is)
     c.push_back(tmp);
   }
 
-  c.mergeSort();
+  mergeSort();
 
   return is;
 }
@@ -103,6 +107,7 @@ ostream& Cronologia::mostrarCronologia(ostream& os) const
   for (vector<EventoHistorico>::const_iterator p = c.begin(); p != c.end(); ++p)
   {
     p->mostrarEvento(os);
+    os << '\n';
   }
 
   return os;
@@ -115,6 +120,7 @@ ostream& Cronologia::mostrarCronologiaInversa(ostream& os) const
   for (vector<EventoHistorico>::const_iterator p = c.end(); p != c.begin(); --p)
   {
     p->mostrarEvento(os);
+    os << '\n';
   }
 
   return os;
@@ -126,6 +132,7 @@ ostream& Cronologia::prettyPrint(ostream& os) const
   for (vector<EventoHistorico>::const_iterator p = c.begin(); p != c.end(); ++p)
   {
     p->prettyPrint();
+    os << '\n';
   }
 
   return os;
