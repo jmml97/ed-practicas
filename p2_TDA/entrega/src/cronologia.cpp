@@ -24,7 +24,7 @@ vector<EventoHistorico>::iterator busquedaBinaria(Fecha f)
     }
 
     if (enc)
-        return v.at(med);
+        return c.begin() + med;
     else
         return c.end();
 }
@@ -66,7 +66,7 @@ void Cronologia::merge(int izq, int med, int der)
         c[k++] = v2[j++];
 }
 
-void Cronologia::mergeSort(int izq = 0, int der = c.size() - 1)
+void Cronologia::mergeSort(int izq, int der)
 {
     if (izq < der)
     {
