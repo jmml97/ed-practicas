@@ -78,3 +78,63 @@ void Cronologia::mergeSort(int izq, int der)
         merge(izq, med, der);
     }
 }
+
+// Cargar Cronologia desde un flujo de entrada
+istream& Cronologia::cargarCronologia(istream& is)
+{
+  EventoHistorico tmp;
+  while(is && is.peek() != EOF) {
+    tmp.cargarEvento(is);
+    c.push_back(tmp);
+  }
+
+  c.mergeSort();
+
+  return is;
+}
+
+// Mostrar una Cronologia a un flujo de salida
+ostream& Cronologia::mostrarCronologia(ostream& os) const
+{
+  for (vector<EventoHistorico>::const_iterator p = c.begin(); p != c.end(); ++p)
+  {
+    *p.mostrarEvento();
+  }
+
+  return os;
+}
+
+// Mostrar una Cronologia en orden inverso a un flujo de salida
+ostream& Cronologia::mostrarCronologiaInversa(ostream& os) const
+{
+
+  for (vector<EventoHistorico>::const_iterator p = c.end(); p != c.begin(); --p)
+  {
+    *p.mostrarEvento();
+  }
+
+  return os;
+}
+
+// Mostrar una Cronologia en Human Readable Format
+ostream& Cronologia::prettyPrint(ostream& os = cout) const
+{
+  for (vector<EventoHistorico>::const_iterator p = c.begin(); p != c.end(); ++p)
+  {
+    *p.prettyPrint();
+  }
+
+  return os;
+}
+
+// Operator>>
+istream& operator>>(istream& is, Cronologia& cron)
+{
+  return cron.cargarCronologia(is);
+}
+
+// Operator<<
+ostream& operator<<(ostream& os, const Cronologia& cron)
+{
+  return e.mostrarCronologia(os);
+}
