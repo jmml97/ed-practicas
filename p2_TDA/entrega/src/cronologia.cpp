@@ -13,7 +13,7 @@ vector<EventoHistorico>::iterator busquedaBinaria(Fecha f)
     while ((inf<sup) && (!enc))
     {
         med = (inf + sup) / 2;
-        Fecha aux = v[med].getFecha();
+        Fecha aux = c[med].getFecha();
         if (aux.anio == f.anio && aux.dc == f.dc)
             enc = true;
         else if ((aux.dc < f.dc) || (f.dc && aux.anio < f.anio)
@@ -24,7 +24,11 @@ vector<EventoHistorico>::iterator busquedaBinaria(Fecha f)
     }
 
     if (enc)
+<<<<<<< 6c9b1a497060eaf5f66b0567f16e4cec26d0b6e0
         return c.begin() + med;
+=======
+        return c.at(med);
+>>>>>>> Corregidos errores en cronologia.cpp
     else
         return c.end();
 }
@@ -52,7 +56,7 @@ void Cronologia::merge(int izq, int med, int der)
         Fecha f1 = v1[i].getFecha();
         Fecha f2 = v2[i].getFecha();
         if ((f1.dc < f2.dc) || (f2.dc && f1.anio <= f2.anio)
-                || (f1.dc && f1.anio >= f2.anio));
+                || (f1.dc && f1.anio >= f2.anio))
             c[k] = v1[i++];
         else
             c[k] = v2[j++];
@@ -98,7 +102,7 @@ ostream& Cronologia::mostrarCronologia(ostream& os) const
 {
   for (vector<EventoHistorico>::const_iterator p = c.begin(); p != c.end(); ++p)
   {
-    *p.mostrarEvento();
+    p->mostrarEvento(os);
   }
 
   return os;
@@ -110,18 +114,18 @@ ostream& Cronologia::mostrarCronologiaInversa(ostream& os) const
 
   for (vector<EventoHistorico>::const_iterator p = c.end(); p != c.begin(); --p)
   {
-    *p.mostrarEvento();
+    p->mostrarEvento(os);
   }
 
   return os;
 }
 
 // Mostrar una Cronologia en Human Readable Format
-ostream& Cronologia::prettyPrint(ostream& os = cout) const
+ostream& Cronologia::prettyPrint(ostream& os) const
 {
   for (vector<EventoHistorico>::const_iterator p = c.begin(); p != c.end(); ++p)
   {
-    *p.prettyPrint();
+    p->prettyPrint();
   }
 
   return os;
@@ -136,5 +140,5 @@ istream& operator>>(istream& is, Cronologia& cron)
 // Operator<<
 ostream& operator<<(ostream& os, const Cronologia& cron)
 {
-  return e.mostrarCronologia(os);
+  return cron.mostrarCronologia(os);
 }
