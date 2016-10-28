@@ -1,3 +1,9 @@
+/**
+  * @file cronologia.hpp
+  * @brief Fichero cabecera del TDA Cronologia
+  *
+  */
+
 #ifndef __CRONOLOGIA_HPP__
 #define  __CRONOLOGIA_HPP__
 
@@ -10,38 +16,46 @@ class Cronologia
   private:
     std::vector<EventoHistorico> c;
 
-    // ordenar por fecha
-    std::vector<EventoHistorico>::iterator busquedaBinaria(Fecha f);
-    void merge(int izq, int med, int der);
-    void mergeSort(int izq, int der);
-    void ordenar() {mergeSort(0, c.size() - 1);}
+    std::vector<EventoHistorico>::iterator busquedaBinaria(Fecha f);  // buscar evento en this->c
+
+    // igual, pero devuelve iterador constante (es necesaria)
+    std::vector<EventoHistorico>::const_iterator busquedaBinaria(Fecha f) const;
+    void merge(int izq, int med, int der);  // mezclar vector
+    void mergeSort(int izq, int der); // ordenar subvector
+    void ordenar(); // ordenar vector completo por fecha
 
   public:
     Cronologia(std::vector<EventoHistorico> v); //pre: vector ordenado
 
     // Get & Set
-
     std::vector<EventoHistorico> getCronologia() const { return c; }
-    EventoHistorico getEventoHistorico(Fecha f) const;
+    EventoHistorico getEventoHistorico(Fecha f) const;  //pre: está en el vector
     void setCronologia(std::vector<EventoHistorico> v) { this->c = v; }
     bool addEventoHistorico(EventoHistorico e); // merge
     void addEventoHistorico(std::vector<EventoHistorico> v);   // merge
+    void addCronologia(const Cronologia& cron);
 
-    // Eliminar (CAMBIAR NOMBRES Y PARÁMETROS)
-    bool eliminarAcontecimiento(Acontecimiento a);  // elimina el que coincida
-    int eliminarPorClave (std::string key);  // elimina todos los que contengan 'key'; devuelve num eliminados
+    // Ver si hay un E.H. con la fecha determinada
+    bool contieneFecha(Fecha f) const;  // (IMPLEMENTAR)
 
-    // Búsqueda (CAMBIAR NOMBRES Y PARÁMETROS)
-    std::vector<Acontecimiento> buscarPorClave (std::string key) const; // busca los que contengan 'key'
+    // Eliminar
+    bool eliminarEvento(Fecha f);  // elimina el que coincida
+    int eliminarPorClave (std::string key);  // elimina todos los E.H que contengan 'key'; devuelve num eliminados
 
+    // Buscar
+    std::vector<EventoHistorico> buscarPorClave (std::string key) const; // busca los E.H. que contengan 'key'
+
+    // E/S
     std::istream& cargarCronologia(std::istream& is);
     std::ostream& mostrarCronologia(std::ostream& os) const;
     std::ostream& mostrarCronologiaInversa(std::ostream& os) const;
     std::ostream& prettyPrint(std::ostream& os = std::cout) const;
 };
 
-// E/S
+// Operadores E/S
 std::istream& operator>>(std::istream& is, Cronologia& cro);
 std::ostream& operator<<(std::ostream& os, const Cronologia& cro);
 
 #endif
+
+/* Fin fichero: cronologia.hpp */

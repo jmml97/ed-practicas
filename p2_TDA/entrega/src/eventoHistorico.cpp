@@ -8,6 +8,7 @@
 #include <sstream>
 #include <cassert>
 #include "eventoHistorico.hpp"
+
 using namespace std;
 
 // Constantes de archivo

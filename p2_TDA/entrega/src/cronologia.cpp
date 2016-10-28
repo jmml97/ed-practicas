@@ -1,8 +1,17 @@
+/**
+  * @file eventoHistorico.cpp
+  * @brief Implementación del TDA EventoHistorico
+  *
+  */
+
 #include <iostream>
 #include <vector>
+#include <cassert>
 #include "cronologia.hpp"
+
 using namespace std;
 
+// Buscar un EventoHistorico por fecha
 vector<EventoHistorico>::iterator Cronologia::busquedaBinaria(Fecha f)
 {
     int med;
@@ -29,6 +38,34 @@ vector<EventoHistorico>::iterator Cronologia::busquedaBinaria(Fecha f)
         return c.end();
 }
 
+// Buscar un EventoHistorico por fecha, y devolver iterador constante
+vector<EventoHistorico>::const_iterator Cronologia::busquedaBinaria(Fecha f) const
+{
+    int med;
+    int inf = 0;
+    int sup = c.size() - 1;
+    bool enc = false;
+
+    while ((inf<sup) && (!enc))
+    {
+        med = (inf + sup) / 2;
+        Fecha aux = c[med].getFecha();
+        if (aux.anio == f.anio && aux.dc == f.dc)
+            enc = true;
+        else if ((aux.dc < f.dc) || (f.dc && aux.anio < f.anio)
+                    || (!aux.dc && aux.anio > f.anio))
+            inf = med + 1;
+        else
+            sup = med - 1;
+    }
+
+    if (enc)
+        return c.begin() + med;
+    else
+        return c.end();
+}
+
+// Mezclar vectores
 void Cronologia::merge(int izq, int med, int der)
 {
     int i, j, k;
@@ -66,6 +103,7 @@ void Cronologia::merge(int izq, int med, int der)
         c[k++] = v2[j++];
 }
 
+// Ordenar un subvector
 void Cronologia::mergeSort(int izq, int der)
 {
     if (izq < der)
@@ -79,13 +117,57 @@ void Cronologia::mergeSort(int izq, int der)
     }
 }
 
+// Ordenar vector this->c por fecha
+void Cronologia::ordenar()
+{
+  mergeSort(0, c.size() - 1);
+}
+
+// Obtener el EventoHistorico correspondiente a la Fecha f
+EventoHistorico Cronologia::getEventoHistorico(Fecha f) const
+{
+  assert(contieneFecha(f));
+  vector<EventoHistorico>::const_iterator p = busquedaBinaria(f);
+  return *p;
+}
+
+bool Cronologia::addEventoHistorico(EventoHistorico e)
+{
+
+}
+
+void Cronologia::addEventoHistorico(std::vector<EventoHistorico> v)
+{
+
+}
+
+void Cronologia::addCronologia(const Cronologia& cron)
+{
+
+}
+
+bool Cronologia::contieneFecha(Fecha f) const
+{
+
+}
+
+
+
+
 // Cargar Cronologia desde un flujo de entrada
 istream& Cronologia::cargarCronologia(istream& is)
 {
   EventoHistorico tmp;
-  while(is && is.peek() != EOF) {
+  vector<EventoHistorico> v;
+  while(is)
+  {
     tmp.cargarEvento(is);
-    c.push_back(tmp);
+    v.push_back(tmp);
+  }
+
+  if (is)
+  {
+    setCronologia(v);
   }
 
   ordenar();
@@ -101,7 +183,6 @@ ostream& Cronologia::mostrarCronologia(ostream& os) const
     p->mostrarEvento(os);
     os << '\n';
   }
-
   return os;
 }
 
@@ -109,12 +190,11 @@ ostream& Cronologia::mostrarCronologia(ostream& os) const
 ostream& Cronologia::mostrarCronologiaInversa(ostream& os) const
 {
 
-  for (vector<EventoHistorico>::const_iterator p = c.end(); p != c.begin(); --p)
+  for (vector<EventoHistorico>::const_reverse_iterator p = c.rbegin(); p != c.rend(); ++p)
   {
     p->mostrarEvento(os);
     os << '\n';
   }
-
   return os;
 }
 
@@ -126,7 +206,6 @@ ostream& Cronologia::prettyPrint(ostream& os) const
     p->prettyPrint();
     os << '\n';
   }
-
   return os;
 }
 
@@ -141,3 +220,5 @@ ostream& operator<<(ostream& os, const Cronologia& cron)
 {
   return cron.mostrarCronologia(os);
 }
+
+/* Fin fichero: cronologia.cpp */
