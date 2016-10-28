@@ -66,7 +66,7 @@ void Cronologia::merge(int izq, int med, int der)
         c[k++] = der[j++];
 }
 
-void Cronologia::mergeSort(int izq, int der)
+void Cronologia::mergeSort(int izq = 0, int der = c.size() - 1)
 {
     if (izq < der)
     {
@@ -75,6 +75,6 @@ void Cronologia::mergeSort(int izq, int der)
         mergeSort(izq, med);
         mergeSort(med + 1, der);
 
-        merge(izq, med, izq);
+        merge(izq, med, der);
     }
 }
