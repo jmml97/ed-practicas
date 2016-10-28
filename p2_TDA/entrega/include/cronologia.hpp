@@ -34,12 +34,14 @@ class Cronologia
     // Búsqueda (CAMBIAR NOMBRES Y PARÁMETROS)
     std::vector<Acontecimiento> buscarPorClave (std::string key) const; // busca los que contengan 'key'
 
-    // Listar
-    // Reverse listar
-    // Cargar
-    // prettyPrint
+    std::istream& cargarCronologia(std::istream& is);
+    std::ostream& mostrarCronologia(std::ostream& os) const;
+    std::ostream& mostrarCronologiaInversa(std::ostream& os) const;
+    std::ostream& prettyPrint(std::ostream& os = std::cout) const;
 };
 
 // E/S
+std::istream& operator>>(std::istream& is, Cronologia& cro);
+std::ostream& operator<<(std::ostream& os, const Cronologia& cro);
 
 #endif
