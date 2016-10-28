@@ -32,12 +32,15 @@ int main(int argc, char * argv[])
       - buscarPorClave
    */
 
-   Fecha mi_fecha;
-   mi_fecha.anio = 1978;
-   mi_fecha.dc = true;
+   Fecha mi_fecha(1978);
 
    cout << "Evento (mi_evento1) construido solo con fecha: " << endl;
    EventoHistorico mi_evento1(mi_fecha);
+   mi_evento1.prettyPrint();
+   cout << endl;
+
+   cout << "Veamos el cambio de fecha: " << endl;
+   mi_evento1.setFecha(2005);
    mi_evento1.prettyPrint();
    cout << endl;
 

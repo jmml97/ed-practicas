@@ -58,6 +58,19 @@ struct Fecha
 
   int anio;   /**< año del calendario*/
   bool dc;    /**< AC ó DC */
+
+  /**
+   * @brief Constructor por defecto
+   * @post No tiene ningún efecto
+   */
+  Fecha() {}
+
+  /**
+   * @brief Constructor de Fecha. Funciona como conversor implícito de 'int' a 'Fecha'
+   * @param n año
+   * @post Construye un objeto Fecha @e f con el año indicado, por defecto DC
+   */
+  Fecha(int n);
 };
 
 

@@ -16,6 +16,14 @@ namespace
   const char SEP = '#';
 }
 
+// Constructor de Fecha
+Fecha::Fecha(int n)
+{
+  assert(n >= 0);
+  anio = n;
+  dc = true;
+}
+
 // Método privado: buscar un Acontecimiento
 vector<Acontecimiento>::iterator EventoHistorico::buscarAcontecimiento(Acontecimiento a)
 {
@@ -31,11 +39,7 @@ vector<Acontecimiento>::iterator EventoHistorico::buscarAcontecimiento(Acontecim
 }
 
 // Constructor por defecto
-EventoHistorico::EventoHistorico()
-{
-  f.anio = 1;
-  f.dc = 1;
-}
+EventoHistorico::EventoHistorico() : f(1) {}
 
 // Constructor con un parámetro
 EventoHistorico::EventoHistorico(Fecha f)
