@@ -13,13 +13,9 @@ class Cronologia
     // ordenar por fecha
     std::vector<EventoHistorico>::iterator busquedaBinaria(Fecha f);
     void merge(int izq, int med, int der);
-<<<<<<< 60ec2f3ca7ad1e843b8adb5eda5ead7355862ef0
     void mergeSort(int izq, int der);
     void ordenar() {mergeSort(0, c.size() - 1);}
 
-=======
-    void mergeSort(int izq = 0, int der = c.size() - 1);
->>>>>>> Corregidos errores menores y salto de línea
   public:
     Cronologia(std::vector<EventoHistorico> v); //pre: vector ordenado
 

@@ -24,15 +24,7 @@ vector<EventoHistorico>::iterator Cronologia::busquedaBinaria(Fecha f)
     }
 
     if (enc)
-<<<<<<< 60ec2f3ca7ad1e843b8adb5eda5ead7355862ef0
-<<<<<<< 6c9b1a497060eaf5f66b0567f16e4cec26d0b6e0
         return c.begin() + med;
-=======
-        return c.at(med);
->>>>>>> Corregidos errores en cronologia.cpp
-=======
-        return c.begin() + med;
->>>>>>> Corregidos errores menores y salto de línea
     else
         return c.end();
 }
@@ -51,7 +43,7 @@ void Cronologia::merge(int izq, int med, int der)
     // Copia la los datos en vectores temporales
     for (i = 0; i < n1; i++)
         v1[i] = c[izq + i];
-    for (i = 0; j < n2; j++)
+    for (j = 0; j < n2; j++)
         v2[i] = c[med + 1 + i];
 
     // Mezcla los vectores temporales en el array original
@@ -96,7 +88,7 @@ istream& Cronologia::cargarCronologia(istream& is)
     c.push_back(tmp);
   }
 
-  mergeSort();
+  ordenar();
 
   return is;
 }
