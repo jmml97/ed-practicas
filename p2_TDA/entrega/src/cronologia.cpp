@@ -60,10 +60,10 @@ void Cronologia::merge(int izq, int med, int der)
 
     // Copia los elementos restantes de v1 si quedan
     while (i < n1)
-        c[k++] = izq[i++];
+        c[k++] = v1[i++];
     // Copia los elementos restantes de v2 si quedan
     while (j < n2)
-        c[k++] = der[j++];
+        c[k++] = v2[j++];
 }
 
 void Cronologia::mergeSort(int izq = 0, int der = c.size() - 1)
