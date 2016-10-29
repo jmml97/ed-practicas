@@ -160,6 +160,41 @@ bool Cronologia::contieneFecha(Fecha f) const
   return encontrado;
 }
 
+bool Cronologia::eliminarEvento(Fecha f)
+{
+  bool encontrado = false;
+  for (vector<EventoHistorico>::const_iterator p = c.begin(); p != c.end(); ++p)
+  {
+    if (p->getFecha().anio == f.anio && p->getFecha().dc == f.dc)
+    {
+      p = c.erase(p);
+      encontrado = true;
+    }
+  }
+
+  return encontrado;
+}
+
+int Cronologia::eliminarPorClave (string key)
+{
+  
+}
+
+// Buscar todos los eventos históricos que contengan acontecimientos que
+// contengan "key"
+vector<EventoHistorico> Cronologia::buscarPorClave (string key) const
+{
+  vector<EventoHistorico> e;
+  EventoHistorico tmp;
+  for (vector<EventoHistorico>::const_iterator p = c.begin(); p != c.end(); ++p)
+  {
+    tmp.addEvento(p->buscarPorClave(key));
+    e.push_back(tmp);
+  }
+
+  return e;
+}
+
 // Cargar Cronologia desde un flujo de entrada
 istream& Cronologia::cargarCronologia(istream& is)
 {
