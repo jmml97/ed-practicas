@@ -234,13 +234,13 @@ class EventoHistorico
        * @brief Mostrar el objeto implícito (evento histórico) en un flujo de salida
        * @param  os Flujo de salida
        * @post El formato de escritura es el mismo que el de lectura
-       * 
+       *
        * @see cargarEvento
        */
       std::ostream& mostrarEvento(std::ostream& os) const;
 
       /**
-       * Muestra un evento en un flujo de salida en Human Readable Format
+       * Muestra un evento en un flujo de salida en Human Readable Format (HRF)
        * @param  os Flujo de salida. Por defecto es std::cout
        * @post El formato de escritura es el siguiente:
        *       Año: <año> <AC/DC>
@@ -269,8 +269,8 @@ std::istream& operator>>(std::istream& is, EventoHistorico& e);
  * @param os Flujo de salida
  * @param e Evento histórico a escribir
  * @post El formato de escritura es el mismo que el de lectura
+ * 
  * @see operator>>
- *
  * @relates EventoHistorico
  */
 std::ostream& operator<<(std::ostream& os, const EventoHistorico& e);
