@@ -71,18 +71,6 @@ class Cronologia
     std::vector<EventoHistorico>::const_iterator busquedaBinaria(Fecha f) const;
 
     /**
-     * @brief Ordena el vector @e c de EventoHistorico por fecha
-     * @param @e izq indice izquierdo del vector, @e med indice medio del vector, @e der indice derecho del vector
-     */
-    void merge(int izq, int med, int der);
-
-    /**
-     * @brief Divide el vector @e c en trozos pequeños, y lo ordena cronológicamente
-     * @param  izq @c índice izquierdo del vector, der @c índice derecho del vector
-     */
-    void mergeSort(int izq, int der);
-
-    /**
      * @brief Ordena los EventoHistorico cronológicamente mediante mergeSort
      * @post Vector @e this->c ordenado cronológicamente
      */

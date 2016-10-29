@@ -275,6 +275,8 @@ std::istream& operator>>(std::istream& is, EventoHistorico& e);
  */
 std::ostream& operator<<(std::ostream& os, const EventoHistorico& e);
 
+bool eventoReciente(const EventoHistorico& a,  const EventoHistorico& b);
+
 #endif
 
 /* Fin fichero: eventoHistorico.hpp */

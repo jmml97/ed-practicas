@@ -193,4 +193,12 @@ ostream& operator<<(ostream& os, const EventoHistorico& e)
   return e.mostrarEvento(os);
 }
 
+bool eventoReciente(const EventoHistorico& a,  const EventoHistorico& b)
+{
+    Fecha f1 = a.getFecha();
+    Fecha f2 = b.getFecha();
+    return ((f1.dc < f2.dc) || (f2.dc && f1.anio <= f2.anio)
+            || (f1.dc && f1.anio >= f2.anio));
+}
+
 /* Fin fichero: eventoHistorico.cpp */
