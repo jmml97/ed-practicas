@@ -193,7 +193,8 @@ ostream& operator<<(ostream& os, const EventoHistorico& e)
   return e.mostrarEvento(os);
 }
 
-bool eventoReciente(const EventoHistorico& a,  const EventoHistorico& b)
+// Comprobar si el evento b es más reciente que el evento a
+bool eventoMasReciente(const EventoHistorico& a, const EventoHistorico& b)
 {
     Fecha f1 = a.getFecha();
     Fecha f2 = b.getFecha();

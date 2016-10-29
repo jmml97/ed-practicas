@@ -275,7 +275,14 @@ std::istream& operator>>(std::istream& is, EventoHistorico& e);
  */
 std::ostream& operator<<(std::ostream& os, const EventoHistorico& e);
 
-bool eventoReciente(const EventoHistorico& a,  const EventoHistorico& b);
+/**
+ * @brief Comprobar cuál es el más reciente de dos eventos históricos.
+ * @param  a Primer objeto @c EventoHistorico
+ * @param  b Segundo objeto @c EventoHistorico
+ * @retval true Si el @c EventoHistorico @e b es más reciente que el EventoHistorico @e a
+ * @retval false Si el @c EventoHistorico @e a es más reciente que el EventoHistorico @e b
+ */
+bool eventoMasReciente(const EventoHistorico& a, const EventoHistorico& b);
 
 #endif
 

@@ -71,8 +71,11 @@ class Cronologia
     std::vector<EventoHistorico>::const_iterator busquedaBinaria(Fecha f) const;
 
     /**
-     * @brief Ordena los EventoHistorico cronológicamente mediante mergeSort
+     * @brief Ordena los eventos históricos cronológicamente. En las posiciones más grandes
+     * se encuentran los eventos más recientes
      * @post Vector @e this->c ordenado cronológicamente
+     *
+     * @see eventoMasReciente
      */
     void ordenar();
 

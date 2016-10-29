@@ -70,7 +70,7 @@ vector<EventoHistorico>::const_iterator Cronologia::busquedaBinaria(Fecha f) con
 // Ordenar vector this->c por fecha
 void Cronologia::ordenar()
 {
-  sort(c.begin(), c.end(), eventoReciente);
+  sort(c.begin(), c.end(), eventoMasReciente);
 }
 
 // Constructor de clase
