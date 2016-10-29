@@ -85,14 +85,20 @@ class Cronologia
     void ordenar(); // ordenar vector completo por fecha
 
   public:
-      /**
-       * @brief Constructor de la clase
-       * @param v Vector de EventoHistorico
-       * @return Crea una Cronologia con el vector de EventoHistorico determinado
-       * @pre @c Vector ordenado
-       * @pre Los elementos del vector @e v no deben estar repetidos
-       */
-    Cronologia(std::vector<EventoHistorico> v);
+
+    /**
+     * @brief Constructor por defecto de la clase.
+     * Crea la Cronologia con un vector vacío de EventoHistorico.
+     */
+    Cronologia() {}
+
+    /**
+      * @brief Constructor de la clase
+      * @param v Vector de EventoHistorico
+      * @return Crea una Cronologia con el vector de EventoHistorico determinado
+      * @pre Los elementos del vector @e v no deben estar repetidos
+      */
+    Cronologia(const std::vector<EventoHistorico>& v);
 
     /**
      * @brief Acceder al vector de EventoHistorico
@@ -108,11 +114,24 @@ class Cronologia
     EventoHistorico getEventoHistorico(Fecha f) const;
 
     /**
+     * @brief Accede a los acontecimientos de un EventoHistorico buscando con su fecha
+     * @param f @c Fecha del EventoHistorico a buscar
+     * @return @c Vector de Acontecimiento del EventoHistorico buscado
+     */
+    std::vector<Acontecimiento> getAcontecimientos(Fecha f) const;  // pre: está en el vector
+
+    /**
      * @brief Modificar vector de EventoHistorico
-     * @param v Nuevo vector
+     * @param v @c Nuevo vector
      * @return Sustituye el vector this->c por v
      */
-    void setCronologia(std::vector<EventoHistorico> v) { this->c = v; }
+    void setCronologia(const std::vector<EventoHistorico>& v);
+
+    /**
+     * @brief Añade un nuevo EventoHistorico a la Cronologia
+     * @param v @c Vector de Acontecimiento, f @c Fecha del EventoHistorico
+     */
+    void setEventoHistorico(const std::vector<Acontecimiento>& v, Fecha f);
 
     /**
      * @brief Añade un EventoHistorico al vector @c c, en caso de que
@@ -121,7 +140,7 @@ class Cronologia
      * @retval true Si se ha añadido
      * @retval false Si no se ha añadido (ya estaba presente)
      */
-    bool addEventoHistorico(EventoHistorico e); // merge
+    bool addEventoHistorico(const EventoHistorico& e); // merge
 
     /**
      * @brief Mezcla el vector de EventoHistorico asociado al objeto implícito
@@ -129,11 +148,14 @@ class Cronologia
      * @param  v @c Vector a mezclar
      * @post this->c no contiene elementos repetidos
      */
-    void addEventoHistorico(std::vector<EventoHistorico> v);
+    void addEventoHistorico(const std::vector<EventoHistorico>& v);
 
-
-
-    void addCronologia(const Cronologia& cron);
+    /**
+     * @brief Mezcla dos Cronologia en una
+     * @param cron @c Cronologia que se quiere mezclar
+     * @post this->c está ordenado y sin repetidos
+     */
+    void mezclarCronologia(const Cronologia& cron);
 
     /**
      * @brief Comprueba si hay un EventoHistorico con la fecha dada en el vector @e c
