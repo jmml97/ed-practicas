@@ -11,6 +11,7 @@
 #include <vector>
 #include "eventoHistorico.hpp"
 
+<<<<<<< HEAD
 
 /**
  * @brief T.D.A. Cronología
@@ -26,25 +27,108 @@
  * @date Octubre 2016
  *
  */
+=======
+/**
+  * @brief T.D.A. Cronologia
+  *
+  * Una instancia @e e del tipo de datos abstracto @c Cronologia es un objeto que
+  * representa una sucesión de eventos históricos ordenados cronológicamente por año. Está compuesto por
+  * un vector @e c de EventoHistorico, que representa la sucesión de años y los distintos
+  * hechos históricos que han tenido lugar en ese año, todos ordenados.
+  * Lo representamos:
+  *
+  * <eventoHistorico_1, eventoHistorico_2, ..., eventoHistorico_n>
+  *
+  * @author Miguel Lentisco Ballesteros
+  * @author Jose María Martín Luque
+  * @author Antonio Coín Castro
+  * @date Octubre 2016
+  *
+  */
+
+>>>>>>> refs/remotes/origin/mike
 class Cronologia
 {
   private:
+    /**
+        * @page repConjunto2 Rep del TDA Cronologia
+        *
+        * @section invConjunto2 Invariante de la representación
+        *
+        * El invariante es \e rep. EventoHistorico_1 < ... < EventoHistorico_n.
+        *
+        * @section faConjunto2 Función de abstracción
+        *
+        * Un objeto válido @e rep del TDA Cronologia representa al valor
+        *
+        * (rep.c)
+        *
+    */
     std::vector<EventoHistorico> c;
 
+    /**
+     * @brief Busca en el vector c un @c EventoHistorico en concreto
+     * @param f @c Fecha del EventoHistorico a buscar
+     * @return Devuelve un iterador apuntando a la posición del vector donde
+     *         se ha encontrado el @c EventoHistorico, o @e c.end() si no se
+     *         ha encontrado.
+     */
     std::vector<EventoHistorico>::iterator busquedaBinaria(Fecha f);  // buscar evento en this->c
 
-    // igual, pero devuelve iterador constante (es necesaria)
+    /**
+     * @brief Busca en el vector c un @c EventoHistorico en concreto
+     * @param f @c Fecha del EventoHistorico a buscar
+     * @return Devuelve un iterador constante apuntando a la posición del vector donde
+     *         se ha encontrado el @c EventoHistorico, o @e c.end() si no se
+     *         ha encontrado.
+     */
     std::vector<EventoHistorico>::const_iterator busquedaBinaria(Fecha f) const;
-    void merge(int izq, int med, int der);  // mezclar vector
-    void mergeSort(int izq, int der); // ordenar subvector
+
+
+    /**
+     * @brief Ordena el vector de EventoHistorico
+     * @param izq @c indice izquierdo del vector, med @c indice medio del vector, der @c indice derecho del vector
+     */
+    void merge(int izq, int med, int der);
+
+    /**
+     * @brief Divide el vector en trozos muy pequeños para ordenarlo más fácilmente
+     * @param  izq @c índice izquierdo del vector, der @c índice derecho del vector
+     */
+    void mergeSort(int izq, int der);
+
+    /**
+     * @brief Ordena los EventoHistorico cronológicamente mediante mergeSort
+     */
     void ordenar(); // ordenar vector completo por fecha
 
   public:
+<<<<<<< HEAD
     Cronologia() {} // constructor vacío: no tiene ningún efecto
     Cronologia(const std::vector<EventoHistorico>& v);
+=======
+>>>>>>> refs/remotes/origin/mike
 
-    // Get & Set
+    /**
+     * @brief Constructor por defecto de la clase.
+     * Crea la Cronologia con un vector vacío de EventoHistorico.
+     */
+    Cronologia() {}
+
+    /**
+      * @brief Constructor de la clase
+      * @param v Vector de EventoHistorico
+      * @return Crea una Cronologia con el vector de EventoHistorico determinado
+      * @pre Los elementos del vector @e v no deben estar repetidos
+      */
+    Cronologia(const std::vector<EventoHistorico>& v);
+
+    /**
+     * @brief Acceder al vector de EventoHistorico
+     * @return El vector de EventoHistorico asociado a la Cronologia
+     */
     std::vector<EventoHistorico> getCronologia() const { return c; }
+<<<<<<< HEAD
     EventoHistorico getEventoHistorico(Fecha f) const;  //pre: está en el vector
     std::vector<Acontecimiento> getAcontecimientos(Fecha f) const;  // pre: está en el vector
     void setCronologia(const std::vector<EventoHistorico>& v);
@@ -55,23 +139,155 @@ class Cronologia
 
     // Ver si hay un E.H. con la fecha determinada
     bool contieneFecha(Fecha f) const;
+=======
 
-    // Eliminar
-    bool eliminarEvento(Fecha f);  // elimina el que coincida
-    int eliminarPorClave (std::string key);  // elimina todos los E.H que contengan 'key'; devuelve num eliminados
+    /**
+     * @brief Acceder a un EventoHistorico del vector @c c
+     * @param f @c Fecha del EventoHistorico necesitado
+     * @return El EventoHistorico asociado a la fecha
+     */
+    EventoHistorico getEventoHistorico(Fecha f) const;
 
-    // Buscar
-    std::vector<EventoHistorico> buscarPorClave (std::string key) const; // busca los E.H. que contengan 'key'
+    /**
+     * @brief Accede a los acontecimientos de un EventoHistorico buscando con su fecha
+     * @param f @c Fecha del EventoHistorico a buscar
+     * @return @c Vector de Acontecimiento del EventoHistorico buscado
+     */
+    std::vector<Acontecimiento> getAcontecimientos(Fecha f) const;  // pre: está en el vector
+>>>>>>> refs/remotes/origin/mike
 
-    // E/S
+    /**
+     * @brief Modificar vector de EventoHistorico
+     * @param v @c Nuevo vector
+     * @return Sustituye el vector this->c por v
+     */
+    void setCronologia(const std::vector<EventoHistorico>& v);
+
+    /**
+     * @brief Añade un nuevo EventoHistorico a la Cronologia
+     * @param v @c Vector de Acontecimiento, f @c Fecha del EventoHistorico
+     */
+    void setEventoHistorico(const std::vector<Acontecimiento>& v, Fecha f);
+
+    /**
+     * @brief Añade un EventoHistorico al vector @c c, en caso de que
+     * no estuviera ya presente
+     * @param  e @c EventoHistorico a añadir
+     * @retval true Si se ha añadido
+     * @retval false Si no se ha añadido (ya estaba presente)
+     */
+    bool addEventoHistorico(const EventoHistorico& e); // merge
+
+    /**
+     * @brief Mezcla el vector de EventoHistorico asociado al objeto implícito
+     * con otro que se pasa como parámetro.
+     * @param  v @c Vector a mezclar
+     * @post this->c no contiene elementos repetidos
+     */
+    void addEventoHistorico(const std::vector<EventoHistorico>& v);
+
+    /**
+     * @brief Mezcla dos Cronologia en una
+     * @param cron @c Cronologia que se quiere mezclar
+     * @post this->c está ordenado y sin repetidos
+     */
+    void mezclarCronologia(const Cronologia& cron);
+
+    /**
+     * @brief Comprueba si hay un EventoHistorico con la fecha dada en el vector @e c
+     * @param  f @c Fecha del EventoHistorico a comprobar
+     * @retval true Si se encuentra el elemento
+     * @retval false Si no estaba presente
+     */
+    bool contieneFecha(Fecha f) const;
+
+    /**
+     * @brief Elimina un EventoHistorico del vector @e c
+     * @param  f @c Fecha del EventoHistorico a eliminar
+     * @retval true Si se ha eliminado el elemento
+     * @retval false Si no se ha eliminado (no estaba presente)
+     */
+    bool eliminarEvento(Fecha f);
+
+    /**
+     * @brief Elimina del vector @e c todos los EventoHistorico que contengan una
+     * palabra clave
+     * @param  key Palabra clave
+     * @return Número de EventoHistorico eliminados
+     */
+    int eliminarPorClave (std::string key);
+
+    /**
+     * @brief Busca en el vector @e c todos los EventoHistorico que contengan una
+     * palabra clave
+     * @param  key Palabra clave
+     * @return Vector que contiene los EventoHistorico encontrados (vacío si no se ha encontrado ninguno)
+     */
+    std::vector<EventoHistorico> buscarPorClave (std::string key) const;
+
+    /**
+     * @brief Leer una cronologia desde un flujo de entrada
+     * @param  is Flujo de entrada
+     * @post Cronología leída en el objeto implícito
+     * @pre El formato de lecura es el siguiente:
+     *          EventoHistorico_1
+     *          EventoHistorico_2
+     *          ....
+     *          EventoHistorico_n
+     */
     std::istream& cargarCronologia(std::istream& is);
+
+    /**
+     * @brief Mostrar el objeto implícito (cronología) en un flujo de salida
+     * @param  os Flujo de salida
+     * @post El formato de escritura es el mismo que el de lectura
+     * @see cargarEvento
+     */
     std::ostream& mostrarCronologia(std::ostream& os) const;
+
+    /**
+     * @brief Mostrar el objeto implícito (cronología) en un flujo de salida
+     * @param  os Flujo de salida
+     * @post El formato de escritura es el mismo que el de lectura, pero
+     *       se muestra a la inversa temporalmente.
+     * @see cargarEvento
+     */
     std::ostream& mostrarCronologiaInversa(std::ostream& os) const;
+
+    /**
+     * Muestra un evento en un flujo de salida en Human Readable Format
+     * @param  os Flujo de salida. Por defecto es std::cout
+     * @post El formato de escritura es el siguiente:
+     *       - EventoHistorico_1
+     *       - EventoHistorico_1
+     *       - ...
+     *       - EventoHistorico_n
+     */
     std::ostream& prettyPrint(std::ostream& os = std::cout) const;
 };
 
-// Operadores E/S
+/**
+ * @brief Sobrecarga del operador >>
+ * @param is Flujo de entrada
+ * @param cro Cronologia donde leer
+ * @retval Cronología leída en @e cro
+ * @pre El formato de lectura es el siguiente:
+ *      EventoHistorico_1
+ *      EventoHistorico_2
+ *      ....
+ *      EventoHistorico_n
+ * @relates Cronologia
+ */
 std::istream& operator>>(std::istream& is, Cronologia& cro);
+
+/**
+ * @brief Sobrecarga del operador <<
+ * @param os Flujo de salida
+ * @param cro Cronología a escribir
+ * @post El formato de escritura es el mismo que el de lectura
+ * @see operator>>
+ * @relates Cronologia
+ */
 std::ostream& operator<<(std::ostream& os, const Cronologia& cro);
 
 #endif
