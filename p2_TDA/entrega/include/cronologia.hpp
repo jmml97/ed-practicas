@@ -77,7 +77,7 @@ class Cronologia
     void merge(int izq, int med, int der);
 
     /**
-     * @brief Divide el vector @e c en trozos pequeños para ordenarlo más fácilmente
+     * @brief Divide el vector @e c en trozos pequeños, y lo ordena cronológicamente
      * @param  izq @c índice izquierdo del vector, der @c índice derecho del vector
      */
     void mergeSort(int izq, int der);

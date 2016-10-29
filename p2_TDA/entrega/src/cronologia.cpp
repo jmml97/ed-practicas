@@ -65,7 +65,7 @@ vector<EventoHistorico>::const_iterator Cronologia::busquedaBinaria(Fecha f) con
         return c.end();
 }
 
-// Mezclar vectores
+// Ordenar un vector cronológicamente
 void Cronologia::merge(int izq, int med, int der)
 {
     int i, j, k;
@@ -103,7 +103,7 @@ void Cronologia::merge(int izq, int med, int der)
         c[k++] = v2[j++];
 }
 
-// Ordenar un subvector
+// Dividir el vector en trozos pequeños, y ordenarlo cronológicamente
 void Cronologia::mergeSort(int izq, int der)
 {
     if (izq < der)

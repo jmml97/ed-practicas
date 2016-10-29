@@ -15,6 +15,7 @@ using namespace std;
 
      - void addEventoHistorico(const EventoHistorico& e);
      - void addEventoHistorico(const std::vector<EventoHistorico>& v);
+       (PASÁNDOLE UN VECTOR DESORDENADO, QUE INCLUYA AÑOS A.C.)
 
      - int eliminarPorClave (std::string key);
 
