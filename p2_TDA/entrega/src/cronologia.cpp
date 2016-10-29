@@ -1,6 +1,6 @@
 /**
-  * @file eventoHistorico.cpp
-  * @brief Implementación del TDA EventoHistorico
+  * @file cronologia.cpp
+  * @brief Implementación del TDA Cronologia
   *
   */
 
@@ -123,6 +123,12 @@ void Cronologia::ordenar()
   mergeSort(0, c.size() - 1);
 }
 
+// Constructor de clase
+Cronologia::Cronologia(const vector<EventoHistorico>& v)
+{
+  setCronologia(v);
+}
+
 // Obtener el EventoHistorico correspondiente a la Fecha f
 EventoHistorico Cronologia::getEventoHistorico(Fecha f) const
 {
@@ -131,67 +137,105 @@ EventoHistorico Cronologia::getEventoHistorico(Fecha f) const
   return *p;
 }
 
-bool Cronologia::addEventoHistorico(EventoHistorico e)
+// Obtener los acontecimientos correspondientes a la fecha f
+std::vector<Acontecimiento> Cronologia::getAcontecimientos(Fecha f) const
 {
-  c.push_back(e);
+  return getEventoHistorico(f).getEvento();
+}
+
+// Modificar el vector this->c
+void Cronologia::setCronologia(const std::vector<EventoHistorico>& v)
+{
+  this->c = v;
   ordenar();
 }
 
-void Cronologia::addEventoHistorico(std::vector<EventoHistorico> v)
+// Modificar el evento histórico asociado a la fecha f
+void Cronologia::setEventoHistorico(const vector<Acontecimiento>& v, Fecha f)
 {
-  c.insert(c.end(), v.begin(), v.end());
-  ordenar();
+  getEventoHistorico(f).setEvento(v);
 }
 
-void Cronologia::addCronologia(const Cronologia& cron)
+// Añadir un evento histórico a la cronología
+void Cronologia::addEventoHistorico(const EventoHistorico& e)
 {
-  c.insert(c.end(), cron.c.begin(), cron.c.end());
-  ordenar();
+  if (contieneFecha(e.getFecha()))
+  {
+    vector<EventoHistorico>::iterator p = busquedaBinaria(e.getFecha());
+    p->addEvento(e.getEvento());
+  }
+  else
+  {
+    c.push_back(e);
+    ordenar();
+  }
 }
 
+// Añadir varios eventos históricos a la cronología
+void Cronologia::addEventoHistorico(const std::vector<EventoHistorico>& v)
+{
+  for (vector<EventoHistorico>::const_iterator p = v.begin(); p != v.end(); ++p)
+    addEventoHistorico(*p);
+}
+
+// Meclar la cronología con una dada
+void Cronologia::mezclarCronologia(const Cronologia& cron)
+{
+  addEventoHistorico(cron.getCronologia());
+}
+
+// Ver si hay un evento histórico con la fecha dada
 bool Cronologia::contieneFecha(Fecha f) const
 {
-  bool encontrado = false;
-  for (vector<EventoHistorico>::const_iterator p = c.begin(); p != c.end(); ++p)
-  {
-    encontrado = p->getFecha().anio == f.anio && p->getFecha().dc == f.dc;
-  }
-
-  return encontrado;
+  return busquedaBinaria(f) != c.end();
 }
 
+// Eliminar un EventoHistorico
 bool Cronologia::eliminarEvento(Fecha f)
 {
-  bool encontrado = false;
-  for (vector<EventoHistorico>::const_iterator p = c.begin(); p != c.end(); ++p)
+  vector<EventoHistorico>::iterator p = busquedaBinaria(f);
+  if (p != c.end())
   {
-    if (p->getFecha().anio == f.anio && p->getFecha().dc == f.dc)
-    {
-      p = c.erase(p);
-      encontrado = true;
-    }
+    c.erase(p);
+    return true;
   }
-
-  return encontrado;
+  return false;
 }
 
+// Eliminar todos los eventos históricos cuyos acontecimientos contengan 'key'
 int Cronologia::eliminarPorClave (string key)
 {
-  
+  int n = 0;
+  vector<EventoHistorico>::const_iterator p = c.begin();
+  while (p != c.end())
+  {
+    if (p->buscarPorClave(key).size() != 0)
+    {
+      c.erase(p);
+      n++;
+    }
+    else
+      ++p;
+  }
+  return n;
 }
 
-// Buscar todos los eventos históricos que contengan acontecimientos que
-// contengan "key"
+// Buscar todos los eventos históricos que contengan acontecimientos que contengan 'key'
 vector<EventoHistorico> Cronologia::buscarPorClave (string key) const
 {
   vector<EventoHistorico> e;
   EventoHistorico tmp;
   for (vector<EventoHistorico>::const_iterator p = c.begin(); p != c.end(); ++p)
   {
-    tmp.addEvento(p->buscarPorClave(key));
-    e.push_back(tmp);
+    vector<Acontecimiento> v;
+    v = p->buscarPorClave(key);
+    if (v.size() != 0)
+    {
+      tmp.setFecha(p->getFecha());
+      tmp.setEvento(v);
+      e.push_back(tmp);
+    }
   }
-
   return e;
 }
 

@@ -1,8 +1,8 @@
 /**
-  * @file eventoHistorico.hpp
-  * @brief Fichero cabecera del TDA EventoHistorico
-  *
-  */
+ * @file eventoHistorico.hpp
+ * @brief Fichero cabecera del TDA EventoHistorico
+ *
+ */
 
 #ifndef  __EVENTO_HISTORICO_HPP__
 #define  __EVENTO_HISTORICO_HPP__
@@ -23,38 +23,38 @@
 typedef std::string Acontecimiento;
 
 /**
-  * @brief T.D.A. Fecha
-  *
-  * Una instancia @e f del tipo de datos abstracto @c Fecha es un objeto del conjunto
-  * de los años del calendario Gregoriano, compuesto por un entero @e anio y un booleano @e dc que
-  * representan, respectivamente, un año, y si ese año es Antes de Cristo (0), o
-  * Despues de Cristo (1). Lo representamos:
-  *
-  * anio, dc
-  *
-  * @author Miguel Lentisco Ballesteros
-  * @author Jose María Martín Luque
-  * @author Antonio Coín Castro
-  * @date Octubre 2016
-  *
-  */
+ * @brief T.D.A. Fecha
+ *
+ * Una instancia @e f del tipo de datos abstracto @c Fecha es un objeto del conjunto
+ * de los años del calendario Gregoriano, compuesto por un entero @e anio y un booleano @e dc que
+ * representan, respectivamente, un año, y si ese año es Antes de Cristo (0), o
+ * Despues de Cristo (1). Lo representamos:
+ *
+ * anio, dc
+ *
+ * @author Miguel Lentisco Ballesteros
+ * @author Jose María Martín Luque
+ * @author Antonio Coín Castro
+ * @date Octubre 2016
+ *
+ */
 
 struct Fecha
 {
-/**
-  * @page repConjunto1 Rep del TDA Fecha
-  *
-  * @section invConjunto1 Invariante de la representación
-  *
-  * El invariante es \e rep.anio >= 0.
-  *
-  * @section faConjunto1 Función de abstracción
-  *
-  * Un objeto válido @e rep del TDA Fecha representa al valor
-  *
-  * (rep.anio, rep.dc)
-  *
-  */
+  /**
+   * @page repConjunto1 Rep del TDA Fecha
+   *
+   * @section invConjunto1 Invariante de la representación
+   *
+   * El invariante es \e rep.anio >= 0.
+   *
+   * @section faConjunto1 Función de abstracción
+   *
+   * Un objeto válido @e rep del TDA Fecha representa al valor
+   *
+   * (rep.anio, rep.dc)
+   *
+   */
 
   int anio;   /**< año del calendario*/
   bool dc;    /**< AC ó DC */
@@ -75,40 +75,40 @@ struct Fecha
 
 
 /**
-  * @brief T.D.A. EventoHistorico
-  *
-  * Una instancia @e e del tipo de datos abstracto @c EventoHistorico es un objeto que
-  * representa un evento hisórico sucedido en un año en concreto. Está compuesto por
-  * una Fecha @e f y un vector @e evento de n Acontecimientos, que representan, respectivamente, el
-  * año en el que sucede el evento histórico, y el conjunto (finito) de acontecimientos
-  * sucecidos. Lo representamos:
-  *
-  * fecha, <acontecimiento_1, acontecimiento_2, ..., acontecimiento_n>
-  *
-  * @author Miguel Lentisco Ballesteros
-  * @author Jose María Martín Luque
-  * @author Antonio Coín Castro
-  * @date Octubre 2016
-  *
-  */
+ * @brief T.D.A. EventoHistorico
+ *
+ * Una instancia @e e del tipo de datos abstracto @c EventoHistorico es un objeto que
+ * representa un evento hisórico sucedido en un año en concreto. Está compuesto por
+ * una Fecha @e f y un vector @e evento de n Acontecimientos, que representan, respectivamente, el
+ * año en el que sucede el evento histórico, y el conjunto (finito) de acontecimientos
+ * sucecidos. Lo representamos:
+ *
+ * fecha, <acontecimiento_1, acontecimiento_2, ..., acontecimiento_n>
+ *
+ * @author Miguel Lentisco Ballesteros
+ * @author Jose María Martín Luque
+ * @author Antonio Coín Castro
+ * @date Octubre 2016
+ *
+ */
 
 class EventoHistorico
 {
   private:
-    /**
-      * @page repConjunto2 Rep del TDA EventoHistorico
-      *
-      * @section invConjunto2 Invariante de la representación
-      *
-      * El invariante es \e rep. f.anio >= 0.
-      *
-      * @section faConjunto2 Función de abstracción
-      *
-      * Un objeto válido @e rep del TDA EventoHistorico representa al valor
-      *
-      * (rep.f, rep.evento)
-      *
-      */
+      /**
+       * @page repConjunto2 Rep del TDA EventoHistorico
+       *
+       * @section invConjunto2 Invariante de la representación
+       *
+       * El invariante es \e rep. f.anio >= 0.
+       *
+       * @section faConjunto2 Función de abstracción
+       *
+       * Un objeto válido @e rep del TDA EventoHistorico representa al valor
+       *
+       * (rep.f, rep.evento)
+       *
+       */
 
       Fecha f;                              /**< año */
       std::vector<Acontecimiento> evento;   /**< acontecimientos */
@@ -234,6 +234,7 @@ class EventoHistorico
        * @brief Mostrar el objeto implícito (evento histórico) en un flujo de salida
        * @param  os Flujo de salida
        * @post El formato de escritura es el mismo que el de lectura
+       * 
        * @see cargarEvento
        */
       std::ostream& mostrarEvento(std::ostream& os) const;
@@ -258,6 +259,7 @@ class EventoHistorico
  * @retval EventoHistorico leído en @e e
  * @pre El formato de lecura es el siguiente, donde 1 repesenta DC, y 0 representa AC:
  *      1/0#Año#acontecimiento_1#acontecimiento_2# ...#acontecimiento_n
+ *
  * @relates EventoHistorico
  */
 std::istream& operator>>(std::istream& is, EventoHistorico& e);
@@ -268,6 +270,7 @@ std::istream& operator>>(std::istream& is, EventoHistorico& e);
  * @param e Evento histórico a escribir
  * @post El formato de escritura es el mismo que el de lectura
  * @see operator>>
+ *
  * @relates EventoHistorico
  */
 std::ostream& operator<<(std::ostream& os, const EventoHistorico& e);

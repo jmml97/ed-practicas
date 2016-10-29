@@ -1,8 +1,8 @@
 /**
-  * @file cronologia.hpp
-  * @brief Fichero cabecera del TDA Cronologia
-  *
-  */
+ * @file cronologia.hpp
+ * @brief Fichero cabecera del TDA Cronologia
+ *
+ */
 
 #ifndef __CRONOLOGIA_HPP__
 #define  __CRONOLOGIA_HPP__
@@ -11,6 +11,21 @@
 #include <vector>
 #include "eventoHistorico.hpp"
 
+
+/**
+ * @brief T.D.A. Cronología
+ *
+ * blablabla
+ *
+ * Un ejemplo de su uso:
+ * @include usoCronologia.cpp
+ *
+ * @author Miguel Lentisco Ballesteros
+ * @author Jose María Martín Luque
+ * @author Antonio Coín Castro
+ * @date Octubre 2016
+ *
+ */
 class Cronologia
 {
   private:
@@ -25,18 +40,21 @@ class Cronologia
     void ordenar(); // ordenar vector completo por fecha
 
   public:
-    Cronologia(std::vector<EventoHistorico> v); //pre: vector ordenado
+    Cronologia() {} // constructor vacío: no tiene ningún efecto
+    Cronologia(const std::vector<EventoHistorico>& v);
 
     // Get & Set
     std::vector<EventoHistorico> getCronologia() const { return c; }
     EventoHistorico getEventoHistorico(Fecha f) const;  //pre: está en el vector
-    void setCronologia(std::vector<EventoHistorico> v) { this->c = v; }
-    bool addEventoHistorico(EventoHistorico e); // merge
-    void addEventoHistorico(std::vector<EventoHistorico> v);   // merge
-    void addCronologia(const Cronologia& cron);
+    std::vector<Acontecimiento> getAcontecimientos(Fecha f) const;  // pre: está en el vector
+    void setCronologia(const std::vector<EventoHistorico>& v);
+    void setEventoHistorico(const std::vector<Acontecimiento>& v, Fecha f); // pre: está en el vector
+    void addEventoHistorico(const EventoHistorico& e); // mezcla; no quedan repetidos
+    void addEventoHistorico(const std::vector<EventoHistorico>& v);   // mezcla; no quedan repetidos
+    void mezclarCronologia(const Cronologia& cron);
 
     // Ver si hay un E.H. con la fecha determinada
-    bool contieneFecha(Fecha f) const;  // (IMPLEMENTAR)
+    bool contieneFecha(Fecha f) const;
 
     // Eliminar
     bool eliminarEvento(Fecha f);  // elimina el que coincida
