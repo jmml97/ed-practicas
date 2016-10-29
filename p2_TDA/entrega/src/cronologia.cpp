@@ -194,7 +194,7 @@ istream& Cronologia::cargarCronologia(istream& is)
 {
   EventoHistorico tmp;
   vector<EventoHistorico> v;
-  while(is)
+  while(!is.eof())
   {
     tmp.cargarEvento(is);
     v.push_back(tmp);
