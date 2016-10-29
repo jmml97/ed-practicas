@@ -10,18 +10,6 @@
 
 using namespace std;
 
-  /*
-     Quedan por probar estos métodos:
-
-     - void addEventoHistorico(const EventoHistorico& e);
-     - void addEventoHistorico(const std::vector<EventoHistorico>& v);
-       (PASÁNDOLE UN VECTOR DESORDENADO, QUE INCLUYA AÑOS A.C.)
-
-     - int eliminarPorClave (std::string key);
-
-     - std::vector<EventoHistorico> buscarPorClave (std::string key) const;
-  */
-
 int main(int argc, char * argv[])
 {
   if (argc != 3) {
@@ -93,17 +81,45 @@ int main(int argc, char * argv[])
   cout << endl;
 
 
+  // Añadir EventoHistorico
 
+  cout << "Probemos ahora a añadir un EventoHistorico a nuestra cronología:" << endl;
 
+  Fecha mi_fecha1(1978);
+  vector<string> acontecimientos1 = {"Constitución Española", "La OMS declara oficialmente que la viruela ha sido erradicada"};
+  EventoHistorico mi_evento1(mi_fecha1, acontecimientos1);
 
+  cronologia_1.addEventoHistorico(mi_evento1);
+  cronologia_1.prettyPrint();
 
-  // Probar el resto de métodos
+  cout << "Ahora probamos a añadir un vector de EventoHistorico (desordenados)" << endl;
 
+  Fecha mi_fecha2(1492);
+  vector<string> acontecimientos2 = {"Los Reyes Católicos toman Granada", "Cristobal Colón '''descubre''' América"};
+  EventoHistorico mi_evento3(mi_fecha2, acontecimientos2);
 
+  Fecha mi_fecha3(492);
+  mi_fecha3.dc=0;
+  vector<string> acontecimientos3 = {"Mardonio de Persia reconquista Tracia y ocupa Macedonia", "Comienzan las Guerras Médicas entre persas y griegos"};
+  EventoHistorico mi_evento2(mi_fecha3, acontecimientos3);
 
+  vector<EventoHistorico> mis_eventos;
+  mis_eventos.push_back(mi_evento2);
+  mis_eventos.push_back(mi_evento3);
 
+  cronologia_1.addEventoHistorico(mis_eventos);
 
+  // eliminarPorClave
 
+  cout << "Ahora pronamos a eliminar por clave. Probamos a eliminar los que contengan 'of' y devolvemos el número de elementos eliminados." << cronologia_1.eliminarPorClave("of") << endl;
+
+  // buscarPorClave
+
+  cout << "Probamos ahora a mostrar solo los eventos de cronologia_1 que contengan la palabra 'Grecia' (debería salir solo uno):" << endl;
+  std::vector<EventoHistorico> resultado_busqueda = cronologia_1.buscarPorClave("Grecia");
+
+  Cronologia cron_resultados_busqueda(resultado_busqueda);
+  cron_resultados_busqueda.prettyPrint();
 
   cout << "Mezclemos ambas cronologías, y además veamos la cronología resultante "
        << "invertida (en formato archivo): " << endl;

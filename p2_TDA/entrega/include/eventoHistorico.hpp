@@ -184,7 +184,7 @@ class EventoHistorico
        * @brief Añade un evento al vector de acontecimientos, en caso de que
        * no estuviera ya presente
        * @param  a @c Acontecimiento a añadir
-       * @retval true Si se ha añadido
+       * @retval true Si se ha añ4adido
        * @retval false Si no se ha añadido (ya estaba presente)
        */
       bool addEvento(Acontecimiento a);
@@ -269,7 +269,7 @@ std::istream& operator>>(std::istream& is, EventoHistorico& e);
  * @param os Flujo de salida
  * @param e Evento histórico a escribir
  * @post El formato de escritura es el mismo que el de lectura
- * 
+ *
  * @see operator>>
  * @relates EventoHistorico
  */

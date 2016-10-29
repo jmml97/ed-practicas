@@ -24,7 +24,7 @@ LDLIBS    = -l$(LIBNAME)
 all: $(BIN)/usoCronologia
 
 $(BIN)/usoCronologia : $(OBJ)/usoCronologia.o $(LIB)/lib$(LIBNAME).a
-	$(CXX) $(LDFLAGS)-o $@ $^ $(LDLIBS)
+	$(CXX) $(LDFLAGS) -o $@ $^ $(LDLIBS)
 
 $(LIB)/lib$(LIBNAME).a : $(OBJ)/eventoHistorico.o $(OBJ)/cronologia.o
 	ar rvs $@ $^
