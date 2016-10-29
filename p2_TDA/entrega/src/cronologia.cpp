@@ -133,26 +133,32 @@ EventoHistorico Cronologia::getEventoHistorico(Fecha f) const
 
 bool Cronologia::addEventoHistorico(EventoHistorico e)
 {
-
+  c.push_back(e);
+  ordenar();
 }
 
 void Cronologia::addEventoHistorico(std::vector<EventoHistorico> v)
 {
-
+  c.insert(c.end(), v.begin(), v.end());
+  ordenar();
 }
 
 void Cronologia::addCronologia(const Cronologia& cron)
 {
-
+  c.insert(c.end(), cron.c.begin(), cron.c.end());
+  ordenar();
 }
 
 bool Cronologia::contieneFecha(Fecha f) const
 {
+  bool encontrado = false;
+  for (vector<EventoHistorico>::const_iterator p = c.begin(); p != c.end(); ++p)
+  {
+    encontrado = p->getFecha().anio == f.anio && p->getFecha().dc == f.dc;
+  }
 
+  return encontrado;
 }
-
-
-
 
 // Cargar Cronologia desde un flujo de entrada
 istream& Cronologia::cargarCronologia(istream& is)
