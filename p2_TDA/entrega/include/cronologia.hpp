@@ -22,8 +22,6 @@
  *
  * <eventoHistorico_1, eventoHistorico_2, ..., eventoHistorico_n>
  *
- * Un ejemplo de su uso:
- * @include usoCronologia.hpp
  *
  * @author Miguel Lentisco Ballesteros
  * @author Jose María Martín Luque
@@ -101,7 +99,7 @@ class Cronologia
     std::vector<EventoHistorico> getCronologia() const { return c; }
 
     /**
-     * @brief Acceder a un EventoHistorico del vector @c c
+     * @brief Accede a un EventoHistorico del vector @c c
      * @param f @c Fecha del EventoHistorico a consultar
      * @return El EventoHistorico asociado a la fecha
      * @pre Debe haber en el vector @e c un EventoHistorico que tenga a f
@@ -128,15 +126,13 @@ class Cronologia
     /**
      * @brief Modifica un EventoHistorico de la Cronologia
      * @param v @c Vector de Acontecimiento, f @c Fecha del EventoHistorico
-     * @post El EventoHistorico asociado a la Fecha f contiene los acontecimientos
-     *       del vector v
-     * @pre Debe haber en el vector @e c un EventoHistorico que tenga a f
-     *      por Fecha
+     * @post El EventoHistorico asociado a la Fecha f contiene los acontecimientos del vector v
+     * @pre Debe haber en el vector @e c un EventoHistorico que tenga a f por Fecha
      */
     void setEventoHistorico(const std::vector<Acontecimiento>& v, Fecha f);
 
     /**
-     * @brief Añade un EventoHistorico al vector @c
+     * @brief Añade un EventoHistorico al vector @c c.
      * @param  e @c EventoHistorico a añadir
      * @post Si no estaba ya presente, el nuevo EventoHistorico @e e está en @e c.
      *       En caso contrario, se mezclan los acontecimientos de los vectores de
@@ -194,7 +190,7 @@ class Cronologia
     std::vector<EventoHistorico> buscarPorClave (std::string key) const;
 
     /**
-     * @brief Leer una cronologia desde un flujo de entrada
+     * @brief Leer una cronología desde un flujo de entrada
      * @param  is Flujo de entrada
      * @post Cronología leída en el objeto implícito
      * @pre El formato de lecura es el siguiente:
