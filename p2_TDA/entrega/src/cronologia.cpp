@@ -17,58 +17,55 @@ using namespace std;
 vector<EventoHistorico>::iterator Cronologia::busquedaBinaria(Fecha f)
 {
   int med;
-  int inf = 0;
-  int sup = c.size() - 1;
-  bool enc = false;
-  EventoHistorico aux(f);
+    int inf = 0;
+    int sup = c.size() - 1;
+    bool enc = false;
 
-  while ((inf<sup) && (!enc))
-  {
-    med = (inf + sup) / 2;
-    EventoHistorico tmp = c[med];
-    Fecha ff = tmp.getFecha();
-    if (ff.anio == f.anio && ff.dc == f.dc)
-      enc = true;
-    else if (eventoMasReciente(aux,tmp))
-      inf = med + 1;
+    while ((inf<sup) && (!enc))
+    {
+        med = (inf + sup) / 2;
+        Fecha aux = c[med].getFecha();
+        if (aux.anio == f.anio && aux.dc == f.dc)
+            enc = true;
+        else if ((aux.dc < f.dc) || (f.dc && aux.anio < f.anio)
+                    || !(aux.dc && aux.anio > f.anio))
+            inf = med + 1;
+        else
+            sup = med - 1;
+    }
+
+    if (enc)
+        return c.begin() + med;
     else
-      sup = med - 1;
-  }
-
-  if (enc)
-      return c.begin() + med;
-  else
-      return c.end();
+        return c.end();
 }
 
 // Buscar un EventoHistorico por fecha, y devolver iterador constante
 vector<EventoHistorico>::const_iterator Cronologia::busquedaBinaria(Fecha f) const
 {
   int med;
-  int inf = 0;
-  int sup = c.size() - 1;
-  bool enc = false;
-  EventoHistorico aux(f);
+    int inf = 0;
+    int sup = c.size() - 1;
+    bool enc = false;
 
-  while ((inf<sup) && (!enc))
-  {
-    med = (inf + sup) / 2;
-    EventoHistorico tmp = c[med];
-    Fecha ff = tmp.getFecha();
-    if (ff.anio == f.anio && ff.dc == f.dc)
-      enc = true;
-    else if (eventoMasReciente(aux,tmp))
-      inf = med + 1;
+    while ((inf<sup) && (!enc))
+    {
+        med = (inf + sup) / 2;
+        Fecha aux = c[med].getFecha();
+        if (aux.anio == f.anio && aux.dc == f.dc)
+            enc = true;
+        else if ((aux.dc < f.dc) || (f.dc && aux.anio < f.anio)
+                    || !(aux.dc && aux.anio > f.anio))
+            inf = med + 1;
+        else
+            sup = med - 1;
+    }
+
+    if (enc)
+        return c.begin() + med;
     else
-      sup = med - 1;
-  }
-
-  if (enc)
-      return c.begin() + med;
-  else
-      return c.end();
+        return c.end();
 }
-
 
 // Ordenar vector this->c por fecha
 void Cronologia::ordenar()

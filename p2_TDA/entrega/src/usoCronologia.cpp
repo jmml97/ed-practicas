@@ -104,8 +104,8 @@ int main(int argc, char * argv[])
   // eliminarPorClave
   cout << "Ahora probamos a eliminar por clave. Eliminamos los que contengan 'of' y "
        << "devolvemos el número de eventos eliminados.\n";
-  //int n = cronologia_1.eliminarPorClave("of");
-  //cout << "Eliminados: " << n << ".\n";
+  int n = cronologia_1.eliminarPorClave("of");
+  cout << "Eliminados: " << n << ".\n";
   cronologia_1.prettyPrint();
   cout << endl;
 
