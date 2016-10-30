@@ -49,7 +49,7 @@ EventoHistorico::EventoHistorico(Fecha f)
 }
 
 // Constructor con dos parámetros
-EventoHistorico::EventoHistorico(Fecha f, vector<Acontecimiento> a)
+EventoHistorico::EventoHistorico(Fecha f, const vector<Acontecimiento>& a)
   : EventoHistorico(f)
 {
   setEvento(a);
@@ -75,9 +75,9 @@ bool EventoHistorico::addEvento(Acontecimiento a)
 }
 
 // Mezclar Acontecimientos
-void EventoHistorico::addEvento(vector<Acontecimiento> a)
+void EventoHistorico::addEvento(const vector<Acontecimiento>& a)
 {
-  for (vector<Acontecimiento>::iterator p = a.begin(); p != a.end(); ++p)
+  for (vector<Acontecimiento>::const_iterator p = a.begin(); p != a.end(); ++p)
     addEvento(*p);
 }
 

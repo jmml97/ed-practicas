@@ -147,7 +147,7 @@ class EventoHistorico
        * @pre f.anio >= 0
        * @pre Los elementos del vector @e a no deben estar repetidos
        */
-      EventoHistorico(Fecha f, std::vector<Acontecimiento> a);
+      EventoHistorico(Fecha f, const std::vector<Acontecimiento>& a);
 
       // EventoHistorico(EventoHistorico e);
       // EventoHistorico~() {}
@@ -178,7 +178,7 @@ class EventoHistorico
        * @param a Nuevo vector
        * @return Sustituye el vector this->evento por a
        */
-      void setEvento(std::vector<Acontecimiento> a) { this->evento = a; }
+      void setEvento(const std::vector<Acontecimiento>& a) { this->evento = a; }
 
       /**
        * @brief Añade un evento al vector de acontecimientos, en caso de que
@@ -195,7 +195,7 @@ class EventoHistorico
        * @param  a @c Vector a mezclar
        * @post this->evento no contiene elementos repetidos
        */
-      void addEvento(std::vector<Acontecimiento> a);
+      void addEvento(const std::vector<Acontecimiento>& a);
 
       /**
        * @brief Elimina un acontecimiento del vector @e evento

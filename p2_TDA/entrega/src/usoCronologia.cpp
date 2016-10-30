@@ -36,50 +36,57 @@ int main(int argc, char * argv[])
   // Construimos una cronología a partir de un vector de Eventos
   Cronologia cronologia_2(precronologia_2.getCronologia());
 
+  // Probar métodos getPrimero() y getUltimo()
+  Fecha primero = cronologia_1.getPrimero();
+  Fecha ultimo = cronologia_1.getUltimo();
+  cout << "La cronología 1 está comprendida entre los años "
+       << primero.anio << (primero.dc ? " DC" : " AC") << " y "
+       << ultimo.anio << (ultimo.dc ? " DC" : " AC") << ".\n";
+
   // Consultar los acontecimientos de un año en concreto
   cout << "Veamos los acontecimientos que sucedieron en un año en concreto." << endl;
-  cout<<"Dime un año a consultar:";
-  int anio;
+  cout<<"Dime un año a consultar (<DC/AC> <año>):";
+  Fecha aux;
   do {
-    cin >> anio;
-    if (!cronologia_1.contieneFecha(anio))
+    cin >> aux.dc;
+    cin >> aux.anio;
+    if (!cronologia_1.contieneFecha(aux))
       cout << "Ese año no está en la cronología. Prueba otra vez: ";
-  } while (!cronologia_1.contieneFecha(anio));
+  } while (!cronologia_1.contieneFecha(aux));
 
   cout << "Cogemos el Evento Histórico de ese año, y lo escribimos." << endl;
-  EventoHistorico e = cronologia_1.getEventoHistorico(anio);
+  EventoHistorico e = cronologia_1.getEventoHistorico(aux.anio);
   cout << e;
   cout << endl << endl;
 
   cout << "También podríamos quedarnos solo con el vector de Acontecimientos, y "
        << "el resultado de la impresión sería el mismo:" << endl;
-  vector<Acontecimiento> eventos = cronologia_1.getAcontecimientos(anio);
+  vector<Acontecimiento> eventos = cronologia_1.getAcontecimientos(aux.anio);
   for (unsigned int i = 0; i < eventos.size(); ++i)
     cout << "- " << eventos[i] << endl;
   cout << endl;
 
   // Modificar acontecimientos de un evento histórico de la cronología
-  // También probamos el struct Fecha
   cout << "Modifiquemos ese acontecimiento en particular.\n";
   vector<Acontecimiento> nuevo;
-  Fecha fecha(anio);
   nuevo.push_back("Aquí no pasó nada interesante.");
-  cronologia_1.setEventoHistorico(nuevo, fecha);
+  cronologia_1.setEventoHistorico(nuevo, aux);
 
   // Imprimir una cronología:
-  cout << "Veamos la cronología 1, con sus modificaciones en el año " << anio << ":\n";
+  cout << "Veamos la cronología 1, con sus modificaciones en el año "
+       << aux.anio << (aux.dc ? " DC." : " AC.") << "\n";
   cronologia_1.prettyPrint();
 
   // Eliminar un elemento
-  cout << "Eliminemos ahora el Evento Histórico completo (año " << anio << "), y veamos el resultado:\n";
-  cronologia_1.eliminarEvento(fecha);
+  cout << "Eliminemos ahora el Evento Histórico completo (año "
+       << aux.anio << (aux.dc ? " DC" : " AC") << "), y veamos el resultado:\n";
+  cronologia_1.eliminarEvento(aux);
   cronologia_1.prettyPrint();
 
   // Añadir EventoHistorico
   cout << "Probemos ahora a añadir un EventoHistorico a nuestra cronología:" << endl;
-  Fecha mi_fecha1(1978);
   vector<string> acontecimientos1 = {"Constitución Española", "La OMS declara oficialmente que la viruela ha sido erradicada"};
-  EventoHistorico mi_evento1(mi_fecha1, acontecimientos1);
+  EventoHistorico mi_evento1(1978, acontecimientos1); // Conversión implícita de entero a Fecha
   cronologia_1.addEventoHistorico(mi_evento1);
   cronologia_1.prettyPrint();
 
@@ -89,7 +96,7 @@ int main(int argc, char * argv[])
   EventoHistorico mi_evento3(mi_fecha2, acontecimientos2);
 
   Fecha mi_fecha3(492);
-  mi_fecha3.dc=0;
+  mi_fecha3.dc = 0;
   vector<string> acontecimientos3 = {"Mardonio de Persia reconquista Tracia y ocupa Macedonia", "Comienzan las Guerras Médicas entre persas y griegos"};
   EventoHistorico mi_evento2(mi_fecha3, acontecimientos3);
 

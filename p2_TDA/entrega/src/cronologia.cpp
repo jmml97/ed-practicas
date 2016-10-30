@@ -21,14 +21,14 @@ vector<EventoHistorico>::iterator Cronologia::busquedaBinaria(Fecha f)
     int sup = c.size() - 1;
     bool enc = false;
 
-    while ((inf<sup) && (!enc))
+    while ((inf<=sup) && (!enc))
     {
         med = (inf + sup) / 2;
         Fecha aux = c[med].getFecha();
         if (aux.anio == f.anio && aux.dc == f.dc)
             enc = true;
         else if ((aux.dc < f.dc) || (f.dc && aux.anio < f.anio)
-                    || !(aux.dc && aux.anio > f.anio))
+                    || (!aux.dc && aux.anio > f.anio))
             inf = med + 1;
         else
             sup = med - 1;
@@ -48,14 +48,14 @@ vector<EventoHistorico>::const_iterator Cronologia::busquedaBinaria(Fecha f) con
     int sup = c.size() - 1;
     bool enc = false;
 
-    while ((inf<sup) && (!enc))
+    while ((inf<=sup) && (!enc))
     {
         med = (inf + sup) / 2;
         Fecha aux = c[med].getFecha();
         if (aux.anio == f.anio && aux.dc == f.dc)
             enc = true;
         else if ((aux.dc < f.dc) || (f.dc && aux.anio < f.anio)
-                    || !(aux.dc && aux.anio > f.anio))
+                    || (!aux.dc && aux.anio > f.anio))
             inf = med + 1;
         else
             sup = med - 1;
@@ -93,6 +93,18 @@ std::vector<Acontecimiento> Cronologia::getAcontecimientos(Fecha f) const
   return getEventoHistorico(f).getEvento();
 }
 
+// Acceder al primer año
+Fecha Cronologia::getPrimero() const
+{
+  return c[0].getFecha();
+}
+
+// Acceder al último año
+Fecha Cronologia::getUltimo() const
+{
+  return c[c.size()-1].getFecha();
+}
+
 // Modificar el vector this->c
 void Cronologia::setCronologia(const std::vector<EventoHistorico>& v)
 {
@@ -103,7 +115,7 @@ void Cronologia::setCronologia(const std::vector<EventoHistorico>& v)
 // Modificar el evento histórico asociado a la fecha f
 void Cronologia::setEventoHistorico(const vector<Acontecimiento>& v, Fecha f)
 {
-  getEventoHistorico(f).setEvento(v);
+  busquedaBinaria(f)->setEvento(v);
 }
 
 // Añadir un evento histórico a la cronología
@@ -112,7 +124,8 @@ void Cronologia::addEventoHistorico(const EventoHistorico& e)
   if (contieneFecha(e.getFecha()))
   {
     vector<EventoHistorico>::iterator p = busquedaBinaria(e.getFecha());
-    p->addEvento(e.getEvento());
+    vector<Acontecimiento> s = e.getEvento();
+    p->addEvento(s);
   }
   else
   {

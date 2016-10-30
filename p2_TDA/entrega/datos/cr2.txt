@@ -1,12 +1,4 @@
-1#1900#Sherlock Holmes Baffled#The Enchanted Drawing
-1#1901#Star Theatre#Scrooge, or, Marley's Ghost
-1#1902#A Trip to the Moon
-1#1903#The Great Train Robbery#Life of an American Fireman
-1#1904#The Impossible Voyage
-1#1905#Adventures of Sherlock Holmes; or, Held for Ransom
-1#1906#The Story of the Kelly Gang#Humorous Phases of Funny Faces#Dream of a Rarebit Fiend
-1#1907#Ben Hur#L'Enfant prodigue
-1#1908#Fantasmagorie#The Taming of the Shrew#The Thieving Hand#The Assassination of the Duke of Guise#A Visit to the Seaside
-1#1909#The Country Doctor#A Corner in Wheat#Les Misérables#Princess Nicotine; or, The Smoke Fairy
-1#1910#In Old California
-1#1911#L'Inferno#Defence of Sevastopol
+1#1904#Walther Nernst: Third law of thermodynamics
+1#1916#Jmml se presenta a las elecciones.
+1#1931#Friedrich Hayek elaborated the "Austrian Theory of the Business Cycle". He argued that the business cycle resulted from the central bank's inflationary credit expansion and its transmission over time, leading to a capital misallocation caused by the artificially low interest rates#Kurt Gödel stated the incompleteness theorem which states that for any self-consistent recursive axiomatic system powerful enough to describe the arithmetic of the natural numbers (for example Peano arithmetic), there are true propositions about the naturals that cannot be proved from the axioms
+1#1934#James Chadwick: Discovery of the neutron#Karl Popper emphasized the idea of Falsifiability as the criterion demarcating science from non-science

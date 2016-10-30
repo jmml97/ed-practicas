@@ -119,6 +119,20 @@ class Cronologia
     std::vector<Acontecimiento> getAcontecimientos(Fecha f) const;
 
     /**
+     * @brief Acceder al primer año de la cronología
+     * @return Una @c Fecha que representa el primer año en la cronología
+     * (objeto implícito)
+     */
+    Fecha getPrimero() const;
+
+    /**
+     * @brief Acceder al último año de la cronología
+     * @return Una @c Fecha que representa el último año en la cronología
+     * (objeto implícito)
+     */
+    Fecha getUltimo() const;
+
+    /**
      * @brief Modificar vector de EventoHistorico
      * @param v @c Nuevo vector
      * @return Sustituye el vector this->c por v
