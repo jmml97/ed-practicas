@@ -16,55 +16,57 @@ using namespace std;
 // Buscar un EventoHistorico por fecha
 vector<EventoHistorico>::iterator Cronologia::busquedaBinaria(Fecha f)
 {
-    int med;
-    int inf = 0;
-    int sup = c.size() - 1;
-    bool enc = false;
+  int med;
+  int inf = 0;
+  int sup = c.size() - 1;
+  bool enc = false;
+  EventoHistorico aux(f);
 
-    while ((inf<sup) && (!enc))
-    {
-        med = (inf + sup) / 2;
-        Fecha aux = c[med].getFecha();
-        if (aux.anio == f.anio && aux.dc == f.dc)
-            enc = true;
-        else if ((aux.dc < f.dc) || (f.dc && aux.anio < f.anio)
-                    || (!aux.dc && aux.anio > f.anio))
-            inf = med + 1;
-        else
-            sup = med - 1;
-    }
-
-    if (enc)
-        return c.begin() + med;
+  while ((inf<sup) && (!enc))
+  {
+    med = (inf + sup) / 2;
+    EventoHistorico tmp = c[med];
+    Fecha ff = tmp.getFecha();
+    if (ff.anio == f.anio && ff.dc == f.dc)
+      enc = true;
+    else if (eventoMasReciente(aux,tmp))
+      inf = med + 1;
     else
-        return c.end();
+      sup = med - 1;
+  }
+
+  if (enc)
+      return c.begin() + med;
+  else
+      return c.end();
 }
 
 // Buscar un EventoHistorico por fecha, y devolver iterador constante
 vector<EventoHistorico>::const_iterator Cronologia::busquedaBinaria(Fecha f) const
 {
-    int med;
-    int inf = 0;
-    int sup = c.size() - 1;
-    bool enc = false;
+  int med;
+  int inf = 0;
+  int sup = c.size() - 1;
+  bool enc = false;
+  EventoHistorico aux(f);
 
-    while ((inf<sup) && (!enc))
-    {
-        med = (inf + sup) / 2;
-        Fecha aux = c[med].getFecha();
-        if (aux.anio == f.anio && aux.dc == f.dc)
-            enc = true;
-        else if ((aux.dc < f.dc) || (f.dc && aux.anio < f.anio)
-                    || (!aux.dc && aux.anio > f.anio))
-            inf = med + 1;
-        else
-            sup = med - 1;
-    }
-
-    if (enc)
-        return c.begin() + med;
+  while ((inf<sup) && (!enc))
+  {
+    med = (inf + sup) / 2;
+    EventoHistorico tmp = c[med];
+    Fecha ff = tmp.getFecha();
+    if (ff.anio == f.anio && ff.dc == f.dc)
+      enc = true;
+    else if (eventoMasReciente(aux,tmp))
+      inf = med + 1;
     else
-        return c.end();
+      sup = med - 1;
+  }
+
+  if (enc)
+      return c.begin() + med;
+  else
+      return c.end();
 }
 
 
