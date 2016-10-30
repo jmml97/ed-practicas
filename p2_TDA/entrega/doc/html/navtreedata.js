@@ -29,7 +29,8 @@ var NAVTREE =
         [ "Funciones", "globals_func.html", null ],
         [ "'typedefs'", "globals_type.html", null ]
       ] ]
-    ] ]
+    ] ],
+    [ "Ejemplos", "examples.html", "examples" ]
   ] ]
 ];
 

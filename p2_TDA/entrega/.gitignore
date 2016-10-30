@@ -3,5 +3,6 @@ obj/*
 lib*
 *~
 src/*~
+src/test*
 include/*~
 .clang_complete

@@ -14,6 +14,8 @@ var classCronologia =
     [ "getAcontecimientos", "classCronologia.html#adaed47498612a9f96e72c5581c4b6730", null ],
     [ "getCronologia", "classCronologia.html#aa8f14e5f9df2f5133d24fc37be42de7e", null ],
     [ "getEventoHistorico", "classCronologia.html#a01d119f914b3526c7f2d6d516d20a539", null ],
+    [ "getPrimero", "classCronologia.html#a1de25c474b73e8d80bc96e8298de44d8", null ],
+    [ "getUltimo", "classCronologia.html#a85709d4206762cf7218a0ce42a35bda7", null ],
     [ "mezclarCronologia", "classCronologia.html#a0a357136f894807159473b374528044a", null ],
     [ "mostrarCronologia", "classCronologia.html#a942e15216dca50eac8b042dc594c9642", null ],
     [ "mostrarCronologiaInversa", "classCronologia.html#aab8cf5f6ab3001f9753c4dbe384718e9", null ],

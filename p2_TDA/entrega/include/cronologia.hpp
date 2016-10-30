@@ -2,6 +2,9 @@
  * @file cronologia.hpp
  * @brief Fichero cabecera del TDA Cronologia
  *
+ * Un ejemplo de su uso puede verse en:
+ * @example usoCronologia.cpp
+ *
  */
 
 #ifndef __CRONOLOGIA_HPP__
@@ -10,7 +13,6 @@
 #include <iostream>
 #include <vector>
 #include "eventoHistorico.hpp"
-
 
 /**
  * @brief T.D.A. Cronologia
@@ -21,7 +23,6 @@
  * acontecimientos que han tenido lugar en ese año. Lo representamos:
  *
  * <eventoHistorico_1, eventoHistorico_2, ..., eventoHistorico_n>
- *
  *
  * @author Miguel Lentisco Ballesteros
  * @author Jose María Martín Luque

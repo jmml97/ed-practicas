@@ -40,6 +40,7 @@
       <li><a href="pages.html"><span>Páginas&#160;relacionadas</span></a></li>
       <li class="current"><a href="annotated.html"><span>Clases</span></a></li>
       <li><a href="files.html"><span>Archivos</span></a></li>
+      <li><a href="examples.html"><span>Ejemplos</span></a></li>
     </ul>
   </div>
   <div id="navrow2" class="tabs2">
@@ -73,7 +74,7 @@ $(document).ready(function(){initNavTree('classEventoHistorico.html','');});
 <p>Lista completa de los miembros de <a class="el" href="classEventoHistorico.html">EventoHistorico</a>, incluyendo todos los heredados:</p>
 <table class="directory">
   <tr class="even"><td class="entry"><a class="el" href="classEventoHistorico.html#acf8668d64563963d2a60d7fe53807ef5">addEvento</a>(Acontecimiento a)</td><td class="entry"><a class="el" href="classEventoHistorico.html">EventoHistorico</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="classEventoHistorico.html#a222b42481284d78dd7fd2a059c8e2fe2">addEvento</a>(std::vector&lt; Acontecimiento &gt; a)</td><td class="entry"><a class="el" href="classEventoHistorico.html">EventoHistorico</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classEventoHistorico.html#a049cedf87c242446a669478f95e4b25e">addEvento</a>(const std::vector&lt; Acontecimiento &gt; &amp;a)</td><td class="entry"><a class="el" href="classEventoHistorico.html">EventoHistorico</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classEventoHistorico.html#a7e9b7861d6476d3e0b2c06f85a084055">buscarAcontecimiento</a>(Acontecimiento a)</td><td class="entry"><a class="el" href="classEventoHistorico.html">EventoHistorico</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
   <tr><td class="entry"><a class="el" href="classEventoHistorico.html#a04b44c01a0357d4c09a2de3de7867718">buscarPorClave</a>(std::string key) const </td><td class="entry"><a class="el" href="classEventoHistorico.html">EventoHistorico</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classEventoHistorico.html#ac97558352a287838654cc0f680e2c8af">cargarEvento</a>(std::istream &amp;is)</td><td class="entry"><a class="el" href="classEventoHistorico.html">EventoHistorico</a></td><td class="entry"></td></tr>
@@ -82,7 +83,7 @@ $(document).ready(function(){initNavTree('classEventoHistorico.html','');});
   <tr><td class="entry"><a class="el" href="classEventoHistorico.html#ad9bc534e3db6141b0c477dac25eecb4a">evento</a></td><td class="entry"><a class="el" href="classEventoHistorico.html">EventoHistorico</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classEventoHistorico.html#aa18223e87082dcdfc52699715bc23fc7">EventoHistorico</a>()</td><td class="entry"><a class="el" href="classEventoHistorico.html">EventoHistorico</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="classEventoHistorico.html#a9521174b282a32c64354315e65d8a921">EventoHistorico</a>(Fecha f)</td><td class="entry"><a class="el" href="classEventoHistorico.html">EventoHistorico</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classEventoHistorico.html#abe502adffa5f68a68315ab0078f4d482">EventoHistorico</a>(Fecha f, std::vector&lt; Acontecimiento &gt; a)</td><td class="entry"><a class="el" href="classEventoHistorico.html">EventoHistorico</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classEventoHistorico.html#af741c4e5f70d55c46db1d8dd438c6cfc">EventoHistorico</a>(Fecha f, const std::vector&lt; Acontecimiento &gt; &amp;a)</td><td class="entry"><a class="el" href="classEventoHistorico.html">EventoHistorico</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="classEventoHistorico.html#ac5d6e1adeb39a2ad6183aca6fd37e5f1">f</a></td><td class="entry"><a class="el" href="classEventoHistorico.html">EventoHistorico</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classEventoHistorico.html#aacde73f08b8326a7eaaaeadef647bc6b">getEvento</a>() const </td><td class="entry"><a class="el" href="classEventoHistorico.html">EventoHistorico</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr><td class="entry"><a class="el" href="classEventoHistorico.html#a280531d52e8bf96ce8a1269c30210cf7">getFecha</a>() const </td><td class="entry"><a class="el" href="classEventoHistorico.html">EventoHistorico</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
@@ -90,7 +91,7 @@ $(document).ready(function(){initNavTree('classEventoHistorico.html','');});
   <tr><td class="entry"><a class="el" href="classEventoHistorico.html#ac59ed7430b9ef428d224f8304fa6e6e9">operator&lt;&lt;</a>(std::ostream &amp;os, const EventoHistorico &amp;e)</td><td class="entry"><a class="el" href="classEventoHistorico.html">EventoHistorico</a></td><td class="entry"><span class="mlabel">related</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classEventoHistorico.html#af51e1c749e25897ae3aaf71f56643d2b">operator&gt;&gt;</a>(std::istream &amp;is, EventoHistorico &amp;e)</td><td class="entry"><a class="el" href="classEventoHistorico.html">EventoHistorico</a></td><td class="entry"><span class="mlabel">related</span></td></tr>
   <tr><td class="entry"><a class="el" href="classEventoHistorico.html#aa40f40c17e52875ca313c1941e5f4c6d">prettyPrint</a>(std::ostream &amp;os=std::cout) const </td><td class="entry"><a class="el" href="classEventoHistorico.html">EventoHistorico</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classEventoHistorico.html#a1741ac30a9b7227df3b4284a8d76294a">setEvento</a>(std::vector&lt; Acontecimiento &gt; a)</td><td class="entry"><a class="el" href="classEventoHistorico.html">EventoHistorico</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classEventoHistorico.html#a7cc7ae615e32734cc36854d9a0c89dc1">setEvento</a>(const std::vector&lt; Acontecimiento &gt; &amp;a)</td><td class="entry"><a class="el" href="classEventoHistorico.html">EventoHistorico</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr><td class="entry"><a class="el" href="classEventoHistorico.html#a5c0f2f88b49fac279f57cf0bf1e2c6fb">setFecha</a>(Fecha f)</td><td class="entry"><a class="el" href="classEventoHistorico.html">EventoHistorico</a></td><td class="entry"></td></tr>
 </table></div><!-- contents -->
 </div><!-- doc-content -->
