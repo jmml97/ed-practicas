@@ -56,8 +56,8 @@ struct Fecha
    *
    */
 
-  int anio;   /**< año del calendario*/
-  bool dc;    /**< AC ó DC */
+  int anio;   /**< Año del calendario*/
+  bool dc;    /**< Indica si el año es AC o DC */
 
   /**
    * @brief Constructor por defecto
@@ -67,7 +67,7 @@ struct Fecha
 
   /**
    * @brief Constructor de Fecha. Funciona como conversor implícito de 'int' a 'Fecha'
-   * @param n año
+   * @param n El año
    * @post Construye un objeto Fecha @e f con el año indicado, por defecto DC
    */
   Fecha(int n);
@@ -184,7 +184,7 @@ class EventoHistorico
        * @brief Añade un evento al vector de acontecimientos, en caso de que
        * no estuviera ya presente
        * @param  a @c Acontecimiento a añadir
-       * @retval true Si se ha añ4adido
+       * @retval true Si se ha añadido
        * @retval false Si no se ha añadido (ya estaba presente)
        */
       bool addEvento(Acontecimiento a);
