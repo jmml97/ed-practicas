@@ -132,11 +132,9 @@ istream& EventoHistorico::cargarEvento(istream& is)
   // Leer si es AC o DC
   getline(is, aux, SEP);
   fecha.dc = stoi(aux);
-  cerr << fecha.dc;
   // Leer el año
   getline(is, aux, SEP);
   fecha.anio = stoi(aux);
-    cerr << fecha.anio;
   // Leer el resto de la ĺínea
   getline(is, aux);
 
@@ -201,7 +199,7 @@ bool eventoMasReciente(const EventoHistorico& a, const EventoHistorico& b)
     Fecha f1 = a.getFecha();
     Fecha f2 = b.getFecha();
     return ((f1.dc < f2.dc) || (f2.dc && f1.anio <= f2.anio)
-            || (f1.dc && f1.anio >= f2.anio));
+            || !(f1.dc && f1.anio >= f2.anio));
 }
 
 /* Fin fichero: eventoHistorico.cpp */

@@ -6,6 +6,7 @@
 
 #include <iostream>
 #include <vector>
+#include <sstream>
 #include <cassert>
 #include <algorithm>
 #include "cronologia.hpp"
@@ -70,7 +71,7 @@ vector<EventoHistorico>::const_iterator Cronologia::busquedaBinaria(Fecha f) con
 // Ordenar vector this->c por fecha
 void Cronologia::ordenar()
 {
-  sort(c.begin(), c.end(), eventoMasReciente);
+  std::sort(c.begin(), c.end(), eventoMasReciente);
 }
 
 // Constructor de clase
@@ -194,19 +195,19 @@ istream& Cronologia::cargarCronologia(istream& is)
 {
   EventoHistorico tmp;
   vector<EventoHistorico> v;
-  while(!is.eof())
+  string s;
+  while(getline(is,s))
   {
-    tmp.cargarEvento(is);
+    istringstream ss(s);
+    tmp.cargarEvento(ss);
     v.push_back(tmp);
   }
 
-  if (is)
+  if (is.eof())
   {
     setCronologia(v);
+    ordenar();
   }
-
-  ordenar();
-
   return is;
 }
 

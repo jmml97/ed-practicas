@@ -31,7 +31,6 @@ int main(int argc, char * argv[])
   //Cargamos cronologías
   Cronologia cronologia_1, precronologia_2;
   f >> cronologia_1;
-  cerr << "llegaMain";
   g >> precronologia_2;
 
   // Construimos una cronología a partir de un vector de Eventos
