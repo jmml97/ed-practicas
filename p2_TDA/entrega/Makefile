@@ -17,6 +17,7 @@ CXXFLAGS  = -Wall -g -std=c++11 -c -I./$(INCLUDE) -DNDEBUG
 LDFLAGS   = -L./$(LIB)
 LDLIBS    = -l$(LIBNAME)
 
+
 # ****** Compilación de módulos **********
 
 .PHONY: all docs clean mrproper
@@ -38,16 +39,6 @@ $(OBJ)/eventoHistorico.o : $(SRC)/eventoHistorico.cpp $(INCLUDE)/eventoHistorico
 $(OBJ)/cronologia.o : $(SRC)/cronologia.cpp $(INCLUDE)/cronologia.hpp
 	$(CXX) $(CXXFLAGS) -o $@ $<
 
-test: $(BIN)/testEvento
-
-# --- Test ---
-$(BIN)/testEvento : $(OBJ)/testEvento.o $(OBJ)/eventoHistorico.o
-	$(CXX) -o $@ $^
-
-$(OBJ)/testEvento.o : $(SRC)/testEvento.cpp $(HPP_FILES)
-	$(CXX) $(CXXFLAGS) -o $@ $<
-
-
 
 # ************ Generación de documentación **************
 docs:
@@ -58,9 +49,9 @@ docs:
 # ************ Limpieza ************
 
 clean:
-	-@rm -f $(OBJ)/* $(LIB)/* $(SRC)/*~ $(INC)/*~ ./*~
+	-@rm -f $(OBJ)/* $(SRC)/*~ $(INC)/*~ ./*~
 	@echo "Limpiando..."
 
 mrproper: clean
-	-@rm -f $(BIN)/* $(DOC)/html/*
+	-@rm -f $(BIN)/* $(LIB)/* $(DOC)/html/*
 	@echo "Limpieza completada."
