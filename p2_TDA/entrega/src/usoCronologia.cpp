@@ -45,17 +45,15 @@ int main(int argc, char * argv[])
     if (!cronologia_1.contieneFecha(anio))
       cout << "Ese año no está en la cronología. Prueba otra vez: ";
   } while (!cronologia_1.contieneFecha(anio));
-  cout << endl;
 
   cout << "Cogemos el Evento Histórico de ese año, y lo escribimos." << endl;
   EventoHistorico e = cronologia_1.getEventoHistorico(anio);
   cout << e;
-  cout << endl;
+  cout << endl << endl;
 
-  cout << "También podríamos quedarnmos solo con el vector de Acontecimientos, y"
-       << "el resultado de la impresión sería el mismo." << endl;
+  cout << "También podríamos quedarnos solo con el vector de Acontecimientos, y "
+       << "el resultado de la impresión sería el mismo:" << endl;
   vector<Acontecimiento> eventos = cronologia_1.getAcontecimientos(anio);
-  cout << "Escribimos el evento histórico: " << endl;
   for (unsigned int i = 0; i < eventos.size(); ++i)
     cout << "- " << eventos[i] << endl;
   cout << endl;
@@ -67,18 +65,15 @@ int main(int argc, char * argv[])
   Fecha fecha(anio);
   nuevo.push_back("Aquí no pasó nada interesante.");
   cronologia_1.setEventoHistorico(nuevo, fecha);
-  cout << endl;
 
   // Imprimir una cronología:
-  cout << "Veamos la cronología 1, con sus modificaciones en el año " << anio << ".\n";
+  cout << "Veamos la cronología 1, con sus modificaciones en el año " << anio << ":\n";
   cronologia_1.prettyPrint();
-  cout << endl;
 
   // Eliminar un elemento
-  cout << "Eliminemos ahora el Evento Histórico completo (año " << anio << "), y veamos el resultado: ";
+  cout << "Eliminemos ahora el Evento Histórico completo (año " << anio << "), y veamos el resultado:\n";
   cronologia_1.eliminarEvento(fecha);
   cronologia_1.prettyPrint();
-  cout << endl;
 
   // Añadir EventoHistorico
   cout << "Probemos ahora a añadir un EventoHistorico a nuestra cronología:" << endl;
@@ -88,7 +83,7 @@ int main(int argc, char * argv[])
   cronologia_1.addEventoHistorico(mi_evento1);
   cronologia_1.prettyPrint();
 
-  cout << "Ahora probamos a añadir un vector de EventoHistorico (desordenados)" << endl;
+  cout << "Ahora probamos a añadir un vector de EventoHistorico (desordenados)." << endl;
   Fecha mi_fecha2(1492);
   vector<string> acontecimientos2 = {"Los Reyes Católicos toman Granada", "Cristobal Colón '''descubre''' América"};
   EventoHistorico mi_evento3(mi_fecha2, acontecimientos2);
@@ -105,19 +100,19 @@ int main(int argc, char * argv[])
   cronologia_1.addEventoHistorico(mis_eventos);
   cout << "Veamos que se han añadido los Eventos en orden correcto:\n";
   cronologia_1.prettyPrint();
-  cout << endl;
 
   // eliminarPorClave
-  cout << "Ahora probamos a eliminar por clave. Eliminamos los que contengan 'of' y"
-       << "devolvemos el número de elementos eliminados.\n";
-  cronologia_1.eliminarPorClave("of");
+  cout << "Ahora probamos a eliminar por clave. Eliminamos los que contengan 'of' y "
+       << "devolvemos el número de eventos eliminados.\n";
+  int n = cronologia_1.eliminarPorClave("of");
+  cout << "Eliminados: " << n << ".\n";
   cronologia_1.prettyPrint();
   cout << endl;
 
   // buscarPorClave
-  cout << "Probamos ahora a mostrar solo los eventos de cronologia_1 que contengan la"
-       << "palabra 'Grecia' (debería salir solo uno):" << endl;
-  std::vector<EventoHistorico> resultado_busqueda = cronologia_1.buscarPorClave("Grecia");
+  cout << "Probamos ahora a mostrar solo los eventos de cronologia_1 que contengan la "
+       << "palabra 'or':" << endl;
+  std::vector<EventoHistorico> resultado_busqueda = cronologia_1.buscarPorClave("or");
   Cronologia cron_resultados_busqueda(resultado_busqueda);
   cron_resultados_busqueda.prettyPrint();
 
@@ -129,8 +124,8 @@ int main(int argc, char * argv[])
   cout << endl;
 
   // Guardar en fichero una cronología
-  cout << "Cronología 2 guardada en ../datos/cr1.txt" << endl;
-  ofstream o("../datos/cr1.txt");
+  cout << "Cronología 2 guardada en datos/cr2.txt" << endl;
+  ofstream o("datos/cr2.txt");
   o << cronologia_2;
 }
 

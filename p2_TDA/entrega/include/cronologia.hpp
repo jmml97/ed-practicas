@@ -35,14 +35,14 @@ class Cronologia
 {
   private:
     /**
-     * @page repConjunto2 Rep del TDA Cronologia
+     * @page repConjunto3 Rep del TDA Cronologia
      *
-     * @section invConjunto2 Invariante de la representación
+     * @section invConjunto3 Invariante de la representación
      *
      * El invariante es \e rep. EventoHistorico_1.f < ... < EventoHistorico_n.f,
      * con el orden natural de nuestro calendario.
      *
-     * @section faConjunto2 Función de abstracción
+     * @section faConjunto3 Función de abstracción
      *
      * Un objeto válido @e rep del TDA Cronologia representa al valor
      *
