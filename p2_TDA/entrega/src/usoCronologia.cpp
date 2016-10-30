@@ -109,15 +109,14 @@ int main(int argc, char * argv[])
 
   // eliminarPorClave
   cout << "Ahora probamos a eliminar por clave. Eliminamos los que contengan 'of' y"
-       << "devolvemos el número de elementos eliminados.\n";
-  cronologia_1.eliminarPorClave("of");
+       << "devolvemos el número de elementos eliminados: " << cronologia_1.eliminarPorClave("of") << "\n";
   cronologia_1.prettyPrint();
   cout << endl;
 
   // buscarPorClave
   cout << "Probamos ahora a mostrar solo los eventos de cronologia_1 que contengan la"
-       << "palabra 'Grecia' (debería salir solo uno):" << endl;
-  std::vector<EventoHistorico> resultado_busqueda = cronologia_1.buscarPorClave("Grecia");
+       << "palabra 'Granada' (debería salir solo uno):" << endl;
+  std::vector<EventoHistorico> resultado_busqueda = cronologia_1.buscarPorClave("Granada");
   Cronologia cron_resultados_busqueda(resultado_busqueda);
   cron_resultados_busqueda.prettyPrint();
 
