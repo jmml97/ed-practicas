@@ -141,12 +141,12 @@ class Cronologia
      * @brief Modifica un EventoHistorico de la Cronologia
      * @param v @c Vector de Acontecimiento, f @c Fecha del EventoHistorico
      * @post El EventoHistorico asociado a la Fecha f contiene los acontecimientos del vector v
-     * @pre Debe haber en el vector @e c un EventoHistorico que tenga a f Wpor Fecha
+     * @pre Debe haber en el vector @e c un EventoHistorico que tenga a f por Fecha
      */
     void setEventoHistorico(const std::vector<Acontecimiento>& v, Fecha f);
 
     /**
-     * @brief Añade un EventoHistorico al vector @c c
+     * @brief Añade un EventoHistorico al vector @c c.
      * @param  e @c EventoHistorico a añadir
      * @post Si no estaba ya presente, el nuevo EventoHistorico @e e está en @e c.
      *       En caso contrario, se mezclan los acontecimientos de los vectores de
