@@ -58,7 +58,7 @@ docs:
 # ************ Limpieza ************
 
 clean:
-	-@rm -f $(OBJ)/* $(SRC)/*~ $(INC)/*~ ./*~
+	-@rm -f $(OBJ)/* $(LIB)/* $(SRC)/*~ $(INC)/*~ ./*~
 	@echo "Limpiando..."
 
 mrproper: clean
