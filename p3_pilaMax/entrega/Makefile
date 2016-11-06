@@ -10,12 +10,12 @@ TEST      = $(SRC)/test
 # ****** Opciones de compilación ********
 AR        = ar
 CXX       = g++
-CXXFLAGS  = -Wall -g -std=c++11 -I./$(INCLUDE) -I./$(SRC)
+CXXFLAGS  = -Wall -g -std=c++11 -I./$(INCLUDE)
 
 # ******* Fuentes y cabeceras ********
 SOURCESMAIN = $(addprefix $(SRC)/, use_stack_max.cpp stack_max.cpp)
-#SOURCES = $(addprefix $(SRC)/, list.cpp dvector.cpp queue.cpp)
 SOURCES = $(addprefix $(SRC)/, stack_max_list.cpp stack_max_dvector.cpp stack_max_queue.cpp)
+SOURCES += $(addprefix $(INCLUDE)/, list.cpp dvector.cpp queue.cpp)
 INC = $(addprefix $(INCLUDE)/, stack_max.hpp list.hpp dvector.hpp queue.hpp node.hpp)
 INC += $(addprefix $(INCLUDE)/, stack_max_list.hpp stack_max_dvector.hpp stack_max_queue.hpp)
 
@@ -33,8 +33,10 @@ $(BIN)/use_stack_max: $(INC) $(SOURCES) $(SOURCESMAIN)
 $(BIN)/test_%: $(OBJ)/test_%.o
 	$(CXX) -o $@ $<
 
-$(OBJ)/test_%.o: $(TEST)/test_%.cpp
+$(OBJ)/test_%.o: $(TEST)/test_%.cpp $(INCLUDE)/%.hpp $(INCLUDE)/%.cpp
 	$(CXX) $(CXXFLAGS) -o $@ -c $<
+
+.PRECIOUS: $(OBJ)/test_%.o
 
 # ************ Generación de documentación **************
 docs:
@@ -44,9 +46,9 @@ docs:
 # ************ Limpieza ************
 
 clean:
-	-@rm -f $(OBJ)/* $(SRC)/*~ $(INC)/*~ ./*~
+	@$(RM) $(OBJ)/* $(SRC)/*~ $(INCLUDE)/*~ ./*~
 	@echo "Limpiando..."
 
 mrproper: clean
-	-@rm -f $(BIN)/* $(LIB)/* $(DOC)/html/*
+	@$(RM) $(BIN)/* $(LIB)/* $(DOC)/html/*
 	@echo "Limpieza completada."
