@@ -4,6 +4,6 @@
  *
  */
 
-// Implementación de una lista enlazada con cabecera con templates
+// No se incluye el .hpp
 
 /* Fin fichero: list.cpp */

@@ -11,13 +11,34 @@
 #include "node.hpp"
 
 /**
- *
+ * @brief T.D.A. List
+ * 
  */
 
 template <class T>
 class List {
-  Node<T>* head;
-  int nelem;
+  private:
+    Node<T>* head;
+    Node<T>* tail;
+  public:
+    /**
+     * @brief T.D.A. Iterator
+     *
+     */
+    class Iterator {
+      private:
+        Node<T>* ptr;
+        Node<T>* first;
+      public:
+        Iterator() : ptr(0), first(0) {}
+        // ...
+    };
+
+    /**
+     * @brief Constructor sin parámetros
+     */
+    List();
+    // ...
 };
 
 #include "list.cpp"

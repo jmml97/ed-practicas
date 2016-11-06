@@ -4,6 +4,6 @@
  *
  */
 
-// Implementación de un vector dinámico con template
+// No se incluye el .hpp
 
 /* Fin fichero: dvector.cpp */

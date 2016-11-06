@@ -1,2 +1,4 @@
 - Añadir -DNDEBUG a Makefile cuando vayamos a entregarlo (para compilar sin asserts)
 - Comprobar si funciona "make test" en Makefile (cuando esté todo acabado)
+- Eliminar #include<cassert> en list.hpp y dvector.hpp si no se implementan métodos inline.
+- Eliminar comentarios en list.cpp y dvector.cpp de que no se incluyen los .hpp

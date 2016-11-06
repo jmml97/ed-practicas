@@ -8,12 +8,19 @@
 #define __DVECTOR_HPP__
 
 /**
+ * @brief T.D.A. DVector
  *
  */
 
 template <class T>
 class DVector {
-  int foo;
+  private:
+    T* data;
+    int n;
+    int reserved;
+  public:
+    DVector() : data(0), n(0), reserved(0) {}
+    // ...
 };
 
 #include "dvector.cpp"
