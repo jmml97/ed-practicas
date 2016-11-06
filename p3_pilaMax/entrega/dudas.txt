@@ -1,0 +1,2 @@
+- Llamada explícita al destructor de v?
+- Función top() inline?

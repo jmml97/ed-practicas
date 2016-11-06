@@ -1,10 +1,77 @@
 /**
  * @file stack_max_dvector.cpp
- * @brief Implementación del T.D.A. StackMax mediante un vector dinámico de enteros
+ * @brief Implementación del T.D.A. StackMax mediante un vector dinámico de Element
  *
  */
 
-// No se incluye ningún hpp, se implementan directamente los métodos de StackMax, sabiendo
-// que v es un DVector<Element>
+#include <iostream>
+#include <cassert>
+
+using namespace std;
+
+Element& StackMax::top()
+{
+
+}
+
+/* _________________________________________________________________________ */
+
+const Element& StackMax::top() const
+{
+
+}
+
+/* _________________________________________________________________________ */
+
+void StackMax::push(int n)
+{
+
+}
+
+/* _________________________________________________________________________ */
+
+void StackMax::pop()
+{
+
+}
+
+/* _________________________________________________________________________ */
+
+// void StackMax::swap(StackMax& s) {}
+
+void StackMax::clear()
+{
+
+}
+
+/* _________________________________________________________________________ */
+
+bool StackMax::sameMax(const StackMax& s) const
+{
+
+}
+
+/* _________________________________________________________________________ */
+
+istream& StackMax::loadStack(istream& is)
+{
+
+}
+
+/* _________________________________________________________________________ */
+
+ostream& StackMax::writeStack(ostream& os) const
+{
+
+}
+
+/* _________________________________________________________________________ */
+
+ostream& StackMax::prettyPrint(ostream& os) const
+{
+
+}
+
+/* _________________________________________________________________________ */
 
 /* Fin fichero: stack_max_dvector.cpp */

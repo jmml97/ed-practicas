@@ -16,4 +16,73 @@
   #include "stack_max_queue.cpp"
 #endif
 
+bool StackMax::sameMax(const StackMax& s) const
+{
+  return top().max == s.top().max;
+}
+
+/* _________________________________________________________________________ */
+
+istream& StackMax::loadStack(istream& is)
+{
+  Element x;
+  StackMax aux;
+  while (is) {
+    is >> x.num;
+    is >> x.max;
+    aux.push(x.num);
+  }
+  if (is) {
+    clear();  // Borrar pila actual
+    while (!aux.empty()) {
+      x = aux.top();
+      v.push(x.num);
+      aux.pop();
+    }
+  }
+  return is;
+}
+
+/* _________________________________________________________________________ */
+
+ostream& StackMax::writeStack(ostream& os) const
+{
+  StackMax aux;
+  while (!aux.empty()) {
+    Element x = aux.top();
+    os << x.num << " " << x.max << endl;
+    aux.pop();
+  }
+  return os;
+}
+
+/* _________________________________________________________________________ */
+
+ostream& StackMax::prettyPrint(ostream& os) const
+{
+  StackMax aux;
+  while (!aux.empty()) {
+    Element x = aux.top();
+    os << "(" << x.num << "," << x.max << ")" << endl;
+    aux.pop();
+  }
+  return os;
+}
+
+/* _________________________________________________________________________ */
+
+istream& operator>>(istream& is, StackMax& s)
+{
+  return s.loadStack(is);
+}
+
+/* _________________________________________________________________________ */
+
+ostream& operator<<(ostream& os, const StackMax& s)
+{
+  return s.writeStack(os);
+}
+
+/* _________________________________________________________________________ */
+
 /* Fin fichero: stack_max.cpp */
