@@ -1,3 +1,9 @@
+/**
+ * @file test_queue.cpp
+ * @brief Archivo de pruebas para el T.D.A. Queue
+ *
+ */
+
 #include <iostream>
 #include "queue.hpp"
 
@@ -40,3 +46,5 @@ int main()
 
   return 0;
 }
+
+/* Fin fichero: test_queue.cpp */

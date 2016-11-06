@@ -52,7 +52,6 @@ struct Element {
  */
 std::ostream& operator<<(std::ostream& os, const Element& e);
 
-
 /// Se define la representación deseada para el T.D.A. StackMax
 #define COMPILE_HEADER 3
 
@@ -63,7 +62,6 @@ std::ostream& operator<<(std::ostream& os, const Element& e);
 #else
   #include "stack_max_queue.hpp"
 #endif
-
 
 /**
  * @brief T.D.A. StackMax
@@ -110,21 +108,24 @@ class StackMax {
     StackMax() {};
 
     // ---------------  Funciones de consulta ----------------
-    Element& top();
-    const Element& top() const;
+    Element& top(); // pre: no vacia
+    const Element& top() const; // pre: no vacia
 
     // ---------------  Funciones de modificación ----------------
     void push(int n);
-    void pop();
+    void pop(); // pre: no vacia
  // void swap(StackMax& s);  (???)
     void clear();
 
     // ---------------  Funciones de obtención de información ----------------
     int size() const { return v.size(); }
     bool empty() const { return v.size() == 0; }
-    bool sameMax(const StackMax& s) const;
+    bool sameMax(const StackMax& s) const;  // pre: ninguna de las dos vacía
 
     // ---------------  Funciones de entrada/salida ----------------
+    // "arregla" la pila mirando solo el num, y deduce automáticamente el max
+    // formato de lectura = (num max) para mantener compatibilidad con escritura
+    // (no usamos el campo max)
     std::istream& loadStack(std::istream& is);
     std::ostream& writeStack(std::ostream& os) const;
     std::ostream& prettyPrint(std::ostream& os = std::cout) const;  // formato: (num,max)

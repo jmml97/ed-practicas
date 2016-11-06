@@ -5,6 +5,9 @@
  * Gestiona una secuencia de elementos con facilidades para la inserción y
  * borrado de elementos en un extremo
  *
+ * Un ejemplo de su uso puede consultarse en:
+ * @example test_queue.cpp
+ *
  */
 
 #ifndef __QUEUE_HPP__
@@ -115,7 +118,7 @@ class Queue {
      * @brief Añade un elemento al final de la cola
      * @param elem Elemento que se va a añadir.
      */
-    void push(const T & elem);
+    void push(const T& elem);
 
     /**
      * @brief Quita el elemento del frente de la cola

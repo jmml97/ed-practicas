@@ -1,2 +1,3 @@
-- Llamada explícita al destructor de v?
-- Función top() inline?
+- Para escribir, usar pila auxiliar: StackMax aux(*this)???
+- Mejora en la implementación de StackMax::push(int n); ??
+- Formato de lectura de StackMax?? (permitir solo nums)

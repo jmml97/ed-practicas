@@ -1,0 +1,2 @@
+- Añadir -DNDEBUG a Makefile cuando vayamos a entregarlo (para compilar sin asserts)
+- Comprobar si funciona "make test" en Makefile (cuando esté todo acabado)

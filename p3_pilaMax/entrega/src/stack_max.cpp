@@ -18,6 +18,7 @@
 
 bool StackMax::sameMax(const StackMax& s) const
 {
+  assert(!empty() && !s.empty());
   return top().max == s.top().max;
 }
 
@@ -25,18 +26,18 @@ bool StackMax::sameMax(const StackMax& s) const
 
 istream& StackMax::loadStack(istream& is)
 {
-  Element x;
+  int i;
   StackMax aux;
-  while (is) {
-    is >> x.num;
-    is >> x.max;
-    aux.push(x.num);
+  while (is >> i) {
+    aux.push(i);
+    is >> i;   // No importa el máximo
   }
-  if (is) {
+
+  if (is.eof()) {
     clear();  // Borrar pila actual
     while (!aux.empty()) {
-      x = aux.top();
-      v.push(x.num);
+      Element x = aux.top();
+      push(x.num);
       aux.pop();
     }
   }
@@ -47,10 +48,9 @@ istream& StackMax::loadStack(istream& is)
 
 ostream& StackMax::writeStack(ostream& os) const
 {
-  StackMax aux;
+  StackMax aux(*this);
   while (!aux.empty()) {
-    Element x = aux.top();
-    os << x.num << " " << x.max << endl;
+    os << aux.top() << endl;
     aux.pop();
   }
   return os;
@@ -60,10 +60,10 @@ ostream& StackMax::writeStack(ostream& os) const
 
 ostream& StackMax::prettyPrint(ostream& os) const
 {
-  StackMax aux;
+  StackMax aux(*this);
   while (!aux.empty()) {
     Element x = aux.top();
-    os << "(" << x.num << "," << x.max << ")" << endl;
+    os << '(' << x.num << ',' << x.max << ')' << endl;
     aux.pop();
   }
   return os;
@@ -81,6 +81,14 @@ istream& operator>>(istream& is, StackMax& s)
 ostream& operator<<(ostream& os, const StackMax& s)
 {
   return s.writeStack(os);
+}
+
+/* _________________________________________________________________________ */
+
+ostream& operator<<(ostream& os, const Element& e)
+{
+  os << e.num << ' ' << e.max;
+  return os;
 }
 
 /* _________________________________________________________________________ */

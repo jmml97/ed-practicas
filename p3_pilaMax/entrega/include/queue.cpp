@@ -9,11 +9,11 @@ Queue<T>::Queue(const Queue<T>& original)
 {
   if (original.head != 0) {
     Node<T>* p = original.head;
-    head = tail = new Node<T>(p->element,0);
+    head = tail = new Node<T>(p->element, 0);
     p = p->next;
 
     while (p != 0) {
-      tail->next = new Node<T>(p->element,0);
+      tail->next = new Node<T>(p->element, 0);
       tail = tail->next;
       p = p->next;
     }
@@ -33,7 +33,8 @@ Queue<T>::~Queue()
     head = head->next;
     delete aux;
   }
-  tail = n = 0;
+  tail = 0;
+  n = 0;
 }
 
 /* _________________________________________________________________________ */
@@ -62,9 +63,9 @@ Queue<T>& Queue<T>::operator=(const Queue<T>& q)
 /*_________________________________________________________________________ */
 
 template <class T>
-void Queue<T>::push(const T & elem)
+void Queue<T>::push(const T& elem)
 {
-  Node<T>* aux = new Node<T>(elem,0);
+  Node<T>* aux = new Node<T>(elem, 0);
   if (head == 0)
     head = tail = aux;
   else {

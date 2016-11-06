@@ -21,7 +21,7 @@ INC += $(addprefix $(INCLUDE)/, stack_max_list.hpp stack_max_dvector.hpp stack_m
 
 # ****** Compilación de módulos **********
 
-.PHONY: all docs clean mrproper
+.PHONY: all test docs clean mrproper
 
 all: $(BIN)/use_stack_max
 
@@ -30,6 +30,8 @@ $(BIN)/use_stack_max: $(INC) $(SOURCES) $(SOURCESMAIN)
 	$(CXX) $(CXXFLAGS) -o $@ $(SOURCESMAIN)
 
 # --- Test ---
+test: $(BIN)/test_%
+
 $(BIN)/test_%: $(OBJ)/test_%.o
 	$(CXX) -o $@ $<
 

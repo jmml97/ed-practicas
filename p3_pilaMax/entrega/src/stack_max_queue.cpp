@@ -6,12 +6,12 @@
 
 #include <iostream>
 #include <cassert>
-#include "stack_max.hpp"  //////////////////// QUITAR
 
 using namespace std;
 
 Element& StackMax::top()
 {
+  assert(!empty());
   return v.front();
 }
 
@@ -19,6 +19,7 @@ Element& StackMax::top()
 
 const Element& StackMax::top() const
 {
+  assert(!empty());
   return v.front();
 }
 
@@ -26,13 +27,35 @@ const Element& StackMax::top() const
 
 void StackMax::push(int n)
 {
+  Element x;
+  x.num = n;
 
+  if (v.size() == 0) {
+    x.max = n;
+    v.push(x);
+  }
+
+  else {
+    int curr_max = top().max;
+    x.max = curr_max >= n ? curr_max : n;
+    StackMax aux;
+    aux.v.push(x);
+    while (v.size() != 0) {
+      aux.v.push(v.front());
+      v.pop();
+    }
+    while (aux.v.size() != 0) {
+      v.push(aux.v.front());
+      aux.v.pop();
+    }
+  }
 }
 
 /* _________________________________________________________________________ */
 
 void StackMax::pop()
 {
+  assert(!empty());
   v.pop();
 }
 
@@ -42,7 +65,8 @@ void StackMax::pop()
 
 void StackMax::clear()
 {
-  v.~Queue();
+  while (v.size() != 0)
+    v.pop();
 }
 
 /* _________________________________________________________________________ */
