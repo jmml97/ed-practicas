@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.11"/>
+<title>Stack Max: use_stack_max.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Stack Max
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.8.11 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Página&#160;principal</span></a></li>
+      <li><a href="pages.html"><span>Páginas&#160;relacionadas</span></a></li>
+      <li><a href="annotated.html"><span>Clases</span></a></li>
+      <li><a href="files.html"><span>Archivos</span></a></li>
+      <li><a href="examples.html"><span>Ejemplos</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('use_stack_max_8cpp-example.html','');});
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="headertitle">
+<div class="title">use_stack_max.cpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"></div><div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span></div><div class="line"><span class="preprocessor">#include &lt;fstream&gt;</span></div><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="stack__max_8hpp.html">stack_max.hpp</a>&quot;</span></div><div class="line"></div><div class="line"><span class="keyword">using namespace </span>std;</div><div class="line"></div><div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> * argv[])</div><div class="line">{</div><div class="line">  <span class="keywordflow">if</span> (argc != 2) {</div><div class="line">    cerr &lt;&lt; <span class="stringliteral">&quot;Dime el nombre del fichero con la pila.&quot;</span> &lt;&lt; endl;</div><div class="line">    <span class="keywordflow">return</span> 1;</div><div class="line">  }</div><div class="line">  ifstream f (argv[1]);</div><div class="line"></div><div class="line">  <span class="keywordflow">if</span> (!f) {</div><div class="line">    cerr &lt;&lt; <span class="stringliteral">&quot;No puedo abrir el fichero &quot;</span> &lt;&lt; argv[1] &lt;&lt; endl;</div><div class="line">    <span class="keywordflow">return</span> 2;</div><div class="line">  }</div><div class="line">  <span class="comment">// Cargamos la pila</span></div><div class="line">  <a name="_a0"></a><a class="code" href="classStackMax.html">StackMax</a> s1;</div><div class="line">  f &gt;&gt; s1;</div><div class="line">  cout &lt;&lt; <span class="stringliteral">&quot;Hemos cargado una pila de tamaño &quot;</span> &lt;&lt; s1.<a name="a1"></a>size() &lt;&lt; <span class="stringliteral">&quot;. Veámosla:\n&quot;</span>;</div><div class="line"></div><div class="line">  <span class="comment">// Creamos otra pila como copia de la primera</span></div><div class="line">  <a class="code" href="classStackMax.html">StackMax</a> s2(s1);</div><div class="line">  cout &lt;&lt; s2;</div><div class="line"></div><div class="line">  <span class="comment">// Probamos el operador de asignación</span></div><div class="line">  <a class="code" href="classStackMax.html">StackMax</a> s;</div><div class="line">  s2 = s;</div><div class="line"></div><div class="line">  <span class="comment">// Cargamos elementos en la pila</span></div><div class="line">  cout &lt;&lt; <span class="stringliteral">&quot;Cargamos otra pila con los números del 0 al 10.\n&quot;</span>;</div><div class="line">  <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 10; i &gt;= 0; i--)</div><div class="line">    s.<a name="a2"></a>push(i);</div><div class="line"></div><div class="line">  <span class="comment">// Vamos viendo el máximo</span></div><div class="line">  cout &lt;&lt; <span class="stringliteral">&quot;Veamos cuál es el máximo en cada paso:\n\n&quot;</span>;</div><div class="line">  <span class="keywordflow">while</span> (!s.<a name="a3"></a>empty()) {</div><div class="line">    <a name="_a4"></a><a class="code" href="structElement.html">Element</a> x = s.<a name="a5"></a>top();</div><div class="line">    cout &lt;&lt; x &lt;&lt; endl;</div><div class="line">    s.<a name="a6"></a>pop();</div><div class="line">  }</div><div class="line"></div><div class="line">  <span class="comment">// PrettyPrint</span></div><div class="line">  cout &lt;&lt; <span class="stringliteral">&quot;También podríamos ver directamente el contenido de la pila:\n&quot;</span>;</div><div class="line">  s.<a name="a7"></a>prettyPrint();</div><div class="line">  cout &lt;&lt; endl;</div><div class="line"></div><div class="line">  <span class="comment">// sameMax</span></div><div class="line">  <span class="keywordflow">if</span> (s.<a name="a8"></a>sameMax(s1))</div><div class="line">    cout &lt;&lt; <span class="stringliteral">&quot;Las dos pilas tienen el mismo máximo.\n&quot;</span>;</div><div class="line">  <span class="keywordflow">else</span></div><div class="line">    cout &lt;&lt; <span class="stringliteral">&quot;El máximo de las dos pilas es diferente.\n&quot;</span>;</div><div class="line"></div><div class="line">  <span class="comment">// Guardar en fichero</span></div><div class="line">  cout &lt;&lt; <span class="stringliteral">&quot;Pila guardada en datos/pila_out.txt&quot;</span>;</div><div class="line">  ofstream output(<span class="stringliteral">&quot;datos/pila_out.txt&quot;</span>);</div><div class="line">  output &lt;&lt; s;</div><div class="line"></div><div class="line">  <span class="comment">// Borramos la lista</span></div><div class="line">  s.<a name="a9"></a>clear();</div><div class="line">  <span class="keywordflow">if</span> (s.empty())</div><div class="line">    cout &lt;&lt; <span class="stringliteral">&quot;\n\nPila borrada.&quot;</span>;</div><div class="line"></div><div class="line">  <span class="keywordflow">return</span> 0;</div><div class="line">}</div><div class="line"></div><div class="line"><span class="comment">/* Fin fichero: use_stack_max.cpp */</span></div></div><!-- fragment --> </div><!-- contents -->
+</div><!-- doc-content -->
+<hr>
+<small>ETS Ingeniería Informática y Telecomunicaciones. Universidad de Granada.
+</small>
