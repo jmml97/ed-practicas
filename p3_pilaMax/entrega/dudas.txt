@@ -3,3 +3,4 @@
 - Formato de lectura de StackMax?? (permitir solo nums)
 - Implementar método swap en StackMax??
 - Clase Iterator dentro de clase List? En caso afirmativo, parte pública?
+- Módulo list: lista enlazada con cabecera vs lista doblemente enlazada circular y con cabecera.
