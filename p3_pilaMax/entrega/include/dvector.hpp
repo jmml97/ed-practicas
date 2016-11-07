@@ -20,7 +20,20 @@ class DVector {
     int reserved;
   public:
     DVector() : data(0), n(0), reserved(0) {}
-    // ...
+    DVector(int size, T d = 0);
+    DVector(const DVector& v);
+    ~DVector() {delete[] data;}
+    DVector& operator= (const DVector& v);
+    void set(int i, T d) {data[i] = d;}
+    T get(int i) const {return data[i];}
+    int size() const {return n;}
+    void resize(int nsize);
+    void swap(DVector& v);
+    void push_back(T d);
+    void reserve(int size);
+    int capacity() const {return reserved;}
+
+
 };
 
 #include "dvector.cpp"
