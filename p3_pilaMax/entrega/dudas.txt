@@ -3,3 +3,4 @@
 - Formato de lectura de StackMax?? (permitir solo nums)
 - Implementar método swap en StackMax??
 - Crear la clase iterator en list.hpp ?? (no)
+- Módulo list: lista enlazada con cabecera vs lista doblemente enlazada circular y con cabecera.
