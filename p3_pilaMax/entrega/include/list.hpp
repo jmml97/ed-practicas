@@ -12,7 +12,7 @@
 
 /**
  * @brief T.D.A. List
- * 
+ *
  */
 
 template <class T>
@@ -21,23 +21,7 @@ class List {
     Node<T>* head;
     Node<T>* tail;
   public:
-    /**
-     * @brief T.D.A. Iterator
-     *
-     */
-    class Iterator {
-      private:
-        Node<T>* ptr;
-        Node<T>* first;
-      public:
-        Iterator() : ptr(0), first(0) {}
-        // ...
-    };
-
-    /**
-     * @brief Constructor sin parámetros
-     */
-    List();
+    List() : head(0), tail(0) {}
     // ...
 };
 

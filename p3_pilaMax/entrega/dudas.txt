@@ -2,4 +2,4 @@
 - Mejora en la implementación de StackMax::push(int n); ??
 - Formato de lectura de StackMax?? (permitir solo nums)
 - Implementar método swap en StackMax??
-- Clase Iterator dentro de clase List? En caso afirmativo, parte pública?
+- Crear la clase iterator en list.hpp ?? (no)
