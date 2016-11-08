@@ -1,3 +1,5 @@
 - Añadir -DNDEBUG a Makefile cuando vayamos a entregarlo (para compilar sin asserts)
 - Comprobar si funciona "make test" en Makefile (cuando esté todo acabado)
 - Eliminar #include<cassert> en list.hpp y dvector.hpp si no se implementan métodos inline.
+- Añadir comparator (functor) a StackMax
+- Editar formato de lectura (añadir símbolo $ para diferenciar).

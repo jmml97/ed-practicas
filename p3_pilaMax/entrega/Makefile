@@ -8,7 +8,7 @@ DOC       = doc
 TEST      = $(SRC)/test
 
 # ****** Opciones de compilación ********
-AR        = ar
+RM        = rm -f
 CXX       = g++
 CXXFLAGS  = -Wall -g -std=c++11 -I./$(INCLUDE)
 
@@ -26,8 +26,8 @@ INC += $(addprefix $(INCLUDE)/, stack_max_list.hpp stack_max_dvector.hpp stack_m
 all: $(BIN)/use_stack_max
 
 # -- Programa principal (simplificado) --
-$(BIN)/use_stack_max: $(SOURCESMAIN) $(SOURCES) $(INCLUDE)
-	$(CXX) -o $@ $(SOURCESMAIN)
+$(BIN)/use_stack_max: $(SOURCESMAIN) $(SOURCES) $(INC)
+	$(CXX) $(CXXFLAGS) -o $@ $(SOURCESMAIN)
 
 # --- Test ---
 test: $(BIN)/test_%

@@ -18,15 +18,23 @@ List<T>::List()
 template <class T>
 List<T>::List(const List& original)
 {
-  Node<T>* p = original.head;
+  Node<T>* p = original.head->next;
   tail = head = new Node<T>;
   head->next = 0;
 
-  while(p->next)
+  while(p)
   {
     push_back(p->element);
     p = p->next;
   }
+}
+
+template <class T>
+List<T>::~List()
+{
+  clear();
+  delete head;
+  tail = head = 0;
 }
 
 /* _________________________________________________________________________ */
@@ -76,13 +84,13 @@ void List<T>::pop_back()
 template <class T>
 void List<T>::clear()
 {
-  while (head)
+  while (head->next)
   {
-      Node<T>* aux = head;
-      head = head->next;
-      delete aux;
+    Node<T>* aux = head->next;
+    head->next = head->next->next;
+    delete aux;
   }
-  tail = 0;
+  tail = head;
 }
 
 /* _________________________________________________________________________ */
@@ -91,9 +99,9 @@ template <class T>
 int List<T>::size() const
 {
   int n = 0;
-  for (Node<T>* aux = head; aux; aux = aux->next)
+  for (Node<T>* aux = head->next; aux; aux = aux->next)
     n++;
-  return --n;
+  return n;
 }
 
 /* _________________________________________________________________________ */

@@ -24,7 +24,7 @@ bool StackMax::sameMax(const StackMax& s) const
 
 /* _________________________________________________________________________ */
 
-istream& StackMax::loadStack(istream& is)
+std::istream& StackMax::loadStack(std::istream& is)
 {
   int i;
   StackMax aux;
@@ -46,11 +46,11 @@ istream& StackMax::loadStack(istream& is)
 
 /* _________________________________________________________________________ */
 
-ostream& StackMax::writeStack(ostream& os) const
+std::ostream& StackMax::writeStack(std::ostream& os) const
 {
   StackMax aux(*this);
   while (!aux.empty()) {
-    os << aux.top() << endl;
+    os << aux.top() << std::endl;
     aux.pop();
   }
   return os;
@@ -58,12 +58,12 @@ ostream& StackMax::writeStack(ostream& os) const
 
 /* _________________________________________________________________________ */
 
-ostream& StackMax::prettyPrint(ostream& os) const
+std::ostream& StackMax::prettyPrint(std::ostream& os) const
 {
   StackMax aux(*this);
   while (!aux.empty()) {
     Element x = aux.top();
-    os << '(' << x.num << ',' << x.max << ')' << endl;
+    os << '(' << x.num << ',' << x.max << ")\n";
     aux.pop();
   }
   return os;
@@ -71,21 +71,21 @@ ostream& StackMax::prettyPrint(ostream& os) const
 
 /* _________________________________________________________________________ */
 
-istream& operator>>(istream& is, StackMax& s)
+std::istream& operator>>(std::istream& is, StackMax& s)
 {
   return s.loadStack(is);
 }
 
 /* _________________________________________________________________________ */
 
-ostream& operator<<(ostream& os, const StackMax& s)
+std::ostream& operator<<(std::ostream& os, const StackMax& s)
 {
   return s.writeStack(os);
 }
 
 /* _________________________________________________________________________ */
 
-ostream& operator<<(ostream& os, const Element& e)
+std::ostream& operator<<(std::ostream& os, const Element& e)
 {
   os << e.num << ' ' << e.max;
   return os;

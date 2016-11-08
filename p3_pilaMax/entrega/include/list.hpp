@@ -41,9 +41,9 @@ class List
 
     /**
      * @brief Destructor
-     * @post Destruye la lista entera
+     * @post Destruye la lista entera, dejando head y tail a 0.
      */
-    ~List() { clear(); }
+    ~List();
 
     // ---------------  Sobrecarga de operadores ----------------
 
@@ -62,14 +62,14 @@ class List
      * @return Elemento del principio
      * @pre La lista no es vacía
      */
-    T& first() { return head->element; }
+    T& first() { return head->next->element; }
 
     /**
      * @brief Devuelve el principio de la lista
      * @return Referencia constante al elemento del principio
      * @pre La lista no es vacía
      */
-    const T& first() const { return head->element; }
+    const T& first() const { return head->next->element; }
 
     /**
      * @brief Devuelve la cola de la lista
@@ -101,7 +101,7 @@ class List
 
     /**
      * @brief Limpiar la lista
-     * @post Elimina la lista completamente, dejando head y tail a 0
+     * @post Elimina la lista completamente, salvo la cabecera.
      */
     void clear();
 
@@ -118,7 +118,7 @@ class List
      * @retval true si está vacía
      * @retval false si no está vacía
      */
-    bool empty() const { return head->next; }
+    bool empty() const { return (head->next == 0); }
 };
 
 #include "list.cpp"

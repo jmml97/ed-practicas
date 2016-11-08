@@ -4,10 +4,7 @@
  *
  */
 
-#include <iostream>
 #include <cassert>
-
-using namespace std;
 
 Element& StackMax::top()
 {
@@ -27,7 +24,7 @@ void StackMax::push(int n)
 {
   int max;
   if (v.empty())
-    max = 0;
+    max = n;
   else {
     max = v.last().max;
     if (max < n)
