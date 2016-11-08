@@ -27,12 +27,6 @@ struct Node
   Node() : next(0) {}
 
   /**
-   * @brief Constructor coopia
-   * @param node Nodo a copiar
-   */
-   Node(const Node& node) : element(node.element), next(node.next) {}
-
-  /**
    * @brief Constructor con parámetros
    * @param elem Elemento de información.
    * @param nxt Puntero al siguiente nodo.

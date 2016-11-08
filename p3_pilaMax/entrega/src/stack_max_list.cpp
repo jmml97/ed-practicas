@@ -12,21 +12,21 @@ using namespace std;
 
 Element& StackMax::top()
 {
-    return v.tail()->element;
+    return v.last()->element;
 }
 
 /* _________________________________________________________________________ */
 
 const Element& StackMax::top() const
 {
-    return v.tail()->element;
+    return v.last()->element;
 }
 
 /* _________________________________________________________________________ */
 
 void StackMax::push(int n)
 {
-    int max = v.tail()->element.max;
+    int max = v.last()->element.max;
     if (max < n)
         max = n;
     Element e = {n, max};
@@ -41,8 +41,6 @@ void StackMax::pop()
 }
 
 /* _________________________________________________________________________ */
-
-// void StackMax::swap(StackMax& s) {}
 
 void StackMax::clear()
 {

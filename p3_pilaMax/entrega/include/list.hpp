@@ -31,9 +31,9 @@ class List
 
     /**
      * @brief Constructor copia
-     * @param list Lista
+     * @param original Lista a copiar
      */
-    List(const List& list);
+    List(const List<T>& original);
 
     /**
      * @brief Destructor
@@ -43,11 +43,11 @@ class List
 
     /**
      * @brief Sobrecarga del operador de asignación
-     * @param list, lista que se va a copiar
+     * @param l lista que se va a asignar al objeto implícito
      * @post Copia la información de la lista pasada a la actual
-     * @return Referencia a la propia lista
+     * @return Referencia al objeto implícito
      */
-    List& operator =(const List& list);
+    List& operator=(const List<T>& l);
 
     /**
      * @brief Tamaño de la lista
@@ -57,54 +57,45 @@ class List
 
     /**
      * @brief Devuelve el principio de la lista
-     * @return Puntero al nodo del principio
+     * @return Elemento del principio
      */
-    Node<T>* head() { return head->element; }
+    T& first() { return head->element; }
 
     /**
      * @brief Devuelve el principio de la lista
-     * @return Puntero const al nodo del principio
+     * @return Referencia constante al elemento del principio
      */
-    const Node<T>* head() const { return head->element; }
+    const T& first() const { return head->element; }
 
     /**
      * @brief Devuelve la cola de la lista
-     * @return Puntero al nodo del final
+     * @return Elemento del final
      */
-    Node<T>* tail() { return tail->element; }
+    T& last() { return tail->element; }
 
     /**
      * @brief Devuelve la cola de la lista
-     * @return Puntero const al nodo del final
+     * @return Referencia constante al elemento del final
      */
-    const Node<T>* tail() const { return tail->element; }
+    const T& last() const { return tail->element; }
 
     /**
-     * @brief Devuelve la cola de la lista
-     * @return Elemento const @c T de la cola de la lista
-     */
-    const T& tail() const { return tail->element; }
-
-    /**
-     * @brief Añade un elemento al final
-     * @param node, elemento @c T que se quiere añadir
-     * @post Añade un elemento @c T en la cola de la lista
+     * @brief Añade un elemento al final de la lista
+     * @param e, elemento de tipo @c T que se quiere añadir
      */
     void push_back(const T& e);
 
     /**
-     * @brief Elimina el ultimo
-     * @pre lista no vacia
-     * @post Elimina el ultimo elemento @c T de la lista
+     * @brief Elimina el último elemento de la lista
+     * @pre El obeto implícito es una lista no vacía
      */
     void pop_back();
 
     /**
-     * @brief Limpia la lista entera
+     * @brief Limpiar la lista
      * @post Elimina la lista completamente, dejando head y tail a 0
      */
     void clear();
-
 };
 
 #include "list.cpp"

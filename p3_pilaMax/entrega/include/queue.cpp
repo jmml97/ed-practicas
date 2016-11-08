@@ -7,12 +7,12 @@
 template <class T>
 Queue<T>::Queue(const Queue<T>& original)
 {
-  if (original.head != 0) {
+  if (original.head) {
     Node<T>* p = original.head;
     head = tail = new Node<T>(p->element, 0);
     p = p->next;
 
-    while (p != 0) {
+    while (p) {
       tail->next = new Node<T>(p->element, 0);
       tail = tail->next;
       p = p->next;
@@ -28,7 +28,7 @@ template <class T>
 Queue<T>::~Queue()
 {
   Node<T>* aux;
-  while (head != 0) {
+  while (head) {
     aux = head;
     head = head->next;
     delete aux;
@@ -66,7 +66,7 @@ template <class T>
 void Queue<T>::push(const T& elem)
 {
   Node<T>* aux = new Node<T>(elem, 0);
-  if (head == 0)
+  if (!head)
     head = tail = aux;
   else {
     tail->next = aux;
@@ -80,12 +80,12 @@ void Queue<T>::push(const T& elem)
 template <class T>
 void Queue<T>::pop()
 {
-  assert(head != 0);
+  assert(head);
   Node<T>* aux = head;
   head = head->next;
   delete aux;
 
-  if (head == 0)
+  if (!head)
     tail = 0;
   n--;
 }
