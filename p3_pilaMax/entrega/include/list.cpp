@@ -4,6 +4,8 @@
  *
  */
 
+#include <cassert>
+
 template <class T>
 List<T>::List()
 {
@@ -51,7 +53,8 @@ template <class T>
 void List<T>::push_back(const T& e)
 {
   Node<T>* aux = new Node<T>(e,0);
-  tail = tail->next = aux;
+  tail->next = aux;
+  tail = tail->next;
 }
 
 /* _________________________________________________________________________ */
