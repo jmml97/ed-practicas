@@ -15,8 +15,8 @@ CXXFLAGS  = -Wall -g -std=c++11 -I./$(INCLUDE)
 # ******* Fuentes y cabeceras ********
 SOURCESMAIN = $(addprefix $(SRC)/, use_stack_max.cpp stack_max.cpp)
 SOURCES = $(addprefix $(SRC)/, stack_max_list.cpp stack_max_dvector.cpp stack_max_queue.cpp)
-SOURCES += $(addprefix $(INCLUDE)/, list.cpp dvector.cpp queue.cpp)
-INC = $(addprefix $(INCLUDE)/, stack_max.hpp list.hpp dvector.hpp queue.hpp node.hpp)
+INC = $(addprefix $(INCLUDE)/, list.cpp dvector.cpp queue.cpp)
+INC += $(addprefix $(INCLUDE)/, stack_max.hpp list.hpp dvector.hpp queue.hpp node.hpp)
 INC += $(addprefix $(INCLUDE)/, stack_max_list.hpp stack_max_dvector.hpp stack_max_queue.hpp)
 
 # ****** Compilación de módulos **********
@@ -26,8 +26,8 @@ INC += $(addprefix $(INCLUDE)/, stack_max_list.hpp stack_max_dvector.hpp stack_m
 all: $(BIN)/use_stack_max
 
 # -- Programa principal (simplificado) --
-$(BIN)/use_stack_max: $(INC) $(SOURCES) $(SOURCESMAIN)
-	$(CXX) $(CXXFLAGS) -o $@ $(SOURCESMAIN)
+$(BIN)/use_stack_max: $(SOURCESMAIN) $(SOURCES) $(INCLUDE)
+	$(CXX) -o $@ $(SOURCESMAIN)
 
 # --- Test ---
 test: $(BIN)/test_%
