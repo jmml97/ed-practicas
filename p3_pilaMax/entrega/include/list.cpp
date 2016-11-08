@@ -4,6 +4,41 @@
  *
  */
 
+List(const List& list)
+{
+    Node<T>* p = list.head();
+    Node<T>* actual = head;
+
+    if (p)
+        do
+        {
+            push_back(p->element);
+            p = p->next;
+        } while(p);
+    else
+        head = tail = 0;
+}
+
+/* _________________________________________________________________________ */
+
+List& operator =(const List& list)
+{
+    List aux(list);
+    clear();
+    Node<T>* p = aux.head();
+
+    if (p)
+        do
+        {
+            push_back(p->element);
+            p = p->next;
+        } while(p);
+
+    return *this;
+}
+
+/* _________________________________________________________________________ */
+
 int size() const
 {
     int n = 0;
@@ -17,7 +52,12 @@ void push_back(const T& e)
 {
     Node<T>* aux = new Node<T>;
     aux->element = e;
-    tail->next = aux;
+
+    if (head)
+        tail->next = aux;
+    else
+        head = aux;
+
     tail = aux;
 }
 

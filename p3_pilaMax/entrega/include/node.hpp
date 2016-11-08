@@ -15,7 +15,8 @@
  */
 
 template <class T>
-struct Node {
+struct Node
+{
   T element;       ///< Elemento de información.
   Node<T>* next;   ///< Puntero al siguiente nodo.
 
@@ -24,6 +25,12 @@ struct Node {
    * @post Crea una celda vacía
    */
   Node() : next(0) {}
+
+  /**
+   * @brief Constructor coopia
+   * @param node Nodo a copiar
+   */
+   Node(const Node& node) : element(node.element), next(node.next) {}
 
   /**
    * @brief Constructor con parámetros

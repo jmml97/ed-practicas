@@ -23,7 +23,31 @@ class List
     Node<T>* tail;
 
   public:
+    /**
+     * @brief Constructor por defecto
+     * @post Crea una lista vacía
+     */
     List() : head(0), tail(0) {}
+
+    /**
+     * @brief Constructor copia
+     * @param list Lista
+     */
+    List(const List& list);
+
+    /**
+     * @brief Destructor
+     * @post Destruye la lista entera
+     */
+    ~List() { clear(); }
+
+    /**
+     * @brief Sobrecarga del operador de asignación
+     * @param list, lista que se va a copiar
+     * @post Copia la información de la lista pasada a la actual
+     * @return Referencia a la propia lista
+     */
+    List& operator =(const List& list);
 
     /**
      * @brief Tamaño de la lista
@@ -32,10 +56,28 @@ class List
     int size() const;
 
     /**
-     * @brief Devuelve la cola de la lista
-     * @return Elemento @c T de la cola de la lista
+     * @brief Devuelve el principio de la lista
+     * @return Puntero al nodo del principio
      */
-    T& tail() { return tail->element; }
+    Node<T>* head() { return head->element; }
+
+    /**
+     * @brief Devuelve el principio de la lista
+     * @return Puntero const al nodo del principio
+     */
+    const Node<T>* head() const { return head->element; }
+
+    /**
+     * @brief Devuelve la cola de la lista
+     * @return Puntero al nodo del final
+     */
+    Node<T>* tail() { return tail->element; }
+
+    /**
+     * @brief Devuelve la cola de la lista
+     * @return Puntero const al nodo del final
+     */
+    const Node<T>* tail() const { return tail->element; }
 
     /**
      * @brief Devuelve la cola de la lista
@@ -63,7 +105,6 @@ class List
      */
     void clear();
 
-    // ...
 };
 
 #include "list.cpp"
