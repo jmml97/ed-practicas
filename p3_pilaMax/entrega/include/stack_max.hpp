@@ -105,27 +105,31 @@ class StackMax {
 
   public:
     // ---------------  Constructores ----------------
+    /**
+     * @brief Constructor por defecto
+     * @post Construye una StackMax vacía
+     */
     StackMax() {};
 
-    // ---------------  Funciones de consulta ----------------
+    // ---------------  Funciones de acceso ----------------
+
     Element& top(); // pre: no vacia
     const Element& top() const; // pre: no vacia
 
     // ---------------  Funciones de modificación ----------------
+
     void push(int n);
     void pop(); // pre: no vacia
- // void swap(StackMax& s);  (???)
     void clear();
 
-    // ---------------  Funciones de obtención de información ----------------
+    // ---------------  Funciones de consulta ----------------
+
     int size() const { return v.size(); }
-    bool empty() const { return v.size() == 0; }
+    bool empty() const { return v.empty(); }
     bool sameMax(const StackMax& s) const;  // pre: ninguna de las dos vacía
 
     // ---------------  Funciones de entrada/salida ----------------
-    // "arregla" la pila mirando solo el num, y deduce automáticamente el max
-    // formato de lectura = (num max) para mantener compatibilidad con escritura
-    // (no usamos el campo max)
+
     std::istream& loadStack(std::istream& is);
     std::ostream& writeStack(std::ostream& os) const;
     std::ostream& prettyPrint(std::ostream& os = std::cout) const;  // formato: (num,max)

@@ -25,21 +25,6 @@ Queue<T>::Queue(const Queue<T>& original)
 /* _________________________________________________________________________ */
 
 template <class T>
-Queue<T>::~Queue()
-{
-  Node<T>* aux;
-  while (head) {
-    aux = head;
-    head = head->next;
-    delete aux;
-  }
-  tail = 0;
-  n = 0;
-}
-
-/* _________________________________________________________________________ */
-
-template <class T>
 Queue<T>& Queue<T>::operator=(const Queue<T>& q)
 {
   Queue<T> aux(q);
@@ -88,6 +73,21 @@ void Queue<T>::pop()
   if (!head)
     tail = 0;
   n--;
+}
+
+/* _________________________________________________________________________ */
+
+template <class T>
+void Queue<T>::clear()
+{
+  Node<T>* aux;
+  while (head) {
+    aux = head;
+    head = head->next;
+    delete aux;
+  }
+  tail = 0;
+  n = 0;
 }
 
 /* _________________________________________________________________________ */

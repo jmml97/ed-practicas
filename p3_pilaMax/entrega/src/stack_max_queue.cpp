@@ -38,16 +38,13 @@ void StackMax::push(int n)
   else {
     int curr_max = top().max;
     x.max = curr_max >= n ? curr_max : n;
-    StackMax aux;
-    aux.v.push(x);
+    Queue<Element> aux;
+    aux.push(x);
     while (v.size() != 0) {
-      aux.v.push(v.front());
+      aux.push(v.front());
       v.pop();
     }
-    while (aux.v.size() != 0) {
-      v.push(aux.v.front());
-      aux.v.pop();
-    }
+    v = aux;
   }
 }
 
@@ -65,8 +62,7 @@ void StackMax::pop()
 
 void StackMax::clear()
 {
-  while (v.size() != 0)
-    v.pop();
+  v.clear();
 }
 
 /* _________________________________________________________________________ */

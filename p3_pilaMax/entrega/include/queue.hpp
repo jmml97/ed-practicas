@@ -80,7 +80,7 @@ class Queue {
     /**
      * @brief Destructor
      */
-    ~Queue();
+    ~Queue() { clear(); }
 
     // --------------- Sobrecarga de operadores ---------------
 
@@ -125,7 +125,17 @@ class Queue {
      */
     void pop();
 
-    // --------------- Funciones de obtención de información ---------------
+    /**
+     * @brief Borra la cola, dejando head y tail a 0
+     */
+    void clear();
+
+    // --------------- Funciones de consulta ---------------
+
+    /**
+     * @brief Devuelve el número de elementos de la cola
+     */
+    int size() const { return n; }
 
     /**
      * @brief Comprueba si la cola está vacía
@@ -133,11 +143,6 @@ class Queue {
      * @retval false Si no está vacía
      */
     bool empty() const { return n == 0; }
-
-    /**
-     * @brief Devuelve el número de elementos de la cola
-     */
-    int size() const { return n; }
 };
 
 #include "queue.cpp"

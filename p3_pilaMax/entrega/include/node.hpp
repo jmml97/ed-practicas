@@ -11,7 +11,9 @@
  * @brief T.D.A. Node
  *
  * Un objeto del tipo Node representa una celda, que contiene un elemento
- * de información @e element, de tipo @c T genérico, y un puntero @e next a otra celda.
+ * de información @e element, de tipo @c T genérico, y un puntero @e next a la celda
+ * siguiente.
+ *
  */
 
 template <class T>
@@ -31,7 +33,8 @@ struct Node
    * @param elem Elemento de información.
    * @param nxt Puntero al siguiente nodo.
    */
-  Node(const T& elem, Node<T>* nxt) : element(elem), next(nxt) {}
+  Node(const T& elem, Node<T>* nxt)
+    : element(elem), next(nxt) {}
 };
 
 #endif

@@ -5,19 +5,26 @@
  */
 
 template <class T>
+List<T>::List()
+{
+  tail = head = new Node<T>;
+  head->next = 0;
+}
+
+/* _________________________________________________________________________ */
+
+template <class T>
 List<T>::List(const List& original)
 {
   Node<T>* p = original.head;
+  tail = head = new Node<T>;
+  head->next = 0;
 
-  if (p) {
-    do
-    {
-      push_back(p->element);
-      p = p->next;
-    } while(p);
+  while(p->next)
+  {
+    push_back(p->element);
+    p = p->next;
   }
-  else
-    head = tail = 0;
 }
 
 /* _________________________________________________________________________ */
@@ -41,26 +48,10 @@ List<T>& List<T>::operator=(const List<T>& l)
 /* _________________________________________________________________________ */
 
 template <class T>
-int List<T>::size() const
-{
-  int n = 0;
-  for (Node<T>* aux = head; aux; aux = aux->next)
-    n++;
-  return n;
-}
-
-/* _________________________________________________________________________ */
-
-template <class T>
 void List<T>::push_back(const T& e)
 {
   Node<T>* aux = new Node<T>(e,0);
-
-  if (head)
-      tail->next = aux;
-  else
-      head = aux;
-  tail = aux;
+  tail = tail->next = aux;
 }
 
 /* _________________________________________________________________________ */
@@ -68,7 +59,7 @@ void List<T>::push_back(const T& e)
 template <class T>
 void List<T>::pop_back()
 {
-  assert(head);
+  assert(head->next);
   Node<T>* p;
   // Movemos un puntero hasta el nodo anterior a tail
   for (p = head; p->next != tail; p = p->next);
@@ -90,5 +81,18 @@ void List<T>::clear()
   }
   tail = 0;
 }
+
+/* _________________________________________________________________________ */
+
+template <class T>
+int List<T>::size() const
+{
+  int n = 0;
+  for (Node<T>* aux = head; aux; aux = aux->next)
+    n++;
+  return --n;
+}
+
+/* _________________________________________________________________________ */
 
 /* Fin fichero: list.cpp */
