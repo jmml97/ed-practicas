@@ -2,6 +2,12 @@
  * @file dvector.hpp
  * @brief Fichero de cabecera del T.D.A. DVector
  *
+ * Gestiona un vector dinámico con funciones para la inserción
+ * y el borrado de elementos así como para ampliar el vector.
+ *
+ * Un ejemplo de su uso puede consultarse en:
+ * @example test_dvector.cpp
+ *
  */
 
 #ifndef __DVECTOR_HPP__

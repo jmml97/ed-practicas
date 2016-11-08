@@ -5,6 +5,8 @@
  */
 
 // No se incluye el .hpp
+#include <iostream>
+using namespace std;
 
 template <class T>
 DVector<T>::DVector(int size, T d)
@@ -45,7 +47,7 @@ void DVector<T>::swap(DVector& v)
 }
 
 template <class T>
-DVector& DVector<T>::operator= (const DVector& v)
+DVector<T>& DVector<T>::operator=(const DVector& v)
 {
   DVector tmp(v);
   swap(tmp);
@@ -57,7 +59,7 @@ template <class T>
 void DVector<T>::reserve(int size)
 {
   if (size > reserved) {
-    T aux = new T[size];
+    T *aux = new T[size];
 
     for (int i = 0; i < n; i++)
       aux[i] = data[i];
@@ -85,7 +87,8 @@ void DVector<T>::push_back(T d)
       reserve(2*n);
   }
 
-  data[n++] = d;
+  data[n] = d;
+  n++;
 }
 
 
