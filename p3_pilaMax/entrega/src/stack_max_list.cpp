@@ -26,12 +26,13 @@ const Element& StackMax::top() const
 void StackMax::push(int n)
 {
   int max;
-  if (v.size() == 0)
+  if (v.empty())
     max = 0;
-  else
+  else {
     max = v.last().max;
-  if (max < n)
-    max = n;
+    if (max < n)
+      max = n;
+  }
   Element x = {n, max};
   v.push_back(x);
 }
