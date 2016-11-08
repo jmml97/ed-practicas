@@ -53,7 +53,7 @@ struct Element {
 std::ostream& operator<<(std::ostream& os, const Element& e);
 
 /// Se define la representación deseada para el T.D.A. StackMax
-#define COMPILE_HEADER 3
+#define COMPILE_HEADER 1
 
 #if COMPILE_HEADER == 1
   #include "stack_max_list.hpp"

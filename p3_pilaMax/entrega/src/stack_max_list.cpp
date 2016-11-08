@@ -1,7 +1,6 @@
 /**
  * @file stack_max_list.cpp
- * @brief Implementación del T.D.A. StackMax mediante una lista enlazada con cabecera
- *        de Element
+ * @brief Implementación del T.D.A. StackMax mediante una lista de Element
  *
  */
 
@@ -12,39 +11,43 @@ using namespace std;
 
 Element& StackMax::top()
 {
-    return v.last()->element;
+  return v.last();
 }
 
 /* _________________________________________________________________________ */
 
 const Element& StackMax::top() const
 {
-    return v.last()->element;
+  return v.last();
 }
 
 /* _________________________________________________________________________ */
 
 void StackMax::push(int n)
 {
-    int max = v.last()->element.max;
-    if (max < n)
-        max = n;
-    Element e = {n, max};
-    v.push_back(e);
+  int max;
+  if (v.size() == 0)
+    max = 0;
+  else
+    max = v.last().max;
+  if (max < n)
+    max = n;
+  Element x = {n, max};
+  v.push_back(x);
 }
 
 /* _________________________________________________________________________ */
 
 void StackMax::pop()
 {
-    v.pop_back();
+  v.pop_back();
 }
 
 /* _________________________________________________________________________ */
 
 void StackMax::clear()
 {
-    v.clear();
+  v.clear();
 }
 
 /* _________________________________________________________________________ */
