@@ -83,28 +83,28 @@ class List
      * @return Elemento del principio
      * @pre La lista no es vacía
      */
-    T& first() { return head->next->element; }
+    T& first() {return head->next->element;}
 
     /**
      * @brief Devuelve el principio de la lista
      * @return Referencia constante al elemento del principio
      * @pre La lista no es vacía
      */
-    const T& first() const { return head->next->element; }
+    const T& first() const {return head->next->element;}
 
     /**
      * @brief Devuelve la cola de la lista
      * @return Elemento del final
      * @pre La lista no es vacía
      */
-    T& last() { return tail->element; }
+    T& last() {return tail->element;}
 
     /**
      * @brief Devuelve la cola de la lista
      * @return Referencia constante al elemento del final
      * @pre La lista no es vacía
      */
-    const T& last() const { return tail->element; }
+    const T& last() const {return tail->element;}
 
     // ---------------  Funciones de modificación ----------------
 
@@ -139,7 +139,7 @@ class List
      * @retval true si está vacía
      * @retval false si no está vacía
      */
-    bool empty() const { return (head->next == 0); }
+    bool empty() const {return (head->next == 0);}
 };
 
 #include "list.cpp"

@@ -136,14 +136,14 @@ class Queue
     /**
      * @brief Devuelve el número de elementos de la cola
      */
-    int size() const { return n; }
+    int size() const {return n;}
 
     /**
      * @brief Comprueba si la cola está vacía
      * @retval true Si está vacía
      * @retval false Si no está vacía
      */
-    bool empty() const { return n == 0; }
+    bool empty() const {return n == 0;}
 };
 
 #include "queue.cpp"

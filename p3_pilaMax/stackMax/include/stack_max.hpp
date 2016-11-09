@@ -126,8 +126,8 @@ class StackMax
 
     // ---------------  Funciones de consulta ----------------
 
-    int size() const { return v.size(); }
-    bool empty() const { return v.empty(); }
+    int size() const {return v.size();}
+    bool empty() const {return v.empty();}
     bool sameMax(const StackMax& s) const;  // pre: ninguna de las dos vacía
 
     // ---------------  Funciones de entrada/salida ----------------

@@ -27,7 +27,8 @@
  */
 
 template <class T>
-class DVector {
+class DVector
+{
   /**
    * @page repConjunto2 Rep del T.D.A. DVector
    *
