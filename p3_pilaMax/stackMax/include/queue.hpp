@@ -41,7 +41,8 @@
  */
 
 template <class T>
-class Queue {
+class Queue
+{
   /**
    * @page repConjunto2 Rep del T.D.A. Queue
    *

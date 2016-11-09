@@ -19,11 +19,13 @@
  */
 
 template <class T>
-class DVector {
+class DVector
+{
   private:
     T* data;
     int n;
     int reserved;
+
   public:
     DVector() : data(0), n(0), reserved(0) {}
     DVector(int size, T d = 0);
@@ -38,7 +40,6 @@ class DVector {
     void push_back(T d);
     void reserve(int size);
     int capacity() const {return reserved;}
-
 
 };
 

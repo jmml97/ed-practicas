@@ -25,7 +25,8 @@ void StackMax::push(int n)
   int max;
   if (v.empty())
     max = n;
-  else {
+  else
+  {
     max = v.last().max;
     if (max < n)
       max = n;

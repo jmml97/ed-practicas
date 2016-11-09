@@ -12,13 +12,15 @@ using namespace std;
 
 int main(int argc, char * argv[])
 {
-  if (argc != 2) {
+  if (argc != 2)
+  {
     cerr << "Dime el nombre del fichero con la pila." << endl;
     return 1;
   }
   ifstream f (argv[1]);
 
-  if (!f) {
+  if (!f)
+  {
     cerr << "No puedo abrir el fichero " << argv[1] << endl;
     return 2;
   }
@@ -42,7 +44,8 @@ int main(int argc, char * argv[])
 
   // Vamos viendo el máximo
   cout << "Veamos cuál es el máximo en cada paso:\n";
-  while (!s.empty()) {
+  while (!s.empty())
+  {
     Element x = s.top();
     cout << x << endl;
     s.pop();

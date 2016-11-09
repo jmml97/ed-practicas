@@ -58,7 +58,8 @@ DVector<T>& DVector<T>::operator=(const DVector& v)
 template <class T>
 void DVector<T>::reserve(int size)
 {
-  if (size > reserved) {
+  if (size > reserved)
+  {
     T *aux = new T[size];
 
     for (int i = 0; i < n; i++)
@@ -80,7 +81,8 @@ void DVector<T>::resize(int nsize)
 template <class T>
 void DVector<T>::push_back(T d)
 {
-  if (n == reserved) {
+  if (n == reserved)
+  {
     if (n == 0)
       reserve(1);
     else

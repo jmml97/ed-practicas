@@ -28,14 +28,17 @@ std::istream& StackMax::loadStack(std::istream& is)
 {
   int i;
   StackMax aux;
-  while (is >> i) {
+  while (is >> i)
+  {
     aux.push(i);
     is >> i;   // No importa el máximo
   }
 
-  if (is.eof()) {
+  if (is.eof())
+  {
     clear();  // Borrar pila actual
-    while (!aux.empty()) {
+    while (!aux.empty())
+    {
       Element x = aux.top();
       push(x.num);
       aux.pop();
@@ -49,7 +52,8 @@ std::istream& StackMax::loadStack(std::istream& is)
 std::ostream& StackMax::writeStack(std::ostream& os) const
 {
   StackMax aux(*this);
-  while (!aux.empty()) {
+  while (!aux.empty())
+  {
     os << aux.top() << std::endl;
     aux.pop();
   }
@@ -61,7 +65,8 @@ std::ostream& StackMax::writeStack(std::ostream& os) const
 std::ostream& StackMax::prettyPrint(std::ostream& os) const
 {
   StackMax aux(*this);
-  while (!aux.empty()) {
+  while (!aux.empty())
+  {
     Element x = aux.top();
     os << '(' << x.num << ',' << x.max << ")\n";
     aux.pop();

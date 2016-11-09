@@ -24,7 +24,8 @@ int main()
   l2 = l1;
   List<int> l3(l2);
 
-  if (!l3.empty()) {
+  if (!l3.empty())
+  {
     cout << "El primer elemento de la lista es " << l3.first() << ", y el último es "
          << l3.last() << endl;
 

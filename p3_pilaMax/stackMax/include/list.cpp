@@ -16,13 +16,13 @@ List<T>::List()
 /* _________________________________________________________________________ */
 
 template <class T>
-List<T>::List(const List& original)
+List<T>::List(const List<T>& original)
 {
   Node<T>* p = original.head->next;
   tail = head = new Node<T>;
   head->next = 0;
 
-  while(p)
+  while (p)
   {
     push_back(p->element);
     p = p->next;

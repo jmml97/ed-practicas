@@ -2,6 +2,8 @@
  * @file list.hpp
  * @brief Fichero de cabecera del T.D.A. List
  *
+ * Gestiona una secuencia de elementos con facilidades para la inserción y
+ * borrado al final y acceso al principio y final.
  */
 
 #ifndef __LIST_HPP__
@@ -10,17 +12,36 @@
 #include "node.hpp"
 
 /**
- * @brief T.D.A. List
+ *  @brief T.D.A. Lista
  *
- * Lista enlazada con cabecera
- */
+ * Una instancia @e c del tipo de dato abstracto Lista sobre un dominio @e T es
+ * una sucesión finita de elementos del mismo. Este tipo lista permite
+ * operaciones de inserción y borrado al final; y acceso al principio y final.
+ *
+ * Una lista con cabecera de longitud @e n la denotamos:
+ *
+ * - <0,a1,a2,..,an>
+ *
+ * Donde @e Head, apunta a la cabecera que está vacía del elemento @e T (0) y
+ * que apunta al siguiente elemento @e T. Tendremos también @e Tail, que apunta
+ * al último elemento @e T de la lista.
+ *
+ * Si head->next = 0, diremos que la lista está vacia.
+ *
+ * El espacio requerido para el almacenamiento es O(n), donde n es el número
+ * de elementos de la lista.
+ *
+ * @author Antonio Coín Castro, Miguel Lentisco Ballesteros, José María Martín
+ * Luque
+ * @date 09/11/2016
+*/
 
 template <class T>
 class List
 {
   private:
-    Node<T>* head;
-    Node<T>* tail;
+    Node<T>* head; ///< Puntero a la cabecera de la lista.
+    Node<T>* tail; ///< Puntero al último nodo de la lista.
 
   public:
     // ---------------  Constructores ----------------

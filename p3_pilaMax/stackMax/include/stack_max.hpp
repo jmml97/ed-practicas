@@ -36,7 +36,8 @@
  *
  */
 
-struct Element {
+struct Element
+{
   int num;    ///< Número entero.
   int max;    ///< Número máximo en StackMax.
 };
@@ -84,7 +85,8 @@ std::ostream& operator<<(std::ostream& os, const Element& e);
  *
  */
 
-class StackMax {
+class StackMax
+{
   /**
    * @page repConjunto1 Rep del T.D.A. StackMax
    *

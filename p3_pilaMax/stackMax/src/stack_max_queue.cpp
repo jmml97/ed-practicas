@@ -27,17 +27,20 @@ void StackMax::push(int n)
   Element x;
   x.num = n;
 
-  if (v.size() == 0) {
+  if (v.size() == 0)
+  {
     x.max = n;
     v.push(x);
   }
 
-  else {
+  else
+  {
     int curr_max = top().max;
     x.max = curr_max >= n ? curr_max : n;
     Queue<Element> aux;
     aux.push(x);
-    while (v.size() != 0) {
+    while (v.size() != 0)
+    {
       aux.push(v.front());
       v.pop();
     }
