@@ -20,8 +20,8 @@
  * Una instancia @e e del tipo de datos abstracto Element es un objeto del conjunto
  * de las parejas de números enteros, compuesto por dos enteros @e num y @e max. Este T.D.A.
  * está pensado para usarse en conjunción con el T.D.A. QueueMax, ya que el primer entero
- * representa un número cualquiera (que se introduce en la pila), y el segundo representa
- * el máximo número que en ese instante se encuentra en la pila.
+ * representa un número cualquiera (que se introduce en la cola), y el segundo representa
+ * el máximo número que en ese instante se encuentra en la cola.
  *
  * Lo representamos: `(num,max)`
  *
