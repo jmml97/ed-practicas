@@ -56,10 +56,16 @@ DVector<T>& DVector<T>::operator=(const DVector& v)
 }
 
 template <class T>
+void DVector<T>::clear()
+{
+  delete[] data;
+  n = reserved = 0;
+}
+
+template <class T>
 void DVector<T>::reserve(int size)
 {
-  if (size > reserved)
-  {
+  if (size > reserved) {
     T *aux = new T[size];
 
     for (int i = 0; i < n; i++)
@@ -81,8 +87,7 @@ void DVector<T>::resize(int nsize)
 template <class T>
 void DVector<T>::push_back(T d)
 {
-  if (n == reserved)
-  {
+  if (n == reserved) {
     if (n == 0)
       reserve(1);
     else
@@ -93,5 +98,11 @@ void DVector<T>::push_back(T d)
   n++;
 }
 
+template <class T>
+void DVector<T>::shrink_to_fit()
+{
+  DVector tmp(*this);
+  swap(aux);
+}
 
 /* Fin fichero: dvector.cpp */
