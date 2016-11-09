@@ -2,9 +2,10 @@
  * @file stack_max.hpp
  * @brief Fichero de cabecera del T.D.A. StackMax
  *
- * Gestiona una secuencia de parejas de enteros realizando todas las operaciones
- * únicamente sobre uno de los extremos. El segundo elemento de la pareja es
- * el entero máximo (de entre los primeros elementos) que hay en la secuencia en ese momento
+ * Gestiona una secuencia de parejas de elementos, con facilidades para la inserción
+ * y borrado en uno de los extremos. El segundo elemento de la pareja es
+ * el máximo (de entre los primeros elementos de las parejas) que hay en la secuencia
+ * en ese momento.
  *
  * Además, se permite elegir entre tres representaciones distintas para este T.D.A.
  * @see stack_max_list.hpp
@@ -32,7 +33,7 @@
  *
  * Lo representamos: `(num,max)`
  *
- * @see StackMax
+ * @relates StackMax
  *
  */
 
@@ -45,16 +46,16 @@ struct Element
 /**
  * @brief Sobrecarga del operador << para Element
  * @param os Flujo de salida
- * @param e Element a escribir
+ * @param e Objeto de tipo Element a escribir
  * @post El formato de escritura es el siguiente:
- *   > e.num, e.max
+ * > e.num, e.max
  *
  * @relates Element
  */
 std::ostream& operator<<(std::ostream& os, const Element& e);
 
 /// Se define la representación deseada para el T.D.A. StackMax
-#define COMPILE_HEADER 1
+#define COMPILE_HEADER 2
 
 #if COMPILE_HEADER == 1
   #include "stack_max_list.hpp"
@@ -68,19 +69,20 @@ std::ostream& operator<<(std::ostream& os, const Element& e);
  * @brief T.D.A. StackMax
  *
  * Una instancia @e s del tipo de datos abstracto StackMax es un objeto que
- * representa una pila de Element. Está compuesto por una estructura de datos (@c StackType) @e v,
- * que puede ser una de tres: un vector dinámico, una lista ó una cola. Este dato constituye la
- * representación interna de una pila de Element. Una StackMax de longitud @e k la denotamos:
+ * representa una pila de objetos de tipo Element. Está compuesto por una estructura de
+ * datos (@c StackType) @e v, que puede ser una de tres: un vector dinámico, una lista con
+ * cabecera ó una cola. Este dato constituye la representación interna de la pila.
+ * Una pila de longitud @e k la denotamos:
  *
- * > <(num_1,max_1), (num_2, max_2),...,(num_k, max_k)>
+ * > <(num_1,max_1),(num_2, max_2),...,(num_k, max_k)>
  *
  * @see List
  * @see DVector
  * @see Queue
  *
- * @author Miguel Lentisco Ballesteros
- * @author Jose María Martín Luque
  * @author Antonio Coín Castro
+ * @author Miguel Lentisco Ballesteros
+ * @author José María Martín Luque
  * @date Noviembre 2016
  *
  */
@@ -103,13 +105,14 @@ class StackMax
    *
    */
   private:
-    StackType v;    ///< Representación interna de una pila
+    StackType v;    ///< Representación interna de la pila
 
   public:
     // ---------------  Constructores ----------------
+
     /**
      * @brief Constructor por defecto
-     * @post Construye una StackMax vacía
+     * @post Construye una pila vacía
      */
     StackMax() {};
 
@@ -122,7 +125,7 @@ class StackMax
 
     void push(int n);
     void pop(); // pre: no vacia
-    void clear();
+    void clear() {v.clear();}
 
     // ---------------  Funciones de consulta ----------------
 
@@ -140,9 +143,9 @@ class StackMax
 /**
  * @brief Sobrecarga del operador >> para StackMax
  * @param is Flujo de entrada
- * @param s StackMax donde leer
+ * @param s Pila donde leer
  * @pre El formato de lecura es el siguiente, donde la primera línea indica
- *      el tope de la StackMax:
+ *      el tope de la pila:
  *
  *          n1 max1
  *          n2 max2
@@ -157,7 +160,7 @@ std::istream& operator>>(std::istream& is, StackMax& s);
 /**
  * @brief Sobrecarga del operador << para StackMax
  * @param os Flujo de salida
- * @param s StackMax a escribir
+ * @param s Pila a escribir
  * @post El formato de escritura es el mismo que el de lectura
  *
  * @see operator>>

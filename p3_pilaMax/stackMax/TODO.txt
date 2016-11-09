@@ -1,5 +1,17 @@
-- Añadir -DNDEBUG a Makefile cuando vayamos a entregarlo (para compilar sin asserts)
-- Comprobar si funciona "make test" en Makefile (cuando esté todo acabado)
-- Eliminar #include<cassert> en list.hpp y dvector.hpp si no se implementan métodos inline.
-- Añadir comparator (functor) a StackMax
-- Editar formato de lectura (añadir símbolo $ para diferenciar).
+StackMax:
+
+- Documentar métodos de stack_max.hpp
+- Editar formato de lectura de stack_max.cpp (añadir símbolo $ para diferenciar).
+  (ponerlo en la documentación)
+- Añadir comparator (functor) a StackMax (poner template en Element y StackMax)
+  (ponerlo en la documentación)
+
+QueueMax:
+
+- Archivo test_stack.cpp en src/test
+- Repasar implementación + probar.
+
+Proyecto:
+
+- Añadir -DNDEBUG a Makefile cuando vayamos a entregarlo (para compilar sin asserts).
+- Asegurarse de que funcionan las tres implementaciones.

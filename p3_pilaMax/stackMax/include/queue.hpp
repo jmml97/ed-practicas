@@ -19,7 +19,7 @@
 /**
  *  @brief T.D.A. Queue
  *
- * Una instancia @e q del tipo de dato abstracto Queue sobre un dominio @e T es
+ * Una instancia @e q del tipo de dato abstracto Queue (cola) sobre un dominio @e T es
  * una sucesión finita de elementos del mismo con un funcionamiento @e FIFO
  * (First In, First Out). En una cola, las operaciones de inserción tienen
  * lugar en uno de los extremos, denominado @e final de la cola, mientras que
@@ -44,13 +44,13 @@ template <class T>
 class Queue
 {
   /**
-   * @page repConjunto2 Rep del T.D.A. Queue
+   * @page repConjunto4 Rep del T.D.A. Queue
    *
-   * @section invConjunto2 Invariante de la representación
+   * @section invConjunto4 Invariante de la representación
    *
    * El invariante es: @e n >= 0.
    *
-   * @section faConjunto2 Función de abstracción
+   * @section faConjunto4 Función de abstracción
    *
    * Un objeto válido @e rep del T.D.A. Queue representa a los valores
    *
@@ -81,7 +81,7 @@ class Queue
     /**
      * @brief Destructor
      */
-    ~Queue() { clear(); }
+    ~Queue() {clear();}
 
     // --------------- Sobrecarga de operadores ---------------
 
@@ -104,7 +104,7 @@ class Queue
     }
 
     /**
-     * @brief Devuelve el elemento del frente de una cola constante
+     * @brief Devuelve el elemento del frente de una cola
      * @return Referencia constante al elemento frente de la cola
      */
     const T& front() const
@@ -123,6 +123,7 @@ class Queue
 
     /**
      * @brief Quita el elemento del frente de la cola
+     * @pre La cola no puede ser vacía
      */
     void pop();
 

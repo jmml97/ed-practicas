@@ -11,7 +11,7 @@
 #if COMPILE_HEADER == 1
   #include "stack_max_list.cpp"
 #elif COMPILE_HEADER == 2
-  #include "stack_max_dv.cpp"
+  #include "stack_max_dvector.cpp"
 #else
   #include "stack_max_queue.cpp"
 #endif

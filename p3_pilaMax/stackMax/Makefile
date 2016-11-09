@@ -30,8 +30,6 @@ $(BIN)/use_stack_max: $(SOURCESMAIN) $(SOURCES) $(INC)
 	$(CXX) $(CXXFLAGS) -o $@ $(SOURCESMAIN)
 
 # --- Test ---
-test: $(BIN)/test_%
-
 $(BIN)/test_%: $(OBJ)/test_%.o
 	$(CXX) -o $@ $<
 

@@ -10,7 +10,7 @@
 /**
  * @brief T.D.A. Node
  *
- * Un objeto del tipo Node representa una celda, que contiene un elemento
+ * Un objeto del tipo Node representa una celda que contiene un elemento
  * de información @e element, de tipo @c T genérico, y un puntero @e next a la celda
  * siguiente.
  *

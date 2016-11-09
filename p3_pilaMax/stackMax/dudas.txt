@@ -1,1 +1,0 @@
-- Formato de lectura de StackMax?? (permitir solo nums)
