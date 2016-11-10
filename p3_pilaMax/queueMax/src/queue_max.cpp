@@ -75,7 +75,6 @@ void QueueMax::pop()
 
 /* _________________________________________________________________________ */
 
-
 std::ostream& QueueMax::prettyPrint(std::ostream& os) const
 {
 }
