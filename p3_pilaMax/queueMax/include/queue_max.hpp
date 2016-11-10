@@ -98,13 +98,25 @@ class QueueType
          * @brief Devuelve el elemento del frente de la cola
          * @return Referencia al elemento frente de la cola
          */
-        T& front();
+        Element& front();
 
         /**
          * @brief Devuelve el elemento del frente de una cola constante
          * @return Referencia constante al elemento frente de la cola
          */
-        const T& front() const;
+        const Element& front() const;
+
+        /**
+         * @brief Devuelve el elemento del final de la cola
+         * @return Referencia al elemento último de la cola
+         */
+        Element& tail() {return v.top();}
+
+        /**
+         * @brief Devuelve el elemento del final de la cola
+         * @return Referencia constante al elemento último de la cola
+         */
+        const Element& tail() const {return v.top();}
 
         // ---------------  Funciones de modificación ----------------
 
@@ -122,21 +134,21 @@ class QueueType
         /**
          * @brief Borra QueueMax
          */
-        void clear();
+        void clear() {v.clear();}
 
         // ---------------  Funciones de consulta ----------------
 
         /**
          * @brief Devuelve el número de elementos de QueueMax
          */
-        int size() const;
+        int size() const {return v.size();}
 
         /**
          * @brief Comprueba si QueueMax está vacía
          * @retval true Si está vacía
          * @retval false Si no está vacía
          */
-        bool empty() const;
+        bool empty() const {return v.empty();}
 
 
         // ---------------  Funciones de entrada/salida ----------------

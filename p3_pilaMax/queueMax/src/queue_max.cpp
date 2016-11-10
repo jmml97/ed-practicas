@@ -4,47 +4,77 @@
   *
   */
 
-T& QueueMax::front()
+Element& QueueMax::front()
 {
+    Stack<Element> aux;
+    while(!v.empty())
+    {
+        aux.push(v.top());
+        v.pop();
+    }
+    v.push(aux.top());
+    aux.pop();
+    Element& e = v.top();
+    while(!aux.empty())
+    {
+        v.push(aux.top());
+        aux.pop();
+    }
+    return e;
 }
 
 /* _________________________________________________________________________ */
 
-const T& QueueMax::front() const
+const Element& QueueMax::front() const
 {
+    Stack<Element> aux;
+    while(!v.empty())
+    {
+        aux.push(v.top());
+        v.pop();
+    }
+    v.push(aux.top());
+    aux.pop();
+    Element& e = v.top();
+    while(!aux.empty())
+    {
+        v.push(aux.top());
+        aux.pop();
+    }
+    return e;
 }
 
 /* _________________________________________________________________________ */
 
 void QueueMax::push(int n)
 {
+    int max = n;
+    if (!v.empty() && v.top().max > max)
+        max = top().max;
+    Element e = {n, max};
+    v.push(e);
 }
 
 /* _________________________________________________________________________ */
 
 void QueueMax::pop()
 {
+    Stack<Element> aux;
+    while(!v.empty())
+    {
+        aux.push(v.top());
+        v.pop();
+    }
+    aux.pop();
+    while(!aux.empty())
+    {
+        v.push(aux.top());
+        aux.pop();
+    }
 }
 
 /* _________________________________________________________________________ */
 
-void QueueMax::clear()
-{
-}
-
-/* _________________________________________________________________________ */
-
-int QueueMax::size() const
-{
-}
-
-/* _________________________________________________________________________ */
-
-bool QueueMax::empty() const
-{
-}
-
-/* _________________________________________________________________________ */
 
 std::ostream& QueueMax::prettyPrint(std::ostream& os) const
 {
