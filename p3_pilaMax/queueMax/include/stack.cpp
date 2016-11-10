@@ -73,10 +73,8 @@ void Stack<T>::pop()
 template <class T>
 int Stack<T>::size() const
 {
-  Node<T>* p;
-
   int n = 0;
-  for (p = first; p; p = p->next)
+  for (Node<T>* p = first; p; p = p->next)
     n++;
   return n;
 }
