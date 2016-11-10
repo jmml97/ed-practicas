@@ -1,6 +1,6 @@
 /**
  * @file queue_max.hpp
- * @brief Fichero de cabecera del T.D.A. queueMax
+ * @brief Fichero de cabecera del T.D.A. QueueMax
  *
  * Gestiona una secuencia de parejas de enteros realizando todas las operaciones
  * únicamente sobre uno de los extremos. El segundo elemento de la pareja es
@@ -61,19 +61,19 @@ std::ostream& operator<<(std::ostream& os, const Element& e);
  * @author Antonio Coín Castro
  * @author Miguel Lentisco Ballesteros
  * @author Jose María Martín Luque
- * @date 09/11/2016
+ * @date Noviembre 2016
  *
  */
 class QueueType
 {
     /**
-     * @page repConjunto1 Rep del T.D.A. StackMax
+     * @page repConjunto5 Rep del T.D.A. StackMax
      *
-     * @section invConjunto1 Invariante de la representación
+     * @section invConjunto5 Invariante de la representación
      *
      * El invariante es: @e v es de tipo DVector, List ó Queue.
      *
-     * @section faConjunto1 Función de abstracción
+     * @section faConjunto5 Función de abstracción
      *
      * Un objeto válido @e rep del T.D.A. StackMax representa a uno, y solo uno de
      * estos tres valores:
@@ -82,7 +82,7 @@ class QueueType
      *
      */
     private:
-        Stack<Element> v;   ///< Representación interna de una cola
+        Stack<Element> v;   ///< Pila de parejas de tipo Element
 
     public:
         // ---------------  Constructores ----------------
@@ -121,25 +121,25 @@ class QueueType
         // ---------------  Funciones de modificación ----------------
 
         /**
-         * @brief Añade un elemento al final de QueueMax
-         * @param int n usado para crear el Elemento a añadir.
+         * @brief Añade un elemento al final de la cola
+         * @param int n usado para crear el elemento a añadir.
          */
         void push(int n);
 
         /**
-         * @brief Quita el elemento del frente de QueueMax
+         * @brief Quita el elemento del frente de la cola
          */
         void pop();
 
         /**
-         * @brief Borra QueueMax
+         * @brief Borra la cola completamente
          */
         void clear() {v.clear();}
 
         // ---------------  Funciones de consulta ----------------
 
         /**
-         * @brief Devuelve el número de elementos de QueueMax
+         * @brief Devuelve el número de elementos de la cola
          */
         int size() const {return v.size();}
 

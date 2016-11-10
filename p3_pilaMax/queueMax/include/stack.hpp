@@ -3,7 +3,7 @@
   * @brief Fichero cabecera del TDA Stack
   *
   * Gestiona una secuencia de elementos con facilidades para la inserción y
-  * borrado de elementos en un extremo
+  * borrado de elementos en un extremo.
   */
 
 #ifndef __STACK_HPP__
@@ -19,15 +19,15 @@ class Stack
 
     public:
 
-        Stack() {first = 0;}
-        Stack(const Stack& s);
-
+        Stack() : first(0) {}
+        Stack(const Stack<T>& s);
         ~Stack() {clear();}
+        Stack<T>& operator=(const Stack<T>& s);
 
-        T& top() {first->element;}
-        const T& top() const {first->element;}
+        T& top() {return first->element;}
+        const T& top() const {return first->element;}
 
-        void push(T e);
+        void push(const T& e);
 
         // pre: no vacio
         void pop();
@@ -39,9 +39,7 @@ class Stack
         bool empty() const {return !first;}
 };
 
-
-
-#include "cola.cpp";
+#include "stack.cpp"
 
 #endif
 

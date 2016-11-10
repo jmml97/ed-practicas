@@ -3,50 +3,55 @@
   * @brief Implementación del TDA Stack
   *
   */
-// No se incluye el .hpp
 
 template <class T>
 Stack<T>::Stack(const Stack<T>& s)
 {
-    first = new Node<T>(s.top(), 0);
-    Node<T>* aux_orig = s.first->next;
-    Node<T>* aux_new = first->next;
+  if (s.first)
+  {
+    Node<T>* p = s.first;
+    first = new Node<T>(p->element, 0);
+    p = p->next;
+    Node<T>* aux = first;
 
-    while (aux_orig)
+    while (p)
     {
-        aux_new = new Node<T>(aux_orig->element, 0);
-        aux_orig = aux_orig->next
-        aux_new = aux_new->next;
+      aux->next = new Node<T>(p->element, 0);
+      aux = aux->next;
+      p = p->next;
     }
+  }
+  else
+    first = 0;
 }
 
 /* _________________________________________________________________________ */
 
 template <class T>
-Stack<T>& Stack<T>::operator =(const Stack<T>& s)
+Stack<T>& Stack<T>::operator=(const Stack<T>& s)
 {
-    if (this != &s)
-    {
-        clear();
-        Stack<T> aux(s);
-        first = new Node<T>(aux.first->element, 0);
-        aux.first = aux.first->next;
-        Node<T>* p_new = first->next;
+  if (this != &s)
+  {
+    clear();
+    Stack<T> aux(s);
+    first = new Node<T>(aux.first->element, 0);
+    aux.first = aux.first->next;
+    Node<T>* p_new = first->next;
 
-        while (aux.first)
-        {
-            p_new = new Node<T>(aux.first->element, 0);
-            aux.first = aux.first->next;
-            p_new = p_new->next;
-        }
+    while (aux.first)
+    {
+      p_new = new Node<T>(aux.first->element, 0);
+      aux.first = aux.first->next;
+      p_new = p_new->next;
     }
-    return *this;
+  }
+  return *this;
 }
 
 /* _________________________________________________________________________ */
 
 template <class T>
-void Stack<T>::push(T e)
+void Stack<T>::push(const T& e)
 {
     Node<T>* aux = first;
     first = new Node<T>(e, aux);
@@ -57,9 +62,10 @@ void Stack<T>::push(T e)
 template <class T>
 void Stack<T>::pop()
 {
-    Node<T>* aux = first;
-    first = first->next;
-    delete aux;
+  assert(first);
+  Node<T>* aux = first;
+  first = first->next;
+  delete aux;
 }
 
 /* _________________________________________________________________________ */
@@ -67,11 +73,12 @@ void Stack<T>::pop()
 template <class T>
 int Stack<T>::size() const
 {
-    Stack<T> aux(*this);
-    int n;
-    for (n = 0; aux.first; ++n)
-        aux.pop();
-    return n;
+  Node<T>* p;
+
+  int n = 0;
+  for (p = first; p; p = p->next)
+    n++;
+  return n;
 }
 
 /* _________________________________________________________________________ */
@@ -79,8 +86,14 @@ int Stack<T>::size() const
 template <class T>
 void Stack<T>::clear()
 {
-    while (first)
-        pop();
+  while (first)
+  {
+    Node<T>* aux = first;
+    first = first->next;
+    delete aux;
+  }
 }
+
+/* _________________________________________________________________________ */
 
 /* Fin fichero: stack.cpp */

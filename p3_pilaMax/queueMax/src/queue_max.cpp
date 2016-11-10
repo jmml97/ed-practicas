@@ -90,7 +90,7 @@ std::istream& operator>>(std::istream& is, QueueMax& q)
 
 std::ostream& operator<<(std::ostream& os, const QueueMax& q)
 {
-    return q.writeStack(os);
+    return q.writeQueue(os);
 }
 
 /* _________________________________________________________________________ */
