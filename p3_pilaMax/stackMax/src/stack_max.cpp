@@ -28,15 +28,29 @@ std::istream& StackMax::loadStack(std::istream& is)
 {
   int i;
   StackMax aux;
-  while (is >> i)
+
+  // Eliminar blancos iniciales
+  while (isspace(is.peek()))
+    is.ignore();
+
+  if (is.peek() == '$') // Formato 1
   {
-    aux.push(i);
-    is >> i;   // No importa el máximo
+    is.ignore();  // ignorar '$'
+    while (is >> i)
+      aux.push(i);
+  }
+  else  // Formato 2
+  {
+    while (is >> i)
+    {
+      aux.push(i);
+      is >> i;   // no importa el máximo
+    }
   }
 
   if (is.eof())
   {
-    clear();  // Borrar pila actual
+    clear(); 
     while (!aux.empty())
     {
       Element x = aux.top();

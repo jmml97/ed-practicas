@@ -121,6 +121,7 @@ class StackMax
     Element& top(); // pre: no vacia
     const Element& top() const; // pre: no vacia
 
+
     // ---------------  Funciones de modificación ----------------
 
     void push(int n);
@@ -144,15 +145,30 @@ class StackMax
  * @brief Sobrecarga del operador >> para StackMax
  * @param is Flujo de entrada
  * @param s Pila donde leer
- * @pre El formato de lecura es el siguiente, donde la primera línea indica
- *      el tope de la pila:
+ * @post StackMax leída en @e s
+ * @pre Hay dos formatos de lectura. En ambos, el tope de la pila
+ *      es el que se encuentra más arriba.
+ *
+ * - Formato 1:
  *
  *          n1 max1
  *          n2 max2
+ *          n3 max3
  *          ...
  *
- * @post StackMax leída en @e s
+ * - Formato 2:
+ *          $
+ *          n1
+ *          n2
+ *          n3
+ *          ...
  *
+ * El segundo formato necesita el símbolo '$' al inicio del archivo
+ * para ser reconocido como un formato válido de entrada. El primer formato
+ * se mantiene por compatibilidad con el formato de escritura, aunque los
+ * diferentes máximos son ignorados en la lectura.
+ *
+ * @see operator<<
  * @relates StackMax
  */
 std::istream& operator>>(std::istream& is, StackMax& s);
