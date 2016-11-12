@@ -8,7 +8,7 @@
 
 Element& StackMax::top()
 {
-  assert(!empty());
+  assert(!v.empty());
   return v[v.size()-1];
 }
 
@@ -16,7 +16,7 @@ Element& StackMax::top()
 
 const Element& StackMax::top() const
 {
-  assert(!empty());
+  assert(!v.empty());
   return v[v.size()-1];
 }
 
@@ -29,7 +29,7 @@ void StackMax::push(int n)
     max = n;
   else
   {
-    max = top().max;
+    max = v[v.size()-1].max;
     if (max < n)
       max = n;
   }
@@ -42,7 +42,7 @@ void StackMax::push(int n)
 
 void StackMax::pop()
 {
-  assert(!empty());
+  assert(!v.empty());
   v.pop_back();
   if (v.size() < v.capacity()/4)
     v.shrink();

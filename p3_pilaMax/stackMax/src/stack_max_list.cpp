@@ -8,7 +8,7 @@
 
 Element& StackMax::top()
 {
-  assert(!empty());
+  assert(!v.empty());
   return v.last();
 }
 
@@ -16,7 +16,7 @@ Element& StackMax::top()
 
 const Element& StackMax::top() const
 {
-  assert(!empty());
+  assert(!v.empty());
   return v.last();
 }
 
@@ -42,7 +42,7 @@ void StackMax::push(int n)
 
 void StackMax::pop()
 {
-  assert(!empty());
+  assert(!v.empty());
   v.pop_back();
 }
 

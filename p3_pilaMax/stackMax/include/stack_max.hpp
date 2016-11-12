@@ -72,7 +72,7 @@ std::ostream& operator<<(std::ostream& os, const Element& e);
  * representa una pila de objetos de tipo Element. Está compuesto por una estructura de
  * datos (@c StackType) @e v, que puede ser una de tres: un vector dinámico, una lista con
  * cabecera ó una cola. Este dato constituye la representación interna de la pila.
- * Una pila de longitud @e k la denotamos:
+ * Una StackMax de longitud @e k la denotamos:
  *
  * > <(num_1,max_1),(num_2, max_2),...,(num_k, max_k)>
  *
@@ -118,57 +118,133 @@ class StackMax
 
     // ---------------  Funciones de acceso ----------------
 
-    Element& top(); // pre: no vacia
-    const Element& top() const; // pre: no vacia
+    /**
+     * @brief Devuelve el elemento del tope de la cola
+     * @pre La pila no es vacía
+     * @return Referencia al elemento del tope
+     */
+    Element& top();
 
+    /**
+     * @brief Devuelve el elemento del tope de la cola
+     * @pre La pila no es vacía
+     * @return Referencia constante al elemento del tope
+     */
+    const Element& top() const;
 
     // ---------------  Funciones de modificación ----------------
 
+    /**
+     * @brief Añade un elemento a la pila
+     * @param n Entero usado para crear el elemento a añadir
+     * @post El tamaño de la pila aumenta en 1
+     */
     void push(int n);
-    void pop(); // pre: no vacia
+
+    /**
+     * @brief Elimina el elemento del tope
+     * @pre La pila no es vacía
+     * @post El tamaño de la pila disminuye en 1
+     */
+    void pop();
+
+    /**
+     * @brief Borra la pila completamente
+     */
     void clear() {v.clear();}
 
     // ---------------  Funciones de consulta ----------------
 
+    /**
+     * @brief Consulta el tamaño de la pila
+     * @return Tamaño de la pila (0 si es vacía)
+     */
     int size() const {return v.size();}
+
+    /**
+     * @brief Consulta si la pila está vacía
+     * @retval true Si está vacía
+     * @retval false Si no está vacía
+     */
     bool empty() const {return v.empty();}
-    bool sameMax(const StackMax& s) const;  // pre: ninguna de las dos vacía
+
+    /**
+     * @brief Consulta si dos pilass tienen el mismo máximo
+     * @param s Pila para comparar con el objeto implícito
+     * @pre Tanto el objeto implícito como @e s son pilas no vacías.
+     * @retval true Si tienen el mismo máximo
+     * @retval false Si no tienen el mismo máximo.
+     */
+    bool sameMax(const StackMax& s) const;
 
     // ---------------  Funciones de entrada/salida ----------------
 
+    /**
+     * @brief Carga una StackMax desde un flujo de entrada
+     * @param is Flujo de entrada
+     * @pre Hay dos formatos de lectura. En ambos, el tope de la pila
+     *      es el que se encuentra más arriba.
+     *
+     * - Formato 1:
+     *
+     *       n1 max1
+     *       n2 max2
+     *       n3 max3
+     *       ...
+     *
+     * - Formato 2:
+     *
+     *       $
+     *       n1
+     *       n2
+     *       n3
+     *       ...
+     *
+     * El segundo formato necesita el símbolo '$' al inicio del archivo
+     * para ser reconocido como un formato válido de entrada. El primer formato
+     * se mantiene por compatibilidad con el formato de escritura, aunque los
+     * diferentes máximos son ignorados en la lectura.
+     *
+     * @see writeStack
+     */
     std::istream& loadStack(std::istream& is);
+
+    /**
+     * @brief Escribe una StackMax en un flujo de salida
+     * @param os Flujo de salida
+     * @post El formato de escritura es el siguiente:
+     *
+     *     n1 max1
+     *     n2 max2
+     *     n3 max3
+     *     ...
+     *
+     * @see loadStack
+     */
     std::ostream& writeStack(std::ostream& os) const;
-    std::ostream& prettyPrint(std::ostream& os = std::cout) const;  // formato: (num,max)
+
+    /**
+     * @brief Escribe una StackMax en un flujo de salida
+     * @param os Flujo de salida. Por defecto es std::cout
+     * @post El formato de escritura es el siguiente:
+     *
+     *     (n1,max1)
+     *     (n2,max2)
+     *     (n3,max3)
+     *     ...
+     */
+    std::ostream& prettyPrint(std::ostream& os = std::cout) const;
 };
 
 /**
  * @brief Sobrecarga del operador >> para StackMax
  * @param is Flujo de entrada
  * @param s Pila donde leer
+ * @pre El formato de lectura es el especificado en la documentación
+ *      de StackMax.
  * @post StackMax leída en @e s
- * @pre Hay dos formatos de lectura. En ambos, el tope de la pila
- *      es el que se encuentra más arriba.
  *
- * - Formato 1:
- *
- *          n1 max1
- *          n2 max2
- *          n3 max3
- *          ...
- *
- * - Formato 2:
- *          $
- *          n1
- *          n2
- *          n3
- *          ...
- *
- * El segundo formato necesita el símbolo '$' al inicio del archivo
- * para ser reconocido como un formato válido de entrada. El primer formato
- * se mantiene por compatibilidad con el formato de escritura, aunque los
- * diferentes máximos son ignorados en la lectura.
- *
- * @see operator<<
+ * @see StackMax::loadStack
  * @relates StackMax
  */
 std::istream& operator>>(std::istream& is, StackMax& s);
@@ -177,9 +253,10 @@ std::istream& operator>>(std::istream& is, StackMax& s);
  * @brief Sobrecarga del operador << para StackMax
  * @param os Flujo de salida
  * @param s Pila a escribir
- * @post El formato de escritura es el mismo que el de lectura
+ * @post El formato de escritura es el especificado en la documentación
+ *       de StackMax
  *
- * @see operator>>
+ * @see StackMax::writeStack
  * @relates StackMax
  */
 std::ostream& operator<<(std::ostream& os, const StackMax& s);

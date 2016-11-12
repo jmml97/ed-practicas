@@ -8,7 +8,7 @@
 
 Element& StackMax::top()
 {
-  assert(!empty());
+  assert(!v.empty());
   return v.front();
 }
 
@@ -16,7 +16,7 @@ Element& StackMax::top()
 
 const Element& StackMax::top() const
 {
-  assert(!empty());
+  assert(!v.empty());
   return v.front();
 }
 
@@ -35,7 +35,7 @@ void StackMax::push(int n)
 
   else
   {
-    int curr_max = top().max;
+    int curr_max = v.front().max;
     x.max = curr_max >= n ? curr_max : n;
     Queue<Element> aux;
     aux.push(x);
@@ -52,7 +52,7 @@ void StackMax::push(int n)
 
 void StackMax::pop()
 {
-  assert(!empty());
+  assert(!v.empty());
   v.pop();
 }
 

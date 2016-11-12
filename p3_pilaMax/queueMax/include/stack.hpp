@@ -14,29 +14,29 @@
 template <class T>
 class Stack
 {
-    private:
-        Node<T>* first;  ///< Puntero al tope de la pìla
+  private:
+    Node<T>* first;  ///< Puntero al tope de la pìla
 
-    public:
+  public:
 
-        Stack() : first(0) {}
-        Stack(const Stack<T>& s);
-        ~Stack() {clear();}
-        Stack<T>& operator=(const Stack<T>& s);
+    Stack() : first(0) {}
+    Stack(const Stack<T>& s);
+    ~Stack() {clear();}
+    Stack<T>& operator=(const Stack<T>& s);
 
-        T& top() {return first->element;}
-        const T& top() const {return first->element;}
+    T& top() {return first->element;}
+    const T& top() const {return first->element;}
 
-        void push(const T& e);
+    void push(const T& e);
 
-        // pre: no vacio
-        void pop();
+    // pre: no vacio
+    void pop();
 
-        int size() const;
+    int size() const;
 
-        void clear();
+    void clear();
 
-        bool empty() const {return !first;}
+    bool empty() const {return !first;}
 };
 
 #include "stack.cpp"

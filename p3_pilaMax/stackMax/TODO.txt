@@ -6,8 +6,12 @@ StackMax:
 
 QueueMax:
 
+- Documentar stack.hpp
 - Archivo test_stack.cpp en src/test
 - Repasar implementación + probar.
+- Añadir makefile
+- operator= stack.cpp
+- Documentación queue_max.hpp (copiar de stack_max.hpp)
 
 Proyecto:
 
