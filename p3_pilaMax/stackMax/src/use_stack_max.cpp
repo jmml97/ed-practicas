@@ -17,7 +17,7 @@ int main(int argc, char * argv[])
     cerr << "Dime el nombre del fichero con la pila." << endl;
     return 1;
   }
-  ifstream f (argv[1]);
+  ifstream f(argv[1]);
 
   if (!f)
   {
@@ -65,8 +65,8 @@ int main(int argc, char * argv[])
   cout << endl;
 
   // Guardar en fichero
-  cout << "Pila guardada en datos/pila_out.txt";
-  ofstream output("datos/pila_out.txt");
+  cout << "Pila guardada en datos/stack_out.txt";
+  ofstream output("datos/stack_out.txt");
   output << s2;
   cout << endl;
 

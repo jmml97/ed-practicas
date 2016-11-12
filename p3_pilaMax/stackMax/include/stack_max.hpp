@@ -54,8 +54,14 @@ struct Element
  */
 std::ostream& operator<<(std::ostream& os, const Element& e);
 
-/// Se define la representación deseada para el T.D.A. StackMax
-#define COMPILE_HEADER 2
+/**
+ * Se define la representación deseada para el T.D.A. StackMax.
+ *
+ *      1 = Usando una lista de celdas enlazadas con cabecera
+ *      2 = Usando un vector dinámico
+ *      3 = Usando una cola
+ */
+#define COMPILE_HEADER 1
 
 #if COMPILE_HEADER == 1
   #include "stack_max_list.hpp"

@@ -10,7 +10,7 @@ TEST      = $(SRC)/test
 # ****** Opciones de compilación ********
 RM        = rm -f
 CXX       = g++
-CXXFLAGS  = -Wall -g -std=c++11 -I./$(INCLUDE)
+CXXFLAGS  = -Wall -g -std=c++11 -I./$(INCLUDE) -DNDEBUG
 
 # ******* Fuentes y cabeceras ********
 SOURCESMAIN = $(addprefix $(SRC)/, use_stack_max.cpp stack_max.cpp)
@@ -30,6 +30,8 @@ $(BIN)/use_stack_max: $(SOURCESMAIN) $(SOURCES) $(INC)
 	$(CXX) $(CXXFLAGS) -o $@ $(SOURCESMAIN)
 
 # --- Test ---
+test: $(BIN)/test_*
+
 $(BIN)/test_%: $(OBJ)/test_%.o
 	$(CXX) -o $@ $<
 

@@ -2,8 +2,8 @@
  * @file queue.hpp
  * @brief Fichero de cabecera del T.D.A. Queue
  *
- * Gestiona una secuencia de elementos con facilidades para la inserción y
- * borrado de elementos en un extremo
+ * Gestiona una secuencia de elementos con facilidades para la inserción
+ * de elementos en un extremo, y borrado y consulta en el otro.
  *
  * Un ejemplo de su uso puede consultarse en:
  * @example test_queue.cpp
@@ -33,7 +33,7 @@
  * mientras que la inserción de un nuevo elemento se hará después de
  * @e an (final de la cola).
  *
- * Si @e n=0 diremos que la cola está vacía.
+ * Si @e n = 0 diremos que la cola está vacía.
  *
  * El espacio requerido para el almacenamiento es @e O(n), donde @e n es el número
  * de elementos de la cola.
@@ -54,7 +54,7 @@ class Queue
    *
    * Un objeto válido @e rep del T.D.A. Queue representa a los valores
    *
-   * > (Node) head, (Node) tail, (int) n
+   * > (Node<T>*) head, (Node<T>*) tail, (int) n
    *
    */
   private:
@@ -99,7 +99,7 @@ class Queue
      */
     T& front()
     {
-      assert(head != 0);
+      assert(head);
       return head->element;
     }
 
@@ -109,7 +109,7 @@ class Queue
      */
     const T& front() const
     {
-      assert(head != 0);
+      assert(head);
       return head->element;
     }
 

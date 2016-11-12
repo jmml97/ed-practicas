@@ -16,6 +16,7 @@
 #define __QUEUE_MAX_HPP__
 
 #include <iostream>
+#include <cassert>
 #include "stack.hpp"
 
 /**
@@ -76,17 +77,17 @@ class QueueMax
    *
    * @section invConjunto5 Invariante de la representación
    *
-   * El invariante es: @e v.first apunta al final de la cola
+   * El invariante es: @e v.first apunta al final de la cola, o es 0 si está vacía
    *
    * @section faConjunto5 Función de abstracción
    *
-   * Un objeto válido @e rep del T.D.A. StackMax representa al valor:
+   * Un objeto válido @e rep del T.D.A. QueueMax representa al valor:
    *
    * > (Stack<Element>) v
    *
    */
   private:
-    Stack<Element> v;   ///< Pila de parejas de tipo Element
+    Stack<Element> v;   ///< Pila de parejas de enteros
 
   public:
     // ---------------  Constructores ----------------
@@ -118,14 +119,22 @@ class QueueMax
      * @pre La cola no es vacía
      * @return Referencia al elemento último de la cola
      */
-    Element& tail() {return v.top();}
+    Element& tail()
+    {
+      assert(!v.empty());
+      return v.top();
+    }
 
     /**
      * @brief Devuelve el elemento del final de la cola
      * @pre La cola no es vacía
      * @return Referencia constante al elemento último de la cola
      */
-    const Element& tail() const {return v.top();}
+    const Element& tail() const
+    {
+      assert(!v.empty());
+      return v.top();
+    }
 
     // ---------------  Funciones de modificación ----------------
 
