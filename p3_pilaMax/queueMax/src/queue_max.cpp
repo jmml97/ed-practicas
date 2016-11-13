@@ -25,10 +25,18 @@ const Element& QueueMax::front() const
   assert(!v.empty());
 
   Stack<Element> aux(v);
-  while (aux.size() > 1)
-    aux.pop();
+  while(!aux.empty())
+  {
+    aux.push(v.top());
+    v.pop();
+  }
+  aux.pop();  // borrar elemento en cuestión
 
-  return aux.top();
+  while(!aux.empty())
+  {
+    v.push(aux.top());
+    aux.pop();
+  }
 }
 
 /* _________________________________________________________________________ */

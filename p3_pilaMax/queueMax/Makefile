@@ -32,6 +32,8 @@ $(OBJ)/queue_max.o: $(SRC)/queue_max.cpp $(HPP_FILES)
 	$(CXX) $(CXXFLAGS) -o $@ $<
 
 # --- Test ---
+test: $(BIN)/test_stack
+	
 $(BIN)/test_stack: $(OBJ)/test_stack.o
 	$(CXX) -o $@ $<
 

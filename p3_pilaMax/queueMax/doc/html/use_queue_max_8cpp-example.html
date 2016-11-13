@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.11"/>
+<title>Cola con máximo: use_queue_max.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Cola con máximo
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.8.11 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Página&#160;principal</span></a></li>
+      <li><a href="pages.html"><span>Páginas&#160;relacionadas</span></a></li>
+      <li><a href="annotated.html"><span>Clases</span></a></li>
+      <li><a href="files.html"><span>Archivos</span></a></li>
+      <li><a href="examples.html"><span>Ejemplos</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('use_queue_max_8cpp-example.html','');});
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="headertitle">
+<div class="title">use_queue_max.cpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"></div><div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span></div><div class="line"><span class="preprocessor">#include &lt;fstream&gt;</span></div><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="queue__max_8hpp.html">queue_max.hpp</a>&quot;</span></div><div class="line"></div><div class="line"><span class="keyword">using namespace </span>std;</div><div class="line"></div><div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> * argv[])</div><div class="line">{</div><div class="line">  <span class="keywordflow">if</span> (argc != 2)</div><div class="line">  {</div><div class="line">    cerr &lt;&lt; <span class="stringliteral">&quot;Dime el nombre del fichero con la cola.&quot;</span> &lt;&lt; endl;</div><div class="line">    <span class="keywordflow">return</span> 1;</div><div class="line">  }</div><div class="line">  ifstream f(argv[1]);</div><div class="line"></div><div class="line">  <span class="keywordflow">if</span> (!f)</div><div class="line">  {</div><div class="line">    cerr &lt;&lt; <span class="stringliteral">&quot;No puedo abrir el fichero &quot;</span> &lt;&lt; argv[1] &lt;&lt; endl;</div><div class="line">    <span class="keywordflow">return</span> 2;</div><div class="line">  }</div><div class="line">  <span class="comment">// Cargamos la cola</span></div><div class="line">  <a name="_a0"></a><a class="code" href="classQueueMax.html">QueueMax</a> q1;</div><div class="line">  f &gt;&gt; q1;</div><div class="line">  cout &lt;&lt; <span class="stringliteral">&quot;Hemos cargado una cola de tamaño &quot;</span> &lt;&lt; q1.<a name="a1"></a><a class="code" href="classQueueMax.html#a51a85f4c3e1597c7e9f47cd4fd912d19">size</a>() &lt;&lt; <span class="stringliteral">&quot;. Veámosla:\n&quot;</span>;</div><div class="line"></div><div class="line">  <span class="comment">// Creamos otra cola como copia de la primera</span></div><div class="line">  <a class="code" href="classQueueMax.html">QueueMax</a> q2(q1);</div><div class="line">  cout &lt;&lt; q2 &lt;&lt; endl;</div><div class="line"></div><div class="line">  <span class="comment">// Cargamos elementos en la cola</span></div><div class="line">  <a class="code" href="classQueueMax.html">QueueMax</a> q;</div><div class="line">  cout &lt;&lt; <span class="stringliteral">&quot;Cargamos otra cola con los números del 0 al 10.\n&quot;</span>;</div><div class="line">  <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 10; i &gt;= 0; i--)</div><div class="line">    q.<a name="a2"></a><a class="code" href="classQueueMax.html#a5d88fa54260a041852add0b18b9d646e">push</a>(i);</div><div class="line"></div><div class="line">  <span class="comment">// Salvamos la cola</span></div><div class="line">  q2 = q;</div><div class="line"></div><div class="line">  <span class="comment">// Vamos viendo el máximo</span></div><div class="line">  cout &lt;&lt; <span class="stringliteral">&quot;Veamos cuál es el máximo en cada paso:\n&quot;</span>;</div><div class="line">  <span class="keywordflow">while</span> (!q.<a name="a3"></a><a class="code" href="classQueueMax.html#a5253bb29d02a5e36ac9a4fc7c7cb8010">empty</a>())</div><div class="line">  {</div><div class="line">    <a name="_a4"></a><a class="code" href="structElement.html">Element</a> x = q.<a name="a5"></a><a class="code" href="classQueueMax.html#ac27aada5a25346e70ae3a0a723c8f9d5">front</a>();</div><div class="line">    cout &lt;&lt; x &lt;&lt; endl;</div><div class="line">    q.<a name="a6"></a><a class="code" href="classQueueMax.html#a5889ba1182389a8e662ad729d38d562c">pop</a>();</div><div class="line">  }</div><div class="line">  cout &lt;&lt; endl;</div><div class="line"></div><div class="line">  <span class="comment">// PrettyPrint</span></div><div class="line">  cout &lt;&lt; <span class="stringliteral">&quot;También podríamos ver directamente el contenido de la cola:\n&quot;</span>;</div><div class="line">  q2.<a name="a7"></a><a class="code" href="classQueueMax.html#aee8fea067a8fc4313cf9e3f2822b6322">prettyPrint</a>();</div><div class="line">  cout &lt;&lt; endl;</div><div class="line"></div><div class="line">  <span class="comment">// sameMax</span></div><div class="line">  <span class="keywordflow">if</span> (q2.<a name="a8"></a><a class="code" href="classQueueMax.html#a68e772030a342861519c33a7267f9424">sameMax</a>(q1))</div><div class="line">    cout &lt;&lt; <span class="stringliteral">&quot;Las dos colas tienen el mismo máximo.\n&quot;</span>;</div><div class="line">  <span class="keywordflow">else</span></div><div class="line">    cout &lt;&lt; <span class="stringliteral">&quot;El máximo de las dos colas es diferente.\n&quot;</span>;</div><div class="line">  cout &lt;&lt; endl;</div><div class="line"></div><div class="line">  <span class="comment">// Guardar en fichero</span></div><div class="line">  cout &lt;&lt; <span class="stringliteral">&quot;Cola guardada en datos/queue_out.txt&quot;</span>;</div><div class="line">  ofstream output(<span class="stringliteral">&quot;datos/queue_out.txt&quot;</span>);</div><div class="line">  output &lt;&lt; q2;</div><div class="line">  cout &lt;&lt; endl;</div><div class="line"></div><div class="line">  <span class="comment">// Borramos la cola</span></div><div class="line">  q2.<a name="a9"></a><a class="code" href="classQueueMax.html#a6fd8da4d12b4ee18a89f15d0708c656a">clear</a>();</div><div class="line">  <span class="keywordflow">if</span> (q2.empty())</div><div class="line">    cout &lt;&lt; <span class="stringliteral">&quot;Cola borrada.\n&quot;</span>;</div><div class="line"></div><div class="line">  <span class="keywordflow">return</span> 0;</div><div class="line">}</div><div class="line"></div><div class="line"><span class="comment">/* Fin fichero: use_queue_max.cpp */</span></div></div><!-- fragment --> </div><!-- contents -->
+</div><!-- doc-content -->
+<hr>
+<small>ETS Ingeniería Informática y Telecomunicaciones. Universidad de Granada.
+</small>

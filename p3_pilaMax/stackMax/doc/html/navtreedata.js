@@ -1,6 +1,6 @@
 var NAVTREE =
 [
-  [ "Stack Max", "index.html", [
+  [ "Pila con máximo", "index.html", [
     [ "Rep del T.D.A. DVector", "repConjunto2.html", [
       [ "Invariante de la representación", "repConjunto2.html#invConjunto2", null ],
       [ "Función de abstracción", "repConjunto2.html#faConjunto2", null ]

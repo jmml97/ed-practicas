@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.11"/>
+<title>Cola con máximo: Fichero Fuente include/stack.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Cola con máximo
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.8.11 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Página&#160;principal</span></a></li>
+      <li><a href="pages.html"><span>Páginas&#160;relacionadas</span></a></li>
+      <li><a href="annotated.html"><span>Clases</span></a></li>
+      <li class="current"><a href="files.html"><span>Archivos</span></a></li>
+      <li><a href="examples.html"><span>Ejemplos</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Lista&#160;de&#160;archivos</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('stack_8hpp_source.html','');});
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="headertitle">
+<div class="title">stack.hpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="stack_8hpp.html">Ir a la documentación de este archivo.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#ifndef __STACK_HPP__</span></div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#define __STACK_HPP__</span></div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &lt;cassert&gt;</span></div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="node_8hpp.html">node.hpp</a>&quot;</span></div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div><div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="classStack.html">   44</a></span>&#160;<span class="keyword">class </span><a class="code" href="classStack.html">Stack</a></div><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;{</div><div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  <span class="keyword">private</span>:</div><div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="classStack.html#a71dc46480822f872255b8ae3a527b1ce">   61</a></span>&#160;    <a class="code" href="structNode.html">Node&lt;T&gt;</a>* <a class="code" href="classStack.html#a71dc46480822f872255b8ae3a527b1ce">first</a>;  </div><div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div><div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  <span class="keyword">public</span>:</div><div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div><div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <a class="code" href="classStack.html">Stack</a>() : first(0) {}</div><div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <a class="code" href="classStack.html">Stack</a>(<span class="keyword">const</span> <a class="code" href="classStack.html">Stack&lt;T&gt;</a>&amp; s);</div><div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    ~<a class="code" href="classStack.html">Stack</a>() {clear();}</div><div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div><div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <a class="code" href="classStack.html">Stack&lt;T&gt;</a>&amp; operator=(<span class="keyword">const</span> <a class="code" href="classStack.html">Stack&lt;T&gt;</a>&amp; s);</div><div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div><div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="comment">// pre: no vacío</span></div><div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    T&amp; top()</div><div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    {</div><div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;      assert(first);</div><div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;      <span class="keywordflow">return</span> first-&gt;<a class="code" href="structNode.html#a30f85a583923a4c56efdfc88f03a8163">element</a>;</div><div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    }</div><div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div><div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="comment">// pre: no vacío</span></div><div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keyword">const</span> T&amp; top()<span class="keyword"> const</span></div><div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="keyword">    </span>{</div><div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;      assert(first);</div><div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;      <span class="keywordflow">return</span> first-&gt;<a class="code" href="structNode.html#a30f85a583923a4c56efdfc88f03a8163">element</a>;</div><div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    }</div><div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;</div><div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keywordtype">void</span> push(<span class="keyword">const</span> T&amp; e);</div><div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="comment">// pre: no vacio. Devuelve lo que borra</span></div><div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keywordtype">void</span> pop();</div><div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keywordtype">void</span> clear();</div><div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div><div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keywordtype">int</span> size() <span class="keyword">const</span>;</div><div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keywordtype">bool</span> empty()<span class="keyword"> const </span>{<span class="keywordflow">return</span> !<a class="code" href="classStack.html#a71dc46480822f872255b8ae3a527b1ce">first</a>;}</div><div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;};</div><div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;</div><div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="stack_8cpp.html">stack.cpp</a>&quot;</span></div><div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;</div><div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="preprocessor">#endif</span></div><div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;</div><div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="comment">/* Fin fichero: stack.hpp */</span></div><div class="ttc" id="structNode_html"><div class="ttname"><a href="structNode.html">Node</a></div><div class="ttdoc">T.D.A. Node. </div><div class="ttdef"><b>Definition:</b> <a href="node_8hpp_source.html#l00020">node.hpp:20</a></div></div>
+<div class="ttc" id="stack_8cpp_html"><div class="ttname"><a href="stack_8cpp.html">stack.cpp</a></div><div class="ttdoc">Implementación del T.D.A Stack. </div></div>
+<div class="ttc" id="classStack_html"><div class="ttname"><a href="classStack.html">Stack</a></div><div class="ttdoc">T.D.A. Stack. </div><div class="ttdef"><b>Definition:</b> <a href="stack_8hpp_source.html#l00044">stack.hpp:44</a></div></div>
+<div class="ttc" id="classStack_html_a71dc46480822f872255b8ae3a527b1ce"><div class="ttname"><a href="classStack.html#a71dc46480822f872255b8ae3a527b1ce">Stack::first</a></div><div class="ttdeci">Node&lt; T &gt; * first</div><div class="ttdoc">Puntero al tope de la pìla. </div><div class="ttdef"><b>Definition:</b> <a href="stack_8hpp_source.html#l00061">stack.hpp:61</a></div></div>
+<div class="ttc" id="node_8hpp_html"><div class="ttname"><a href="node_8hpp.html">node.hpp</a></div><div class="ttdoc">Especificación del T.D.A. Node. </div></div>
+<div class="ttc" id="structNode_html_a30f85a583923a4c56efdfc88f03a8163"><div class="ttname"><a href="structNode.html#a30f85a583923a4c56efdfc88f03a8163">Node::element</a></div><div class="ttdeci">T element</div><div class="ttdoc">Elemento de información. </div><div class="ttdef"><b>Definition:</b> <a href="node_8hpp_source.html#l00022">node.hpp:22</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<hr>
+<small>ETS Ingeniería Informática y Telecomunicaciones. Universidad de Granada.
+</small>

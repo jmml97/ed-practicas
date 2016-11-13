@@ -39,6 +39,8 @@ int main(int argc, char * argv[])
   for (int i = 10; i >= 0; i--)
     q.push(i);
 
+  
+
   // Salvamos la cola
   q2 = q;
 
@@ -65,12 +67,12 @@ int main(int argc, char * argv[])
   cout << endl;
 
   // Guardar en fichero
-  cout << "Cola guardada en datos/cola_out.txt";
-  ofstream output("datos/cola_out.txt");
+  cout << "Cola guardada en datos/queue_out.txt";
+  ofstream output("datos/queue_out.txt");
   output << q2;
   cout << endl;
 
-  // Borramos la lista
+  // Borramos la cola
   q2.clear();
   if (q2.empty())
     cout << "Cola borrada.\n";
