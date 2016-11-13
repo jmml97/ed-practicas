@@ -22,7 +22,8 @@
  * Una instancia @e s del tipo de dato abstracto Stack (pila) sobre un dominio @e T es
  * una sucesión finita de elementos del mismo con un funcionamiento @e LIFO
  * (Last In, First Out). En una pila, las operaciones de inserción, borrado y
- * consulta tienen lugar en uno de los extremos, denominado @e tope de la pila.
+ * consulta tienen lugar en uno de los extremos, denominado @e tope de la pila. Una pila
+ * es un puntero al tope, donde cada elemento de la pila se representa por una celda enlazada.
  * Una pila de longitud @e n la denotamos
  *
  * > <a_n,a_n-1,...,a_1>
@@ -32,6 +33,14 @@
  * realizan también sobre @e a_n.
  *
  * Si @e n = 0 diremos que la pila está vacía.
+ *
+ * En este T.D.A. Stack se incluye un segundo dato miembro, un puntero al fondo de la
+ * pila @e last [1]. Esto se hace para permitir el acceso al fondo desde un método de la clase
+ * QueueMax. Sin embargo, este campo es innecesario para el correcto funcionamiento
+ * del T.D.A. por sí solo.
+ *
+ * @see Node
+ * @see QueueMax
  *
  * @author Antonio Coín Castro
  * @author Miguel Lentisco Ballesteros
@@ -54,20 +63,26 @@ class Stack
    *
    * Un objeto válido @e rep del T.D.A. Stack representa al valor
    *
-   * > (Node<T>*) first
+   * > (Node<T>*) first, (Node<T>*) last
    *
    */
   private:
     Node<T>* first;  ///< Puntero al tope de la pìla
+    Node<T>* last;   ///< Puntero al fondo de la pila [1]
+
+    /**
+     * Clase amiga: QueueMax.
+     * Es necesario para implementar el método QueueMax::front
+     */
+    friend class QueueMax;
 
   public:
-
     // ---------------  Constructores ----------------
 
     /**
      * @brief Constructor por defecto
      */
-    Stack() : first(0) {}
+    Stack() : first(0), last(0) {}
 
     /**
      * @brief Constructor de copias
@@ -86,7 +101,7 @@ class Stack
 
     /**
      * @brief Operador de asignación
-     * @param S La pila que se va a asignar.
+     * @param s La pila que se va a asignar.
      */
     Stack<T>& operator=(const Stack<T>& s);
 
@@ -95,7 +110,7 @@ class Stack
     /**
      * @brief Devuelve el tope de la pila
      * @return Referencia al tope de la pila
-     * @pre No vacío
+     * @pre Pila no vacía
      */
     T& top()
     {
@@ -105,8 +120,8 @@ class Stack
 
     /**
      * @brief Devuelve el tope de la pila
-     * @return Referencia al tope de la pila
-     * @pre No vacío
+     * @return Referencia constante al tope de la pila
+     * @pre Pila no vacía
      */
     const T& top() const
     {
@@ -117,19 +132,19 @@ class Stack
     // --------------- Funciones de modificación ---------------
 
     /**
-     * @brief Añade un elemento en el tope de la pila
+     * @brief Añade un elemento a la pila
      * @param e Elemento que se va a añadir.
      */
     void push(const T& e);
 
     /**
      * @brief Quita el elemento del tope de la pila
-     * @pre La pila no puede ser vacía
+     * @pre La pila no es vacía
      */
     void pop();
 
     /**
-     * @brief Borra la pila
+     * @brief Borra la pila, dejando first y last a 0
      */
     void clear();
 

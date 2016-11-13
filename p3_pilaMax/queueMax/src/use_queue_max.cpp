@@ -39,8 +39,6 @@ int main(int argc, char * argv[])
   for (int i = 10; i >= 0; i--)
     q.push(i);
 
-  
-
   // Salvamos la cola
   q2 = q;
 

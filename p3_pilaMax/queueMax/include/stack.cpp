@@ -20,9 +20,10 @@ Stack<T>::Stack(const Stack<T>& s)
       aux = aux->next;
       p = p->next;
     }
+    last = aux;
   }
   else
-    first = 0;
+    first = last = 0;
 }
 
 /* _________________________________________________________________________ */
@@ -36,6 +37,10 @@ Stack<T>& Stack<T>::operator=(const Stack<T>& s)
   first = aux.first;
   aux.first = p;
 
+  p = last;
+  last = aux.last;
+  aux.last = p;
+
   return *this;
 }
 
@@ -44,8 +49,9 @@ Stack<T>& Stack<T>::operator=(const Stack<T>& s)
 template <class T>
 void Stack<T>::push(const T& e)
 {
-  Node<T>* aux = first;
-  first = new Node<T>(e, aux);
+  first = new Node<T>(e, first);
+  if (!last)
+    last = first;
 }
 
 /* _________________________________________________________________________ */
@@ -57,6 +63,9 @@ void Stack<T>::pop()
   Node<T>* aux = first;
   first = first->next;
   delete aux;
+
+  if (!first)
+    last = 0;
 }
 
 /* _________________________________________________________________________ */
@@ -81,6 +90,7 @@ void Stack<T>::clear()
     first = first->next;
     delete aux;
   }
+  last = 0;
 }
 
 /* _________________________________________________________________________ */

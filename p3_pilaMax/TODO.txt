@@ -1,5 +1,5 @@
 QueueMax:
 
 - Documentar métodos de stack.hpp
-- ¿Mejorar implementación de QueueMax::pop()?
+- Implementación QueueMax::front
 - Añadir -DNDEBUG a Makefile cuando vayamos a entregarlo (para compilar sin asserts).

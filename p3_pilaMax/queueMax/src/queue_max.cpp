@@ -10,12 +10,7 @@
 Element& QueueMax::front()
 {
   assert(!v.empty());
-
-  Stack<Element> aux(v);
-  while (aux.size() > 1)
-    aux.pop();
-
-  return aux.top();
+  return v.last->element;
 }
 
 /* _________________________________________________________________________ */
@@ -23,20 +18,7 @@ Element& QueueMax::front()
 const Element& QueueMax::front() const
 {
   assert(!v.empty());
-
-  Stack<Element> aux(v);
-  while(!aux.empty())
-  {
-    aux.push(v.top());
-    v.pop();
-  }
-  aux.pop();  // borrar elemento en cuestión
-
-  while(!aux.empty())
-  {
-    v.push(aux.top());
-    aux.pop();
-  }
+  return v.last->element;
 }
 
 /* _________________________________________________________________________ */
