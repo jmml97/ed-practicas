@@ -62,32 +62,89 @@ class Stack
 
   public:
 
+    // ---------------  Constructores ----------------
+
+    /**
+     * @brief Constructor por defecto
+     */
     Stack() : first(0) {}
+
+    /**
+     * @brief Constructor de copias
+     * @param s La pila de la que se hará la copia.
+     */
     Stack(const Stack<T>& s);
+
+    // ------------------ Destructor ------------------
+
+    /**
+     * @brief Destructor
+     */
     ~Stack() {clear();}
 
+    // --------------- Sobrecarga de operadores ---------------
+
+    /**
+     * @brief Operador de asignación
+     * @param S La pila que se va a asignar.
+     */
     Stack<T>& operator=(const Stack<T>& s);
 
-    // pre: no vacío
+    // --------------- Funciones de acceso ---------------
+
+    /**
+     * @brief Devuelve el tope de la pila
+     * @return Referencia al tope de la pila
+     * @pre No vacío
+     */
     T& top()
     {
       assert(first);
       return first->element;
     }
 
-    // pre: no vacío
+    /**
+     * @brief Devuelve el tope de la pila
+     * @return Referencia al tope de la pila
+     * @pre No vacío
+     */
     const T& top() const
     {
       assert(first);
       return first->element;
     }
 
+    // --------------- Funciones de modificación ---------------
+
+    /**
+     * @brief Añade un elemento en el tope de la pila
+     * @param e Elemento que se va a añadir.
+     */
     void push(const T& e);
-    // pre: no vacio. Devuelve lo que borra
+
+    /**
+     * @brief Quita el elemento del tope de la pila
+     * @pre La pila no puede ser vacía
+     */
     void pop();
+
+    /**
+     * @brief Borra la pila
+     */
     void clear();
 
+    // --------------- Funciones de consulta ---------------
+
+    /**
+     * @brief Devuelve el número de elementos de la pila
+     */
     int size() const;
+
+    /**
+     * @brief Comprueba si la pila está vacía
+     * @retval true Si está vacía
+     * @retval false Si no está vacía
+     */
     bool empty() const {return !first;}
 };
 
