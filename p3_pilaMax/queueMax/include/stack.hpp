@@ -71,8 +71,9 @@ class Stack
     Node<T>* last;   ///< Puntero al fondo de la pila [1]
 
     /**
-     * Clase amiga: QueueMax.
-     * Es necesario para implementar el método QueueMax::front
+     * Permitimos que QueueMax pueda acceder a los campos privados de Stack.
+     * El hecho de poder acceder a @e last->element es necesario para
+     * implementar el método QueueMax::front.
      */
     friend class QueueMax;
 
