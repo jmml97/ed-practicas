@@ -35,7 +35,7 @@ int main(int argc, char * argv[])
 
   // Cargamos elementos en la pila
   StackMax s;
-  cout << "Cargamos otra pila con los números del 0 al 10.\n";
+  cout << "Cargamos otra pila con los números del 10 al 0.\n";
   for (int i = 10; i >= 0; i--)
     s.push(i);
 

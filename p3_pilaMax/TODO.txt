@@ -1,5 +1,0 @@
-QueueMax:
-
-- Documentar métodos de stack.hpp
-- Implementación QueueMax::front
-- Añadir -DNDEBUG a Makefile cuando vayamos a entregarlo (para compilar sin asserts).

@@ -10,7 +10,7 @@ TEST      = $(SRC)/test
 # ****** Opciones de compilación ********
 RM        = rm -f
 CXX       = g++
-CXXFLAGS  = -Wall -g -c -std=c++11 -I./$(INCLUDE)
+CXXFLAGS  = -Wall -g -c -std=c++11 -I./$(INCLUDE) -DNDEBUG
 
 # ******* Archivos de cabecera
 HPP_FILES = $(addprefix $(INCLUDE)/, *)
@@ -33,7 +33,7 @@ $(OBJ)/queue_max.o: $(SRC)/queue_max.cpp $(HPP_FILES)
 
 # --- Test ---
 test: $(BIN)/test_stack
-	
+
 $(BIN)/test_stack: $(OBJ)/test_stack.o
 	$(CXX) -o $@ $<
 

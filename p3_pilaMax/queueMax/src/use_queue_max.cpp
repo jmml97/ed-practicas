@@ -36,7 +36,7 @@ int main(int argc, char * argv[])
   // Cargamos elementos en la cola
   QueueMax q;
   cout << "Cargamos otra cola con los números del 0 al 10.\n";
-  for (int i = 10; i >= 0; i--)
+  for (int i = 0; i <= 10; i++)
     q.push(i);
 
   // Salvamos la cola
