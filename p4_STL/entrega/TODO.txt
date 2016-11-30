@@ -1,0 +1,11 @@
+----- Cronología -----
+
+
+
+----- EventoHistorico -----
+- ¿ Permitir años negativos?
+
+
+----- General ------
+- Quitar comentario de -DNDEBUG en Makefile
+- Completar makefile
