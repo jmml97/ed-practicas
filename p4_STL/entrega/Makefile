@@ -22,7 +22,7 @@ LDLIBS    = -l$(LIBNAME)
 
 .PHONY: all docs clean mrproper
 
-all: $(BIN)/union_cronologia $(BIN)/uso_cronologia
+all: $(BIN)/union_cronologia
 
 $(BIN)/uso_cronologia : $(OBJ)/uso_cronologia.o $(LIB)/lib$(LIBNAME).a
 	$(CXX) $(LDFLAGS) -o $@ $^ $(LDLIBS)

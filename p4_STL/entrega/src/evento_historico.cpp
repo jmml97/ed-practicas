@@ -1,5 +1,5 @@
 /**
-  * @file eventoHistorico.cpp
+  * @file evento_historico.cpp
   * @brief Implementación del TDA EventoHistorico
   *
   */
@@ -7,7 +7,7 @@
 #include <iostream>
 #include <sstream>
 #include <cassert>
-#include "eventoHistorico.hpp"
+#include "evento_historico.hpp"
 
 using namespace std;
 
@@ -25,31 +25,8 @@ Fecha::Fecha(int n)
   dc = true;
 }
 
-// Método privado: buscar un Acontecimiento
-vector<Acontecimiento>::iterator EventoHistorico::buscarAcontecimiento(Acontecimiento a)
-{
-  bool encontrado = false;
-  vector<Acontecimiento>::iterator p = evento.begin();
-  while (p != evento.end() && !encontrado)
-  {
-    encontrado = *p == a;
-    ++p;
-  }
-  if (encontrado) p--;
-  return p;
-}
-
-// Constructor por defecto
-EventoHistorico::EventoHistorico() : f(1) {}
-
-// Constructor con un parámetro
-EventoHistorico::EventoHistorico(Fecha f)
-{
-  setFecha(f);
-}
-
 // Constructor con dos parámetros
-EventoHistorico::EventoHistorico(Fecha f, const vector<Acontecimiento>& a)
+EventoHistorico::EventoHistorico(Fecha f, const set<Acontecimiento>& a)
   : EventoHistorico(f)
 {
   setEvento(a);
@@ -59,50 +36,25 @@ EventoHistorico::EventoHistorico(Fecha f, const vector<Acontecimiento>& a)
 void EventoHistorico::setFecha(Fecha f)
 {
   assert(f.anio >= 0);
-  this->f = f;
-}
-
-// Añadir acontecimiento
-bool EventoHistorico::addEvento(Acontecimiento a)
-{
-  vector<Acontecimiento>::const_iterator p = buscarAcontecimiento(a);
-  if (p == evento.end())
-  {
-    evento.push_back(a);
-    return true;
-  }
-  return false;
+  ev.first = f;
 }
 
 // Mezclar Acontecimientos
-void EventoHistorico::addEvento(const vector<Acontecimiento>& a)
+void EventoHistorico::addEvento(const set<Acontecimiento>& a)
 {
-  for (vector<Acontecimiento>::const_iterator p = a.begin(); p != a.end(); ++p)
-    addEvento(*p);
-}
-
-// Eliminar acoontecimiento
-bool EventoHistorico::eliminarAcontecimiento(Acontecimiento a)
-{
-  vector<Acontecimiento>::const_iterator p = buscarAcontecimiento(a);
-  if (p != evento.end())
-  {
-    evento.erase(p);
-    return true;
-  }
-  return false;
+  ev.second.insert(a.begin(), a.end());
 }
 
 // Eliminar todos los acontecimientos que contengan "key"
 int EventoHistorico::eliminarPorClave (string key)
 {
   int n = 0;
-  vector<Acontecimiento>::iterator p = evento.begin();
-  while (p != evento.end())
+  iterator p = begin();
+  while (p != end())
   {
     if ((p->find(key)) != string::npos)
     {
-      evento.erase(p);
+      ev.second.erase(p);
       n++;
     }
     else
@@ -112,13 +64,12 @@ int EventoHistorico::eliminarPorClave (string key)
 }
 
 // Buscar todos los acontecimientos que contengan "key"
-vector<Acontecimiento> EventoHistorico::buscarPorClave (string key) const
+set<Acontecimiento> EventoHistorico::buscarPorClave (string key) const
 {
-
-  vector<Acontecimiento> a;
-  for (vector<Acontecimiento>::const_iterator p = evento.begin(); p != evento.end(); ++p)
+  set<Acontecimiento> a;
+  for (const_iterator p = begin(); p != end(); ++p)
     if (p->find(key) != string::npos)
-      a.push_back(*p);
+      a.insert(*p);
   return a;
 }
 
@@ -126,7 +77,7 @@ vector<Acontecimiento> EventoHistorico::buscarPorClave (string key) const
 istream& EventoHistorico::cargarEvento(istream& is)
 {
   Fecha fecha;
-  vector<Acontecimiento> a;
+  set<Acontecimiento> a;
   string aux;
 
   // Leer si es AC o DC
@@ -142,7 +93,7 @@ istream& EventoHistorico::cargarEvento(istream& is)
   istringstream ss(aux);
   while (getline(ss, aux, SEP))
   {
-    a.push_back(aux);
+    a.insert(aux);
   }
 
   if (is)
@@ -157,16 +108,16 @@ istream& EventoHistorico::cargarEvento(istream& is)
 // Mostrar EventoHistorico a un flujo de salida
 ostream& EventoHistorico::mostrarEvento(ostream& os) const
 {
-  os << f.dc << SEP;
-  os << f.anio << SEP;
-  vector<Acontecimiento>::const_iterator p = evento.begin();
+  os << ev.first.dc << SEP;
+  os << ev.first.anio << SEP;
+  const_iterator p = begin();
 
   // Escribir un evento
-  if (p != evento.end())
+  if (p != end())
   {
     os << *p;
 
-    for (++p; p != evento.end(); ++p)
+    for (++p; p != end(); ++p)
       os << SEP << *p;  // No hay SEP al final
   }
   return os;
@@ -175,8 +126,8 @@ ostream& EventoHistorico::mostrarEvento(ostream& os) const
 // Mostar un EventoHistorico en Human Readable Format
 ostream& EventoHistorico::prettyPrint(ostream& os) const
 {
-  os << "Año: " << f.anio << (f.dc ? " DC." : " AC.") << endl;
-  for (vector<Acontecimiento>::const_iterator p = evento.begin(); p != evento.end(); ++p)
+  os << "Año: " << ev.first.anio << (ev.first.dc ? " DC." : " AC.") << endl;
+  for (const_iterator p = begin(); p != end(); ++p)
     os << "- " << *p << endl;
   return os;
 }
@@ -202,4 +153,4 @@ bool eventoMasReciente(const EventoHistorico& a, const EventoHistorico& b)
             || !(f1.dc && f1.anio >= f2.anio));
 }
 
-/* Fin fichero: eventoHistorico.cpp */
+/* Fin fichero: evento_historico.cpp */

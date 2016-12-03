@@ -1,4 +1,4 @@
-#include "eventoHistorico.hpp"
+#include "evento_historico.hpp"
 #include <fstream>
 #include <iostream>
 
@@ -6,32 +6,6 @@ using namespace std;
 
 int main(int argc, char * argv[])
 {
-
-  if (argc != 2) {
-      cout << "Dime el nombre del fichero con el evento histórico: " << endl;
-      // return 1;
-   }
-
-   /*
-   ifstream f(argv[1]);
-   if (!f) {
-    cout << "No puedo abrir el fichero " << argv[1] << endl;
-    // return 1;
-   }
-   */
-
-   // Leer evento de archivo
-   // EventoHistorico mi_evento;
-   // f >> mi_evento;
-
-   /*
-    Hacer pruebas, añadiendo código a este archivo, para ver que funciona:
-      - addEvento (en sus 2)
-      - eliminarAcontecimiento
-      - eliminarPorClave
-      - buscarPorClave
-   */
-
    Fecha mi_fecha(1978);
 
    cout << "Evento (mi_evento1) construido solo con fecha: " << endl;
@@ -45,7 +19,7 @@ int main(int argc, char * argv[])
    cout << endl;
 
    cout << "Evento (mi_evento2) construido con fecha y vector: " << endl;
-   vector<string> acontecimientos = {"Constitución Española", "Nace el primer ponycornio", "Constitución Española"};
+   set<Acontecimiento> acontecimientos = {"Constitución Española", "Nace el primer ponycornio", "Constitución Española"};
    EventoHistorico mi_evento2(mi_fecha, acontecimientos);
    mi_evento2.prettyPrint();
    cout << endl;
@@ -67,16 +41,9 @@ int main(int argc, char * argv[])
    cout << "Imprimimos ahora los acontecimientos de mi_evento2 (hemos añadido uno nuevo) que contengan 'el': " << endl;
    mi_evento2.addEvento("el mundo");
 
-   vector<string> aa = mi_evento2.buscarPorClave("el");
-   for (unsigned int i = 0; i < aa.size(); i++)
-    cout << "- " << aa[i] << endl;
-
-   // Mostrar evento en pantalla
-   // mi_evento.prettyPrint();
-
-   // Escribir evento a archivo 'test.txt'
-   // ofstream output("test.txt");
-   // output << mi_evento;
+   set<Acontecimiento> aa = mi_evento2.buscarPorClave("el");
+   for (set<Acontecimiento>::const_iterator p = aa.begin(); p != aa.end(); ++p)
+    cout << "- " << *p << endl;
 
    return 0;
 }

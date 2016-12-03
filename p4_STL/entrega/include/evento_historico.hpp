@@ -1,5 +1,5 @@
 /**
- * @file eventoHistorico.hpp
+ * @file evento_historico.hpp
  * @brief Fichero cabecera del TDA EventoHistorico
  *
  */
@@ -8,7 +8,7 @@
 #define  __EVENTO_HISTORICO_HPP__
 
 #include <iostream>
-#include <vector>
+#include <set>
 
 /**
  * @brief Tipo @c Acontecimiento
@@ -61,9 +61,9 @@ struct Fecha
 
   /**
    * @brief Constructor por defecto
-   * @post No tiene ningún efecto
+   * @post Año por defecto: 1 DC
    */
-  Fecha() {}
+  Fecha() : anio(1), dc(1) {}
 
   /**
    * @brief Constructor de Fecha. Funciona como conversor implícito de 'int' a 'Fecha'
@@ -79,11 +79,11 @@ struct Fecha
  *
  * Una instancia @e e del tipo de datos abstracto @c EventoHistorico es un objeto que
  * representa un evento hisórico sucedido en un año en concreto. Está compuesto por
- * una Fecha @e f y un vector @e evento de n Acontecimientos, que representan, respectivamente, el
+ * una pareja @e ev que contiene una Fecha y un conjunto de acontecimientos, que representan, respectivamente, el
  * año en el que sucede el evento histórico, y el conjunto (finito) de acontecimientos
  * sucecidos. Lo representamos:
  *
- * fecha, <acontecimiento_1, acontecimiento_2, ..., acontecimiento_n>
+ * < fecha, <acontecimiento_1, acontecimiento_2, ..., acontecimiento_n> >
  *
  * @author Miguel Lentisco Ballesteros
  * @author Jose María Martín Luque
@@ -94,132 +94,139 @@ struct Fecha
 
 class EventoHistorico
 {
+  /**
+   * @page repConjunto2 Rep del TDA EventoHistorico
+   *
+   * @section invConjunto2 Invariante de la representación
+   *
+   * El invariante es:
+   *
+   * > ev.first.anio >= 0
+   *
+   * @section faConjunto2 Función de abstracción
+   *
+   * Un objeto válido @e rep del TDA EventoHistorico representa al valor
+   *
+   * > rep.ev
+   *
+   */
   private:
-      /**
-       * @page repConjunto2 Rep del TDA EventoHistorico
-       *
-       * @section invConjunto2 Invariante de la representación
-       *
-       * El invariante es \e rep. f.anio >= 0.
-       *
-       * @section faConjunto2 Función de abstracción
-       *
-       * Un objeto válido @e rep del TDA EventoHistorico representa al valor
-       *
-       * (rep.f, rep.evento)
-       *
-       */
-
-      Fecha f;                              /**< año */
-      std::vector<Acontecimiento> evento;   /**< acontecimientos */
-
-
-      /**
-       * @brief Busca en el vector evento un @c Acontecimiento en concreto
-       * @param a @c Acontecimiento a buscar
-       * @return Devuelve un iterador apuntando a la posición del vector donde
-       *         se ha encontrado el @c Acontecimento, o @e evento.end() si no se
-       *         ha encontrado.
-       */
-      std::vector<Acontecimiento>::iterator buscarAcontecimiento(Acontecimiento a);
+      std::pair<Fecha, std::set<Acontecimiento> > ev;
 
   public:
+      typedef typename std::set<Acontecimiento>::iterator iterator; ///< iterador de EventoHistorico
+      typedef typename std::set<Acontecimiento>::const_iterator const_iterator; ///< iterador constante de EventoHistorico
+
+      // ---------------  Constructores ----------------
+
       /**
        * @brief Constructor por defecto de la clase.
-       * Crea el evento histórico con fecha año 1 DC, y un vector vacío de acontecimientos.
+       * Crea el evento histórico con fecha año 1 DC, y un conjunto vacío de acontecimientos.
        */
-      EventoHistorico();
+      EventoHistorico() {}
 
       /**
        * @brief Constructor de la clase
        * @param f Fecha del evento histórico
-       * @return Crea un evento histórico con la fecha determinada, y un vector vacío
+       * @return Crea un evento histórico con la fecha determinada, y un conjunto vacío
        * de acontecimientos.
        * @pre f.anio >= 0
        */
-      EventoHistorico(Fecha f);
+      EventoHistorico(Fecha f) { setFecha(f); }
 
       /**
        * @brief Constructor de la clase
        * @param f Fecha del evento histórico
-       * @param a Vector de acontecimientos
-       * @return Crea un evento histórico con la fecha y el vector determinados.
+       * @param a Conjunto de acontecimientos
+       * @return Crea un evento histórico con la fecha y el conjunto determinados.
        * @pre f.anio >= 0
-       * @pre Los elementos del vector @e a no deben estar repetidos
        */
-      EventoHistorico(Fecha f, const std::vector<Acontecimiento>& a);
-
-      // EventoHistorico(EventoHistorico e);
-      // EventoHistorico~() {}
-      // EventoHistorico& operator=(EventoHistorico e);
+      EventoHistorico(Fecha f, const std::set<Acontecimiento>& a);
 
       /**
        * @brief Acceder a la fecha
        * @return La fecha asociada al evento histórico
        */
-      Fecha getFecha() const { return f; }
+      Fecha getFecha() const { return ev.first; }
 
       /**
-       * @brief Acceder al vector de acontecimientos
-       * @return El vector de acontecimientos asociado al evento histórico
+       * @brief Acceder al conjunto de acontecimientos
+       * @return El conjunto de acontecimientos asociado al evento histórico
        */
-      std::vector<Acontecimiento> getEvento() const { return evento; }
+      std::set<Acontecimiento> getEvento() const { return ev.second; }
 
       /**
        * @brief Modificar fecha
        * @param f Nueva fecha
-       * @return Sustituye la @c Fecha this->f por f
+       * @return Sustituye la Fecha this->ev.first por f
        * @pre f.anio >= 0
        */
       void setFecha(Fecha f);
 
       /**
-       * @brief Modificar vector de acontecimientos
-       * @param a Nuevo vector
-       * @return Sustituye el vector this->evento por a
+       * @brief Modificar conjunto de acontecimientos
+       * @param a Nuevo conjunto
+       * @return Sustituye el conjunto this->ev.second por a
        */
-      void setEvento(const std::vector<Acontecimiento>& a) { this->evento = a; }
+      void setEvento(const std::set<Acontecimiento>& a) { ev.second = a; }
 
       /**
-       * @brief Añade un evento al vector de acontecimientos, en caso de que
+       * @brief Añade un evento al conjunto de acontecimientos, en caso de que
        * no estuviera ya presente
        * @param  a @c Acontecimiento a añadir
        * @retval true Si se ha añadido
        * @retval false Si no se ha añadido (ya estaba presente)
        */
-      bool addEvento(Acontecimiento a);
+      bool addEvento(Acontecimiento a) { return ev.second.insert(a).second; }
 
       /**
-       * @brief Mezcla el vector de acontecimientos asociado al objeto implícito
+       * @brief Mezcla el conjunto de acontecimientos asociado al objeto implícito
        * con otro que se pasa como parámetro.
-       * @param  a @c Vector a mezclar
-       * @post this->evento no contiene elementos repetidos
+       * @param a @c Conjunto a mezclar
        */
-      void addEvento(const std::vector<Acontecimiento>& a);
+      void addEvento(const std::set<Acontecimiento>& a);
 
       /**
-       * @brief Elimina un acontecimiento del vector @e evento
+       * @brief Elimina un acontecimiento del conjunto @e ev.second
        * @param  a @c Acontecimiento a eliminar
        * @retval true Si se ha eliminado el elemento
        * @retval false Si no se ha eliminado (no estaba presente)
        */
-      bool eliminarAcontecimiento(Acontecimiento a);
+      bool eliminarAcontecimiento(Acontecimiento a) { return ev.second.erase(a); }
 
       /**
-       * @brief Elimina del vector @e evento todos los acontecimientos que contengan una
+       * @brief Elimina un acontecimiento del conjunto @e ev.second
+       * @param it iterador constante al acontecimiento a eliminar
+       * @pre El acontecimiento apuntado por @e it está en el conjunto
+       * @retval true Si se ha eliminado el elemento
+       * @retval false Si no se ha eliminado (no estaba presente)
+       */
+       void eliminarAcontecimiento(const_iterator it) { ev.second.erase(it); }
+
+      /**
+       * @brief Elimina del conjunto @e ev.second todos los acontecimientos que contengan una
        * palabra clave
        * @param  key Palabra clave
        * @return Número de acontecimientos eliminados
        */
-      int eliminarPorClave (std::string key);  // elimina todos los que contengan 'key'; devuelve num eliminados
+      int eliminarPorClave(std::string key);
 
       /**
-       * @brief Busca en el vector @e evento todos los acontecimientos que contengan una
+       * @brief Busca en el conjunto @e conj un @c Acontecimiento en concreto
+       * @param a @c Acontecimiento a buscar
+       * @return Devuelve un iterador constante apuntando a la posición del conjunto donde
+       *         se ha encontrado el @c Acontecimento, o @e ev.second.end() si no se
+       *         ha encontrado.
+       */
+      const_iterator buscarAcontecimiento(Acontecimiento a) { return ev.second.find(a); }
+
+      /**
+       * @brief Busca en el conjunto @e evento todos los acontecimientos que contengan una
        * palabra clave
        * @param  key Palabra clave
-       * @return Vector que contiene los acontecimientos encontrados (vacío si no se ha encontrado ninguno)
+       * @return Conjunto que contiene los acontecimientos encontrados (vacío si no se ha encontrado ninguno)
        */
-      std::vector<Acontecimiento> buscarPorClave (std::string key) const; // busca los que contengan 'key'
+      std::set<Acontecimiento> buscarPorClave(std::string key) const;
 
       /**
        * @brief Leer un evento desde un flujo de entrada
@@ -250,6 +257,14 @@ class EventoHistorico
        *       - <acontecimiento_n>
        */
       std::ostream& prettyPrint(std::ostream& os = std::cout) const;
+
+      // ---------------  Iteradores ----------------
+
+      iterator begin() { return ev.second.begin(); }
+      const_iterator begin() const { return ev.second.begin(); }
+
+      iterator end() { return ev.second.end(); }
+      const_iterator end() const { return ev.second.end(); }
 };
 
 /**
@@ -286,4 +301,4 @@ bool eventoMasReciente(const EventoHistorico& a, const EventoHistorico& b);
 
 #endif
 
-/* Fin fichero: eventoHistorico.hpp */
+/* Fin fichero: evento_historico.hpp */
