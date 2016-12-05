@@ -13,6 +13,25 @@
 
 using namespace std;
 
+// Funciones auxiliares
+namespace
+{
+  /**
+   * @brief Comprobar cuál es el más reciente de dos eventos históricos.
+   * @param  a Primer objeto @c EventoHistorico
+   * @param  b Segundo objeto @c EventoHistorico
+   * @retval true Si el @c EventoHistorico @e b es más reciente que el EventoHistorico @e a
+   * @retval false Si el @c EventoHistorico @e a es más reciente que el EventoHistorico @e b
+   */
+  bool eventoMasReciente(const EventoHistorico& a, const EventoHistorico& b)
+  {
+      Fecha f1 = a.getFecha();
+      Fecha f2 = b.getFecha();
+      return ((f1.dc < f2.dc) || (f2.dc && f1.anio <= f2.anio)
+              || !(f1.dc && f1.anio >= f2.anio));
+  }
+}
+
 // Buscar un EventoHistorico por fecha
 vector<EventoHistorico>::iterator Cronologia::busquedaBinaria(Fecha f)
 {

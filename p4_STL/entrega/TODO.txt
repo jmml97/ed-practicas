@@ -3,9 +3,8 @@
 
 
 ----- EventoHistorico -----
-- ¿ Permitir años negativos?
+- Revisar y arreglar documentación.
 
 
 ----- General ------
-- Quitar comentario de -DNDEBUG en Makefile
-- Completar makefile
+- Quitar comentario de -DNDEBUG en Makefile antes de entregar

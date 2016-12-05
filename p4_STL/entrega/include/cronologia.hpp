@@ -2,17 +2,14 @@
  * @file cronologia.hpp
  * @brief Fichero cabecera del TDA Cronologia
  *
- * Un ejemplo de su uso puede verse en:
- * @example usoCronologia.cpp
- *
  */
 
 #ifndef __CRONOLOGIA_HPP__
 #define  __CRONOLOGIA_HPP__
 
 #include <iostream>
-#include <vector>
-#include "eventoHistorico.hpp"
+#include <map>
+#include "evento_historico.hpp"
 
 /**
  * @brief T.D.A. Cronologia

@@ -56,8 +56,8 @@ struct Fecha
    *
    */
 
-  int anio;   /**< Año del calendario*/
-  bool dc;    /**< Indica si el año es AC o DC */
+  int anio;   ///< Año del calendario
+  bool dc;    ///< Indica si el año es AC o DC
 
   /**
    * @brief Constructor por defecto
@@ -111,7 +111,7 @@ class EventoHistorico
    *
    */
   private:
-      std::pair<Fecha, std::set<Acontecimiento> > ev;
+      std::pair<Fecha, std::set<Acontecimiento> > ev; ///< pareja Fecha-<eventos>
 
   public:
       typedef typename std::set<Acontecimiento>::iterator iterator; ///< iterador de EventoHistorico
@@ -201,7 +201,7 @@ class EventoHistorico
        * @retval true Si se ha eliminado el elemento
        * @retval false Si no se ha eliminado (no estaba presente)
        */
-       void eliminarAcontecimiento(const_iterator it) { ev.second.erase(it); }
+       void eliminarAcontecimiento(const_iterator it);
 
       /**
        * @brief Elimina del conjunto @e ev.second todos los acontecimientos que contengan una
@@ -218,7 +218,7 @@ class EventoHistorico
        *         se ha encontrado el @c Acontecimento, o @e ev.second.end() si no se
        *         ha encontrado.
        */
-      const_iterator buscarAcontecimiento(Acontecimiento a) { return ev.second.find(a); }
+      const_iterator buscarAcontecimiento(Acontecimiento a) const { return ev.second.find(a); }
 
       /**
        * @brief Busca en el conjunto @e evento todos los acontecimientos que contengan una
@@ -227,6 +227,14 @@ class EventoHistorico
        * @return Conjunto que contiene los acontecimientos encontrados (vacío si no se ha encontrado ninguno)
        */
       std::set<Acontecimiento> buscarPorClave(std::string key) const;
+
+      /**
+       * @brief Comprueba si un Acontecimiento está en el evento histórico
+       * @param a Acontecimiento a comprobar
+       * @retval true Si el acontecimiento está en el evento
+       * @retval false Si no lo está
+       */
+      bool tieneAcontecimiento(const Acontecimiento& a) const { return ev.second.count(a); }
 
       /**
        * @brief Leer un evento desde un flujo de entrada
@@ -289,15 +297,6 @@ std::istream& operator>>(std::istream& is, EventoHistorico& e);
  * @relates EventoHistorico
  */
 std::ostream& operator<<(std::ostream& os, const EventoHistorico& e);
-
-/**
- * @brief Comprobar cuál es el más reciente de dos eventos históricos.
- * @param  a Primer objeto @c EventoHistorico
- * @param  b Segundo objeto @c EventoHistorico
- * @retval true Si el @c EventoHistorico @e b es más reciente que el EventoHistorico @e a
- * @retval false Si el @c EventoHistorico @e a es más reciente que el EventoHistorico @e b
- */
-bool eventoMasReciente(const EventoHistorico& a, const EventoHistorico& b);
 
 #endif
 

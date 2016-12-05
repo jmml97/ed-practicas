@@ -1,3 +1,9 @@
+/**
+ * @file test_evento_historico.cpp
+ * @brief Fichero de prueba para el TDA EventoHistorico
+ *
+ */
+
 #include "evento_historico.hpp"
 #include <fstream>
 #include <iostream>
@@ -18,13 +24,13 @@ int main(int argc, char * argv[])
    mi_evento1.prettyPrint();
    cout << endl;
 
-   cout << "Evento (mi_evento2) construido con fecha y vector: " << endl;
+   cout << "Evento (mi_evento2) construido con fecha y conjunto: " << endl;
    set<Acontecimiento> acontecimientos = {"Constitución Española", "Nace el primer ponycornio", "Constitución Española"};
    EventoHistorico mi_evento2(mi_fecha, acontecimientos);
    mi_evento2.prettyPrint();
    cout << endl;
 
-   cout << "Añadimos a mi_evento1 un acontecimiento y un vector. Debería tener ahora los mismos que mi_evento2 y otros dos adicionales." << endl;
+   cout << "Añadimos a mi_evento1 un acontecimiento y un conjunto. Debería tener ahora los mismos que mi_evento2 y otros dos adicionales." << endl;
    mi_evento1.addEvento("La OMS declara oficialmente la erradicación de la viruela");
    mi_evento1.addEvento(acontecimientos);
    mi_evento1.addEvento("Constitución Española");
@@ -39,11 +45,17 @@ int main(int argc, char * argv[])
    cout << endl;
 
    cout << "Imprimimos ahora los acontecimientos de mi_evento2 (hemos añadido uno nuevo) que contengan 'el': " << endl;
-   mi_evento2.addEvento("el mundo");
+   mi_evento2.addEvento("Se crea el mundo");
 
-   set<Acontecimiento> aa = mi_evento2.buscarPorClave("el");
-   for (set<Acontecimiento>::const_iterator p = aa.begin(); p != aa.end(); ++p)
-    cout << "- " << *p << endl;
+   EventoHistorico evento_busqueda(mi_evento2.getFecha(), mi_evento2.buscarPorClave("el"));
+
+   if (evento_busqueda.tieneAcontecimiento("Se crea el mundo")) {
+     for (EventoHistorico::const_iterator p = evento_busqueda.begin(); p != evento_busqueda.end(); ++p)
+      cout << "- " << *p << endl;
+   }
+
 
    return 0;
 }
+
+/* Fin: test_evento_historico.cpp */

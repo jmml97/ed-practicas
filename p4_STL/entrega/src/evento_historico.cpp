@@ -17,7 +17,8 @@ namespace
   const char SEP = '#';
 }
 
-// Constructor de Fecha
+/* _________________________________________________________________________ */
+
 Fecha::Fecha(int n)
 {
   assert(n >= 0);
@@ -25,45 +26,55 @@ Fecha::Fecha(int n)
   dc = true;
 }
 
-// Constructor con dos parámetros
+/* _________________________________________________________________________ */
+
 EventoHistorico::EventoHistorico(Fecha f, const set<Acontecimiento>& a)
   : EventoHistorico(f)
 {
   setEvento(a);
 }
 
-// Modificar fecha
+/* _________________________________________________________________________ */
+
 void EventoHistorico::setFecha(Fecha f)
 {
   assert(f.anio >= 0);
   ev.first = f;
 }
 
-// Mezclar Acontecimientos
+/* _________________________________________________________________________ */
+
 void EventoHistorico::addEvento(const set<Acontecimiento>& a)
 {
   ev.second.insert(a.begin(), a.end());
 }
 
-// Eliminar todos los acontecimientos que contengan "key"
+/* _________________________________________________________________________ */
+
+void EventoHistorico::eliminarAcontecimiento(const_iterator it)
+{
+  assert(ev.second.count(*it));
+  ev.second.erase(it);
+}
+
+/* _________________________________________________________________________ */
+
 int EventoHistorico::eliminarPorClave (string key)
 {
   int n = 0;
-  iterator p = begin();
-  while (p != end())
+  for (const_iterator p = begin(); p != end(); ++p)
   {
     if ((p->find(key)) != string::npos)
     {
       ev.second.erase(p);
       n++;
     }
-    else
-      ++p;
   }
   return n;
 }
 
-// Buscar todos los acontecimientos que contengan "key"
+/* _________________________________________________________________________ */
+
 set<Acontecimiento> EventoHistorico::buscarPorClave (string key) const
 {
   set<Acontecimiento> a;
@@ -73,7 +84,8 @@ set<Acontecimiento> EventoHistorico::buscarPorClave (string key) const
   return a;
 }
 
-// Cargar EventoHistorico desde un flujo de entrada
+/* _________________________________________________________________________ */
+
 istream& EventoHistorico::cargarEvento(istream& is)
 {
   Fecha fecha;
@@ -105,7 +117,8 @@ istream& EventoHistorico::cargarEvento(istream& is)
   return is;
 }
 
-// Mostrar EventoHistorico a un flujo de salida
+/* _________________________________________________________________________ */
+
 ostream& EventoHistorico::mostrarEvento(ostream& os) const
 {
   os << ev.first.dc << SEP;
@@ -123,7 +136,8 @@ ostream& EventoHistorico::mostrarEvento(ostream& os) const
   return os;
 }
 
-// Mostar un EventoHistorico en Human Readable Format
+/* _________________________________________________________________________ */
+
 ostream& EventoHistorico::prettyPrint(ostream& os) const
 {
   os << "Año: " << ev.first.anio << (ev.first.dc ? " DC." : " AC.") << endl;
@@ -132,25 +146,18 @@ ostream& EventoHistorico::prettyPrint(ostream& os) const
   return os;
 }
 
-// Operator>>
+/* _________________________________________________________________________ */
+
 istream& operator>>(istream& is, EventoHistorico& e)
 {
   return e.cargarEvento(is);
 }
 
-// Operator<<
+/* _________________________________________________________________________ */
+
 ostream& operator<<(ostream& os, const EventoHistorico& e)
 {
   return e.mostrarEvento(os);
-}
-
-// Comprobar si el evento b es más reciente que el evento a
-bool eventoMasReciente(const EventoHistorico& a, const EventoHistorico& b)
-{
-    Fecha f1 = a.getFecha();
-    Fecha f2 = b.getFecha();
-    return ((f1.dc < f2.dc) || (f2.dc && f1.anio <= f2.anio)
-            || !(f1.dc && f1.anio >= f2.anio));
 }
 
 /* Fin fichero: evento_historico.cpp */
