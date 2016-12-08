@@ -2,7 +2,6 @@
 - Revisar implementación.
 - Revisar documentación.
 
-
 ----- EventoHistorico -----
 - Revisar implementación.
 - Revisar documentación
@@ -16,3 +15,5 @@
 
 ----- General ------
 - Quitar comentario de -DNDEBUG en Makefile antes de entregar
+- Mirar como referencia "guiatlf.h" para ver si se puede mejorar
+  nuestra implementación.

@@ -109,6 +109,8 @@ int main(int argc, char * argv[])
   cout << "Cronología 1 guardada en datos/cr1.txt" << endl;
   ofstream out("datos/cr1.txt");
   cronologia_1.mostrarCronologiaInversa(out);
+
+  return 0;
 }
 
 /* Fin fichero: test_cronologia.cpp */
