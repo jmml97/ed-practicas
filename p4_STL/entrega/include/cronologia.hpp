@@ -18,6 +18,10 @@
  * si el primero sucedió en un año mayor, entendiendo los años
  * D.C. como positivos, y los años A.C. como negativos.
  *
+ * El orden es estricto, es decir, si f1 y f2 son dos EventoHistorico
+ * con la misma Fecha, entonces compEventos(f1,f2) devuelve false, sin
+ * importar el orden de los argumentos.
+ *
  */
 
 struct compEventos
@@ -26,14 +30,14 @@ struct compEventos
    * @brief Comprobar cuál es el más reciente de dos eventos históricos.
    * @param  a Primer objeto @c EventoHistorico
    * @param  b Segundo objeto @c EventoHistorico
-   * @retval true Si el @c EventoHistorico @e a es más reciente que el EventoHistorico @e b
-   * @retval false Si el @c EventoHistorico @e b es más reciente que el EventoHistorico @e a
+   * @retval true Si el @c EventoHistorico @e b es más reciente que el EventoHistorico @e a
+   * @retval false Si el @c EventoHistorico @e a es más reciente que el EventoHistorico @e b
    */
   bool operator()(const EventoHistorico& a, const EventoHistorico& b) const
   {
       Fecha f1 = a.getFecha();
       Fecha f2 = b.getFecha();
-      return !((f1.dc < f2.dc) || (f2.dc && f1.anio <= f2.anio)
+      return ((f1.dc < f2.dc) || (f2.dc && f1.anio < f2.anio)
                 || !(f1.dc && f1.anio >= f2.anio));
   }
 };

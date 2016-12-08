@@ -44,7 +44,7 @@ int Cronologia::eliminarPorClave (const string& key)
   {
     if (p->second.buscarPorClave(key).size() != 0)
     {
-      datos.erase(p);
+      p = datos.erase(p);
       n++;
     }
     else
@@ -62,11 +62,16 @@ istream& Cronologia::cargarCronologia(istream& is)
   pair<Fecha, EventoHistorico> new_element;
   string s;
 
+  // Ignorar blancos iniciales
+  while(isspace(is.peek()))
+    is.get();
+
+  // Leer línea a línea
   while(getline(is,s))
   {
     istringstream ss(s);
-    new_element.first = tmp.getFecha();
     new_element.second.cargarEvento(ss);
+    new_element.first = new_element.second.getFecha();
     v.insert(new_element);
   }
 

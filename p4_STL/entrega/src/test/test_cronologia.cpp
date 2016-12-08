@@ -24,7 +24,7 @@ int main(int argc, char * argv[])
     return 2;
   }
 
-  //Cargamos cronologías
+  //Cargamos cronología
   Cronologia cronologia;
   f >> cronologia;
 
@@ -40,7 +40,7 @@ int main(int argc, char * argv[])
 
   // Consultar los acontecimientos de un año en concreto
   cout << "Veamos los acontecimientos que sucedieron en un año en concreto." << endl;
-  cout<<"Dime un año a consultar (<DC/AC> <año>):";
+  cout<<"Dime un año a consultar (FORMATO: <DC/AC> <año>): ";
   Fecha aux;
   do {
     cin >> aux.dc;
@@ -50,8 +50,8 @@ int main(int argc, char * argv[])
   } while (!cronologia_1.contieneFecha(aux));
 
   cout << "Cogemos el Evento Histórico de ese año, y lo escribimos." << endl;
-  cout << cronologia_1[aux];
-  cout << endl << endl;
+  cronologia_1[aux].prettyPrint();
+  cout << endl;
 
   // Modificar acontecimientos de un evento histórico de la cronología
   cout << "Modifiquemos ese acontecimiento en particular.\n";
@@ -98,22 +98,17 @@ int main(int argc, char * argv[])
   cronologia_1.prettyPrint();
 
   // eliminarPorClave
-  cout << "Ahora probamos a eliminar por clave. Eliminamos los que contengan 'of' y "
-       << "devolvemos el número de eventos eliminados.\n";
+  cout << "Ahora probamos a eliminar por clave. Eliminamos todos los eventos que "
+       << "contengan 'of', y devolvemos el número de eventos eliminados.\n";
   int n = cronologia_1.eliminarPorClave("of");
   cout << "Eliminados: " << n << ".\n";
   cronologia_1.prettyPrint();
-  cout << endl;
 
-  // Imprimir inversa
-  cout << "Por último, veamos la cronología en orden inverso.\n";
-  cronologia_1.mostrarCronologiaInversa(cout);
-  cout << endl;
-
-  // Guardar en fichero una cronología
+  // Imprimir inversa y guardar en fichero una cronología
+  cout << "Por último, guardemos la cronología en orden inverso...\n";
   cout << "Cronología 1 guardada en datos/cr1.txt" << endl;
   ofstream out("datos/cr1.txt");
-  out << cronologia_1;
+  cronologia_1.mostrarCronologiaInversa(out);
 }
 
 /* Fin fichero: test_cronologia.cpp */
