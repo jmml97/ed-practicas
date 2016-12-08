@@ -1,0 +1,12 @@
+ESTRUCTURA DE DATOS. PRÁCTICA 4: STL
+Doble Grado Ingeniería Informática y Matemáticas. ETSIIT. UGR
+
+Realizada por:
+- José María Martín Luque
+- Miguel Lentisco Ballesteros
+- Antonio Coín Castro
+
+En la entrega se incluye la carpeta "datos", pues hemos modificado la
+representación de una Fecha, y en consecuencia se modifica el formato de
+entrada/salida. Los archivos de la mencionada carpeta están adaptados al
+nuevo formato, para facilitar la realización de pruebas.

@@ -1,10 +1,18 @@
 ----- Cronología -----
-
+- Revisar implementación.
+- Revisar documentación.
 
 
 ----- EventoHistorico -----
-- Revisar y arreglar documentación.
+- Revisar implementación.
+- Revisar documentación
 
+----- Ejecutables -------
+- union_cronologia.cpp
+- estadistica_eventos.cpp
+- filtrado_intervalo.cpp
+- filtrado_palabra_clave.cpp
+(Usar funciones externas para todos)
 
 ----- General ------
 - Quitar comentario de -DNDEBUG en Makefile antes de entregar
