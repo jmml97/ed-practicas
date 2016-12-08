@@ -57,9 +57,11 @@ test: $(BIN)/test_*
 $(BIN)/test_%: $(OBJ)/test_%.o $(OBJ)/%.o
 	$(CXX) -o $@ $^
 
-$(BIN)/test_cronologia: $(OBJ)/evento_historico.o 
+# Dependencias adicionales
+$(BIN)/test_cronologia: $(OBJ)/evento_historico.o
+$(OBJ)/test_cronologia.o: $(INCLUDE)/cronologia.hpp
 
-$(OBJ)/test_%.o: $(TEST)/test_%.cpp $(HPP_FILES)
+$(OBJ)/test_%.o: $(TEST)/test_%.cpp $(INCLUDE)/evento_historico.hpp
 	$(CXX) $(CXXFLAGS) -o $@ $<
 
 .PRECIOUS: $(OBJ)/test_%.o
