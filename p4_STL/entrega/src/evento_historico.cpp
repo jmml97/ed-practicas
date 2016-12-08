@@ -1,6 +1,6 @@
 /**
   * @file evento_historico.cpp
-  * @brief Implementación del TDA EventoHistorico
+  * @brief Implementación del T.D.A. EventoHistorico
   *
   */
 
@@ -19,16 +19,16 @@ namespace
 
 /* _________________________________________________________________________ */
 
-Fecha::Fecha(int n)
+Fecha::Fecha(int n, bool dc)
 {
   assert(n >= 0);
   anio = n;
-  dc = true;
+  this->dc = true;
 }
 
 /* _________________________________________________________________________ */
 
-EventoHistorico::EventoHistorico(Fecha f, const set<Acontecimiento>& a)
+EventoHistorico::EventoHistorico(const Fecha& f, const set<Acontecimiento>& a)
   : EventoHistorico(f)
 {
   setEvento(a);
@@ -36,7 +36,7 @@ EventoHistorico::EventoHistorico(Fecha f, const set<Acontecimiento>& a)
 
 /* _________________________________________________________________________ */
 
-void EventoHistorico::setFecha(Fecha f)
+void EventoHistorico::setFecha(const Fecha& f)
 {
   assert(f.anio >= 0);
   ev.first = f;
@@ -59,7 +59,7 @@ void EventoHistorico::eliminarAcontecimiento(const_iterator it)
 
 /* _________________________________________________________________________ */
 
-int EventoHistorico::eliminarPorClave (string key)
+int EventoHistorico::eliminarPorClave (const string& key)
 {
   int n = 0;
   for (const_iterator p = begin(); p != end(); ++p)
@@ -75,7 +75,7 @@ int EventoHistorico::eliminarPorClave (string key)
 
 /* _________________________________________________________________________ */
 
-set<Acontecimiento> EventoHistorico::buscarPorClave (string key) const
+set<Acontecimiento> EventoHistorico::buscarPorClave (const string& key) const
 {
   set<Acontecimiento> a;
   for (const_iterator p = begin(); p != end(); ++p)

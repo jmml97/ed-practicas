@@ -10,17 +10,17 @@
 #include <string>
 using namespace std;
 istream & operator>>(istream &is,pair<string,string> &d){
-	  
+
 	  getline(is,d.first,'\t');
 	  getline(is,d.second);
 	  return is;
-}	  
+}
 
 ostream & operator<<(ostream &os,const pair<const string,string> &d){
-	  
+
 	  os<<d.first<<'\t'<<d.second<<endl;
 	  return os;
-}	  
+}
 
 
 /**
@@ -29,7 +29,7 @@ ostream & operator<<(ostream &os,const pair<const string,string> &d){
   * Una instancia @e c del tipo de datos abstracto @c Guia_Tlf es un objeto
   * formado por una colección de pares {(e11,e21),(e12,e22),(e13,e23),...,(e1n-1,e2n-1)}
   * ordenados por la el primer elemento del par denominado clave o key. No existen
-  * elementos repetidos. 
+  * elementos repetidos.
   *
   *
   * Un ejemplo de su uso:
@@ -57,9 +57,9 @@ class Guia_Tlf{
 	  private:
 		    map<string,string> datos; //si admites que haya nombres repetidos tendrías que usar un
 					     //multimap
-					     
+
 	  public:
-		    
+
 		    /**
 		      @brief Acceso a un elemento
 		      @param nombre: nombre del elemento  elemento acceder
@@ -70,20 +70,20 @@ class Guia_Tlf{
 		    string & operator[](const string &nombre) {
 			      return datos[nombre];
 		    }
-		    
-		    
+
+
 		    string  gettelefono(const string & nombre){
 			      map<string,string>::iterator it=datos.find(nombre);
-			      if (it==datos.end()) 
+			      if (it==datos.end())
 					return string("");
 			      else return it->second;
 		    }
-		     
+
 		    /**
-		     @brief Insert un nuevo telefono 
+		     @brief Insert un nuevo telefono
 		     @param nombre: nombre clave del nuevo telefono
 		     @param tlf: numero de telefono
-		     @return : un pair donde first apunta al nuevo elemento insertado y bool es true si se ha insertado el nuevo tlf o 
+		     @return : un pair donde first apunta al nuevo elemento insertado y bool es true si se ha insertado el nuevo tlf o
 			      o false en caso contrario
 		    */
 		    pair<map<string,string>::iterator,bool>  insert(string nombre, string tlf){
@@ -91,28 +91,28 @@ class Guia_Tlf{
 			      pair< map<string,string> ::iterator,bool> ret;
 
 			      ret=datos.insert(p); //datos.insert(datos.begin(),p); tambien funcionaría
-			      return ret;     
-					
+			      return ret;
+
 		    }
-		    
+
 		    /**
-		     @brief Insert un nuevo telefono 
+		     @brief Insert un nuevo telefono
 		     @param p: pair con el nombre y el telefono asociado
-		     
-		     @return : un pair donde first apunta al nuevo elemento insertado y bool es true si se ha insertado el nuevo tlf o 
+
+		     @return : un pair donde first apunta al nuevo elemento insertado y bool es true si se ha insertado el nuevo tlf o
 			      o false en caso contrario
 		    */
 		    pair<map<string,string>::iterator,bool>  insert(pair<string,string> p){
-			      
+
 			      pair<map<string,string> ::iterator,bool> ret;
 
 			      ret=datos.insert(p); //datos.insert(datos.begin(),p); tambien funcionaría
-			      return ret;     
-					
+			      return ret;
+
 		    }
-		    
-		    
-		    
+
+
+
 		    /**
 		      @brief Borrar un telefono
 		      @param nombre: nombre que se quiere borrar
@@ -125,9 +125,9 @@ class Guia_Tlf{
 			   //OTRA ALTERNATIVA
 			   //pair<map<string,string>::iterator,map<string,string>::iterator>ret;
 			   //ret = datos.equal_range(nombre
-			   //datos.erase(ret.first,ret.second);   
+			   //datos.erase(ret.first,ret.second);
 		    }
-		    
+
 		    /**
 		      @brief Borrar un telefono
 		      @param nombre: nombre que se quiere borrar y telefono asociado
@@ -143,34 +143,34 @@ class Guia_Tlf{
 				     if (it->second==tlf){
 					datos.erase(it);
 					salir =true;
-				     }		
-			   }		
-			   
+				     }
+			   }
+
 		    }
 		    /**
-		      @brief  Numero de telefonos 
+		      @brief  Numero de telefonos
 		      @return el numero de telefonos asociados
 		     */
 		    int size()const{
 			      return datos.size();
-		    }	      
+		    }
 		    /**
 		      @brief Contabiliza cuantos telefonos tenemos asociados a un nombre
 		      @param nombre: nombre sobre el que queremos consultar
 		      @return numero de telefonos asociados a un nombre
-		      
+
 		     */
 		    //al ser un map debe de ser 0 o 1. Si fuese un multimap podríamos tener mas de uno
 		    unsigned int contabiliza(const string &nombre){
 			      return datos.count(nombre);
 		    }
-		    
+
 		    /**
 		      @brief Limpia la guia
 		     */
 		    void clear(){
 			      datos.clear();
-		    }	      
+		    }
 		    /**
 		      @brief Union de guias de telefonos
 		      @param g: guia que se une
@@ -181,11 +181,11 @@ class Guia_Tlf{
 			map<string,string>::const_iterator it;
 			for (it=g.datos.begin();it!=g.datos.end();++it){
 			   aux.insert(it->first,it->second);
-			}	  
+			}
 			return aux;
-			
-		    }	   
-		    	      
+
+		    }
+
 		    /**
 		      @brief Diferencia de guias de telefonos
 		      @param g: guia a restar
@@ -196,9 +196,9 @@ class Guia_Tlf{
 			map<string,string>::const_iterator it;
 			for (it=g.datos.begin();it!=g.datos.end();++it){
 			   aux.borrar(it->first,it->second);
-			}	  
+			}
 			return aux;
-			
+
 		    }
 		    /**
 		      @brief  Obtiene una guia con los nombre previos a uno dado
@@ -213,21 +213,21 @@ class Guia_Tlf{
 			map<string,string>::iterator it=datos.begin();
 			while (vc(*it,p)){
 				  aux.insert(*it++);
-				  
+
 			}
 			return aux;
-			      
-		     }	      
-		    
-		    
+
+		     }
+
+
 		    /**
 		      @brief Escritura de la guia de telefonos
 		      @param os: flujo de salida. Es MODIFICADO
 		      @param g: guia de telefonos que se escribe
 		      @return el flujo de salida
-		     */ 
-		      
-		    
+		     */
+
+
 		    friend ostream & operator<<(ostream & os, Guia_Tlf & g){
 			      map<string,string>::iterator it;
 			      for (it=g.datos.begin(); it!=g.datos.end();++it){
@@ -235,25 +235,25 @@ class Guia_Tlf{
 			      }
 			      return os;
 		    }
-		    
+
 		    /**
 		      @brief Lectura de  la guia de telefonos
 		      @param is: flujo de entrada. ES MODIFICADO
 		      @param g: guia de telefonos. ES MODIFICADO
 		      @return el flujo de entrada
 		    */
-		    
+
 		    friend istream & operator>>(istream & is, Guia_Tlf & g){
 			      pair<string,string> p;
 			      Guia_Tlf aux;
-			      
+
 			      while (is>>p){
 				  aux.insert(p);
 			      }
 			      g=aux;
 			      return is;
 		    }
-		    
+
 		    /**
 		     * @brief clase para iterar sobre la guia
 		     * */
@@ -272,14 +272,14 @@ class Guia_Tlf{
 		       }
 		       bool operator ==(const iterator &i){
 			  return i.it==it;
-		       }	  
-		       
+		       }
+
 		       bool operator !=(const iterator &i){
 			  return i.it!=it;
 		       }
 		       friend class Guia_Tlf;
 		    };
-		    
+
 		    /**
 		     * @brief Inicializa un iterator al comienzo de la guia
 		     * */
@@ -287,7 +287,7 @@ class Guia_Tlf{
 			iterator i;
 			i.it=datos.begin();
 			return i;
-		    }	
+		    }
 		    /**
 		     * @brief Inicializa un iterator al final de la guia
 		     * */
@@ -295,11 +295,10 @@ class Guia_Tlf{
 			iterator i;
 			i.it=datos.end();
 			return i;
-		    }  
-		        
-					
-			      
-		    
+		    }
+
+
+
+
 };
 #endif
-

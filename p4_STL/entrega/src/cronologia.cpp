@@ -1,199 +1,50 @@
 /**
   * @file cronologia.cpp
-  * @brief Implementación del TDA Cronologia
+  * @brief Implementación del T.D.A. Cronologia
   *
   */
 
 #include <iostream>
-#include <vector>
 #include <sstream>
 #include <cassert>
-#include <algorithm>
 #include "cronologia.hpp"
 
 using namespace std;
 
-// Funciones auxiliares
-namespace
+EventoHistorico& Cronologia::operator[](const Fecha& f)
 {
-  /**
-   * @brief Comprobar cuál es el más reciente de dos eventos históricos.
-   * @param  a Primer objeto @c EventoHistorico
-   * @param  b Segundo objeto @c EventoHistorico
-   * @retval true Si el @c EventoHistorico @e b es más reciente que el EventoHistorico @e a
-   * @retval false Si el @c EventoHistorico @e a es más reciente que el EventoHistorico @e b
-   */
-  bool eventoMasReciente(const EventoHistorico& a, const EventoHistorico& b)
-  {
-      Fecha f1 = a.getFecha();
-      Fecha f2 = b.getFecha();
-      return ((f1.dc < f2.dc) || (f2.dc && f1.anio <= f2.anio)
-              || !(f1.dc && f1.anio >= f2.anio));
-  }
+  assert(datos.count(f) > 0);
+  return datos[f];
 }
 
-// Buscar un EventoHistorico por fecha
-vector<EventoHistorico>::iterator Cronologia::busquedaBinaria(Fecha f)
-{
-  int med;
-    int inf = 0;
-    int sup = c.size() - 1;
-    bool enc = false;
+/* _________________________________________________________________________ */
 
-    while ((inf<=sup) && (!enc))
-    {
-        med = (inf + sup) / 2;
-        Fecha aux = c[med].getFecha();
-        if (aux.anio == f.anio && aux.dc == f.dc)
-            enc = true;
-        else if ((aux.dc < f.dc) || (f.dc && aux.anio < f.anio)
-                    || (!aux.dc && aux.anio > f.anio))
-            inf = med + 1;
-        else
-            sup = med - 1;
-    }
-
-    if (enc)
-        return c.begin() + med;
-    else
-        return c.end();
-}
-
-// Buscar un EventoHistorico por fecha, y devolver iterador constante
-vector<EventoHistorico>::const_iterator Cronologia::busquedaBinaria(Fecha f) const
-{
-  int med;
-    int inf = 0;
-    int sup = c.size() - 1;
-    bool enc = false;
-
-    while ((inf<=sup) && (!enc))
-    {
-        med = (inf + sup) / 2;
-        Fecha aux = c[med].getFecha();
-        if (aux.anio == f.anio && aux.dc == f.dc)
-            enc = true;
-        else if ((aux.dc < f.dc) || (f.dc && aux.anio < f.anio)
-                    || (!aux.dc && aux.anio > f.anio))
-            inf = med + 1;
-        else
-            sup = med - 1;
-    }
-
-    if (enc)
-        return c.begin() + med;
-    else
-        return c.end();
-}
-
-// Ordenar vector this->c por fecha
-void Cronologia::ordenar()
-{
-  std::sort(c.begin(), c.end(), eventoMasReciente);
-}
-
-// Constructor de clase
-Cronologia::Cronologia(const vector<EventoHistorico>& v)
-{
-  setCronologia(v);
-}
-
-// Obtener el EventoHistorico correspondiente a la Fecha f
-EventoHistorico Cronologia::getEventoHistorico(Fecha f) const
-{
-  assert(contieneFecha(f));
-  vector<EventoHistorico>::const_iterator p = busquedaBinaria(f);
-  return *p;
-}
-
-// Obtener los acontecimientos correspondientes a la fecha f
-std::vector<Acontecimiento> Cronologia::getAcontecimientos(Fecha f) const
-{
-  return getEventoHistorico(f).getEvento();
-}
-
-// Acceder al primer año
-Fecha Cronologia::getPrimero() const
-{
-  return c[0].getFecha();
-}
-
-// Acceder al último año
-Fecha Cronologia::getUltimo() const
-{
-  return c[c.size()-1].getFecha();
-}
-
-// Modificar el vector this->c
-void Cronologia::setCronologia(const std::vector<EventoHistorico>& v)
-{
-  this->c = v;
-  ordenar();
-}
-
-// Modificar el evento histórico asociado a la fecha f
-void Cronologia::setEventoHistorico(const vector<Acontecimiento>& v, Fecha f)
-{
-  busquedaBinaria(f)->setEvento(v);
-}
-
-// Añadir un evento histórico a la cronología
 void Cronologia::addEventoHistorico(const EventoHistorico& e)
 {
-  if (contieneFecha(e.getFecha()))
+  Fecha f = e.getFecha();
+
+  if (datos.count(f) > 0)
   {
-    vector<EventoHistorico>::iterator p = busquedaBinaria(e.getFecha());
-    vector<Acontecimiento> s = e.getEvento();
-    p->addEvento(s);
+    datos[f].addEvento(e.getEvento());
   }
   else
   {
-    c.push_back(e);
-    ordenar();
+    pair<Fecha, EventoHistorico> new_element(f,e);
+    datos.insert(new_element);
   }
 }
 
-// Añadir varios eventos históricos a la cronología
-void Cronologia::addEventoHistorico(const std::vector<EventoHistorico>& v)
-{
-  for (vector<EventoHistorico>::const_iterator p = v.begin(); p != v.end(); ++p)
-    addEventoHistorico(*p);
-}
+/* _________________________________________________________________________ */
 
-// Meclar la cronología con una dada
-void Cronologia::mezclarCronologia(const Cronologia& cron)
-{
-  addEventoHistorico(cron.getCronologia());
-}
-
-// Ver si hay un evento histórico con la fecha dada
-bool Cronologia::contieneFecha(Fecha f) const
-{
-  return busquedaBinaria(f) != c.end();
-}
-
-// Eliminar un EventoHistorico
-bool Cronologia::eliminarEvento(Fecha f)
-{
-  vector<EventoHistorico>::iterator p = busquedaBinaria(f);
-  if (p != c.end())
-  {
-    c.erase(p);
-    return true;
-  }
-  return false;
-}
-
-// Eliminar todos los eventos históricos cuyos acontecimientos contengan 'key'
-int Cronologia::eliminarPorClave (string key)
+int Cronologia::eliminarPorClave (const string& key)
 {
   int n = 0;
-  vector<EventoHistorico>::const_iterator p = c.begin();
-  while (p != c.end())
+  const_iterator p = datos.begin();
+  while (p != datos.end())
   {
-    if (p->buscarPorClave(key).size() != 0)
+    if (p->second.buscarPorClave(key).size() != 0)
     {
-      c.erase(p);
+      datos.erase(p);
       n++;
     }
     else
@@ -202,87 +53,75 @@ int Cronologia::eliminarPorClave (string key)
   return n;
 }
 
-// Buscar todos los eventos históricos que contengan acontecimientos que contengan 'key'
-vector<EventoHistorico> Cronologia::buscarPorClave (string key) const
-{
-  vector<EventoHistorico> e;
-  EventoHistorico tmp;
-  for (vector<EventoHistorico>::const_iterator p = c.begin(); p != c.end(); ++p)
-  {
-    vector<Acontecimiento> v;
-    v = p->buscarPorClave(key);
-    if (v.size() != 0)
-    {
-      tmp.setFecha(p->getFecha());
-      tmp.setEvento(v);
-      e.push_back(tmp);
-    }
-  }
-  return e;
-}
+/* _________________________________________________________________________ */
 
-// Cargar Cronologia desde un flujo de entrada
 istream& Cronologia::cargarCronologia(istream& is)
 {
   EventoHistorico tmp;
-  vector<EventoHistorico> v;
+  container_type v;
+  pair<Fecha, EventoHistorico> new_element;
   string s;
+  
   while(getline(is,s))
   {
     istringstream ss(s);
-    tmp.cargarEvento(ss);
-    v.push_back(tmp);
+    new_element.first = tmp.getFecha();
+    new_element.second.cargarEvento(ss);
+    v.insert(new_element);
   }
 
   if (is.eof())
   {
     setCronologia(v);
-    ordenar();
   }
   return is;
 }
 
-// Mostrar una Cronologia a un flujo de salida
+/* _________________________________________________________________________ */
+
 ostream& Cronologia::mostrarCronologia(ostream& os) const
 {
-  for (vector<EventoHistorico>::const_iterator p = c.begin(); p != c.end(); ++p)
+  for (const_iterator p = datos.begin(); p != datos.end(); ++p)
   {
-    p->mostrarEvento(os);
+    p->second.mostrarEvento(os);
     os << '\n';
   }
   return os;
 }
 
-// Mostrar una Cronologia en orden inverso a un flujo de salida
+/* _________________________________________________________________________ */
+
 ostream& Cronologia::mostrarCronologiaInversa(ostream& os) const
 {
-
-  for (vector<EventoHistorico>::const_reverse_iterator p = c.rbegin(); p != c.rend(); ++p)
+  for (container_type::const_reverse_iterator p = datos.rbegin(); p != datos.rend(); ++p)
   {
-    p->mostrarEvento(os);
+    p->second.mostrarEvento(os);
     os << '\n';
   }
   return os;
 }
 
-// Mostrar una Cronologia en Human Readable Format
+/* _________________________________________________________________________ */
+
 ostream& Cronologia::prettyPrint(ostream& os) const
 {
-  for (vector<EventoHistorico>::const_iterator p = c.begin(); p != c.end(); ++p)
+  for (const_iterator p = datos.begin(); p != datos.end(); ++p)
   {
-    p->prettyPrint();
+    p->second.prettyPrint();
     os << '\n';
   }
   return os;
 }
 
-// Operator>>
+/* _________________________________________________________________________ */
+
 istream& operator>>(istream& is, Cronologia& cron)
 {
   return cron.cargarCronologia(is);
 }
 
-// Operator<<
+/* _________________________________________________________________________ */
+
 ostream& operator<<(ostream& os, const Cronologia& cron)
 {
   return cron.mostrarCronologia(os);

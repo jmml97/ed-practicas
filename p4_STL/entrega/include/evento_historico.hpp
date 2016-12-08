@@ -1,6 +1,6 @@
 /**
  * @file evento_historico.hpp
- * @brief Fichero cabecera del TDA EventoHistorico
+ * @brief Fichero cabecera del T.D.A. EventoHistorico
  *
  */
 
@@ -11,12 +11,10 @@
 #include <set>
 
 /**
- * @brief Tipo @c Acontecimiento
+ * @brief T.D.A. @c Acontecimiento
  *
- * Definimos un nuevo tipo @c Acontecimiento, compuesto por un @e string,
- * que representa un acontecimiento histórico. Lo representamos:
- *
- * acontecimiento
+ * Definimos un nuevo tipo @c Acontecimiento, compuesto por un @e std::string,
+ * que representa un acontecimiento histórico.
  *
  */
 
@@ -32,17 +30,12 @@ typedef std::string Acontecimiento;
  *
  * anio, dc
  *
- * @author Miguel Lentisco Ballesteros
- * @author Jose María Martín Luque
- * @author Antonio Coín Castro
- * @date Octubre 2016
- *
  */
 
 struct Fecha
 {
   /**
-   * @page repConjunto1 Rep del TDA Fecha
+   * @page repConjunto1 Rep del T.D.A. Fecha
    *
    * @section invConjunto1 Invariante de la representación
    *
@@ -50,7 +43,7 @@ struct Fecha
    *
    * @section faConjunto1 Función de abstracción
    *
-   * Un objeto válido @e rep del TDA Fecha representa al valor
+   * Un objeto válido @e rep del T.D.A. Fecha representa al valor
    *
    * (rep.anio, rep.dc)
    *
@@ -67,10 +60,11 @@ struct Fecha
 
   /**
    * @brief Constructor de Fecha. Funciona como conversor implícito de 'int' a 'Fecha'
-   * @param n El año
-   * @post Construye un objeto Fecha @e f con el año indicado, por defecto DC
+   * @param n El año en cuestión
+   * @param dc Si es AC ó DC
+   * @post Construye un objeto Fecha @e f con el año indicado, por defecto DC.
    */
-  Fecha(int n);
+  Fecha(int n, bool dc = true);
 };
 
 
@@ -79,9 +73,9 @@ struct Fecha
  *
  * Una instancia @e e del tipo de datos abstracto @c EventoHistorico es un objeto que
  * representa un evento hisórico sucedido en un año en concreto. Está compuesto por
- * una pareja @e ev que contiene una Fecha y un conjunto de acontecimientos, que representan, respectivamente, el
- * año en el que sucede el evento histórico, y el conjunto (finito) de acontecimientos
- * sucecidos. Lo representamos:
+ * una pareja @e ev que contiene una Fecha y un conjunto de acontecimientos, que representan,
+ * respectivamente, el año en el que sucede el evento histórico, y el conjunto (finito) de
+ * acontecimientos sucecidos. Lo representamos:
  *
  * < fecha, <acontecimiento_1, acontecimiento_2, ..., acontecimiento_n> >
  *
@@ -95,7 +89,7 @@ struct Fecha
 class EventoHistorico
 {
   /**
-   * @page repConjunto2 Rep del TDA EventoHistorico
+   * @page repConjunto2 Rep del T.D.A. EventoHistorico
    *
    * @section invConjunto2 Invariante de la representación
    *
@@ -110,12 +104,15 @@ class EventoHistorico
    * > rep.ev
    *
    */
+
   private:
-      std::pair<Fecha, std::set<Acontecimiento> > ev; ///< pareja Fecha-<eventos>
+      std::pair<Fecha,std::set<Acontecimiento> > ev; ///< pareja Fecha-<eventos>
 
   public:
-      typedef typename std::set<Acontecimiento>::iterator iterator; ///< iterador de EventoHistorico
-      typedef typename std::set<Acontecimiento>::const_iterator const_iterator; ///< iterador constante de EventoHistorico
+      /// Iterador de EventoHistorico
+      typedef typename std::set<Acontecimiento>::iterator iterator;
+      /// Iterador constante de EventoHistorico
+      typedef typename std::set<Acontecimiento>::const_iterator const_iterator;
 
       // ---------------  Constructores ----------------
 
@@ -132,7 +129,7 @@ class EventoHistorico
        * de acontecimientos.
        * @pre f.anio >= 0
        */
-      EventoHistorico(Fecha f) { setFecha(f); }
+      EventoHistorico(const Fecha& f) { setFecha(f); }
 
       /**
        * @brief Constructor de la clase
@@ -141,7 +138,9 @@ class EventoHistorico
        * @return Crea un evento histórico con la fecha y el conjunto determinados.
        * @pre f.anio >= 0
        */
-      EventoHistorico(Fecha f, const std::set<Acontecimiento>& a);
+      EventoHistorico(const Fecha& f, const std::set<Acontecimiento>& a);
+
+      // ---------------  Métodos de acceso ----------------
 
       /**
        * @brief Acceder a la fecha
@@ -155,13 +154,15 @@ class EventoHistorico
        */
       std::set<Acontecimiento> getEvento() const { return ev.second; }
 
+      // ---------------  Métodos de modificación ----------------
+
       /**
        * @brief Modificar fecha
        * @param f Nueva fecha
        * @return Sustituye la Fecha this->ev.first por f
        * @pre f.anio >= 0
        */
-      void setFecha(Fecha f);
+      void setFecha(const Fecha& f);
 
       /**
        * @brief Modificar conjunto de acontecimientos
@@ -177,7 +178,7 @@ class EventoHistorico
        * @retval true Si se ha añadido
        * @retval false Si no se ha añadido (ya estaba presente)
        */
-      bool addEvento(Acontecimiento a) { return ev.second.insert(a).second; }
+      bool addEvento(const Acontecimiento& a) { return ev.second.insert(a).second; }
 
       /**
        * @brief Mezcla el conjunto de acontecimientos asociado al objeto implícito
@@ -192,7 +193,7 @@ class EventoHistorico
        * @retval true Si se ha eliminado el elemento
        * @retval false Si no se ha eliminado (no estaba presente)
        */
-      bool eliminarAcontecimiento(Acontecimiento a) { return ev.second.erase(a); }
+      bool eliminarAcontecimiento(const Acontecimiento& a) { return ev.second.erase(a) > 0; }
 
       /**
        * @brief Elimina un acontecimiento del conjunto @e ev.second
@@ -205,11 +206,13 @@ class EventoHistorico
 
       /**
        * @brief Elimina del conjunto @e ev.second todos los acontecimientos que contengan una
-       * palabra clave
+       * palabra o frase clave.
        * @param  key Palabra clave
        * @return Número de acontecimientos eliminados
        */
-      int eliminarPorClave(std::string key);
+      int eliminarPorClave(const std::string& key);
+
+      // ---------------  Métodos de consulta ----------------
 
       /**
        * @brief Busca en el conjunto @e conj un @c Acontecimiento en concreto
@@ -218,15 +221,18 @@ class EventoHistorico
        *         se ha encontrado el @c Acontecimento, o @e ev.second.end() si no se
        *         ha encontrado.
        */
-      const_iterator buscarAcontecimiento(Acontecimiento a) const { return ev.second.find(a); }
+      const_iterator buscarAcontecimiento(const Acontecimiento& a) const
+      {
+        return ev.second.find(a);
+      }
 
       /**
        * @brief Busca en el conjunto @e evento todos los acontecimientos que contengan una
-       * palabra clave
+       * palabra o frase clave.
        * @param  key Palabra clave
        * @return Conjunto que contiene los acontecimientos encontrados (vacío si no se ha encontrado ninguno)
        */
-      std::set<Acontecimiento> buscarPorClave(std::string key) const;
+      std::set<Acontecimiento> buscarPorClave(const std::string& key) const;
 
       /**
        * @brief Comprueba si un Acontecimiento está en el evento histórico
@@ -234,7 +240,9 @@ class EventoHistorico
        * @retval true Si el acontecimiento está en el evento
        * @retval false Si no lo está
        */
-      bool tieneAcontecimiento(const Acontecimiento& a) const { return ev.second.count(a); }
+      bool tieneAcontecimiento(const Acontecimiento& a) const { return ev.second.count(a) > 0; }
+
+      // ---------------  Métodos de E/S ----------------
 
       /**
        * @brief Leer un evento desde un flujo de entrada

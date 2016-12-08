@@ -1,6 +1,6 @@
 /**
  * @file cronologia.hpp
- * @brief Fichero cabecera del TDA Cronologia
+ * @brief Fichero cabecera del T.D.A. Cronologia
  *
  */
 
@@ -12,14 +12,42 @@
 #include "evento_historico.hpp"
 
 /**
+ * @brief Comparador para el T.D.A. EventoHistorico
+ *
+ * Diremos que un EventoHistorico es más reciente que otro
+ * si el primero sucedió en un año mayor, entendiendo los años
+ * D.C. como positivos, y los años A.C. como negativos.
+ *
+ */
+
+struct compEventos
+{
+  /**
+   * @brief Comprobar cuál es el más reciente de dos eventos históricos.
+   * @param  a Primer objeto @c EventoHistorico
+   * @param  b Segundo objeto @c EventoHistorico
+   * @retval true Si el @c EventoHistorico @e a es más reciente que el EventoHistorico @e b
+   * @retval false Si el @c EventoHistorico @e b es más reciente que el EventoHistorico @e a
+   */
+  bool operator()(const EventoHistorico& a, const EventoHistorico& b) const
+  {
+      Fecha f1 = a.getFecha();
+      Fecha f2 = b.getFecha();
+      return !((f1.dc < f2.dc) || (f2.dc && f1.anio <= f2.anio)
+                || !(f1.dc && f1.anio >= f2.anio));
+  }
+};
+
+/**
  * @brief T.D.A. Cronologia
  *
  * Una instancia @e e del tipo de datos abstracto @c Cronologia es un objeto que
- * representa una sucesión de eventos históricos ordenados cronológicamente por año. Está compuesto por
- * un vector @e c de EventoHistorico, que representa la sucesión de años y los distintos
- * acontecimientos que han tenido lugar en ese año. Lo representamos:
+ * representa una sucesión de eventos históricos ordenados cronológicamente por año.
+ * Está compuesto por un diccionario @e datos de EventoHistorico, que representa la sucesión
+ * de años y los distintos acontecimientos que han tenido lugar en ese año, ordenados
+ * según el criterio definido en compEventos. Lo representamos:
  *
- * <eventoHistorico_1, eventoHistorico_2, ..., eventoHistorico_n>
+ * < <f_1,eventoHistorico_1>, <f_2,eventoHistorico_2>, ..., <f_n,eventoHistorico_n> >
  *
  * @author Miguel Lentisco Ballesteros
  * @author Jose María Martín Luque
@@ -27,179 +55,150 @@
  * @date Octubre 2016
  *
  */
+
 class Cronologia
 {
+  /**
+   * @page repConjunto3 Rep del T.D.A. Cronologia
+   *
+   * @section invConjunto3 Invariante de la representación
+   *
+   * El invariante es:
+   *
+   * > EventoHistorico_1 < ... < EventoHistorico_n, con el orden definido
+   *   en compEventos
+   *
+   * @section faConjunto3 Función de abstracción
+   *
+   * Un objeto válido @e rep del T.D.A. Cronologia representa al valor
+   *
+   * rep.datos
+   *
+   */
+
   private:
-    /**
-     * @page repConjunto3 Rep del TDA Cronologia
-     *
-     * @section invConjunto3 Invariante de la representación
-     *
-     * El invariante es \e rep. EventoHistorico_1.f < ... < EventoHistorico_n.f,
-     * con el orden natural de nuestro calendario.
-     *
-     * @section faConjunto3 Función de abstracción
-     *
-     * Un objeto válido @e rep del TDA Cronologia representa al valor
-     *
-     * (rep.c)
-     *
-     */
-    std::vector<EventoHistorico> c;
-
-
-    /**
-     * @brief Busca en el vector c un @c EventoHistorico en concreto
-     * @param f @c Fecha del EventoHistorico a buscar
-     * @return Devuelve un iterador apuntando a la posición del vector donde
-     *         se ha encontrado el @c EventoHistorico, o @e c.end() si no se
-     *         ha encontrado.
-     */
-    std::vector<EventoHistorico>::iterator busquedaBinaria(Fecha f);  // buscar evento en this->c
-
-    /**
-     * @brief Busca en el vector c un @c EventoHistorico en concreto
-     * @param f @c Fecha del EventoHistorico a buscar
-     * @return Devuelve un iterador constante apuntando a la posición del vector donde
-     *         se ha encontrado el @c EventoHistorico, o @e c.end() si no se
-     *         ha encontrado.
-     */
-    std::vector<EventoHistorico>::const_iterator busquedaBinaria(Fecha f) const;
-
-    /**
-     * @brief Ordena los eventos históricos cronológicamente. En las posiciones más grandes
-     * se encuentran los eventos más recientes
-     * @post Vector @e this->c ordenado cronológicamente
-     *
-     * @see eventoMasReciente
-     */
-    void ordenar();
+    std::map<Fecha,EventoHistorico,compEventos> datos;
 
   public:
+    /// Alias para el contenedor de la clase
+    typedef std::map<Fecha,EventoHistorico,compEventos> container_type;
+    /// Alias para el iterador de std::map
+    typedef typename container_type::iterator iterator;
+    /// Alias para el iterador constante de std::map
+    typedef typename container_type::const_iterator const_iterator;
+
+    // ---------------  Constructores ----------------
 
     /**
      * @brief Constructor por defecto de la clase
-     * Crea un objeto con un vector vacío de EventoHistorico.
+     * Crea un objeto con un contenedor vacío.
      */
     Cronologia() {}
 
     /**
       * @brief Constructor de la clase
-      * @param v Vector de EventoHistorico
-      * @return Crea una Cronologia con el vector de EventoHistorico dado
+      * @param v Contenedor de EventoHistorico
+      * @return Crea una Cronologia con el contenedor de EventoHistorico dado
       */
-    Cronologia(const std::vector<EventoHistorico>& v);
+    Cronologia(const container_type& v) { setCronologia(v); }
+
+    // ---------------  Métodos de acceso ----------------
 
     /**
-     * @brief Acceder al vector de EventoHistorico
-     * @return El vector de EventoHistorico asociado a la Cronologia
+     * @brief Acceder al contenedor de EventoHistorico
+     * @return El contenedor de EventoHistorico asociado a la Cronologia
      */
-    std::vector<EventoHistorico> getCronologia() const { return c; }
+    container_type getCronologia() const { return datos; }
 
     /**
-     * @brief Accede a un EventoHistorico del vector @c c
+     * @brief Accede a un EventoHistorico del contenedor @e datos
      * @param f @c Fecha del EventoHistorico a consultar
      * @return El EventoHistorico asociado a la fecha
-     * @pre Debe haber en el vector @e c un EventoHistorico que tenga a f
-     *      por Fecha
+     * @pre f debe ser una clave existente en el contenedor
+     *
+     * También permite la modificación del elemento.
      */
-    EventoHistorico getEventoHistorico(Fecha f) const;
-
-    /**
-     * @brief Accede a los acontecimientos de un EventoHistorico buscando con su fecha
-     * @param f @c Fecha del EventoHistorico a buscar
-     * @return @c Vector de Acontecimiento del EventoHistorico buscado
-     * @pre Debe haber en el vector @e c un EventoHistorico que tenga a f
-     *      por Fecha
-     */
-    std::vector<Acontecimiento> getAcontecimientos(Fecha f) const;
+    EventoHistorico& operator[](const Fecha& f);
 
     /**
      * @brief Acceder al primer año de la cronología
      * @return Una @c Fecha que representa el primer año en la cronología
-     * (objeto implícito)
      */
-    Fecha getPrimero() const;
+    Fecha getPrimero() const { return datos.begin()->first; }
 
     /**
      * @brief Acceder al último año de la cronología
      * @return Una @c Fecha que representa el último año en la cronología
-     * (objeto implícito)
      */
-    Fecha getUltimo() const;
+    Fecha getUltimo() const { return (--datos.end())->first; }
+
+    // ---------------  Métodos de modificación -----------------
 
     /**
-     * @brief Modificar vector de EventoHistorico
-     * @param v @c Nuevo vector
-     * @return Sustituye el vector this->c por v
+     * @brief Modificar contenedor de EventoHistorico
+     * @param v @c Nuevo contenedor
+     * @return Sustituye el contenedor this->datos por v
      */
-    void setCronologia(const std::vector<EventoHistorico>& v);
+    void setCronologia(const container_type& v) { datos = v; }
 
     /**
      * @brief Modifica un EventoHistorico de la Cronologia
-     * @param v @c Vector de Acontecimiento, f @c Fecha del EventoHistorico
-     * @post El EventoHistorico asociado a la Fecha f contiene los acontecimientos del vector v
-     * @pre Debe haber en el vector @e c un EventoHistorico que tenga a f por Fecha
+     * @param v Conjunto de Acontecimiento, f @c Fecha del EventoHistorico
+     * @post El EventoHistorico asociado a la Fecha f contiene los acontecimientos del conjunto v
+     * @pre f debe ser una clave existente en el contenedor
      */
-    void setEventoHistorico(const std::vector<Acontecimiento>& v, Fecha f);
+    void setEventoHistorico(const std::set<Acontecimiento>& v, const Fecha& f)
+    {
+      datos[f].setEvento(v);
+    }
 
     /**
-     * @brief Añade un EventoHistorico al vector @c c.
+     * @brief Añade un EventoHistorico al contenedor @c datos.
      * @param  e @c EventoHistorico a añadir
-     * @post Si no estaba ya presente, el nuevo EventoHistorico @e e está en @e c.
-     *       En caso contrario, se mezclan los acontecimientos de los vectores de
-     *       @c Acontecimiento, eliminando los repetidos. El vector @e c está ordenado.
+     * @post Si no estaba ya presente, el nuevo EventoHistorico @e e está en @e datos.
+     *       En caso contrario, se mezclan los acontecimientos de los conjuntos de
+     *       @c Acontecimiento, eliminando los repetidos.
      */
     void addEventoHistorico(const EventoHistorico& e);
 
     /**
-     * @brief Mezcla el vector de EventoHistorico asociado al objeto implícito
-     * con otro que se pasa como parámetro.
-     * @param  v @c Vector a mezclar
-     * @post En cada caso, si no estaba ya presente, el nuevo EventoHistorico @e e está en @e c.
-     *       En caso contrario, se mezclan los acontecimientos de los vectores de
-     *       @c Acontecimiento, eliminando los repetidos. El vector @e c está ordenado.
-     */
-    void addEventoHistorico(const std::vector<EventoHistorico>& v);
-
-    /**
-     * @brief Mezcla dos Cronologia en una sola (en el objeto implícito)
-     * @param cron @c Cronologia que se quiere mezclar
-     * @post this->c está ordenado y sin repetidos.
-     */
-    void mezclarCronologia(const Cronologia& cron);
-
-    /**
-     * @brief Comprueba si hay un EventoHistorico con la fecha dada en el vector @e c
-     * @param  f @c Fecha del EventoHistorico a comprobar
-     * @retval true Si se encuentra el elemento
-     * @retval false Si no estaba presente
-     */
-    bool contieneFecha(Fecha f) const;
-
-    /**
-     * @brief Elimina un EventoHistorico del vector @e c
+     * @brief Elimina un EventoHistorico del contenedor @e datos
      * @param  f @c Fecha del EventoHistorico a eliminar
      * @retval true Si se ha eliminado el elemento
      * @retval false Si no se ha eliminado (no estaba presente)
      */
-    bool eliminarEvento(Fecha f);
+    bool eliminarEvento(const Fecha& f) { return datos.erase(f); }
 
     /**
-     * @brief Elimina del vector @e c todos los EventoHistorico cuyos acontecimientos
-     * contengan una palabra clave
+     * @brief Elimina del contenedor @e datos todos los EventoHistorico cuyos acontecimientos
+     * contengan una palabra o frase clave.
      * @param  key Palabra clave
      * @return Número de EventoHistorico eliminados
      */
-    int eliminarPorClave (std::string key);
+    int eliminarPorClave (const std::string& key);
+
+    // ---------------  Métodos de consulta -----------------
 
     /**
-     * @brief Busca en el vector @e c todos los EventoHistorico cuyos acontecimientos
-     * contengan una palabra clave
-     * @param  key Palabra clave
-     * @return Vector que contiene los @c EventoHistorico encontrados (vacío si no se ha encontrado ninguno)
+     * @brief Comprueba si hay un EventoHistorico con la fecha dada en el contenedor @e datos
+     * @param  f @c Fecha del EventoHistorico a comprobar
+     * @retval true Si se encuentra el elemento
+     * @retval false Si no estaba presente
      */
-    std::vector<EventoHistorico> buscarPorClave (std::string key) const;
+    bool contieneFecha(const Fecha& f) const { return datos.count(f) > 0; }
+
+    /**
+     * @brief Busca en el contenedor @e datos un EventoHistorico en concreto
+     * @param f @c Fecha del EventoHistorico a buscar
+     * @return Devuelve un iterador constante apuntando a la posición del contenedor donde
+     * se ha encontrado el EventoHistorico, o @e datos.end() si no se ha encontrado.
+     */
+    const_iterator buscarEvento(const Fecha& f) const
+    {
+      return datos.find(f);
+    }
+
+    // ---------------  Métodos de E/S -----------------
 
     /**
      * @brief Leer una cronología desde un flujo de entrada
@@ -246,6 +245,22 @@ class Cronologia
      * @see EventoHistorico::prettyPrint
      */
     std::ostream& prettyPrint(std::ostream& os = std::cout) const;
+
+    // ---------------  Iteradores ----------------
+
+    /**
+     *  Devuelven un iterador bidireccional a la pareja
+     *  <Fecha, EventoHistorico> menor, según el orden marcado.
+     */
+    iterator begin() { return datos.begin(); }
+    const_iterator begin() const { return datos.begin(); }
+
+    /**
+     *  Devuelven un iterador bidireccional a la posición siguiente a
+     *  la pareja <Fecha, EventoHistorico> mayor, según el orden marcado.
+     */
+    iterator end() { return datos.end(); }
+    const_iterator end() const { return datos.end(); }
 };
 
 /**
