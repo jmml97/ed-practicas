@@ -61,7 +61,7 @@ istream& Cronologia::cargarCronologia(istream& is)
   container_type v;
   pair<Fecha, EventoHistorico> new_element;
   string s;
-  
+
   while(getline(is,s))
   {
     istringstream ss(s);

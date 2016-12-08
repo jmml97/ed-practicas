@@ -1,6 +1,6 @@
 /**
  * @file test_evento_historico.cpp
- * @brief Fichero de prueba para el TDA EventoHistorico
+ * @brief Fichero de prueba para el T.D.A. EventoHistorico
  *
  */
 

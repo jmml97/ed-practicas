@@ -57,6 +57,8 @@ test: $(BIN)/test_*
 $(BIN)/test_%: $(OBJ)/test_%.o $(OBJ)/%.o
 	$(CXX) -o $@ $^
 
+$(BIN)/test_cronologia: $(OBJ)/evento_historico.o 
+
 $(OBJ)/test_%.o: $(TEST)/test_%.cpp $(HPP_FILES)
 	$(CXX) $(CXXFLAGS) -o $@ $<
 
