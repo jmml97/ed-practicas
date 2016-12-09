@@ -106,7 +106,7 @@ class EventoHistorico
    */
 
   private:
-      std::pair<Fecha,std::set<Acontecimiento> > ev; ///< pareja Fecha-<eventos>
+      std::pair<Fecha, std::set<Acontecimiento>> ev; ///< pareja Fecha-<eventos>
 
   public:
       /// Iterador de EventoHistorico
