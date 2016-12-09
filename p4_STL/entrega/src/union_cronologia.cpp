@@ -24,7 +24,7 @@ Cronologia Union(const Cronologia& c1, const Cronologia& c2)
 
   for (Cronologia::const_iterator p = c2.begin(); p != c2.end(); ++p)
   {
-    crono_union.addEventoHistorico(p->first);
+    crono_union.addEventoHistorico(p->second);
   }
 
   return crono_union;
