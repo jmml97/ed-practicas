@@ -45,50 +45,85 @@ Cronologia BuscarPorClave(const Cronologia& c, const string& key)
 
 int main(int argc, char * argv[])
 {
-  if (argc < 2 || argc > 5)
+
+  bool opc_entrada = false, opc_salida = false, opc_palabra = false, opc_ayuda = false;
+  string fichero_entrada, fichero_salida, palabra;
+
+  for (int i = 0; i < argc; i++) {
+
+    if (string(argv[i]) == "-i") {
+      if (i + 1 < argc) {
+        fichero_entrada = argv[i+1];
+        opc_entrada = true;
+      }
+    } else if (string(argv[i]) == "-p") {
+      if (i + 1 < argc) {
+        palabra = argv[i+1];
+        opc_palabra = true;
+      }
+    } else if (string(argv[i]) == "-o") {
+      if (i + 1 < argc) {
+        fichero_salida = argv[i+1];
+        opc_salida = true;
+      }
+    } else if (string(argv[i]) == "-h") {
+      opc_ayuda = true;
+    }
+
+  }
+
+  if (argc > 7)
   {
-    cout << "Error: debe dar al menos el nombre de la cronología en la que quiere buscar." << endl;
-    cout << "[Opcional]: una palabra clave." << endl;
-    cout << "[Opcional]: un nombre de fichero para guardar la cronología resultante." << endl;
+    cout << "Error en los argumentos, utiliza -h para ver la ayuda." << endl;
     return 1;
-   }
+  }
 
-   ifstream f1(argv[1]);
-   if (!f1)
+  if (opc_ayuda) {
+    cout << "uso: filtrado_palabra_clave [-i fichero] [-p palabra] [-o salida]" << endl;
+    cout << "i : especifica un fichero de entrada" << endl;
+    cout << "p : especifica la palabra clave a buscar" << endl;
+    cout << "o : especifica el fichero de salida" << endl;
+    return 1;
+  }
+
+  if (!opc_entrada) {
+    cout << "Introduce la ruta del archivo que quieres leer: ";
+    cin >> fichero_entrada;
+    cout << endl;
+  }
+
+  ifstream f1(fichero_entrada);
+  if (!f1)
+  {
+    cout << "No puedo abrir el fichero " << fichero_entrada << endl;
+    return 2;
+  }
+
+  Cronologia c1, cFiltrada;
+  f1 >> c1;
+
+  if (!opc_palabra)
+  {
+    cout << "Introduzca la palabra clave: ";
+    cin >> palabra;
+  }
+
+  cFiltrada = BuscarPorClave(c1, palabra);
+
+  if (!opc_salida)
+  {
+    cFiltrada.prettyPrint();
+  } else {
+   ofstream fout(fichero_salida);
+   if (!fout)
    {
-     cout << "No puedo abrir el fichero " << argv[1] << endl;
-     return 2;
+     cout << "No puedo crear el fichero " << fichero_salida << endl;
+     return 0;
    }
+   fout << cFiltrada;
+  }
 
-   Cronologia c1, cFiltrada;
-   f1 >> c1;
-
-   string palabra;
-   if (argc == 2 || (argc == 3 && ))
-   {
-     cout << "Introduzca la palabra clave: ";
-     cin >> palabra;
-   }
-   else
-    palabra = argv[2];
-
-   cFiltrada = BuscarPorClave(c1, palabra);
-
-   //No se dio fichero de salida, imprimimos en salida estándar
-   if (argc == 2 || (argc == 3 && ))
-     cFiltrada.prettyPrint();
-   else
-   {
-     ofstream fout(argv[3]);
-     if (!fout)
-     {
-       cout << "No puedo crear el fichero " << argv[3] << endl;
-       return 0;
-     }
-     fout << cFiltrada;
-   }
-
-   return 0;
+  return 0;
 }
 
 /* Fin fichero: filtrado_palabra_clave.cpp */
