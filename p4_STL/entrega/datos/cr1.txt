@@ -1,12 +1,12 @@
-1#1900#Sherlock Holmes Baffled#The Enchanted Drawing
-1#1901#Scrooge, or, Marley's Ghost#Star Theatre
-1#1902#A Trip to the Moon
-1#1903#Life of an American Fireman#The Great Train Robbery
-1#1904#The Impossible Voyage
+1#1900#Sherlock Holmes Baffled#The Enchanted Drawing#The Enchanted Drawing
+1#1901#Scrooge, or, Marley's Ghost#Scrooge, or, Marley's Ghost#Star Theatre
+1#1902#A Trip to the Moon#A Trip to the Moon
+1#1903#Life of an American Fireman#Life of an American Fireman#The Great Train Robbery
+1#1904#The Impossible Voyage#The Impossible Voyage
 1#1905#Adventures of Sherlock Holmes; or, Held for Ransom
-1#1906#Dream of a Rarebit Fiend#Humorous Phases of Funny Faces#The Story of the Kelly Gang
-1#1907#Ben Hur#L'Enfant prodigue
-1#1908#A Visit to the Seaside#Fantasmagorie#The Assassination of the Duke of Guise#The Taming of the Shrew#The Thieving Hand
+1#1906#Dream of a Rarebit Fiend#Dream of a Rarebit Fiend#Humorous Phases of Funny Faces#The Story of the Kelly Gang
+1#1907#Ben Hur#L'Enfant prodigue#L'Enfant prodigue
+1#1908#A Visit to the Seaside#Fantasmagorie#Prueba prueba#The Assassination of the Duke of Guise#The Taming of the Shrew#The Thieving Hand
 1#1909#A Corner in Wheat#Les Misérables#Princess Nicotine; or, The Smoke Fairy#The Country Doctor
 1#1910#In Old California
 1#1911#Defence of Sevastopol#L'Inferno

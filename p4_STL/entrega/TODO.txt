@@ -1,5 +1,5 @@
 ----- Cronología -----
-- Revisar implementación. (fechaAcontecimiento)
+- Revisar implementación (en particular fechaAcontecimiento)
 - Revisar documentación.
 
 ----- EventoHistorico -----
