@@ -28,6 +28,14 @@ Fecha::Fecha(int n, bool dc)
 
 /* _________________________________________________________________________ */
 
+bool Fecha::operator<=(const Fecha& f) const
+{
+  return ((dc < f.dc) || (f.dc && anio <= f.anio)
+           || !(dc && anio > f.anio));
+}
+
+/* _________________________________________________________________________ */
+
 EventoHistorico::EventoHistorico(const Fecha& f, const set<Acontecimiento>& a)
   : EventoHistorico(f)
 {

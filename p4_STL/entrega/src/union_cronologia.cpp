@@ -57,7 +57,7 @@ int main(int argc, char * argv[])
 
    //No se dio fichero de salida, imprimimos en salida estándar
    if (argc == 3)
-     cout << cUnion;
+     cUnion.prettyPrint();
    else
    {
      ofstream fout(argv[3]);

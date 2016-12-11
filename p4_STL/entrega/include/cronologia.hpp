@@ -37,8 +37,7 @@ struct compEventos
   {
       Fecha f1 = a.getFecha();
       Fecha f2 = b.getFecha();
-      return ((f1.dc < f2.dc) || (f2.dc && f1.anio < f2.anio)
-               || !(f1.dc && f1.anio >= f2.anio));
+      return (f1 <= f2 && !((f1.dc == f2.dc) && (f1.anio == f2.anio)));
   }
 };
 
@@ -215,8 +214,7 @@ class Cronologia
      * @brief Busca en qué fecha se produjo un acontecimiento en concreto
      * @param  a Acontecimiento a buscar
      * @pre El Acontecimiento debe estar en la cronología
-     * @return Fecha en que sucedió el Acontecimiento, o el año -1 si no se
-     * encuentra en la cronología
+     * @return Fecha en que sucedió el Acontecimiento.
      */
     Fecha fechaAcontecimiento(const Acontecimiento& a) const;
 

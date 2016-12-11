@@ -30,6 +30,11 @@ typedef std::string Acontecimiento;
  *
  * anio, dc
  *
+ * @author Miguel Lentisco Ballesteros
+ * @author Jose María Martín Luque
+ * @author Antonio Coín Castro
+ * @date Diciembre 2016
+ *
  */
 
 struct Fecha
@@ -52,6 +57,8 @@ struct Fecha
   int anio;   ///< Año del calendario
   bool dc;    ///< Indica si el año es AC o DC
 
+  // ---------------  Constructores ----------------
+
   /**
    * @brief Constructor por defecto
    * @post Año por defecto: 1 DC
@@ -65,6 +72,15 @@ struct Fecha
    * @post Construye un objeto Fecha @e f con el año indicado, por defecto DC.
    */
   Fecha(int n, bool dc = true);
+
+  // ---------------  Operadores ----------------
+
+  /**
+   * @brief Operador <=
+   * @retval true si *this <= f en el orden natural
+   * @retval false si *this > f en el orden natural
+   */
+   bool operator<=(const Fecha& f) const;
 };
 
 
@@ -82,7 +98,7 @@ struct Fecha
  * @author Miguel Lentisco Ballesteros
  * @author Jose María Martín Luque
  * @author Antonio Coín Castro
- * @date Octubre 2016
+ * @date Diciembre 2016
  *
  */
 

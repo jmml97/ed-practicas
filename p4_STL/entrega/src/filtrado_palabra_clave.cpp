@@ -5,10 +5,10 @@
  * clave(s) indicada(s) como argumento del programa.
  *
  * Los parámetros son los siguientes:
- *   1.El nombre del fichero con la cronología
+ *   1. El nombre del fichero con la cronología.
  *   2. Palabra clave (opcional). Si no se especifica la palabra clave en línea de comandos,
  *      el  programa la pedirá por teclado.
- *   3. El nombre del fichero para guardar la cronología obtenida. (opcional). Si no se
+ *   3. El nombre del fichero para guardar la cronología obtenida (opcional). Si no se
  *      especifica nombre de fichero, se imprimirá por la salida estándar.
  *
  */
@@ -23,9 +23,8 @@
   * Devuelve una cronología que contiene únicamente aquellos acontecimientos
   * de otra que contienen a su vez una palabra clave.
   */
-Cronologia buscarPorClave (const Cronologia& c, const string& key)
+Cronologia BuscarPorClave(const Cronologia& c, const string& key)
 {
-
   Cronologia res;
   EventoHistorico tmp;
 
@@ -46,10 +45,11 @@ Cronologia buscarPorClave (const Cronologia& c, const string& key)
 
 int main(int argc, char * argv[])
 {
-  if (argc != 3 && argc != 4)
+  if (argc < 2 || argc > 5)
   {
-    cout << "Error: debe dar al menos el nombre de la cronología en la que quieres buscar y la palabra clave " << endl;
-    cout << "[Opcional]: un tercer nombre de fichero para guardar la cronología resultante." << endl;
+    cout << "Error: debe dar al menos el nombre de la cronología en la que quiere buscar." << endl;
+    cout << "[Opcional]: una palabra clave." << endl;
+    cout << "[Opcional]: un nombre de fichero para guardar la cronología resultante." << endl;
     return 1;
    }
 
@@ -63,11 +63,20 @@ int main(int argc, char * argv[])
    Cronologia c1, cFiltrada;
    f1 >> c1;
 
-   cFiltrada = buscarPorClave(c1, argv[2]);
+   string palabra;
+   if (argc == 2 || (argc == 3 && ))
+   {
+     cout << "Introduzca la palabra clave: ";
+     cin >> palabra;
+   }
+   else
+    palabra = argv[2];
+
+   cFiltrada = BuscarPorClave(c1, palabra);
 
    //No se dio fichero de salida, imprimimos en salida estándar
-   if (argc == 3)
-     cout << cFiltrada;
+   if (argc == 2 || (argc == 3 && ))
+     cFiltrada.prettyPrint();
    else
    {
      ofstream fout(argv[3]);
