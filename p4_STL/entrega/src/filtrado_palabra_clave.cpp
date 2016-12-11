@@ -79,7 +79,7 @@ int main(int argc, char * argv[])
   }
 
   if (opc_ayuda) {
-    cout << "uso: filtrado_palabra_clave [-i fichero] [-p palabra] [-o salida]" << endl;
+    cout << "uso: filtrado_palabra_clave [-i fichero] [-p palabra] [-o fichero]" << endl;
     cout << "i : especifica un fichero de entrada" << endl;
     cout << "p : especifica la palabra clave a buscar" << endl;
     cout << "o : especifica el fichero de salida" << endl;
