@@ -69,6 +69,7 @@ bool Cronologia::contieneAcontecimiento(const Acontecimiento& a) const
 
 Fecha Cronologia::fechaAcontecimiento(const Acontecimiento& a) const
 {
+  assert(contieneAcontecimiento(a));
   for (const_iterator p = datos.begin(); p != datos.end(); ++p)
   {
     if (p->second.buscarAcontecimiento(a) != p->second.end())
@@ -103,6 +104,7 @@ istream& Cronologia::cargarCronologia(istream& is)
   {
     setCronologia(v);
   }
+
   return is;
 }
 
