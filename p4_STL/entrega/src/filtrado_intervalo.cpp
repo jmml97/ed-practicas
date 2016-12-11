@@ -29,12 +29,19 @@
   * @pre res debe ser vacía.
   */
 void Filtrar(const Cronologia& c, const Fecha& inicio, const Fecha& fin,
-                   Cronologia& res)
+             Cronologia& res)
 {
+  Cronologia::const_iterator p = c.begin();
   compEventos comp;
-  for (Cronologia::const_iterator p = c.begin(); p != c.end(); ++p)
-    if (!comp(p->second,inicio) && (p->first <= fin))
+
+  while (p != c.end() && p->first <= fin)
+  {
+    if (!comp(p->second,inicio))
+    {
       res.addEventoHistorico(p->second);
+    }
+    ++p;
+  }
 }
 
 int main(int argc, char * argv[])
@@ -57,11 +64,9 @@ int main(int argc, char * argv[])
 
    Fecha fecha_min(stoi(argv[3]),stoi(argv[2]));
    Fecha fecha_max(stoi(argv[5]),stoi(argv[4]));
-   compEventos comp;
 
    // f1 debe ser menor o igual que f2
-   if (comp(fecha_min,fecha_max) || (fecha_min.anio == fecha_max.anio
-       && fecha_min.dc == fecha_max.dc))
+   if (fecha_min <= fecha_max)
    {
      Cronologia c1, cIntervalo;;
      f >> c1;

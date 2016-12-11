@@ -1,5 +1,5 @@
 ----- Cronología -----
-- Revisar implementación.
+- Revisar implementación. (fechaAcontecimiento)
 - Revisar documentación.
 
 ----- EventoHistorico -----
@@ -7,13 +7,10 @@
 - Revisar documentación
 
 ----- Ejecutables -------
-- union_cronologia.cpp
 - estadistica_eventos.cpp
-- filtrado_intervalo.cpp
-- filtrado_palabra_clave.cpp
-(Usar funciones externas para todos)
+- Cambiar cabecera funciones
+- Parámetros filtrado_palabra_clave
 
 ----- General ------
-- Quitar comentario de -DNDEBUG en Makefile antes de entregar
 - Mirar como referencia "guiatlf.h" para ver si se puede mejorar
   nuestra implementación.

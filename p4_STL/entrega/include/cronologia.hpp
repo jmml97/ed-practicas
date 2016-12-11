@@ -37,6 +37,7 @@ struct compEventos
   {
       Fecha f1 = a.getFecha();
       Fecha f2 = b.getFecha();
+      // Orden estricto: a <= b && a != b
       return (f1 <= f2 && !((f1.dc == f2.dc) && (f1.anio == f2.anio)));
   }
 };
