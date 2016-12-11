@@ -55,6 +55,30 @@ int Cronologia::eliminarPorClave (const string& key)
 
 /* _________________________________________________________________________ */
 
+bool Cronologia::contieneAcontecimiento(const Acontecimiento& a) const
+{
+  for (const_iterator p = datos.begin(); p != datos.end(); ++p)
+  {
+    if (p->second.buscarAcontecimiento(a) != p->second.end())
+      return true;
+  }
+  return false;
+}
+
+/* _________________________________________________________________________ */
+
+Fecha Cronologia::fechaAcontecimiento(const Acontecimiento& a) const
+{
+  for (const_iterator p = datos.begin(); p != datos.end(); ++p)
+  {
+    if (p->second.buscarAcontecimiento(a) != p->second.end())
+      return p->first;
+  }
+  // Debe encontrarlo siempre
+}
+
+/* _________________________________________________________________________ */
+
 istream& Cronologia::cargarCronologia(istream& is)
 {
   EventoHistorico tmp;

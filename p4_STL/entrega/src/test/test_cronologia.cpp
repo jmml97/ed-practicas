@@ -64,6 +64,14 @@ int main(int argc, char * argv[])
        << aux.anio << (aux.dc ? " DC." : " AC.") << "\n";
   cronologia_1.prettyPrint();
 
+  // Comprobar la fecha de un acontecimiento
+  Fecha f1 = cronologia_1.fechaAcontecimiento("Aquí no pasó nada interesante.");
+  cout << "El evento 'Aquí no pasó nada interesante' ocurrió en el año "
+       << f1.anio << (f1.dc ? " DC." : " AC.") << endl;
+
+  if (!cronologia_1.contieneAcontecimiento("Aquí sucedieron cosas interesantes"))
+    cout << "El evento 'Aquí sucedieron cosas interesantes' no está en la cronología.\n\n";
+
   // Eliminar un elemento
   cout << "Eliminemos ahora el Evento Histórico completo (año "
        << aux.anio << (aux.dc ? " DC" : " AC") << "), y veamos el resultado:\n";

@@ -38,7 +38,7 @@ struct compEventos
       Fecha f1 = a.getFecha();
       Fecha f2 = b.getFecha();
       return ((f1.dc < f2.dc) || (f2.dc && f1.anio < f2.anio)
-                || !(f1.dc && f1.anio >= f2.anio));
+               || !(f1.dc && f1.anio >= f2.anio));
   }
 };
 
@@ -192,6 +192,15 @@ class Cronologia
     bool contieneFecha(const Fecha& f) const { return datos.count(f) > 0; }
 
     /**
+     * @brief Comprueba si hay un EventoHistorico con el Acontecimiento
+     * dado en el contenedor @e datos
+     * @param  a @c Acontecimiento a comprobar
+     * @retval true Si se encuentra el elemento
+     * @retval false Si no estaba presente
+     */
+    bool contieneAcontecimiento(const Acontecimiento& a) const;
+
+    /**
      * @brief Busca en el contenedor @e datos un EventoHistorico en concreto
      * @param f @c Fecha del EventoHistorico a buscar
      * @return Devuelve un iterador constante apuntando a la posición del contenedor donde
@@ -201,6 +210,15 @@ class Cronologia
     {
       return datos.find(f);
     }
+
+    /**
+     * @brief Busca en qué fecha se produjo un acontecimiento en concreto
+     * @param  a Acontecimiento a buscar
+     * @pre El Acontecimiento debe estar en la cronología
+     * @return Fecha en que sucedió el Acontecimiento, o el año -1 si no se
+     * encuentra en la cronología
+     */
+    Fecha fechaAcontecimiento(const Acontecimiento& a) const;
 
     // ---------------  Métodos de E/S -----------------
 

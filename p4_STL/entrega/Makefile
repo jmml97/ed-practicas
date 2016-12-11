@@ -14,7 +14,7 @@ TEST      = $(SRC)/test
 # ****** Opciones de compilación ********
 AR        = ar
 CXX       = g++
-CXXFLAGS  = -Wall -g -std=c++11 -c -I./$(INCLUDE) #-DNDEBUG
+CXXFLAGS  = -Wall -g -std=c++11 -c -I./$(INCLUDE) -DNDEBUG
 LDFLAGS   = -L./$(LIB)
 LDLIBS    = -l$(LIBNAME)
 RM				= rm -f
@@ -54,8 +54,8 @@ $(OBJ)/cronologia.o : $(SRC)/cronologia.cpp $(INCLUDE)/cronologia.hpp
 # --- Test ---
 test: $(BIN)/test_*
 
-$(BIN)/test_%: $(OBJ)/test_%.o $(OBJ)/%.o
-	$(CXX) -o $@ $^
+$(BIN)/test_%: $(OBJ)/test_%.o $(OBJ)/%.o $(LIB)/lib$(LIBNAME).a
+	$(CXX) $(LDFLAGS) -o $@ $< $(LDLIBS)
 
 # Dependencias adicionales
 $(BIN)/test_cronologia: $(OBJ)/evento_historico.o
