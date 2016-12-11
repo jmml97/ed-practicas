@@ -87,9 +87,9 @@ class Cronologia
     /// Alias para el contenedor de la clase
     typedef std::map<Fecha,EventoHistorico,compEventos> container_type;
     /// Alias para el iterador de std::map
-    typedef typename container_type::iterator iterator;
+    typedef container_type::iterator iterator;
     /// Alias para el iterador constante de std::map
-    typedef typename container_type::const_iterator const_iterator;
+    typedef container_type::const_iterator const_iterator;
 
     // ---------------  Constructores ----------------
 

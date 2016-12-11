@@ -1,3 +1,118 @@
-1#1906#Dream of a Rarebit Fiend#Humorous Phases of Funny Faces#The Story of the Kelly Gang
+1#1900#Sherlock Holmes Baffled#The Enchanted Drawing
+1#1901#Scrooge, or, Marley's Ghost#Star Theatre
+1#1902#A Trip to the Moon
+1#1903#Life of an American Fireman#The Great Train Robbery
+1#1904#The Impossible Voyage
+1#1905#Adventures of Sherlock Holmes; or, Held for Ransom
+1#1906#Dream of a Rarebit Fiend#Humorous Phases of Funny Faces#The Story of the Kelly Gang
 1#1907#Ben Hur#L'Enfant prodigue
-1#1908#Prueba prueba
+1#1908#A Visit to the Seaside#Fantasmagorie#The Assassination of the Duke of Guise#The Taming of the Shrew#The Thieving Hand
+1#1909#A Corner in Wheat#Les Misérables#Princess Nicotine; or, The Smoke Fairy#The Country Doctor
+1#1910#In Old California
+1#1911#Defence of Sevastopol#L'Inferno
+1#1912#Independenţa României#The Musketeers of Pig Alley
+1#1913#Barney Oldfield's Race for a Life#Fantômas#Raja Harishchandra#The Bangville Police
+1#1914#Judith of Bethulia#The Perils of Pauline#Tillie's Punctured Romance
+1#1915#A Fool There Was#Birth of a Nation#Les Vampires#The Tramp
+1#1916#20,000 Leagues Under the Sea#Gertie the Dinosaur#Intolerance#One A.M.#The Queen of Spades
+1#1917#A Man There Was#Rebecca of Sunnybrook Farm#The Little Princess
+1#1918#A Dog's Life#Mickey#Shifting Sands#Shoulder Arms#Stella Maris
+1#1919#A Day's Pleasure#Blind Husbands#Broken Blossoms#Dalagang Bukid#Male and Female#True Heart Susie
+1#1920#One Week#The Cabinet of Dr. Caligari#Way Down East
+1#1921#Destiny#The Four Horsemen of the Apocalypse#The Kid#The Phantom Carriage#The Sheik
+1#1922#Blood and Sand#Dr. Mabuse the Gambler#Foolish Wives#Nanook of the North#Nosferatu
+1#1923#A Woman of Paris#Our Hospitality#The Covered Wagon
+1#1924#Greed#Sherlock Jr.#The Last Laugh#The Sea Hawk
+1#1925#Seven Chances#Strike#The Battleship Potemkin#The Big Parade#The Gold Rush
+1#1926#Aloma of the South Seas#Faust#For Heaven's Sake#The General
+1#1927#Metropolis#Napoléon#October: Ten Days That Shook the World#Sunrise: A Song of Two Humans#The Jazz Singer#The Unknown
+1#1928#Lights of New York#The Crowd#The Passion of Joan of Arc#The Viking
+1#1929#Man with a Movie Camera#Pandora's Box#The Broadway Melody#Un Chien Andalou
+1#1930#All Quiet on the Western Front#Earth#L'Age d'Or#The Blood of a Poet#The Blue Angel
+1#1931#City Lights#Dracula#Frankenstein#Le Million#M#Tabu
+1#1932#Love Me Tonight#Scarface#Shanghai Express#Trouble in Paradise#Vampyr
+1#1933#42nd Street#Duck Soup#King Kong#Outskirts#The Goddess#Zero for Conduct
+1#1934#It Happened One Night#It's a Gift#L'Atalante#Man of Aran#The Scarlet Empress
+1#1935#A Night at the Opera#Bride of Frankenstein#The 39 Steps#Top Hat#Triumph of the Will
+1#1936#Modern Times#Partie de campagne#Pépé le Moko#The Crime of Monsieur Lange#The Story of a Cheat
+1#1937#Angel#Grand Illusion#Make Way for Tomorrow#Snow White and the Seven Dwarfs#The Awful Truth
+1#1938#Alexander Nevsky#Boys Town#Bringing Up Baby#Olympia#The Lady Vanishes
+1#1939#Gone with the Wind#Mr. Smith Goes to Washington#Ninotchka#Stagecoach#The Rules of the Game#The Wizard of Oz
+1#1940#Fantasia#His Girl Friday#Pinocchio#The Grapes of Wrath#The Great Dictator#The Philadelphia Story
+1#1941#Citizen Kane#Dumbo#How Green Was My Valley#Sergeant York#Sullivan's Travels#The Lady Eve#The Maltese Falcon
+1#1942#Bambi#Casablanca#Cat People#The Magnificent Ambersons#The Palm Beach Story#To Be or Not to Be
+1#1943#Day of Wrath#I Walked with a Zombie#Meshes of the Afternoon#Shadow of a Doubt#The Life and Death of Colonel Blimp
+1#1944#A Canterbury Tale#Double Indemnity#Ivan the Terrible, Part One#Laura#Meet Me in St. Louis#To Have And To Have Not
+1#1945#Brief Encounter#Children of Paradise#I Know Where I'm Going!#Les Dames du Bois de Boulogne#Mom and Dad#Rome, Open City
+1#1946#A Matter of Life and Death#It's a Wonderful Life#My Darling Clementine#Notorious#Paisà#The Best Years of Our Lives
+1#1947#Gentleman's Agreement#Germany, Year Zero#Miracle on 34th Street#Monsieur Verdoux#Out of the Past
+1#1948#Bicycle Thieves#Letter from an Unknown Woman#Red River#The Red Shoes#The Treasure of the Sierra Madre
+1#1949#A Letter to Three Wives#All the King's Men#Kind Hearts and Coronets#Late Spring#The Third Man
+1#1950#All About Eve#Annie Get Your Gun#Cinderella#Harvey#In a Lonely Place#Los Olvidados#Rashomon#Sunset Boulevard
+1#1951#A Streetcar Named Desire#Alice in Wonderland#An American in Paris#Miracle in Milan#Quo Vadis#Strangers on a Train#The River
+1#1952#High Noon#Ikiru#Singin' in the Rain#The Greatest Show on Earth#The Quiet Man#The Wages of Fear#This Is Cinerama
+1#1953#From Here to Eternity#Peter Pan#The Band Wagon#The Earrings of Madame de...#Tokyo Story#Ugetsu#Voyage in Italy
+1#1954#20,000 Leagues Under the Sea#Dial M for Murder#La Strada#On the Waterfront#Rear Window#Sansho the Bailiff#The Seven Samurai#White Christmas
+1#1955#Blackboard Jungle#Lady and the Tramp#Ordet#Pather Panchali#Rebel Without a Cause#The Night of the Hunter#To Catch a Thief
+1#1956#Carousel#Giant#High Society#Invasion of the Body Snatchers#The King and I#The Searchers#The Ten Commandments#Written on the Wind
+1#1957#12 Angry Men#Paths of Glory#Sweet Smell of Success#The Bridge on the River Kwai#The Seventh Seal#Throne of Blood#Wild Strawberries
+1#1958#Ashes and Diamonds#Cat on a Hot Tin Roof#Gigi#Jalsaghar#Mon Oncle#South Pacific#Touch of Evil#Vertigo
+1#1959#Anatomy of a Murder#Ben-Hur#North by Northwest#Pickpocket#Rio Bravo#Sleeping Beauty#Some Like It Hot#The 400 Blows
+1#1960#Breathless#Exodus#L'Avventura#La Dolce Vita#Psycho#Spartacus#The Alamo#The Apartment
+1#1961#Breakfast at Tiffany's#Divorce, Italian Style#Havoc in Heaven#Judgment at Nuremberg#One Hundred and One Dalmatians#West Side Story#Yojimbo
+1#1962#Ivan's Childhood#Lawrence of Arabia#Lolita#The Manchurian Candidate#To Kill a Mockingbird
+1#1963#8½#Cleopatra#Hud#Lilies of the Field#Not on Your Life#The Birds#The Great Escape#The Haunting
+1#1964#A Fistful of Dollars#A Hard Day's Night#Dr. Strangelove#Mary Poppins#My Fair Lady#Woman in the Dunes
+1#1965#Doctor Zhivago#For a Few Dollars More#The Great Race#The Sound of Music#Thunderball
+1#1966#A Man for All Seasons#Persona#The Battle of Algiers#The Good#The Sand Pebbles#Who's Afraid of Virginia Woolf?#the Bad and the Ugly
+1#1967#Bonnie and Clyde#Cool Hand Luke#Dont Look Back#In the Heat of the Night#The Graduate#The Jungle Book
+1#1968#2001: A Space Odyssey#Chitty Chitty Bang Bang#Night of the Living Dead#Once Upon a Time in the West#Planet of the Apes#Rosemary's Baby
+1#1969#Butch Cassidy and the Sundance Kid#Easy Rider#Midnight Cowboy#The Wild Bunch#True Grit#Z
+1#1970#Five Easy Pieces#Love Story#M*A*S*H#Patton#Performance#The Aristocats#The Conformist
+1#1971#A Clockwork Orange#Dirty Harry#Fiddler on the Roof#The French Connection#The Last Picture Show#Willy Wonka & the Chocolate Factory
+1#1972#Aguirre, the Wrath of God#Cries and Whispers#Last Tango in Paris#Solaris#The Discreet Charm of the Bourgeoisie#The Godfather
+1#1973#Amarcord#Badlands#Don't Look Now#Enter the Dragon#Mean Streets#Papillon#The Exorcist#The Sting
+1#1974#A Woman Under the Influence#Blazing Saddles#Chinatown#The Conversation#The Godfather Part II#The Texas Chain Saw Massacre
+1#1975#Barry Lyndon#Dog Day Afternoon#Jaws#Nashville#One Flew Over the Cuckoo's Nest#The Rocky Horror Picture Show
+1#1976#1900#All the President's Men#Carrie#In the Realm of the Senses#Logan's Run#Network#Rocky#Taxi Driver
+1#1977#A Bridge Too Far#Annie Hall#Close Encounters of the Third Kind#Providence#Saturday Night Fever#Star Wars Episode IV: A New Hope
+1#1978#Dawn of the Dead#Days of Heaven#Grease#Halloween#Midnight Express#Superman#The Deer Hunter
+1#1979#Alien#Apocalypse Now#Kramer vs. Kramer#Mad Max#Manhattan#Monty Python's Life of Brian#Stalker#Star Trek: The Motion Picture
+1#1980#Airplane#Caddyshack#Kagemusha#Ordinary People#Raging Bull#The Empire Strikes Back#The Shining
+1#1981#Blow Out#Chariots of Fire#Das Boot#On Golden Pond#Pennies from Heaven#Raiders of the Lost Ark#Reds
+1#1982#Blade Runner#E.T. the Extra-Terrestrial#Fanny and Alexander#Fitzcarraldo#Gandhi#Poltergeist#Sophie's Choice#Tootsie
+1#1983#L'Argent#Nostalghia#Return of the Jedi#Risky Business#Sans Soleil#Terms of Endearment#The King of Comedy#The Right Stuff
+1#1984#Amadeus#Ghostbusters#Once Upon a Time in America#Paris#Texas#The Karate Kid#The Terminator#This is Spinal Tap
+1#1985#Back to the Future#Brazil#Come and See#Out of Africa#Ran#Shoah#The Breakfast Club#The Color Purple
+1#1986#Aliens#Blue Velvet#Ferris Bueller's Day Off#Hannah and Her Sisters#Platoon#Stand by Me#The Sacrifice#Top Gun
+1#1987#Dirty Dancing#Evil Dead II#Fatal Attraction#Full Metal Jacket#The Dead#The Last Emperor#The Princess Bride#Wings of Desire
+1#1988#Cinema Paradiso#Dead Ringers#Die Hard#Midnight Run#My Neighbour Totoro#Rain Man#The Last Temptation of Christ#Who Framed Roger Rabbit
+1#1989#Batman#Close-Up#Crimes and Misdemeanors#Do the Right Thing#Driving Miss Daisy#The Abyss#The Little Mermaid
+1#1990#An Angel at My Table#Dances with Wolves#Edward Scissorhands#Ghost#Goodfellas#Home Alone#Miller's Crossing#Total Recall
+1#1991#A Brighter Summer Day#Beauty and the Beast#JFK#Terminator 2: Judgment Day#The Silence of the Lambs#Thelma & Louise
+1#1992#A Few Good Men#Aladdin#Basic Instinct#Indochine#Reservoir Dogs#The Crying Game#The Player#Unforgiven
+1#1993#Groundhog Day#In the Name of the Father#Jurassic Park#Philadelphia#Schindler's List#The Piano#Three Colors: Blue
+1#1994#Clerks#Forrest Gump#Legends of the Fall#Pulp Fiction#The Lion King#The Shawshank Redemption#Three Colors: Red
+1#1995#12 Monkeys#A Moment of Innocence#Apollo 13#Braveheart#Heat#Se7en#The Usual Suspects#Toy Story
+1#1996#Breaking the Waves#Fargo#Flirting with Disaster#Independence Day#Jerry Maguire#The English Patient#The Hunchback of Notre Dame#Trainspotting
+1#1997#Boogie Nights#Good Will Hunting#Hana-bi#Jackie Brown#L.A. Confidential#Life is Beautiful#Taste of Cherry#Titanic
+1#1998#American History X#Mulan#Rush Hour#Saving Private Ryan#Shakespeare in Love#The Big Lebowski#The Thin Red Line#The Truman Show
+1#1999#American Beauty#Eyes Wide Shut#Fight Club#Magnolia#South Park: Bigger, Longer & Uncut#The Blair Witch Project#The Matrix#The Sixth Sense
+1#2000#Cast Away#Crouching Tiger, Hidden Dragon#Erin Brockovich#Gladiator#In the Mood for Love#Memento#Platform
+1#2001#A Beautiful Mind#Donnie Darko#Harry Potter film series (2001–11) begins#Mulholland Drive#Shrek#Spirited Away#The Lord of the Rings: The Fellowship of the Ring#The Royal Tenenbaums
+1#2002#Chicago#City of God#Minority Report#Russian Ark#Spider-Man#Talk to Her#The Lord of the Rings: The Two Towers#The Pianist
+1#2003#Elephant#Finding Nemo#Kill Bill: Volume 1#Monster#Oldboy#Pirates of the Caribbean: The Curse of the Black Pearl#The Lord of the Rings: The Return of the King
+1#2004#Downfall#Eternal Sunshine of the Spotless Mind#Hotel Rwanda#Million Dollar Baby#Sideways#The Incredibles#The Passion of the Christ#Tropical Malady
+1#2005#A History of Violence#Batman Begins#Brokeback Mountain#Caché#Pride & Prejudice#The Death of Mr. Lazarescu#The New World#Walk the Line
+1#2006#Casino Royale#Children of Men#Dreamgirls#Pan's Labyrinth#The Departed#The Lives of Others#The Prestige#The Queen
+1#2007#300#Atonement#I Am Legend#Into the Wild#Juno#No Country for Old Men#Ratatouille#There Will Be Blood
+1#2008#Gran Torino#Iron Man#Milk#Slumdog Millionaire#The Dark Knight#The Wrestler#Vicky Cristina Barcelona#WALL-E
+1#2009#Avatar#District 9#Inglourious Basterds#Mary and Max#Star Trek#The Princess and the Frog#The Secret in Their Eyes#Up
+1#2010#127 Hours#Black Swan#How to Train Your Dragon#Inception#Tangled#The King's Speech#The Social Network#Winter's Bone
+1#2011#A Separation#Drive#Hugo#Midnight in Paris#The Artist#The Girl with the Dragon Tattoo#The Intouchables#The Tree of Life
+1#2012#Argo#Django Unchained#Les Misérables#Life of Pi#Lincoln#Prometheus#The Avengers#The Hobbit: An Unexpected Journey
+1#2013#12 Years a Slave#American Hustle#Bhaag Milkha Bhaag#Frozen#Gravity#Rush#The Hobbit: The Desolation of Smaug#The Wolf of Wall Street
+1#2014#Birdman#Boyhood#Guardians of the Galaxy#Interstellar#The Grand Budapest Hotel#The Hobbit: The Battle of the Five Armies#Whiplash
+1#2015#Ex Machina#Inside Out#Mad Max: Fury Road#Spotlight#Star Wars: The Force Awakens#The Hateful Eight#The Martian#The Revenant
+1#2016#Deadpool#Finding Dory#La La Land#Loving#Passengers#The Birth of a Nation#The Founder#Zootopia
+1#2017#Beauty and the Beast#Coco#Fast 8#Guardians of the Galaxy Vol. 2#Star Wars: Episode VIII

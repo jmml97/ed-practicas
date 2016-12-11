@@ -17,8 +17,8 @@ using namespace std;
 
 /**
  * @brief Unir dos Cronologia en una tercera
- * @param  c1 Primera Cronologia a unir
- * @param  c2 Segunda Cronologia a unir
+ * @param c1 Primera Cronologia a unir
+ * @param c2 Segunda Cronologia a unir
  * @param res Cronologia donde guardar el resultado
  */
 void Union(const Cronologia& c1, const Cronologia& c2, Cronologia& res)

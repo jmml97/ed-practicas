@@ -126,9 +126,9 @@ class EventoHistorico
 
   public:
       /// Iterador de EventoHistorico
-      typedef typename std::set<Acontecimiento>::iterator iterator;
+      typedef std::set<Acontecimiento>::iterator iterator;
       /// Iterador constante de EventoHistorico
-      typedef typename std::set<Acontecimiento>::const_iterator const_iterator;
+      typedef std::set<Acontecimiento>::const_iterator const_iterator;
 
       // ---------------  Constructores ----------------
 
@@ -188,7 +188,7 @@ class EventoHistorico
       void setEvento(const std::set<Acontecimiento>& a) { ev.second = a; }
 
       /**
-       * @brief Añade un evento al conjunto de acontecimientos, en caso de que
+       * @brief Añade un Acontecimiento al conjunto de acontecimientos, en caso de que
        * no estuviera ya presente
        * @param  a @c Acontecimiento a añadir
        * @retval true Si se ha añadido
