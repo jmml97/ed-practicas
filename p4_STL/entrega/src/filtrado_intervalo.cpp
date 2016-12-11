@@ -8,7 +8,7 @@
  *   1.El nombre del fichero con la cronología
  *   2. Límite inferior del intervalo (Fecha).
  *   3. Límite superior del intervalo (Fecha).
- *   3. El nombre del fichero para guardar la cronología obtenida. (opcional). Si no se
+ *   4. El nombre del fichero para guardar la cronología obtenida. (opcional). Si no se
  *      especifica nombre de fichero, se imprimirá por la salida estándar.
  *
  */
@@ -20,12 +20,12 @@
 using namespace std;
 
 /**
-  * @brief Devuelve una cronología que contiene únicamente aquellos acontecimientos
+  * @brief Devuelve una Cronologia que contiene únicamente aquellos acontecimientos
   * de otra que contienen a su vez una palabra clave.
-  * @param c Cronología donde buscar los EventoHistorico
+  * @param c Cronologia donde buscar los EventoHistorico
   * @param inicio Fecha de inicio
   * @param fin Fecha de finalización
-  * @param res Cronología donde se guarda el resultado
+  * @param res Cronologia donde se guarda el resultado
   * @pre res debe ser vacía.
   */
 void Filtrar(const Cronologia& c, const Fecha& inicio, const Fecha& fin,

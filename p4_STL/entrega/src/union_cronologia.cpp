@@ -15,15 +15,17 @@
 
 using namespace std;
 
-/// Unir dos cronologías en una tercera
-Cronologia Union(const Cronologia& c1, const Cronologia& c2)
+/**
+ * @brief Unir dos Cronologia en una tercera
+ * @param  c1 Primera Cronologia a unir
+ * @param  c2 Segunda Cronologia a unir
+ * @param res Cronologia donde guardar el resultado
+ */
+void Union(const Cronologia& c1, const Cronologia& c2, Cronologia& res)
 {
-  Cronologia crono_union(c1);
-
+  res = c1;
   for (Cronologia::const_iterator p = c2.begin(); p != c2.end(); ++p)
-    crono_union.addEventoHistorico(p->second);
-
-  return crono_union;
+    res.addEventoHistorico(p->second);
 }
 
 int main(int argc, char * argv[])
@@ -53,7 +55,7 @@ int main(int argc, char * argv[])
    f1 >> c1;
    f2 >> c2;
 
-   cUnion = Union(c1, c2);
+   Union(c1, c2, cUnion);
 
    //No se dio fichero de salida, imprimimos en salida estándar
    if (argc == 3)

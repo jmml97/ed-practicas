@@ -20,7 +20,7 @@ using namespace std;
  * @brief Devuelve el número total de EventoHistorico y de Acontecimiento
  * de una Cronología.
  * @return Una pareja, cuyo primer elemento es el número total de EventoHistorico,
- * y el segundo el número total de Acontecimiento
+ * y el segundo el número total de Acontecimiento.
  */
 pair<int,int> CantidadAcontecimientos(const Cronologia& c)
 {

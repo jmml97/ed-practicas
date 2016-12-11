@@ -13,19 +13,22 @@
  *
  */
 
- #include <iostream>
- #include <fstream>
- #include "cronologia.hpp"
+#include <iostream>
+#include <fstream>
+#include "cronologia.hpp"
 
- using namespace std;
+using namespace std;
 
 /**
-  * Devuelve una cronología que contiene únicamente aquellos acontecimientos
+  * @brief Guarda en una Cronologia únicamente aquellos acontecimientos
   * de otra que contienen a su vez una palabra clave.
+  * @param c Cronologia donde buscar
+  * @param key Palabra (o frase) clave
+  * @param res Cronologia donde guardar el resultado
   */
-Cronologia BuscarPorClave(const Cronologia& c, const string& key)
+void BuscarPorClave(const Cronologia& c, const string& key,
+                    Cronologia& res)
 {
-  Cronologia res;
   EventoHistorico tmp;
 
   for (Cronologia::const_iterator p = c.begin(); p != c.end(); ++p)
@@ -39,18 +42,16 @@ Cronologia BuscarPorClave(const Cronologia& c, const string& key)
       res.addEventoHistorico(tmp);
     }
   }
-
-  return res;
 }
 
 int main(int argc, char * argv[])
 {
-
   bool opc_entrada = false, opc_salida = false, opc_palabra = false, opc_ayuda = false;
   string fichero_entrada, fichero_salida, palabra;
 
-  for (int i = 0; i < argc; i++) {
-
+  // Gestionar argumentos
+  for (int i = 0; i < argc; i++)
+  {
     if (string(argv[i]) == "-i") {
       if (i + 1 < argc) {
         fichero_entrada = argv[i+1];
@@ -69,7 +70,6 @@ int main(int argc, char * argv[])
     } else if (string(argv[i]) == "-h") {
       opc_ayuda = true;
     }
-
   }
 
   if (argc > 7)
@@ -108,12 +108,14 @@ int main(int argc, char * argv[])
     cin >> palabra;
   }
 
-  cFiltrada = BuscarPorClave(c1, palabra);
+  BuscarPorClave(c1, palabra, cFiltrada);
 
   if (!opc_salida)
   {
     cFiltrada.prettyPrint();
-  } else {
+  }
+  else
+  {
    ofstream fout(fichero_salida);
    if (!fout)
    {

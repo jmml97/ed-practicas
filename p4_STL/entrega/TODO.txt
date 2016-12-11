@@ -4,12 +4,7 @@
 
 ----- EventoHistorico -----
 - Revisar implementación.
-- Revisar documentación
-
------ Ejecutables -------
-- estadistica_eventos.cpp
-- Cambiar cabecera funciones
-- Parámetros filtrado_palabra_clave
+- Revisar documentación.
 
 ----- General ------
 - Mirar como referencia "guiatlf.h" para ver si se puede mejorar
