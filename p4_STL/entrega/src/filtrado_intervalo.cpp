@@ -13,11 +13,11 @@
  *
  */
 
- #include <iostream>
- #include <fstream>
- #include "cronologia.hpp"
+#include <iostream>
+#include <fstream>
+#include "cronologia.hpp"
 
- using namespace std;
+using namespace std;
 
 /**
   * @brief Devuelve una cronología que contiene únicamente aquellos acontecimientos

@@ -10,18 +10,82 @@
  * resultado en la salida estándar.
  */
 
- #include <iostream>
- #include <fstream>
- #include "cronologia.hpp"
+#include <iostream>
+#include <fstream>
+#include "cronologia.hpp"
 
- using namespace std;
+using namespace std;
 
-/////// SE INTENTARÁ, EN LA MEDIDA DE LO POSIBLE, NO AÑADIR NINGÚN MÉTODO A Cronologia O EventoHistorico
-/////// SI ES NECESARIO AÑADIR FUNCIÓN(ES) EXTERNA(S), DOCUMENTARLA(S) DE FORMA MUY BREVE.
+/**
+ * @brief Devuelve el número total de EventoHistorico y de Acontecimiento
+ * de una Cronología.
+ * @return Una pareja, cuyo primer elemento es el número total de EventoHistorico,
+ * y el segundo el número total de Acontecimiento
+ */
+pair<int,int> CantidadAcontecimientos(const Cronologia& c)
+{
+  pair<int,int> res(0,0);
+
+  for (Cronologia::const_iterator p = c.begin(); p != c.end(); ++p)
+  {
+    for (EventoHistorico::const_iterator it = p->second.begin();
+         it != p->second.end(); ++it)
+    {
+      res.second++;
+    }
+    res.first++;
+  }
+
+  return res;
+}
+
+/// Devuelve el número máximo de Acontecimientos en un año.
+int MaxAcontecimientos(const Cronologia& c)
+{
+  int max = 0;
+  for (Cronologia::const_iterator p = c.begin(); p != c.end(); ++p)
+  {
+    int num_acontecimientos = 0;
+    for (EventoHistorico::const_iterator it = p->second.begin();
+         it != p->second.end(); ++it)
+    {
+      num_acontecimientos++;
+    }
+    if (num_acontecimientos > max)
+      max = num_acontecimientos;
+  }
+  return max;
+}
 
 int main(int argc, char * argv[])
 {
-  // Completar programa
+  if (argc < 2)
+  {
+    cout << "Error: debe dar el nombre de un fichero con una cronología.\n";
+    return 1;
+  }
+
+  ifstream f(argv[1]);
+  if (!f)
+  {
+    cout << "No puedo abrir el fichero " << argv[1] << endl;
+    return 2;
+  }
+
+  // Cargar cronología
+  Cronologia c1;
+  f >> c1;
+
+  pair<int,int> total = CantidadAcontecimientos(c1);
+  int media = total.second / total.first;
+  int max = MaxAcontecimientos(c1);
+
+  cout << "Hay " << total.first << " años en la cronología para los que se especifica un "
+       << "EventoHistorico, y hay " << total.second << " acontecimientos en total.\n";
+
+  cout << "El máximo de estos acontecimientos en un año es " << max << ", y el promedio"
+       << " por año es " << media << ".\n";
+
   return 0;
 }
 
