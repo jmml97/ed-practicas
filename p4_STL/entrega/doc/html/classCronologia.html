@@ -1,0 +1,915 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.11"/>
+<title>Cronología: Referencia de la Clase Cronologia</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Cronología
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.8.11 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Página&#160;principal</span></a></li>
+      <li><a href="pages.html"><span>Páginas&#160;relacionadas</span></a></li>
+      <li class="current"><a href="annotated.html"><span>Clases</span></a></li>
+      <li><a href="files.html"><span>Archivos</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="annotated.html"><span>Lista&#160;de&#160;clases</span></a></li>
+      <li><a href="classes.html"><span>Índice&#160;de&#160;clases</span></a></li>
+      <li><a href="functions.html"><span>Miembros&#160;de&#160;las&#160;clases</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('classCronologia.html','');});
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="summary">
+<a href="#pub-types">Tipos públicos</a> &#124;
+<a href="#pub-methods">Métodos públicos</a> &#124;
+<a href="#pri-attribs">Atributos privados</a> &#124;
+<a href="#related">Funciones relacionadas</a> &#124;
+<a href="classCronologia-members.html">Lista de todos los miembros</a>  </div>
+  <div class="headertitle">
+<div class="title">Referencia de la Clase Cronologia</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>T.D.A. <a class="el" href="classCronologia.html" title="T.D.A. Cronologia. ">Cronologia</a>.  
+ <a href="classCronologia.html#details">Más...</a></p>
+
+<p><code>#include &lt;<a class="el" href="cronologia_8hpp_source.html">cronologia.hpp</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Tipos públicos</h2></td></tr>
+<tr class="memitem:a9f250d2548077f31525db3bc7bbac532"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9f250d2548077f31525db3bc7bbac532"></a>
+typedef std::map&lt; <a class="el" href="structFecha.html">Fecha</a>, <a class="el" href="classEventoHistorico.html">EventoHistorico</a>, <a class="el" href="structcompEventos.html">compEventos</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCronologia.html#a9f250d2548077f31525db3bc7bbac532">container_type</a></td></tr>
+<tr class="memdesc:a9f250d2548077f31525db3bc7bbac532"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alias para el contenedor de la clase. <br /></td></tr>
+<tr class="separator:a9f250d2548077f31525db3bc7bbac532"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3e110909ca2e26f20487654f40667904"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3e110909ca2e26f20487654f40667904"></a>
+typedef container_type::iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCronologia.html#a3e110909ca2e26f20487654f40667904">iterator</a></td></tr>
+<tr class="memdesc:a3e110909ca2e26f20487654f40667904"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alias para el iterador de std::map. <br /></td></tr>
+<tr class="separator:a3e110909ca2e26f20487654f40667904"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acab086d5ce2f2bffb5258e46fb96ae6e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acab086d5ce2f2bffb5258e46fb96ae6e"></a>
+typedef container_type::const_iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCronologia.html#acab086d5ce2f2bffb5258e46fb96ae6e">const_iterator</a></td></tr>
+<tr class="memdesc:acab086d5ce2f2bffb5258e46fb96ae6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alias para el iterador constante de std::map. <br /></td></tr>
+<tr class="separator:acab086d5ce2f2bffb5258e46fb96ae6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Métodos públicos</h2></td></tr>
+<tr class="memitem:ac0026b1919148f6cd6cf4ca4c357771e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac0026b1919148f6cd6cf4ca4c357771e"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCronologia.html#ac0026b1919148f6cd6cf4ca4c357771e">Cronologia</a> ()</td></tr>
+<tr class="memdesc:ac0026b1919148f6cd6cf4ca4c357771e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor por defecto de la clase Crea un objeto con un contenedor vacío. <br /></td></tr>
+<tr class="separator:ac0026b1919148f6cd6cf4ca4c357771e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:add20b587f7401851d45349648866f4e1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCronologia.html#add20b587f7401851d45349648866f4e1">Cronologia</a> (const <a class="el" href="classCronologia.html#a9f250d2548077f31525db3bc7bbac532">container_type</a> &amp;v)</td></tr>
+<tr class="memdesc:add20b587f7401851d45349648866f4e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor de la clase.  <a href="#add20b587f7401851d45349648866f4e1">Más...</a><br /></td></tr>
+<tr class="separator:add20b587f7401851d45349648866f4e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa50d1ff7a87c2c6c08dcdc7ba3903615"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCronologia.html#a9f250d2548077f31525db3bc7bbac532">container_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCronologia.html#aa50d1ff7a87c2c6c08dcdc7ba3903615">getCronologia</a> () const </td></tr>
+<tr class="memdesc:aa50d1ff7a87c2c6c08dcdc7ba3903615"><td class="mdescLeft">&#160;</td><td class="mdescRight">Acceder al contenedor de <a class="el" href="classEventoHistorico.html" title="T.D.A. EventoHistorico. ">EventoHistorico</a>.  <a href="#aa50d1ff7a87c2c6c08dcdc7ba3903615">Más...</a><br /></td></tr>
+<tr class="separator:aa50d1ff7a87c2c6c08dcdc7ba3903615"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3d637a2bb7d93026d4933d8b523df899"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classEventoHistorico.html">EventoHistorico</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCronologia.html#a3d637a2bb7d93026d4933d8b523df899">operator[]</a> (const <a class="el" href="structFecha.html">Fecha</a> &amp;f)</td></tr>
+<tr class="memdesc:a3d637a2bb7d93026d4933d8b523df899"><td class="mdescLeft">&#160;</td><td class="mdescRight">Accede a un <a class="el" href="classEventoHistorico.html" title="T.D.A. EventoHistorico. ">EventoHistorico</a> del contenedor <em>datos</em>.  <a href="#a3d637a2bb7d93026d4933d8b523df899">Más...</a><br /></td></tr>
+<tr class="separator:a3d637a2bb7d93026d4933d8b523df899"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1de25c474b73e8d80bc96e8298de44d8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structFecha.html">Fecha</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCronologia.html#a1de25c474b73e8d80bc96e8298de44d8">getPrimero</a> () const </td></tr>
+<tr class="memdesc:a1de25c474b73e8d80bc96e8298de44d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Acceder al primer año de la cronología.  <a href="#a1de25c474b73e8d80bc96e8298de44d8">Más...</a><br /></td></tr>
+<tr class="separator:a1de25c474b73e8d80bc96e8298de44d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85709d4206762cf7218a0ce42a35bda7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structFecha.html">Fecha</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCronologia.html#a85709d4206762cf7218a0ce42a35bda7">getUltimo</a> () const </td></tr>
+<tr class="memdesc:a85709d4206762cf7218a0ce42a35bda7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Acceder al último año de la cronología.  <a href="#a85709d4206762cf7218a0ce42a35bda7">Más...</a><br /></td></tr>
+<tr class="separator:a85709d4206762cf7218a0ce42a35bda7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a54c82c0ea89ee6c790a11ce273f88b39"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCronologia.html#a54c82c0ea89ee6c790a11ce273f88b39">setCronologia</a> (const <a class="el" href="classCronologia.html#a9f250d2548077f31525db3bc7bbac532">container_type</a> &amp;v)</td></tr>
+<tr class="memdesc:a54c82c0ea89ee6c790a11ce273f88b39"><td class="mdescLeft">&#160;</td><td class="mdescRight">Modificar contenedor de <a class="el" href="classEventoHistorico.html" title="T.D.A. EventoHistorico. ">EventoHistorico</a>.  <a href="#a54c82c0ea89ee6c790a11ce273f88b39">Más...</a><br /></td></tr>
+<tr class="separator:a54c82c0ea89ee6c790a11ce273f88b39"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac878a976b53c350644c36ce5afbfc803"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCronologia.html#ac878a976b53c350644c36ce5afbfc803">setEventoHistorico</a> (const std::set&lt; <a class="el" href="evento__historico_8hpp.html#a64ce54967e3a9c0f04af71109ace0f63">Acontecimiento</a> &gt; &amp;v, const <a class="el" href="structFecha.html">Fecha</a> &amp;f)</td></tr>
+<tr class="memdesc:ac878a976b53c350644c36ce5afbfc803"><td class="mdescLeft">&#160;</td><td class="mdescRight">Modifica un <a class="el" href="classEventoHistorico.html" title="T.D.A. EventoHistorico. ">EventoHistorico</a> de la <a class="el" href="classCronologia.html" title="T.D.A. Cronologia. ">Cronologia</a>.  <a href="#ac878a976b53c350644c36ce5afbfc803">Más...</a><br /></td></tr>
+<tr class="separator:ac878a976b53c350644c36ce5afbfc803"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a022af37f2842bd27544c24a24c95a0e8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCronologia.html#a022af37f2842bd27544c24a24c95a0e8">addEventoHistorico</a> (const <a class="el" href="classEventoHistorico.html">EventoHistorico</a> &amp;e)</td></tr>
+<tr class="memdesc:a022af37f2842bd27544c24a24c95a0e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Añade un <a class="el" href="classEventoHistorico.html" title="T.D.A. EventoHistorico. ">EventoHistorico</a> al contenedor <code>datos</code>.  <a href="#a022af37f2842bd27544c24a24c95a0e8">Más...</a><br /></td></tr>
+<tr class="separator:a022af37f2842bd27544c24a24c95a0e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac34a0ff19a7643d1227b7d1c19b1cc3a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCronologia.html#ac34a0ff19a7643d1227b7d1c19b1cc3a">eliminarEvento</a> (const <a class="el" href="structFecha.html">Fecha</a> &amp;f)</td></tr>
+<tr class="memdesc:ac34a0ff19a7643d1227b7d1c19b1cc3a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Elimina un <a class="el" href="classEventoHistorico.html" title="T.D.A. EventoHistorico. ">EventoHistorico</a> del contenedor <em>datos</em>.  <a href="#ac34a0ff19a7643d1227b7d1c19b1cc3a">Más...</a><br /></td></tr>
+<tr class="separator:ac34a0ff19a7643d1227b7d1c19b1cc3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a68c6ad500532b8852335196dc9468c74"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCronologia.html#a68c6ad500532b8852335196dc9468c74">eliminarPorClave</a> (const std::string &amp;key)</td></tr>
+<tr class="memdesc:a68c6ad500532b8852335196dc9468c74"><td class="mdescLeft">&#160;</td><td class="mdescRight">Elimina del contenedor <em>datos</em> todos los <a class="el" href="classEventoHistorico.html" title="T.D.A. EventoHistorico. ">EventoHistorico</a> cuyos acontecimientos contengan una palabra o frase clave.  <a href="#a68c6ad500532b8852335196dc9468c74">Más...</a><br /></td></tr>
+<tr class="separator:a68c6ad500532b8852335196dc9468c74"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6245712fdc2228bbde22c523762a8df8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCronologia.html#a6245712fdc2228bbde22c523762a8df8">contieneFecha</a> (const <a class="el" href="structFecha.html">Fecha</a> &amp;f) const </td></tr>
+<tr class="memdesc:a6245712fdc2228bbde22c523762a8df8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Comprueba si hay un <a class="el" href="classEventoHistorico.html" title="T.D.A. EventoHistorico. ">EventoHistorico</a> con la fecha dada en el contenedor <em>datos</em>.  <a href="#a6245712fdc2228bbde22c523762a8df8">Más...</a><br /></td></tr>
+<tr class="separator:a6245712fdc2228bbde22c523762a8df8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a758b5ce1690beefc8eb605728fbf9076"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCronologia.html#a758b5ce1690beefc8eb605728fbf9076">contieneAcontecimiento</a> (const <a class="el" href="evento__historico_8hpp.html#a64ce54967e3a9c0f04af71109ace0f63">Acontecimiento</a> &amp;a) const </td></tr>
+<tr class="memdesc:a758b5ce1690beefc8eb605728fbf9076"><td class="mdescLeft">&#160;</td><td class="mdescRight">Comprueba si hay un <a class="el" href="classEventoHistorico.html" title="T.D.A. EventoHistorico. ">EventoHistorico</a> con el Acontecimiento dado en el contenedor <em>datos</em>.  <a href="#a758b5ce1690beefc8eb605728fbf9076">Más...</a><br /></td></tr>
+<tr class="separator:a758b5ce1690beefc8eb605728fbf9076"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e90cc3e932d9faee71eedfdda6737b6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCronologia.html#acab086d5ce2f2bffb5258e46fb96ae6e">const_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCronologia.html#a2e90cc3e932d9faee71eedfdda6737b6">buscarEvento</a> (const <a class="el" href="structFecha.html">Fecha</a> &amp;f) const </td></tr>
+<tr class="memdesc:a2e90cc3e932d9faee71eedfdda6737b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Busca en el contenedor <em>datos</em> un <a class="el" href="classEventoHistorico.html" title="T.D.A. EventoHistorico. ">EventoHistorico</a> en concreto.  <a href="#a2e90cc3e932d9faee71eedfdda6737b6">Más...</a><br /></td></tr>
+<tr class="separator:a2e90cc3e932d9faee71eedfdda6737b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a900dfcb4123c18925fee16a9988b612b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structFecha.html">Fecha</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCronologia.html#a900dfcb4123c18925fee16a9988b612b">fechaAcontecimiento</a> (const <a class="el" href="evento__historico_8hpp.html#a64ce54967e3a9c0f04af71109ace0f63">Acontecimiento</a> &amp;a) const </td></tr>
+<tr class="memdesc:a900dfcb4123c18925fee16a9988b612b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Busca en qué fecha se produjo un acontecimiento en concreto.  <a href="#a900dfcb4123c18925fee16a9988b612b">Más...</a><br /></td></tr>
+<tr class="separator:a900dfcb4123c18925fee16a9988b612b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a36d7be7e05cf09d588f1dff45bc8882e"><td class="memItemLeft" align="right" valign="top">std::istream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCronologia.html#a36d7be7e05cf09d588f1dff45bc8882e">cargarCronologia</a> (std::istream &amp;is)</td></tr>
+<tr class="memdesc:a36d7be7e05cf09d588f1dff45bc8882e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Leer una cronología desde un flujo de entrada.  <a href="#a36d7be7e05cf09d588f1dff45bc8882e">Más...</a><br /></td></tr>
+<tr class="separator:a36d7be7e05cf09d588f1dff45bc8882e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a942e15216dca50eac8b042dc594c9642"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCronologia.html#a942e15216dca50eac8b042dc594c9642">mostrarCronologia</a> (std::ostream &amp;os) const </td></tr>
+<tr class="memdesc:a942e15216dca50eac8b042dc594c9642"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mostrar el objeto implícito en un flujo de salida.  <a href="#a942e15216dca50eac8b042dc594c9642">Más...</a><br /></td></tr>
+<tr class="separator:a942e15216dca50eac8b042dc594c9642"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab8cf5f6ab3001f9753c4dbe384718e9"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCronologia.html#aab8cf5f6ab3001f9753c4dbe384718e9">mostrarCronologiaInversa</a> (std::ostream &amp;os) const </td></tr>
+<tr class="memdesc:aab8cf5f6ab3001f9753c4dbe384718e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mostrar el objeto implícito en un flujo de salida.  <a href="#aab8cf5f6ab3001f9753c4dbe384718e9">Más...</a><br /></td></tr>
+<tr class="separator:aab8cf5f6ab3001f9753c4dbe384718e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5a9da3cbe4b1a61d73288a6ac2adbfdb"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCronologia.html#a5a9da3cbe4b1a61d73288a6ac2adbfdb">prettyPrint</a> (std::ostream &amp;os=std::cout) const </td></tr>
+<tr class="separator:a5a9da3cbe4b1a61d73288a6ac2adbfdb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afee920b0ed7aff63cc14fad990c85595"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCronologia.html#a3e110909ca2e26f20487654f40667904">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCronologia.html#afee920b0ed7aff63cc14fad990c85595">begin</a> ()</td></tr>
+<tr class="separator:afee920b0ed7aff63cc14fad990c85595"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abb9e31bc5e77715bb9449b1b82794f04"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abb9e31bc5e77715bb9449b1b82794f04"></a>
+<a class="el" href="classCronologia.html#acab086d5ce2f2bffb5258e46fb96ae6e">const_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><b>begin</b> () const </td></tr>
+<tr class="separator:abb9e31bc5e77715bb9449b1b82794f04"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa08dc5a9a3812911dabdf7599222e85"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCronologia.html#a3e110909ca2e26f20487654f40667904">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCronologia.html#afa08dc5a9a3812911dabdf7599222e85">end</a> ()</td></tr>
+<tr class="separator:afa08dc5a9a3812911dabdf7599222e85"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe204d0dcc33f7361c0dec077630e16e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afe204d0dcc33f7361c0dec077630e16e"></a>
+<a class="el" href="classCronologia.html#acab086d5ce2f2bffb5258e46fb96ae6e">const_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><b>end</b> () const </td></tr>
+<tr class="separator:afe204d0dcc33f7361c0dec077630e16e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Atributos privados</h2></td></tr>
+<tr class="memitem:a0c87c9abb807b99964d28a93e6a45d7f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0c87c9abb807b99964d28a93e6a45d7f"></a>
+std::map&lt; <a class="el" href="structFecha.html">Fecha</a>, <a class="el" href="classEventoHistorico.html">EventoHistorico</a>, <a class="el" href="structcompEventos.html">compEventos</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>datos</b></td></tr>
+<tr class="separator:a0c87c9abb807b99964d28a93e6a45d7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="related"></a>
+Funciones relacionadas</h2></td></tr>
+<tr><td class="ititle" colspan="2"><p>(Observar que estas no son funciones miembro.) </p>
+</td></tr>
+<tr class="memitem:a0bc125ad88c8499161e0484ad00c8d9d"><td class="memItemLeft" align="right" valign="top">std::istream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCronologia.html#a0bc125ad88c8499161e0484ad00c8d9d">operator&gt;&gt;</a> (std::istream &amp;is, <a class="el" href="classCronologia.html">Cronologia</a> &amp;cron)</td></tr>
+<tr class="memdesc:a0bc125ad88c8499161e0484ad00c8d9d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sobrecarga del operador &gt;&gt;  <a href="#a0bc125ad88c8499161e0484ad00c8d9d">Más...</a><br /></td></tr>
+<tr class="separator:a0bc125ad88c8499161e0484ad00c8d9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac976bb30c2fed28b04cc4288645d6159"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCronologia.html#ac976bb30c2fed28b04cc4288645d6159">operator&lt;&lt;</a> (std::ostream &amp;os, const <a class="el" href="classCronologia.html">Cronologia</a> &amp;cron)</td></tr>
+<tr class="memdesc:ac976bb30c2fed28b04cc4288645d6159"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sobrecarga del operador &lt;&lt;.  <a href="#ac976bb30c2fed28b04cc4288645d6159">Más...</a><br /></td></tr>
+<tr class="separator:ac976bb30c2fed28b04cc4288645d6159"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Descripción detallada</h2>
+<div class="textblock"><p>T.D.A. <a class="el" href="classCronologia.html" title="T.D.A. Cronologia. ">Cronologia</a>. </p>
+<p>Una instancia <em>e</em> del tipo de datos abstracto <code><a class="el" href="classCronologia.html" title="T.D.A. Cronologia. ">Cronologia</a></code> es un objeto que representa una sucesión de eventos históricos ordenados cronológicamente por año. Está compuesto por un diccionario <em>datos</em> de <a class="el" href="classEventoHistorico.html" title="T.D.A. EventoHistorico. ">EventoHistorico</a>, que representa la sucesión de años y los distintos acontecimientos que han tenido lugar en ese año, ordenados según el criterio definido en <a class="el" href="structcompEventos.html" title="Comparador para el T.D.A. EventoHistorico. ">compEventos</a>. Lo representamos:</p>
+<p>&lt; &lt;f_1,eventoHistorico_1&gt;, &lt;f_2,eventoHistorico_2&gt;, ..., &lt;f_n,eventoHistorico_n&gt; &gt;</p>
+<dl class="section author"><dt>Autor</dt><dd>Miguel Lentisco Ballesteros </dd>
+<dd>
+Jose María Martín Luque </dd>
+<dd>
+Antonio Coín Castro </dd></dl>
+<dl class="section date"><dt>Fecha</dt><dd>Octubre 2016 </dd></dl>
+
+<p>Definición en la línea <a class="el" href="cronologia_8hpp_source.html#l00063">63</a> del archivo <a class="el" href="cronologia_8hpp_source.html">cronologia.hpp</a>.</p>
+</div><h2 class="groupheader">Documentación del constructor y destructor</h2>
+<a class="anchor" id="add20b587f7401851d45349648866f4e1"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Cronologia::Cronologia </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classCronologia.html#a9f250d2548077f31525db3bc7bbac532">container_type</a> &amp;&#160;</td>
+          <td class="paramname"><em>v</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constructor de la clase. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">v</td><td>Contenedor de <a class="el" href="classEventoHistorico.html" title="T.D.A. EventoHistorico. ">EventoHistorico</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>Crea una <a class="el" href="classCronologia.html" title="T.D.A. Cronologia. ">Cronologia</a> con el contenedor de <a class="el" href="classEventoHistorico.html" title="T.D.A. EventoHistorico. ">EventoHistorico</a> dado </dd></dl>
+
+<p>Definición en la línea <a class="el" href="cronologia_8hpp_source.html#l00107">107</a> del archivo <a class="el" href="cronologia_8hpp_source.html">cronologia.hpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentación de las funciones miembro</h2>
+<a class="anchor" id="a022af37f2842bd27544c24a24c95a0e8"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Cronologia::addEventoHistorico </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classEventoHistorico.html">EventoHistorico</a> &amp;&#160;</td>
+          <td class="paramname"><em>e</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Añade un <a class="el" href="classEventoHistorico.html" title="T.D.A. EventoHistorico. ">EventoHistorico</a> al contenedor <code>datos</code>. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">e</td><td><code><a class="el" href="classEventoHistorico.html" title="T.D.A. EventoHistorico. ">EventoHistorico</a></code> a añadir </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section post"><dt>Postcondición</dt><dd>Si no estaba ya presente, el nuevo <a class="el" href="classEventoHistorico.html" title="T.D.A. EventoHistorico. ">EventoHistorico</a> <em>e</em> está en <em>datos</em>. En caso contrario, se mezclan los acontecimientos de los conjuntos de <code>Acontecimiento</code>, eliminando los repetidos. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="afee920b0ed7aff63cc14fad990c85595"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCronologia.html#a3e110909ca2e26f20487654f40667904">iterator</a> Cronologia::begin </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Devuelven un iterador bidireccional a la pareja &lt;<a class="el" href="structFecha.html" title="T.D.A. Fecha. ">Fecha</a>, <a class="el" href="classEventoHistorico.html" title="T.D.A. EventoHistorico. ">EventoHistorico</a>&gt; menor, según el orden marcado. </p>
+
+<p>Definición en la línea <a class="el" href="cronologia_8hpp_source.html#l00276">276</a> del archivo <a class="el" href="cronologia_8hpp_source.html">cronologia.hpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2e90cc3e932d9faee71eedfdda6737b6"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCronologia.html#acab086d5ce2f2bffb5258e46fb96ae6e">const_iterator</a> Cronologia::buscarEvento </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structFecha.html">Fecha</a> &amp;&#160;</td>
+          <td class="paramname"><em>f</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Busca en el contenedor <em>datos</em> un <a class="el" href="classEventoHistorico.html" title="T.D.A. EventoHistorico. ">EventoHistorico</a> en concreto. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">f</td><td><code><a class="el" href="structFecha.html" title="T.D.A. Fecha. ">Fecha</a></code> del <a class="el" href="classEventoHistorico.html" title="T.D.A. EventoHistorico. ">EventoHistorico</a> a buscar </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>Devuelve un iterador constante apuntando a la posición del contenedor donde se ha encontrado el <a class="el" href="classEventoHistorico.html" title="T.D.A. EventoHistorico. ">EventoHistorico</a>, o <em>datos.end()</em> si no se ha encontrado. </dd></dl>
+
+<p>Definición en la línea <a class="el" href="cronologia_8hpp_source.html#l00209">209</a> del archivo <a class="el" href="cronologia_8hpp_source.html">cronologia.hpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a36d7be7e05cf09d588f1dff45bc8882e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::istream&amp; Cronologia::cargarCronologia </td>
+          <td>(</td>
+          <td class="paramtype">std::istream &amp;&#160;</td>
+          <td class="paramname"><em>is</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Leer una cronología desde un flujo de entrada. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">is</td><td>Flujo de entrada </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section post"><dt>Postcondición</dt><dd>Cronología leída en el objeto implícito </dd></dl>
+<dl class="section pre"><dt>Precondición</dt><dd>El formato de lecura es el siguiente: EventoHistorico_1 EventoHistorico_2 .... EventoHistorico_n</dd></dl>
+<dl class="section see"><dt>Ver también</dt><dd><a class="el" href="classEventoHistorico.html#ac97558352a287838654cc0f680e2c8af" title="Leer un evento desde un flujo de entrada. ">EventoHistorico::cargarEvento</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a758b5ce1690beefc8eb605728fbf9076"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Cronologia::contieneAcontecimiento </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="evento__historico_8hpp.html#a64ce54967e3a9c0f04af71109ace0f63">Acontecimiento</a> &amp;&#160;</td>
+          <td class="paramname"><em>a</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Comprueba si hay un <a class="el" href="classEventoHistorico.html" title="T.D.A. EventoHistorico. ">EventoHistorico</a> con el Acontecimiento dado en el contenedor <em>datos</em>. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a</td><td><code>Acontecimiento</code> a comprobar </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Valores devueltos</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">true</td><td>Si se encuentra el elemento </td></tr>
+    <tr><td class="paramname">false</td><td>Si no estaba presente </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a6245712fdc2228bbde22c523762a8df8"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Cronologia::contieneFecha </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structFecha.html">Fecha</a> &amp;&#160;</td>
+          <td class="paramname"><em>f</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Comprueba si hay un <a class="el" href="classEventoHistorico.html" title="T.D.A. EventoHistorico. ">EventoHistorico</a> con la fecha dada en el contenedor <em>datos</em>. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">f</td><td><code><a class="el" href="structFecha.html" title="T.D.A. Fecha. ">Fecha</a></code> del <a class="el" href="classEventoHistorico.html" title="T.D.A. EventoHistorico. ">EventoHistorico</a> a comprobar </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Valores devueltos</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">true</td><td>Si se encuentra el elemento </td></tr>
+    <tr><td class="paramname">false</td><td>Si no estaba presente </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definición en la línea <a class="el" href="cronologia_8hpp_source.html#l00192">192</a> del archivo <a class="el" href="cronologia_8hpp_source.html">cronologia.hpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac34a0ff19a7643d1227b7d1c19b1cc3a"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Cronologia::eliminarEvento </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structFecha.html">Fecha</a> &amp;&#160;</td>
+          <td class="paramname"><em>f</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Elimina un <a class="el" href="classEventoHistorico.html" title="T.D.A. EventoHistorico. ">EventoHistorico</a> del contenedor <em>datos</em>. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">f</td><td><code><a class="el" href="structFecha.html" title="T.D.A. Fecha. ">Fecha</a></code> del <a class="el" href="classEventoHistorico.html" title="T.D.A. EventoHistorico. ">EventoHistorico</a> a eliminar </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Valores devueltos</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">true</td><td>Si se ha eliminado el elemento </td></tr>
+    <tr><td class="paramname">false</td><td>Si no se ha eliminado (no estaba presente) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definición en la línea <a class="el" href="cronologia_8hpp_source.html#l00174">174</a> del archivo <a class="el" href="cronologia_8hpp_source.html">cronologia.hpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a68c6ad500532b8852335196dc9468c74"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Cronologia::eliminarPorClave </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>key</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Elimina del contenedor <em>datos</em> todos los <a class="el" href="classEventoHistorico.html" title="T.D.A. EventoHistorico. ">EventoHistorico</a> cuyos acontecimientos contengan una palabra o frase clave. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">key</td><td>Palabra clave </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>Número de <a class="el" href="classEventoHistorico.html" title="T.D.A. EventoHistorico. ">EventoHistorico</a> eliminados </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="afa08dc5a9a3812911dabdf7599222e85"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCronologia.html#a3e110909ca2e26f20487654f40667904">iterator</a> Cronologia::end </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Devuelven un iterador bidireccional a la posición siguiente a la pareja &lt;<a class="el" href="structFecha.html" title="T.D.A. Fecha. ">Fecha</a>, <a class="el" href="classEventoHistorico.html" title="T.D.A. EventoHistorico. ">EventoHistorico</a>&gt; mayor, según el orden marcado. </p>
+
+<p>Definición en la línea <a class="el" href="cronologia_8hpp_source.html#l00283">283</a> del archivo <a class="el" href="cronologia_8hpp_source.html">cronologia.hpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a900dfcb4123c18925fee16a9988b612b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structFecha.html">Fecha</a> Cronologia::fechaAcontecimiento </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="evento__historico_8hpp.html#a64ce54967e3a9c0f04af71109ace0f63">Acontecimiento</a> &amp;&#160;</td>
+          <td class="paramname"><em>a</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Busca en qué fecha se produjo un acontecimiento en concreto. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a</td><td>Acontecimiento a buscar </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondición</dt><dd>El Acontecimiento debe estar en la cronología </dd></dl>
+<dl class="section return"><dt>Devuelve</dt><dd><a class="el" href="structFecha.html" title="T.D.A. Fecha. ">Fecha</a> en que sucedió el Acontecimiento. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="aa50d1ff7a87c2c6c08dcdc7ba3903615"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCronologia.html#a9f250d2548077f31525db3bc7bbac532">container_type</a> Cronologia::getCronologia </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Acceder al contenedor de <a class="el" href="classEventoHistorico.html" title="T.D.A. EventoHistorico. ">EventoHistorico</a>. </p>
+<dl class="section return"><dt>Devuelve</dt><dd>El contenedor de <a class="el" href="classEventoHistorico.html" title="T.D.A. EventoHistorico. ">EventoHistorico</a> asociado a la <a class="el" href="classCronologia.html" title="T.D.A. Cronologia. ">Cronologia</a> </dd></dl>
+
+<p>Definición en la línea <a class="el" href="cronologia_8hpp_source.html#l00115">115</a> del archivo <a class="el" href="cronologia_8hpp_source.html">cronologia.hpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a1de25c474b73e8d80bc96e8298de44d8"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structFecha.html">Fecha</a> Cronologia::getPrimero </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Acceder al primer año de la cronología. </p>
+<dl class="section return"><dt>Devuelve</dt><dd>Una <code><a class="el" href="structFecha.html" title="T.D.A. Fecha. ">Fecha</a></code> que representa el primer año en la cronología </dd></dl>
+
+<p>Definición en la línea <a class="el" href="cronologia_8hpp_source.html#l00131">131</a> del archivo <a class="el" href="cronologia_8hpp_source.html">cronologia.hpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a85709d4206762cf7218a0ce42a35bda7"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structFecha.html">Fecha</a> Cronologia::getUltimo </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Acceder al último año de la cronología. </p>
+<dl class="section return"><dt>Devuelve</dt><dd>Una <code><a class="el" href="structFecha.html" title="T.D.A. Fecha. ">Fecha</a></code> que representa el último año en la cronología </dd></dl>
+
+<p>Definición en la línea <a class="el" href="cronologia_8hpp_source.html#l00137">137</a> del archivo <a class="el" href="cronologia_8hpp_source.html">cronologia.hpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a942e15216dca50eac8b042dc594c9642"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::ostream&amp; Cronologia::mostrarCronologia </td>
+          <td>(</td>
+          <td class="paramtype">std::ostream &amp;&#160;</td>
+          <td class="paramname"><em>os</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Mostrar el objeto implícito en un flujo de salida. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">os</td><td>Flujo de salida </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section post"><dt>Postcondición</dt><dd>El formato de escritura es el mismo que el de lectura</dd></dl>
+<dl class="section see"><dt>Ver también</dt><dd><a class="el" href="classCronologia.html#a36d7be7e05cf09d588f1dff45bc8882e" title="Leer una cronología desde un flujo de entrada. ">cargarCronologia</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="aab8cf5f6ab3001f9753c4dbe384718e9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::ostream&amp; Cronologia::mostrarCronologiaInversa </td>
+          <td>(</td>
+          <td class="paramtype">std::ostream &amp;&#160;</td>
+          <td class="paramname"><em>os</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Mostrar el objeto implícito en un flujo de salida. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">os</td><td>Flujo de salida </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section post"><dt>Postcondición</dt><dd>El formato de escritura es el mismo que el de lectura, pero se muestra en orden inverso</dd></dl>
+<dl class="section see"><dt>Ver también</dt><dd><a class="el" href="classCronologia.html#a36d7be7e05cf09d588f1dff45bc8882e" title="Leer una cronología desde un flujo de entrada. ">cargarCronologia</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a3d637a2bb7d93026d4933d8b523df899"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classEventoHistorico.html">EventoHistorico</a>&amp; Cronologia::operator[] </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structFecha.html">Fecha</a> &amp;&#160;</td>
+          <td class="paramname"><em>f</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Accede a un <a class="el" href="classEventoHistorico.html" title="T.D.A. EventoHistorico. ">EventoHistorico</a> del contenedor <em>datos</em>. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">f</td><td><code><a class="el" href="structFecha.html" title="T.D.A. Fecha. ">Fecha</a></code> del <a class="el" href="classEventoHistorico.html" title="T.D.A. EventoHistorico. ">EventoHistorico</a> a consultar </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>El <a class="el" href="classEventoHistorico.html" title="T.D.A. EventoHistorico. ">EventoHistorico</a> asociado a la fecha </dd></dl>
+<dl class="section pre"><dt>Precondición</dt><dd>f debe ser una clave existente en el contenedor</dd></dl>
+<p>También permite la modificación del elemento. </p>
+
+</div>
+</div>
+<a class="anchor" id="a5a9da3cbe4b1a61d73288a6ac2adbfdb"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::ostream&amp; Cronologia::prettyPrint </td>
+          <td>(</td>
+          <td class="paramtype">std::ostream &amp;&#160;</td>
+          <td class="paramname"><em>os</em> = <code>std::cout</code></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Muestra el objeto implícito en un flujo de salida en Human Readable Format (HRF) </p><dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">os</td><td>Flujo de salida. Por defecto es std::cout </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section post"><dt>Postcondición</dt><dd>El formato de escritura es el siguiente:<ul>
+<li>EventoHistorico_1 (HRF)</li>
+<li>EventoHistorico_1 (HRF)</li>
+<li>...</li>
+<li>EventoHistorico_n (HRF)</li>
+</ul>
+</dd></dl>
+<dl class="section see"><dt>Ver también</dt><dd><a class="el" href="classEventoHistorico.html#aa40f40c17e52875ca313c1941e5f4c6d">EventoHistorico::prettyPrint</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a54c82c0ea89ee6c790a11ce273f88b39"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Cronologia::setCronologia </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classCronologia.html#a9f250d2548077f31525db3bc7bbac532">container_type</a> &amp;&#160;</td>
+          <td class="paramname"><em>v</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Modificar contenedor de <a class="el" href="classEventoHistorico.html" title="T.D.A. EventoHistorico. ">EventoHistorico</a>. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">v</td><td><code>Nuevo</code> contenedor </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>Sustituye el contenedor this-&gt;datos por v </dd></dl>
+
+<p>Definición en la línea <a class="el" href="cronologia_8hpp_source.html#l00146">146</a> del archivo <a class="el" href="cronologia_8hpp_source.html">cronologia.hpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac878a976b53c350644c36ce5afbfc803"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Cronologia::setEventoHistorico </td>
+          <td>(</td>
+          <td class="paramtype">const std::set&lt; <a class="el" href="evento__historico_8hpp.html#a64ce54967e3a9c0f04af71109ace0f63">Acontecimiento</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>v</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structFecha.html">Fecha</a> &amp;&#160;</td>
+          <td class="paramname"><em>f</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Modifica un <a class="el" href="classEventoHistorico.html" title="T.D.A. EventoHistorico. ">EventoHistorico</a> de la <a class="el" href="classCronologia.html" title="T.D.A. Cronologia. ">Cronologia</a>. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">v</td><td>Conjunto de Acontecimiento, f <code><a class="el" href="structFecha.html" title="T.D.A. Fecha. ">Fecha</a></code> del <a class="el" href="classEventoHistorico.html" title="T.D.A. EventoHistorico. ">EventoHistorico</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section post"><dt>Postcondición</dt><dd>El <a class="el" href="classEventoHistorico.html" title="T.D.A. EventoHistorico. ">EventoHistorico</a> asociado a la <a class="el" href="structFecha.html" title="T.D.A. Fecha. ">Fecha</a> f contiene los acontecimientos del conjunto v </dd></dl>
+<dl class="section pre"><dt>Precondición</dt><dd>f debe ser una clave existente en el contenedor </dd></dl>
+
+<p>Definición en la línea <a class="el" href="cronologia_8hpp_source.html#l00154">154</a> del archivo <a class="el" href="cronologia_8hpp_source.html">cronologia.hpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentación de las funciones relacionadas y clases amigas</h2>
+<a class="anchor" id="ac976bb30c2fed28b04cc4288645d6159"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::ostream &amp; operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype">std::ostream &amp;&#160;</td>
+          <td class="paramname"><em>os</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classCronologia.html">Cronologia</a> &amp;&#160;</td>
+          <td class="paramname"><em>cron</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">related</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sobrecarga del operador &lt;&lt;. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">os</td><td>Flujo de salida </td></tr>
+    <tr><td class="paramname">cron</td><td>Cronología a escribir </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section post"><dt>Postcondición</dt><dd>El formato de escritura es el mismo que el de lectura</dd></dl>
+<dl class="section see"><dt>Ver también</dt><dd>operator&gt;&gt; </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a0bc125ad88c8499161e0484ad00c8d9d"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::istream &amp; operator&gt;&gt; </td>
+          <td>(</td>
+          <td class="paramtype">std::istream &amp;&#160;</td>
+          <td class="paramname"><em>is</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classCronologia.html">Cronologia</a> &amp;&#160;</td>
+          <td class="paramname"><em>cron</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">related</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sobrecarga del operador &gt;&gt; </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">is</td><td>Flujo de entrada </td></tr>
+    <tr><td class="paramname">cron</td><td><a class="el" href="classCronologia.html" title="T.D.A. Cronologia. ">Cronologia</a> donde leer </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Valores devueltos</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">Cronología</td><td>leída en <em>cro</em> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondición</dt><dd>El formato de lectura es el siguiente: EventoHistorico_1 EventoHistorico_2 .... EventoHistorico_n </dd></dl>
+
+</div>
+</div>
+<hr/>La documentación para esta clase fue generada a partir del siguiente fichero:<ul>
+<li>include/<a class="el" href="cronologia_8hpp_source.html">cronologia.hpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<hr>
+<small>ETS Ingeniería Informática y Telecomunicaciones. Universidad de Granada.
+</small>
