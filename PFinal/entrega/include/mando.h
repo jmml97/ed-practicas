@@ -31,23 +31,23 @@ class Mando
 
     /**
      * @brief Constructor. Inicializa las variables dado un tablero.
-     *      No se puede generar una Mando sin un tablero. Para que no cause
-     *      problemas de incongruencias de tamaño.
+     *        No se puede generar una Mando sin un tablero. Para que no cause
+     *        problemas de incongruencias de tamaño.
      * @param t : Tablero sobre el que se va a inicialiar la parte gráfica.
-     *      El mando, el indicador de la ficha del jugador y la base del
-     *      tablero.
+     *        El mando, el indicador de la ficha del jugador y la base del
+     *        tablero.
      */
     Mando(Tablero t);
 
     /**
      * @brief Actualiza el tablero del juego: la posición del jugador y si se
-     *      ha introducido alguna pieza en el tablero.
-     *      Esta función es la encargada de controlar la entrada del teclado.
+     *        ha introducido alguna pieza en el tablero.
+     *        Esta función es la encargada de controlar la entrada del teclado.
      * @param c : Caracter leído por el teclado.
      * @param t : Tablero. Si el caracter leido es el de colocar ficha y hay hueco
-     *      modifica el tablero.
+     *        modifica el tablero.
      * @return Devuelve true si se ha colocado una ficha en la actualización del
-     *      juego.
+     *         juego.
      */
     bool actualizarJuego(char c, Tablero & t);
 
@@ -55,25 +55,21 @@ class Mando
      * @brief Representación gráfica de la base.
      * @return Devuelve una cadena representado la base del tablero.
      */
-    string GetBase() const {
-        return base;
-    }
+    string GetBase() const { return base; }
+
     /**
      * @brief Representación gráfica del jugador.
      * @return Devuelve una cadena representado del jugador.
      */
-    string GetJugador() const {
-        return jugador;
-    }
+    string GetJugador() const { return jugador; }
+
     /**
      * @brief Representación gráfica del mando.
      * @return Devuelve la representación gráfica del mando.
      */
-    string GetMando() const {
-        return mando;
-    }
-
+    string GetMando() const { return mando; }
 };
 
-
 #endif
+
+/* Fin fichero: mando.h */

@@ -1,2 +1,5 @@
--- Makefile --
+---- Makefile ----
 - Quitar DNDEBUG de CXXFLAGS para entregar
+
+---- Tablero ----
+- Añadir colores al imprimir (ANSI escape colors)
