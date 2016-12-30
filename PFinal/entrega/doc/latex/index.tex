@@ -28,7 +28,7 @@ Por ejemplo, la métrica más sencilla consistiría en evaluar si alguno de los 
 
 \begin{DoxyImage}
 \includegraphics[width=12cm]{connect4-tree}
-\caption{Estructura interna de un T\+DA Árbol General para representar el espacio de soluciones de Conecta 4}
+\doxyfigcaption{Estructura interna de un T\+DA Árbol General para representar el espacio de soluciones de Conecta 4}
 \end{DoxyImage}
 
 
@@ -39,7 +39,7 @@ Por ejemplo, la métrica más sencilla consistiría en evaluar si alguno de los 
 
 \begin{DoxyImage}
 \includegraphics[width=12cm]{connect4-tree-YR}
-\caption{Detalle de posibles movimientos en el espacio de soluciones de Conecta 4}
+\doxyfigcaption{Detalle de posibles movimientos en el espacio de soluciones de Conecta 4}
 \end{DoxyImage}
 
 
@@ -91,7 +91,7 @@ Se adjunta un programa de ejemplo ({\ttfamily src/conecta4.\+cpp}) que utiliza l
 \textcolor{preprocessor}{#include <termio.h>}         \textcolor{comment}{// Linux/Windows users}
 \textcolor{comment}{//#include <termios.h>      // Mac OSX users}
 
-\textcolor{preprocessor}{#include "\hyperlink{ArbolGeneral_8h}{ArbolGeneral.h}"}
+\textcolor{preprocessor}{#include "ArbolGeneral.h"}
 \textcolor{preprocessor}{#include "\hyperlink{tablero_8h}{tablero.h}"}
 \textcolor{preprocessor}{#include "\hyperlink{mando_8h}{mando.h}"}
 
@@ -109,10 +109,10 @@ Se adjunta un programa de ejemplo ({\ttfamily src/conecta4.\+cpp}) que utiliza l
 \textcolor{comment}{// m : Mando indicando la posición del jugador.}
 
 \textcolor{keywordtype}{void} imprimeTablero(\hyperlink{classTablero}{Tablero} & t, \hyperlink{classMando}{Mando} & m)\{
-    cout << m.\hyperlink{classMando_aaf8c918ecbce5c8173fcf40e04c8b0b7}{GetJugador}() << endl;
+    cout << m.\hyperlink{classMando_a6ca29d035353a57aba1bd785d8f81c89}{GetJugador}() << endl;
     cout << t ;
-    cout << m.\hyperlink{classMando_abcc813b0881e56ed976eea2ce6b7fd12}{GetBase}() << endl;
-    cout << m.\hyperlink{classMando_a7e02a04343208f949a88e720ba63a281}{GetMando}() << endl;
+    cout << m.\hyperlink{classMando_a656a8d30e54ac1c476e8fab5a7d9e66f}{GetBase}() << endl;
+    cout << m.\hyperlink{classMando_ac7ff39c5a065899658f8ee3a335ee50f}{GetMando}() << endl;
 \}
 
 
@@ -189,7 +189,7 @@ Para T\+DA \hyperlink{classArbolGeneral}{Arbol\+General}\+:
 
 \begin{DoxyCode}
 \textcolor{preprocessor}{#include <iostream>}
-\textcolor{preprocessor}{#include "\hyperlink{ArbolGeneral_8h}{ArbolGeneral.h}"}
+\textcolor{preprocessor}{#include "ArbolGeneral.h"}
 \textcolor{preprocessor}{#include "\hyperlink{tablero_8h}{tablero.h}"}
 \textcolor{preprocessor}{#include <string>}
 

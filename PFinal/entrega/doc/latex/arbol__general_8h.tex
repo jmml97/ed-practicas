@@ -1,0 +1,46 @@
+\hypertarget{arbol__general_8h}{}\subsection{Referencia del Archivo include/arbol\+\_\+general.h}
+\label{arbol__general_8h}\index{include/arbol\+\_\+general.\+h@{include/arbol\+\_\+general.\+h}}
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$queue$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+\subsubsection*{Clases}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classArbolGeneral}{Arbol\+General$<$ Tbase $>$}
+\begin{DoxyCompactList}\small\item\em T.\+D.\+A. \hyperlink{classArbolGeneral}{Arbol\+General}. \end{DoxyCompactList}\item 
+struct \hyperlink{structArbolGeneral_1_1nodo}{Arbol\+General$<$ Tbase $>$\+::nodo}
+\begin{DoxyCompactList}\small\item\em rep\+Conjunto Rep del T\+DA \hyperlink{classArbolGeneral}{Arbol\+General} \end{DoxyCompactList}\item 
+class \hyperlink{classArbolGeneral_1_1preorden__iterador}{Arbol\+General$<$ Tbase $>$\+::preorden\+\_\+iterador}
+\item 
+class \hyperlink{classArbolGeneral_1_1reverse__preorden__iterador}{Arbol\+General$<$ Tbase $>$\+::reverse\+\_\+preorden\+\_\+iterador}
+\item 
+class \hyperlink{classArbolGeneral_1_1inorden__iterador}{Arbol\+General$<$ Tbase $>$\+::inorden\+\_\+iterador}
+\item 
+class \hyperlink{classArbolGeneral_1_1postorden__iterador}{Arbol\+General$<$ Tbase $>$\+::postorden\+\_\+iterador}
+\end{DoxyCompactItemize}
+\subsubsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$class T $>$ }\\istream \& \hyperlink{arbol__general_8h_a87d150529fa3fdcacdc8863e8e205b1a}{operator$>$$>$} (istream \&in, \hyperlink{classArbolGeneral}{Arbol\+General}$<$ T $>$ \&v)
+\item 
+{\footnotesize template$<$class Tbase $>$ }\\ostream \& \hyperlink{arbol__general_8h_aa1989c815db0a1b62b9f8a2e30880c7f}{operator$<$$<$} (ostream \&out, const \hyperlink{classArbolGeneral}{Arbol\+General}$<$ Tbase $>$ \&v)
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Documentación de las funciones}
+\hypertarget{arbol__general_8h_aa1989c815db0a1b62b9f8a2e30880c7f}{}\label{arbol__general_8h_aa1989c815db0a1b62b9f8a2e30880c7f} 
+\index{arbol\+\_\+general.\+h@{arbol\+\_\+general.\+h}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!arbol\+\_\+general.\+h@{arbol\+\_\+general.\+h}}
+\paragraph{\texorpdfstring{operator$<$$<$()}{operator<<()}}
+{\footnotesize\ttfamily template$<$class Tbase $>$ \\
+ostream\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{ostream \&}]{out,  }\item[{const \hyperlink{classArbolGeneral}{Arbol\+General}$<$ Tbase $>$ \&}]{v }\end{DoxyParamCaption})}
+
+\hypertarget{arbol__general_8h_a87d150529fa3fdcacdc8863e8e205b1a}{}\label{arbol__general_8h_a87d150529fa3fdcacdc8863e8e205b1a} 
+\index{arbol\+\_\+general.\+h@{arbol\+\_\+general.\+h}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!arbol\+\_\+general.\+h@{arbol\+\_\+general.\+h}}
+\paragraph{\texorpdfstring{operator$>$$>$()}{operator>>()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+istream\& operator$>$$>$ (\begin{DoxyParamCaption}\item[{istream \&}]{in,  }\item[{\hyperlink{classArbolGeneral}{Arbol\+General}$<$ T $>$ \&}]{v }\end{DoxyParamCaption})}
+
