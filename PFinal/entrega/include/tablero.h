@@ -12,12 +12,6 @@
 
 using namespace std;
 
-/// Carácter que representa una ficha del Jugador 1
-const char CHAR_J1 = 'x';
-
-/// Carácter que representa una ficha del Jugador 2
-const char CHAR_J2 = 'o';
-
 /******************************************************************************/
 /**
  * @brief T.D.A. Tablero.
@@ -39,6 +33,10 @@ class Tablero
 public:
     /// Representa el número de fichas necesarias para ganar
     static const int N_FICHAS_GANAR = 4;
+    /// Carácter que representa una ficha del Jugador 1
+    const static char CHAR_J1 = 'x';
+    /// Carácter que representa una ficha del Jugador 2
+    const static char CHAR_J2 = 'o';
 
     /**
      * @brief Constructor por defecto. Crea un tablero de tamaño predefinido.
@@ -166,3 +164,5 @@ template <class T>
 ostream& operator<<(ostream& s, const vector<vector<T> >& c);
 
 #endif
+
+/* Fin fichero: tablero.h */

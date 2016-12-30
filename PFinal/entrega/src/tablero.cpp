@@ -310,9 +310,9 @@ ostream& operator<<(ostream& s, const vector<T>& c)
     if((*i) == 0)
       s << ' ';
     else if((*i) == 1)
-      s << CHAR_J1 << ' ';
+      s << Tablero::CHAR_J1 << ' ';
     else if((*i) == 2)
-      s << CHAR_J2 << ' ';
+      s << Tablero::CHAR_J2 << ' ';
     else
       s << ' ';
   return s;
