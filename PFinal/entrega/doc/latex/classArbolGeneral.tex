@@ -1,0 +1,1131 @@
+\hypertarget{classArbolGeneral}{}\subsection{Referencia de la plantilla de la Clase Arbol\+General$<$ Tbase $>$}
+\label{classArbolGeneral}\index{Arbol\+General$<$ Tbase $>$@{Arbol\+General$<$ Tbase $>$}}
+
+
+T.\+D.\+A. \hyperlink{classArbolGeneral}{Arbol\+General}.  
+
+
+
+
+{\ttfamily \#include $<$Arbol\+General.\+h$>$}
+
+\subsubsection*{Clases}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classArbolGeneral_1_1inorden__iterador}{inorden\+\_\+iterador}
+\item 
+struct \hyperlink{structArbolGeneral_1_1nodo}{nodo}
+\begin{DoxyCompactList}\small\item\em rep\+Conjunto Rep del T\+DA \hyperlink{classArbolGeneral}{Arbol\+General} \end{DoxyCompactList}\item 
+class \hyperlink{classArbolGeneral_1_1postorden__iterador}{postorden\+\_\+iterador}
+\item 
+class \hyperlink{classArbolGeneral_1_1preorden__iterador}{preorden\+\_\+iterador}
+\item 
+class \hyperlink{classArbolGeneral_1_1reverse__preorden__iterador}{reverse\+\_\+preorden\+\_\+iterador}
+\end{DoxyCompactItemize}
+\subsubsection*{Tipos públicos}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{structArbolGeneral_1_1nodo}{nodo} $\ast$ \hyperlink{classArbolGeneral_a12cc1b74a9095d89bc7334290d332f7a}{Nodo}
+\begin{DoxyCompactList}\small\item\em Tipo Nodo. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classArbolGeneral_a2c792965befd8644246118a09a10123c}{Arbol\+General} ()
+\begin{DoxyCompactList}\small\item\em Constructor por defecto. \end{DoxyCompactList}\item 
+\hyperlink{classArbolGeneral_a8ddac1a024f05bee96f4c259fad76c4c}{Arbol\+General} (const Tbase \&e)
+\begin{DoxyCompactList}\small\item\em Constructor de raíz. \end{DoxyCompactList}\item 
+\hyperlink{classArbolGeneral_ad7926f03eb051b9691d57f4e508cad4d}{Arbol\+General} (const \hyperlink{classArbolGeneral}{Arbol\+General}$<$ Tbase $>$ \&v)
+\begin{DoxyCompactList}\small\item\em Constructor de copias. \end{DoxyCompactList}\item 
+\hyperlink{classArbolGeneral_a085c45825063913fb958b704f59033f3}{$\sim$\+Arbol\+General} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+\hyperlink{classArbolGeneral}{Arbol\+General}$<$ Tbase $>$ \& \hyperlink{classArbolGeneral_aebd3723e9929b905445127a754a26759}{operator=} (const \hyperlink{classArbolGeneral}{Arbol\+General}$<$ Tbase $>$ \&v)
+\begin{DoxyCompactList}\small\item\em Operador de asignación. \end{DoxyCompactList}\item 
+void \hyperlink{classArbolGeneral_a84781986cd57390540600494303b0e9d}{Asigna\+Raiz} (const Tbase \&e)
+\begin{DoxyCompactList}\small\item\em Asignar nodo raíz. \end{DoxyCompactList}\item 
+\hyperlink{classArbolGeneral_a12cc1b74a9095d89bc7334290d332f7a}{Nodo} \hyperlink{classArbolGeneral_ae33520448eb3f38a597b8c27579b5ec8}{raiz} () const 
+\begin{DoxyCompactList}\small\item\em Raíz del árbol. \end{DoxyCompactList}\item 
+\hyperlink{classArbolGeneral_a12cc1b74a9095d89bc7334290d332f7a}{Nodo} \hyperlink{classArbolGeneral_a3b985141d1998318085003885912b349}{hijomasizquierda} (const \hyperlink{classArbolGeneral_a12cc1b74a9095d89bc7334290d332f7a}{Nodo} n) const 
+\begin{DoxyCompactList}\small\item\em Hijo más a la izquierda. \end{DoxyCompactList}\item 
+\hyperlink{classArbolGeneral_a12cc1b74a9095d89bc7334290d332f7a}{Nodo} \hyperlink{classArbolGeneral_ab5adf770dcec8d83d8428d62df82ccb9}{hermanoderecha} (const \hyperlink{classArbolGeneral_a12cc1b74a9095d89bc7334290d332f7a}{Nodo} n) const 
+\begin{DoxyCompactList}\small\item\em Hermano derecha. \end{DoxyCompactList}\item 
+\hyperlink{classArbolGeneral_a12cc1b74a9095d89bc7334290d332f7a}{Nodo} \hyperlink{classArbolGeneral_a7be3261ec252df6456acf5524e732b7c}{padre} (const \hyperlink{classArbolGeneral_a12cc1b74a9095d89bc7334290d332f7a}{Nodo} n) const 
+\begin{DoxyCompactList}\small\item\em Nodo padre. \end{DoxyCompactList}\item 
+Tbase \& \hyperlink{classArbolGeneral_a69781940bd69c1e473e0c4b2495cd7a1}{etiqueta} (const \hyperlink{classArbolGeneral_a12cc1b74a9095d89bc7334290d332f7a}{Nodo} n)
+\begin{DoxyCompactList}\small\item\em Etiqueta de un nodo. \end{DoxyCompactList}\item 
+const Tbase \& \hyperlink{classArbolGeneral_a91eec8a0f64edface3d9473408eec3b8}{etiqueta} (const \hyperlink{classArbolGeneral_a12cc1b74a9095d89bc7334290d332f7a}{Nodo} n) const 
+\begin{DoxyCompactList}\small\item\em Etiqueta de un nodo. \end{DoxyCompactList}\item 
+void \hyperlink{classArbolGeneral_ad9fddc80b179cac8eddc113a048334c1}{asignar\+\_\+subarbol} (const \hyperlink{classArbolGeneral}{Arbol\+General}$<$ Tbase $>$ \&orig, const \hyperlink{classArbolGeneral_a12cc1b74a9095d89bc7334290d332f7a}{Nodo} nod)
+\begin{DoxyCompactList}\small\item\em Copia subárbol. \end{DoxyCompactList}\item 
+void \hyperlink{classArbolGeneral_a7f2fa2d9be4af4b7be1c334819a04c39}{podar\+\_\+hijomasizquierda} (\hyperlink{classArbolGeneral_a12cc1b74a9095d89bc7334290d332f7a}{Nodo} n, \hyperlink{classArbolGeneral}{Arbol\+General}$<$ Tbase $>$ \&dest)
+\begin{DoxyCompactList}\small\item\em Podar subárbol hijo más a la izquierda. \end{DoxyCompactList}\item 
+void \hyperlink{classArbolGeneral_a81282ccc37494f1e13042e06ea475fb6}{podar\+\_\+hermanoderecha} (\hyperlink{classArbolGeneral_a12cc1b74a9095d89bc7334290d332f7a}{Nodo} n, \hyperlink{classArbolGeneral}{Arbol\+General}$<$ Tbase $>$ \&dest)
+\begin{DoxyCompactList}\small\item\em Podar subárbol hermano derecha. \end{DoxyCompactList}\item 
+void \hyperlink{classArbolGeneral_acf95226edb2a4e4c7fba82aaa82d0ec9}{insertar\+\_\+hijomasizquierda} (\hyperlink{classArbolGeneral_a12cc1b74a9095d89bc7334290d332f7a}{Nodo} n, \hyperlink{classArbolGeneral}{Arbol\+General}$<$ Tbase $>$ \&rama)
+\begin{DoxyCompactList}\small\item\em Insertar subárbol hijo más a la izquierda. \end{DoxyCompactList}\item 
+void \hyperlink{classArbolGeneral_a855d44f14a9ef638f8dd46376fc2f961}{insertar\+\_\+hermanoderecha} (\hyperlink{classArbolGeneral_a12cc1b74a9095d89bc7334290d332f7a}{Nodo} n, \hyperlink{classArbolGeneral}{Arbol\+General}$<$ Tbase $>$ \&rama)
+\begin{DoxyCompactList}\small\item\em Insertar subárbol hermano derecha. \end{DoxyCompactList}\item 
+void \hyperlink{classArbolGeneral_a3ae21db42586b23ccc082aeb321db56f}{clear} ()
+\begin{DoxyCompactList}\small\item\em Borra todos los elementos. \end{DoxyCompactList}\item 
+int \hyperlink{classArbolGeneral_a69a2c10bedbf77dbc23baea0a731a02d}{size} () const 
+\begin{DoxyCompactList}\small\item\em Número de elementos. \end{DoxyCompactList}\item 
+bool \hyperlink{classArbolGeneral_ab7b59c8fe7e74f78f3533965460a6c9a}{empty} () const 
+\begin{DoxyCompactList}\small\item\em Vacío. \end{DoxyCompactList}\item 
+int \hyperlink{classArbolGeneral_a926c58d7a4238803d6e843baf92798ba}{altura} (\hyperlink{classArbolGeneral_a12cc1b74a9095d89bc7334290d332f7a}{Nodo} t) const 
+\begin{DoxyCompactList}\small\item\em Altura de un nodo. \end{DoxyCompactList}\item 
+void \hyperlink{classArbolGeneral_a9b498b5302c63aa8ad0cd847d77a6315}{reflejado} (\hyperlink{classArbolGeneral_a12cc1b74a9095d89bc7334290d332f7a}{Nodo} t)
+\begin{DoxyCompactList}\small\item\em Arbol reflejado. \end{DoxyCompactList}\item 
+bool \hyperlink{classArbolGeneral_a5c7db1c3f26d29b887ba906d02397a8d}{operator==} (const \hyperlink{classArbolGeneral}{Arbol\+General}$<$ Tbase $>$ \&v) const 
+\begin{DoxyCompactList}\small\item\em Operador de comparación (igualdad) \end{DoxyCompactList}\item 
+bool \hyperlink{classArbolGeneral_ab5b783cb068a394511f99e08a827cdda}{operator!=} (const \hyperlink{classArbolGeneral}{Arbol\+General}$<$ Tbase $>$ \&v) const 
+\begin{DoxyCompactList}\small\item\em Operador de comparación (diferencia) \end{DoxyCompactList}\item 
+void \hyperlink{classArbolGeneral_a5fd1c0acc26d4229042ecd9af6e3a24e}{recuperar\+\_\+arbol} (string preorden, string inorden, string postorden, \hyperlink{classArbolGeneral_a12cc1b74a9095d89bc7334290d332f7a}{Nodo} nuevo)
+\begin{DoxyCompactList}\small\item\em Crea un arbol a partir de sus tres recorridos. \end{DoxyCompactList}\item 
+\hyperlink{classArbolGeneral_1_1preorden__iterador}{preorden\+\_\+iterador} \hyperlink{classArbolGeneral_a23b961cc1e6a774bb9deed365a2804af}{beginpreorden} () const 
+\begin{DoxyCompactList}\small\item\em Comienzo de un iterador \hyperlink{classArbolGeneral_1_1preorden__iterador}{preorden\+\_\+iterador}. \end{DoxyCompactList}\item 
+\hyperlink{classArbolGeneral_1_1preorden__iterador}{preorden\+\_\+iterador} \hyperlink{classArbolGeneral_a687dd84e5f1a838349d3f482333c8ac6}{endpreorden} () const 
+\begin{DoxyCompactList}\small\item\em Final de un iterador \hyperlink{classArbolGeneral_1_1preorden__iterador}{preorden\+\_\+iterador}. \end{DoxyCompactList}\item 
+void \hyperlink{classArbolGeneral_ab610d28639d09112ab38e4c7b5806cc6}{recorrer\+\_\+preorden} () const 
+\begin{DoxyCompactList}\small\item\em Recorrido en preorden.  Muestra el recorrido del árbol en preorden usando iteradores. \end{DoxyCompactList}\item 
+void \hyperlink{classArbolGeneral_acd4224d4e3cf3df4e7f35c8e07b926cf}{recorrer\+\_\+preorden2} (\hyperlink{classArbolGeneral_a12cc1b74a9095d89bc7334290d332f7a}{Nodo} t) const 
+\begin{DoxyCompactList}\small\item\em Recorrido en preorden. \end{DoxyCompactList}\item 
+void \hyperlink{classArbolGeneral_a9f964d17519959e7b2db2ca9804929a8}{recorrer\+\_\+preorden\+\_\+al\+\_\+reves} () const 
+\begin{DoxyCompactList}\small\item\em Recorrido en preorden al reves.  Muestra el recorrido del árbol en preorden, pero al reves. Utilizando iteradores preorden. \end{DoxyCompactList}\item 
+\hyperlink{classArbolGeneral_1_1reverse__preorden__iterador}{reverse\+\_\+preorden\+\_\+iterador} \hyperlink{classArbolGeneral_a731b1dcad74872e1b04cc3c9f7992521}{beginreverse\+\_\+preorden} () const 
+\begin{DoxyCompactList}\small\item\em Comienzo de un iterador \hyperlink{classArbolGeneral_1_1reverse__preorden__iterador}{reverse\+\_\+preorden\+\_\+iterador}. \end{DoxyCompactList}\item 
+\hyperlink{classArbolGeneral_1_1reverse__preorden__iterador}{reverse\+\_\+preorden\+\_\+iterador} \hyperlink{classArbolGeneral_a88b7185943bd677f9d308228a1580519}{endreverse\+\_\+preorden} () const 
+\begin{DoxyCompactList}\small\item\em Final de un iterador \hyperlink{classArbolGeneral_1_1reverse__preorden__iterador}{reverse\+\_\+preorden\+\_\+iterador}. \end{DoxyCompactList}\item 
+void \hyperlink{classArbolGeneral_a7830b2566ef7611aa2fc6f7b4d07ad52}{recorrer\+\_\+reverse\+\_\+preorden} () const 
+\begin{DoxyCompactList}\small\item\em Recorrido en preorden invertido.  Muestra el recorrido del árbol en preorden invertido usando iteradores. \end{DoxyCompactList}\item 
+void \hyperlink{classArbolGeneral_ad4b95219bb5b0cb512719edb1406fd71}{recorrer\+\_\+reverse\+\_\+preorden\+\_\+al\+\_\+reves} () const 
+\begin{DoxyCompactList}\small\item\em Recorrido en preorden invertido, al reves.  Recorrido en preorden normal. \end{DoxyCompactList}\item 
+\hyperlink{classArbolGeneral_1_1inorden__iterador}{inorden\+\_\+iterador} \hyperlink{classArbolGeneral_ab2c5b53cb51441b575f81bef96b1973b}{begininorden} () const 
+\begin{DoxyCompactList}\small\item\em Comienzo de un iterador \hyperlink{classArbolGeneral_1_1inorden__iterador}{inorden\+\_\+iterador}. \end{DoxyCompactList}\item 
+\hyperlink{classArbolGeneral_1_1inorden__iterador}{inorden\+\_\+iterador} \hyperlink{classArbolGeneral_a704c28b848dbbbf9415e332af907808e}{endinorden} () const 
+\begin{DoxyCompactList}\small\item\em Final de un iterador \hyperlink{classArbolGeneral_1_1inorden__iterador}{inorden\+\_\+iterador}. \end{DoxyCompactList}\item 
+void \hyperlink{classArbolGeneral_a8d849a679a3eb1d87265a63cc6b71a88}{recorrer\+\_\+inorden} () const 
+\begin{DoxyCompactList}\small\item\em Recorrido en inorden.  Muestra el árbol recorriendolo en inorden usando iteradores. \end{DoxyCompactList}\item 
+void \hyperlink{classArbolGeneral_ae491ca4389de3ee7112fc0008ae4cbe9}{recorrer\+\_\+inorden2} (\hyperlink{classArbolGeneral_a12cc1b74a9095d89bc7334290d332f7a}{Nodo} t) const 
+\begin{DoxyCompactList}\small\item\em Recorrido en inorden. \end{DoxyCompactList}\item 
+\hyperlink{classArbolGeneral_1_1postorden__iterador}{postorden\+\_\+iterador} \hyperlink{classArbolGeneral_a5425aa6c376f6c311ab20404044894a1}{beginpostorden} () const 
+\begin{DoxyCompactList}\small\item\em Primer elemento en postorden. \end{DoxyCompactList}\item 
+\hyperlink{classArbolGeneral_1_1postorden__iterador}{postorden\+\_\+iterador} \hyperlink{classArbolGeneral_a953ce440491e887882abf2c75020bb53}{endpostorden} () const 
+\begin{DoxyCompactList}\small\item\em Último elmento. \end{DoxyCompactList}\item 
+void \hyperlink{classArbolGeneral_a6ccd5970d275254bff8ed8d0fce0ffde}{recorrer\+\_\+postorden} () const 
+\begin{DoxyCompactList}\small\item\em Recorrido en postorden.  Recorre el árbol en postorden. Desde la raíz. \end{DoxyCompactList}\item 
+void \hyperlink{classArbolGeneral_aaadd1c2a5867da8cdfa899b6648ffad0}{recorrer\+\_\+postorden2} (\hyperlink{classArbolGeneral_a12cc1b74a9095d89bc7334290d332f7a}{Nodo} t) const 
+\begin{DoxyCompactList}\small\item\em Recorrido postorden. \end{DoxyCompactList}\item 
+void \hyperlink{classArbolGeneral_a63c818bcabf7e606b3a2c8181a8d77d3}{recorrer\+\_\+por\+\_\+niveles} (\hyperlink{classArbolGeneral_a12cc1b74a9095d89bc7334290d332f7a}{Nodo} t) const 
+\begin{DoxyCompactList}\small\item\em Recorrido por niveles. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Métodos privados}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classArbolGeneral_aba5f46f715343b9ee4952c30da065f8f}{destruir} (\hyperlink{structArbolGeneral_1_1nodo}{nodo} $\ast$n)
+\begin{DoxyCompactList}\small\item\em Destruye el subárbol. \end{DoxyCompactList}\item 
+void \hyperlink{classArbolGeneral_a79f31cbba599abea7ab8b2f4ac7bef91}{copiar} (\hyperlink{structArbolGeneral_1_1nodo}{nodo} $\ast$\&dest, \hyperlink{structArbolGeneral_1_1nodo}{nodo} $\ast$orig)
+\begin{DoxyCompactList}\small\item\em Copia un subárbol. \end{DoxyCompactList}\item 
+int \hyperlink{classArbolGeneral_ac53afcc4c99179132bf593781d7c927f}{contar} (const \hyperlink{structArbolGeneral_1_1nodo}{nodo} $\ast$n) const 
+\begin{DoxyCompactList}\small\item\em Cuenta el número de nodos. \end{DoxyCompactList}\item 
+int \hyperlink{classArbolGeneral_a6a56e71e7f38894d58b9649a653d0948}{contar\+\_\+\+Hijos} (\hyperlink{structArbolGeneral_1_1nodo}{nodo} $\ast$n) const 
+\begin{DoxyCompactList}\small\item\em Cuenta el número de hijos. \end{DoxyCompactList}\item 
+bool \hyperlink{classArbolGeneral_a47e7ab8321b8ae2e11fc279caabf72de}{soniguales} (const \hyperlink{structArbolGeneral_1_1nodo}{nodo} $\ast$n1, const \hyperlink{structArbolGeneral_1_1nodo}{nodo} $\ast$n2) const 
+\begin{DoxyCompactList}\small\item\em Comprueba igualdad de dos subárboles. \end{DoxyCompactList}\item 
+void \hyperlink{classArbolGeneral_a444845d1484fa66fb65d84cbf2ac2efd}{escribe\+\_\+arbol} (std\+::ostream \&out, \hyperlink{structArbolGeneral_1_1nodo}{nodo} $\ast$nod) const 
+\begin{DoxyCompactList}\small\item\em Escribe un subárbol. \end{DoxyCompactList}\item 
+void \hyperlink{classArbolGeneral_a73927127a9f5c4e96eccb615ee09077a}{lee\+\_\+arbol} (std\+::istream \&in, \hyperlink{structArbolGeneral_1_1nodo}{nodo} $\ast$\&nod)
+\begin{DoxyCompactList}\small\item\em Lee un subárbol. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Atributos privados}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structArbolGeneral_1_1nodo}{nodo} $\ast$ \hyperlink{classArbolGeneral_a14a859dc79b8df4d5a77b5c871713c9e}{laraiz}
+\begin{DoxyCompactList}\small\item\em Puntero a la raíz. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Amigas}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$class T $>$ }\\std\+::istream \& \hyperlink{classArbolGeneral_ab1318141f030856da7dcfc1c7a162565}{operator$>$$>$} (std\+::istream \&in, \hyperlink{classArbolGeneral}{Arbol\+General}$<$ T $>$ \&v)
+\begin{DoxyCompactList}\small\item\em Operador de extracción de flujo. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class T $>$ }\\ostream \& \hyperlink{classArbolGeneral_a2b19e120d650b0363eed1bfd8c7f5351}{operator$<$$<$} (ostream \&out, const \hyperlink{classArbolGeneral}{Arbol\+General}$<$ T $>$ \&v)
+\begin{DoxyCompactList}\small\item\em Operador de inserción en flujo. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Descripción detallada}
+\subsubsection*{template$<$class Tbase$>$\\*
+class Arbol\+General$<$ Tbase $>$}
+
+T.\+D.\+A. \hyperlink{classArbolGeneral}{Arbol\+General}. 
+
+{\bfseries Definición\+:} Una instancia {\itshape a} del tipo de dato abstracto \hyperlink{classArbolGeneral}{Arbol\+General} sobre un dominio {\itshape Tbase} se puede construir como
+
+
+\begin{DoxyItemize}
+\item Un objeto vacío (árbol vacío) si no contiene ningún elemento. Lo denotamos \{\}.
+\item Un árbol que contiene un elemento destacado, el nodo raíz, con un valor {\itshape e} en el dominio {\itshape Tbase} (denominado {\itshape etiqueta}), y {\itshape k} subárboles $(T_1, \ldots, T_k)$ del T.\+D.\+A. \hyperlink{classArbolGeneral}{Arbol\+General} sobre {\itshape Tbase}.
+\end{DoxyItemize}
+
+Se establece una relación {\itshape padre-\/hijomasalaizquierda-\/hermanoaladerecha} entre cada nodo y los nodos raíz de los subárboles (si los hubiera) que cuelgan de él.
+
+Para poder usar el tipo de dato \hyperlink{classArbolGeneral}{Arbol\+General} se debe incluir el fichero
+
+{\ttfamily \#include \hyperlink{ArbolGeneral_8h}{Arbol\+General.\+h}}
+
+El espacio requerido para el almacenamiento es O(n), donde n es el número de nodos del árbol.
+
+\begin{DoxyAuthor}{Autor}
+Luis Baca Ruiz. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Fecha}
+Diciembre de 2011 
+\end{DoxyDate}
+
+
+\subsubsection{Documentación de los \textquotesingle{}Typedef\textquotesingle{} miembros de la clase}
+\index{Arbol\+General@{Arbol\+General}!Nodo@{Nodo}}
+\index{Nodo@{Nodo}!Arbol\+General@{Arbol\+General}}
+\paragraph[{\texorpdfstring{Nodo}{Nodo}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Tbase$>$ typedef struct {\bf nodo}$\ast$ {\bf Arbol\+General}$<$ Tbase $>$\+::{\bf Nodo}}\hypertarget{classArbolGeneral_a12cc1b74a9095d89bc7334290d332f7a}{}\label{classArbolGeneral_a12cc1b74a9095d89bc7334290d332f7a}
+
+
+Tipo Nodo. 
+
+Este tipo nos permite manejar cada uno de los nodos del árbol. Los valores que tomará serán tantos como nodos en el árbol (para poder referirse a cada uno de ellos) y además un valor destacado {\itshape nulo} (0), que indica que no se refiere a ninguno de ellos.
+
+Una variable {\itshape n} de este tipo se declara
+
+{\ttfamily \hyperlink{classArbolGeneral_a12cc1b74a9095d89bc7334290d332f7a}{Arbol\+General\+::\+Nodo} n;}
+
+Las operaciones válidas sobre el tipo nodo son\+:
+
+
+\begin{DoxyItemize}
+\item Operador de Asignación (=).
+\item Operador de comprobación de igualdad (==).
+\item Operador de comprobación de desigualdad (!=). 
+\end{DoxyItemize}
+
+\subsubsection{Documentación del constructor y destructor}
+\index{Arbol\+General@{Arbol\+General}!Arbol\+General@{Arbol\+General}}
+\index{Arbol\+General@{Arbol\+General}!Arbol\+General@{Arbol\+General}}
+\paragraph[{\texorpdfstring{Arbol\+General()}{ArbolGeneral()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Tbase $>$ {\bf Arbol\+General}$<$ Tbase $>$\+::{\bf Arbol\+General} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classArbolGeneral_a2c792965befd8644246118a09a10123c}{}\label{classArbolGeneral_a2c792965befd8644246118a09a10123c}
+
+
+Constructor por defecto. 
+
+Reserva los recursos e inicializa el árbol a vacío \{\}. La operación se realiza en tiempo O(1). \index{Arbol\+General@{Arbol\+General}!Arbol\+General@{Arbol\+General}}
+\index{Arbol\+General@{Arbol\+General}!Arbol\+General@{Arbol\+General}}
+\paragraph[{\texorpdfstring{Arbol\+General(const Tbase \&e)}{ArbolGeneral(const Tbase &e)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Tbase $>$ {\bf Arbol\+General}$<$ Tbase $>$\+::{\bf Arbol\+General} (
+\begin{DoxyParamCaption}
+\item[{const Tbase \&}]{e}
+\end{DoxyParamCaption}
+)}\hypertarget{classArbolGeneral_a8ddac1a024f05bee96f4c259fad76c4c}{}\label{classArbolGeneral_a8ddac1a024f05bee96f4c259fad76c4c}
+
+
+Constructor de raíz. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em e} & Etiqueta de la raíz\\
+\hline
+\end{DoxyParams}
+Reserva los recursos e inicializa el árbol con un único nodo raíz que tiene la etiqueta {\itshape e}, es decir, el árbol \{e, \{\}, \{\}\}. La operación se realiza en tiempo O(1). \index{Arbol\+General@{Arbol\+General}!Arbol\+General@{Arbol\+General}}
+\index{Arbol\+General@{Arbol\+General}!Arbol\+General@{Arbol\+General}}
+\paragraph[{\texorpdfstring{Arbol\+General(const Arbol\+General$<$ Tbase $>$ \&v)}{ArbolGeneral(const ArbolGeneral< Tbase > &v)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Tbase $>$ {\bf Arbol\+General}$<$ Tbase $>$\+::{\bf Arbol\+General} (
+\begin{DoxyParamCaption}
+\item[{const {\bf Arbol\+General}$<$ Tbase $>$ \&}]{v}
+\end{DoxyParamCaption}
+)}\hypertarget{classArbolGeneral_ad7926f03eb051b9691d57f4e508cad4d}{}\label{classArbolGeneral_ad7926f03eb051b9691d57f4e508cad4d}
+
+
+Constructor de copias. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em v} & \hyperlink{classArbolGeneral}{Arbol\+General} a copiar\\
+\hline
+\end{DoxyParams}
+Construye el árbol duplicando el contenido de {\itshape v} en el árbol receptor. La operación se realiza en tiempo O(n), donde {\itshape n} es el número de elementos de {\itshape v}. \index{Arbol\+General@{Arbol\+General}!````~Arbol\+General@{$\sim$\+Arbol\+General}}
+\index{````~Arbol\+General@{$\sim$\+Arbol\+General}!Arbol\+General@{Arbol\+General}}
+\paragraph[{\texorpdfstring{$\sim$\+Arbol\+General()}{~ArbolGeneral()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Tbase $>$ {\bf Arbol\+General}$<$ Tbase $>$\+::$\sim${\bf Arbol\+General} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classArbolGeneral_a085c45825063913fb958b704f59033f3}{}\label{classArbolGeneral_a085c45825063913fb958b704f59033f3}
+
+
+Destructor. 
+
+Libera los recursos ocupados por el árbol receptor. La operación se realiza en tiempo O(n), donde n es el número de elementos del árbol receptor. 
+
+\subsubsection{Documentación de las funciones miembro}
+\index{Arbol\+General@{Arbol\+General}!altura@{altura}}
+\index{altura@{altura}!Arbol\+General@{Arbol\+General}}
+\paragraph[{\texorpdfstring{altura(\+Nodo t) const }{altura(Nodo t) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Tbase $>$ int {\bf Arbol\+General}$<$ Tbase $>$\+::altura (
+\begin{DoxyParamCaption}
+\item[{{\bf Nodo}}]{t}
+\end{DoxyParamCaption}
+) const}\hypertarget{classArbolGeneral_a926c58d7a4238803d6e843baf92798ba}{}\label{classArbolGeneral_a926c58d7a4238803d6e843baf92798ba}
+
+
+Altura de un nodo. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em t} & Nodo que se calculará la altura. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Devuelve la altura de un nodo. 
+\end{DoxyReturn}
+\index{Arbol\+General@{Arbol\+General}!asignar\+\_\+subarbol@{asignar\+\_\+subarbol}}
+\index{asignar\+\_\+subarbol@{asignar\+\_\+subarbol}!Arbol\+General@{Arbol\+General}}
+\paragraph[{\texorpdfstring{asignar\+\_\+subarbol(const Arbol\+General$<$ Tbase $>$ \&orig, const Nodo nod)}{asignar_subarbol(const ArbolGeneral< Tbase > &orig, const Nodo nod)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Tbase $>$ void {\bf Arbol\+General}$<$ Tbase $>$\+::asignar\+\_\+subarbol (
+\begin{DoxyParamCaption}
+\item[{const {\bf Arbol\+General}$<$ Tbase $>$ \&}]{orig, }
+\item[{const {\bf Nodo}}]{nod}
+\end{DoxyParamCaption}
+)}\hypertarget{classArbolGeneral_ad9fddc80b179cac8eddc113a048334c1}{}\label{classArbolGeneral_ad9fddc80b179cac8eddc113a048334c1}
+
+
+Copia subárbol. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em orig} & Árbol desde el que se va a copiar una rama \\
+\hline
+{\em nod} & Nodo raíz del subárbol que se copia. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondición}
+{\itshape nod} es un nodo del árbol {\itshape orig} y no es nulo
+\end{DoxyPrecond}
+El árbol receptor acaba con un valor copia del subárbol que cuelga del nodo {\itshape nod} en el árbol {\itshape orig}. La operación se realiza en tiempo O(n), donde {\itshape n} es el número de nodos del subárbol copiado. \index{Arbol\+General@{Arbol\+General}!Asigna\+Raiz@{Asigna\+Raiz}}
+\index{Asigna\+Raiz@{Asigna\+Raiz}!Arbol\+General@{Arbol\+General}}
+\paragraph[{\texorpdfstring{Asigna\+Raiz(const Tbase \&e)}{AsignaRaiz(const Tbase &e)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Tbase $>$ void {\bf Arbol\+General}$<$ Tbase $>$\+::Asigna\+Raiz (
+\begin{DoxyParamCaption}
+\item[{const Tbase \&}]{e}
+\end{DoxyParamCaption}
+)}\hypertarget{classArbolGeneral_a84781986cd57390540600494303b0e9d}{}\label{classArbolGeneral_a84781986cd57390540600494303b0e9d}
+
+
+Asignar nodo raíz. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em e} & Etiqueta a asignar al nodo raíz\\
+\hline
+\end{DoxyParams}
+Vacía el árbol receptor y le asigna como valor el árbol de un único nodo cuya etiqueta es {\itshape e}. \index{Arbol\+General@{Arbol\+General}!begininorden@{begininorden}}
+\index{begininorden@{begininorden}!Arbol\+General@{Arbol\+General}}
+\paragraph[{\texorpdfstring{begininorden() const }{begininorden() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Tbase $>$ {\bf Arbol\+General}$<$ Tbase $>$\+::{\bf inorden\+\_\+iterador} {\bf Arbol\+General}$<$ Tbase $>$\+::begininorden (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classArbolGeneral_ab2c5b53cb51441b575f81bef96b1973b}{}\label{classArbolGeneral_ab2c5b53cb51441b575f81bef96b1973b}
+
+
+Comienzo de un iterador \hyperlink{classArbolGeneral_1_1inorden__iterador}{inorden\+\_\+iterador}. 
+
+\begin{DoxyReturn}{Devuelve}
+un iterador de tipo inorden apuntando a la raiz. 
+\end{DoxyReturn}
+\index{Arbol\+General@{Arbol\+General}!beginpostorden@{beginpostorden}}
+\index{beginpostorden@{beginpostorden}!Arbol\+General@{Arbol\+General}}
+\paragraph[{\texorpdfstring{beginpostorden() const }{beginpostorden() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Tbase $>$ {\bf Arbol\+General}$<$ Tbase $>$\+::{\bf postorden\+\_\+iterador} {\bf Arbol\+General}$<$ Tbase $>$\+::beginpostorden (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classArbolGeneral_a5425aa6c376f6c311ab20404044894a1}{}\label{classArbolGeneral_a5425aa6c376f6c311ab20404044894a1}
+
+
+Primer elemento en postorden. 
+
+\begin{DoxyReturn}{Devuelve}
+Devuelve un iterador al primer elemento en postorden. 
+\end{DoxyReturn}
+\index{Arbol\+General@{Arbol\+General}!beginpreorden@{beginpreorden}}
+\index{beginpreorden@{beginpreorden}!Arbol\+General@{Arbol\+General}}
+\paragraph[{\texorpdfstring{beginpreorden() const }{beginpreorden() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Tbase $>$ {\bf Arbol\+General}$<$ Tbase $>$\+::{\bf preorden\+\_\+iterador} {\bf Arbol\+General}$<$ Tbase $>$\+::beginpreorden (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classArbolGeneral_a23b961cc1e6a774bb9deed365a2804af}{}\label{classArbolGeneral_a23b961cc1e6a774bb9deed365a2804af}
+
+
+Comienzo de un iterador \hyperlink{classArbolGeneral_1_1preorden__iterador}{preorden\+\_\+iterador}. 
+
+\begin{DoxyReturn}{Devuelve}
+un iterador de tipo preorden apuntando a la raiz. 
+\end{DoxyReturn}
+\index{Arbol\+General@{Arbol\+General}!beginreverse\+\_\+preorden@{beginreverse\+\_\+preorden}}
+\index{beginreverse\+\_\+preorden@{beginreverse\+\_\+preorden}!Arbol\+General@{Arbol\+General}}
+\paragraph[{\texorpdfstring{beginreverse\+\_\+preorden() const }{beginreverse_preorden() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Tbase $>$ {\bf Arbol\+General}$<$ Tbase $>$\+::{\bf reverse\+\_\+preorden\+\_\+iterador} {\bf Arbol\+General}$<$ Tbase $>$\+::beginreverse\+\_\+preorden (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classArbolGeneral_a731b1dcad74872e1b04cc3c9f7992521}{}\label{classArbolGeneral_a731b1dcad74872e1b04cc3c9f7992521}
+
+
+Comienzo de un iterador \hyperlink{classArbolGeneral_1_1reverse__preorden__iterador}{reverse\+\_\+preorden\+\_\+iterador}. 
+
+\begin{DoxyReturn}{Devuelve}
+un iterador de tipo reverse\+\_\+preorden apuntando al penultimo elemento. 
+\end{DoxyReturn}
+\index{Arbol\+General@{Arbol\+General}!clear@{clear}}
+\index{clear@{clear}!Arbol\+General@{Arbol\+General}}
+\paragraph[{\texorpdfstring{clear()}{clear()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Tbase $>$ void {\bf Arbol\+General}$<$ Tbase $>$\+::clear (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classArbolGeneral_a3ae21db42586b23ccc082aeb321db56f}{}\label{classArbolGeneral_a3ae21db42586b23ccc082aeb321db56f}
+
+
+Borra todos los elementos. 
+
+Borra todos los elementos del árbol receptor. Cuando termina, el árbol está vacía. La operación se realiza en tiempo O(n), donde {\itshape n} es el número de elementos del árbol receptor. \index{Arbol\+General@{Arbol\+General}!contar@{contar}}
+\index{contar@{contar}!Arbol\+General@{Arbol\+General}}
+\paragraph[{\texorpdfstring{contar(const nodo $\ast$n) const }{contar(const nodo *n) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Tbase $>$ int {\bf Arbol\+General}$<$ Tbase $>$\+::contar (
+\begin{DoxyParamCaption}
+\item[{const {\bf nodo} $\ast$}]{n}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classArbolGeneral_ac53afcc4c99179132bf593781d7c927f}{}\label{classArbolGeneral_ac53afcc4c99179132bf593781d7c927f}
+
+
+Cuenta el número de nodos. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em n} & Nodo del que cuelga el subárbol de nodos a contabilizar.\\
+\hline
+\end{DoxyParams}
+Cuenta cuántos nodos cuelgan de {\itshape n}, incluido éste. \index{Arbol\+General@{Arbol\+General}!contar\+\_\+\+Hijos@{contar\+\_\+\+Hijos}}
+\index{contar\+\_\+\+Hijos@{contar\+\_\+\+Hijos}!Arbol\+General@{Arbol\+General}}
+\paragraph[{\texorpdfstring{contar\+\_\+\+Hijos(nodo $\ast$n) const }{contar_Hijos(nodo *n) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Tbase $>$ int {\bf Arbol\+General}$<$ Tbase $>$\+::contar\+\_\+\+Hijos (
+\begin{DoxyParamCaption}
+\item[{{\bf nodo} $\ast$}]{n}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classArbolGeneral_a6a56e71e7f38894d58b9649a653d0948}{}\label{classArbolGeneral_a6a56e71e7f38894d58b9649a653d0948}
+
+
+Cuenta el número de hijos. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em n} & Nodo padre del que cuelgan los hijos. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Número de hijos que tiene ese nodo. 
+\end{DoxyReturn}
+\index{Arbol\+General@{Arbol\+General}!copiar@{copiar}}
+\index{copiar@{copiar}!Arbol\+General@{Arbol\+General}}
+\paragraph[{\texorpdfstring{copiar(nodo $\ast$\&dest, nodo $\ast$orig)}{copiar(nodo *&dest, nodo *orig)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Tbase $>$ void {\bf Arbol\+General}$<$ Tbase $>$\+::copiar (
+\begin{DoxyParamCaption}
+\item[{{\bf nodo} $\ast$\&}]{dest, }
+\item[{{\bf nodo} $\ast$}]{orig}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classArbolGeneral_a79f31cbba599abea7ab8b2f4ac7bef91}{}\label{classArbolGeneral_a79f31cbba599abea7ab8b2f4ac7bef91}
+
+
+Copia un subárbol. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em dest} & Referencia al puntero del que cuelga la copia \\
+\hline
+{\em orig} & Puntero a la raíz del subárbol a copiar\\
+\hline
+\end{DoxyParams}
+Hace una copia de todo el subárbol que cuelga de {\itshape orig} en el puntero {\itshape dest}. Es importante ver que en {\itshape dest-\/$>$padre} (si existe) no se asigna ningún valor, pues no se conoce. \index{Arbol\+General@{Arbol\+General}!destruir@{destruir}}
+\index{destruir@{destruir}!Arbol\+General@{Arbol\+General}}
+\paragraph[{\texorpdfstring{destruir(nodo $\ast$n)}{destruir(nodo *n)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Tbase $>$ void {\bf Arbol\+General}$<$ Tbase $>$\+::destruir (
+\begin{DoxyParamCaption}
+\item[{{\bf nodo} $\ast$}]{n}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classArbolGeneral_aba5f46f715343b9ee4952c30da065f8f}{}\label{classArbolGeneral_aba5f46f715343b9ee4952c30da065f8f}
+
+
+Destruye el subárbol. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em n} & Nodo a destruir, junto con sus descendientes\\
+\hline
+\end{DoxyParams}
+Libera los recursos que ocupan {\itshape n} y sus descendientes. \index{Arbol\+General@{Arbol\+General}!empty@{empty}}
+\index{empty@{empty}!Arbol\+General@{Arbol\+General}}
+\paragraph[{\texorpdfstring{empty() const }{empty() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Tbase $>$ bool {\bf Arbol\+General}$<$ Tbase $>$\+::empty (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classArbolGeneral_ab7b59c8fe7e74f78f3533965460a6c9a}{}\label{classArbolGeneral_ab7b59c8fe7e74f78f3533965460a6c9a}
+
+
+Vacío. 
+
+\begin{DoxyReturn}{Devuelve}
+Devuelve {\itshape true} si el número de elementos del árbol receptor es cero, {\itshape false} en caso contrario.
+\end{DoxyReturn}
+La operación se realiza en tiempo O(1). \index{Arbol\+General@{Arbol\+General}!endinorden@{endinorden}}
+\index{endinorden@{endinorden}!Arbol\+General@{Arbol\+General}}
+\paragraph[{\texorpdfstring{endinorden() const }{endinorden() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Tbase $>$ {\bf Arbol\+General}$<$ Tbase $>$\+::{\bf inorden\+\_\+iterador} {\bf Arbol\+General}$<$ Tbase $>$\+::endinorden (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classArbolGeneral_a704c28b848dbbbf9415e332af907808e}{}\label{classArbolGeneral_a704c28b848dbbbf9415e332af907808e}
+
+
+Final de un iterador \hyperlink{classArbolGeneral_1_1inorden__iterador}{inorden\+\_\+iterador}. 
+
+\begin{DoxyReturn}{Devuelve}
+Un iterador de tipo inorden apuntando al final. 
+\end{DoxyReturn}
+\index{Arbol\+General@{Arbol\+General}!endpostorden@{endpostorden}}
+\index{endpostorden@{endpostorden}!Arbol\+General@{Arbol\+General}}
+\paragraph[{\texorpdfstring{endpostorden() const }{endpostorden() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Tbase $>$ {\bf Arbol\+General}$<$ Tbase $>$\+::{\bf postorden\+\_\+iterador} {\bf Arbol\+General}$<$ Tbase $>$\+::endpostorden (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classArbolGeneral_a953ce440491e887882abf2c75020bb53}{}\label{classArbolGeneral_a953ce440491e887882abf2c75020bb53}
+
+
+Último elmento. 
+
+\begin{DoxyReturn}{Devuelve}
+Devuelve un iterador al último elemento en postorden. 
+\end{DoxyReturn}
+\index{Arbol\+General@{Arbol\+General}!endpreorden@{endpreorden}}
+\index{endpreorden@{endpreorden}!Arbol\+General@{Arbol\+General}}
+\paragraph[{\texorpdfstring{endpreorden() const }{endpreorden() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Tbase $>$ {\bf Arbol\+General}$<$ Tbase $>$\+::{\bf preorden\+\_\+iterador} {\bf Arbol\+General}$<$ Tbase $>$\+::endpreorden (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classArbolGeneral_a687dd84e5f1a838349d3f482333c8ac6}{}\label{classArbolGeneral_a687dd84e5f1a838349d3f482333c8ac6}
+
+
+Final de un iterador \hyperlink{classArbolGeneral_1_1preorden__iterador}{preorden\+\_\+iterador}. 
+
+\begin{DoxyReturn}{Devuelve}
+un iterador de tipo \hyperlink{classArbolGeneral_1_1preorden__iterador}{preorden\+\_\+iterador} apuntando al final. 
+\end{DoxyReturn}
+\index{Arbol\+General@{Arbol\+General}!endreverse\+\_\+preorden@{endreverse\+\_\+preorden}}
+\index{endreverse\+\_\+preorden@{endreverse\+\_\+preorden}!Arbol\+General@{Arbol\+General}}
+\paragraph[{\texorpdfstring{endreverse\+\_\+preorden() const }{endreverse_preorden() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Tbase $>$ {\bf Arbol\+General}$<$ Tbase $>$\+::{\bf reverse\+\_\+preorden\+\_\+iterador} {\bf Arbol\+General}$<$ Tbase $>$\+::endreverse\+\_\+preorden (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classArbolGeneral_a88b7185943bd677f9d308228a1580519}{}\label{classArbolGeneral_a88b7185943bd677f9d308228a1580519}
+
+
+Final de un iterador \hyperlink{classArbolGeneral_1_1reverse__preorden__iterador}{reverse\+\_\+preorden\+\_\+iterador}. 
+
+\begin{DoxyReturn}{Devuelve}
+un iterador de tipo \hyperlink{classArbolGeneral_1_1preorden__iterador}{preorden\+\_\+iterador} apuntando al primer elemento. 
+\end{DoxyReturn}
+\index{Arbol\+General@{Arbol\+General}!escribe\+\_\+arbol@{escribe\+\_\+arbol}}
+\index{escribe\+\_\+arbol@{escribe\+\_\+arbol}!Arbol\+General@{Arbol\+General}}
+\paragraph[{\texorpdfstring{escribe\+\_\+arbol(std\+::ostream \&out, nodo $\ast$nod) const }{escribe_arbol(std::ostream &out, nodo *nod) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Tbase$>$ void {\bf Arbol\+General}$<$ Tbase $>$\+::escribe\+\_\+arbol (
+\begin{DoxyParamCaption}
+\item[{std\+::ostream \&}]{out, }
+\item[{{\bf nodo} $\ast$}]{nod}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classArbolGeneral_a444845d1484fa66fb65d84cbf2ac2efd}{}\label{classArbolGeneral_a444845d1484fa66fb65d84cbf2ac2efd}
+
+
+Escribe un subárbol. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em out} & Stream de salida donde escribir \\
+\hline
+{\em nod} & Nodo del que cuelga el subárbol a escribir\\
+\hline
+\end{DoxyParams}
+Escribe en el flujo de salida todos los nodos del subárbol que cuelga del nodo {\itshape nod} siguiendo un recorrido en preorden. La forma de impresión de cada nodo es\+:
+
+
+\begin{DoxyItemize}
+\item Si el nodo es nulo, imprime el carácter \textquotesingle{}x\textquotesingle{}.
+\item Si el nodo no es nulo, imprime el carácter \textquotesingle{}n\textquotesingle{} seguido de un espacio, al que sigue la impresión de la etiqueta 
+\end{DoxyItemize}\index{Arbol\+General@{Arbol\+General}!etiqueta@{etiqueta}}
+\index{etiqueta@{etiqueta}!Arbol\+General@{Arbol\+General}}
+\paragraph[{\texorpdfstring{etiqueta(const Nodo n)}{etiqueta(const Nodo n)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Tbase $>$ Tbase \& {\bf Arbol\+General}$<$ Tbase $>$\+::etiqueta (
+\begin{DoxyParamCaption}
+\item[{const {\bf Nodo}}]{n}
+\end{DoxyParamCaption}
+)}\hypertarget{classArbolGeneral_a69781940bd69c1e473e0c4b2495cd7a1}{}\label{classArbolGeneral_a69781940bd69c1e473e0c4b2495cd7a1}
+
+
+Etiqueta de un nodo. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em n} & Nodo en el que se encuentra el elemento. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondición}
+{\itshape n} no es nulo 
+\end{DoxyPrecond}
+\begin{DoxyReturn}{Devuelve}
+Referencia al elemento del nodo {\itshape n} 
+\end{DoxyReturn}
+Devuelve una referencia al elemento del nodo {\itshape n} y por tanto se puede modificiar o usar el valor. La operación se realiza en tiempo O(1). \index{Arbol\+General@{Arbol\+General}!etiqueta@{etiqueta}}
+\index{etiqueta@{etiqueta}!Arbol\+General@{Arbol\+General}}
+\paragraph[{\texorpdfstring{etiqueta(const Nodo n) const }{etiqueta(const Nodo n) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Tbase $>$ const Tbase \& {\bf Arbol\+General}$<$ Tbase $>$\+::etiqueta (
+\begin{DoxyParamCaption}
+\item[{const {\bf Nodo}}]{n}
+\end{DoxyParamCaption}
+) const}\hypertarget{classArbolGeneral_a91eec8a0f64edface3d9473408eec3b8}{}\label{classArbolGeneral_a91eec8a0f64edface3d9473408eec3b8}
+
+
+Etiqueta de un nodo. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em n} & Nodo en el que se encuentra el elemento. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondición}
+{\itshape n} no es nulo 
+\end{DoxyPrecond}
+\begin{DoxyReturn}{Devuelve}
+Referencia constante al elemento del nodo {\itshape n}.
+\end{DoxyReturn}
+Devuelve una referencia al elemento del nodo {\itshape n}. Es constante y por tanto no se puede modificiar el valor. La operación se realiza en tiempo O(1). \index{Arbol\+General@{Arbol\+General}!hermanoderecha@{hermanoderecha}}
+\index{hermanoderecha@{hermanoderecha}!Arbol\+General@{Arbol\+General}}
+\paragraph[{\texorpdfstring{hermanoderecha(const Nodo n) const }{hermanoderecha(const Nodo n) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Tbase $>$ {\bf Arbol\+General}$<$ Tbase $>$\+::{\bf Nodo} {\bf Arbol\+General}$<$ Tbase $>$\+::hermanoderecha (
+\begin{DoxyParamCaption}
+\item[{const {\bf Nodo}}]{n}
+\end{DoxyParamCaption}
+) const}\hypertarget{classArbolGeneral_ab5adf770dcec8d83d8428d62df82ccb9}{}\label{classArbolGeneral_ab5adf770dcec8d83d8428d62df82ccb9}
+
+
+Hermano derecha. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em n} & Nodo del que se quiere obtener el hermano a la derecha. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondición}
+{\itshape n} no es nulo 
+\end{DoxyPrecond}
+\begin{DoxyReturn}{Devuelve}
+Nodo hermano a la derecha
+\end{DoxyReturn}
+Devuelve el nodo hermano a la derecha de {\itshape n}, que valdrá 0 (nulo) si no tiene hermano a la derecha. La operación se realiza en tiempo O(1). \index{Arbol\+General@{Arbol\+General}!hijomasizquierda@{hijomasizquierda}}
+\index{hijomasizquierda@{hijomasizquierda}!Arbol\+General@{Arbol\+General}}
+\paragraph[{\texorpdfstring{hijomasizquierda(const Nodo n) const }{hijomasizquierda(const Nodo n) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Tbase $>$ {\bf Arbol\+General}$<$ Tbase $>$\+::{\bf Nodo} {\bf Arbol\+General}$<$ Tbase $>$\+::hijomasizquierda (
+\begin{DoxyParamCaption}
+\item[{const {\bf Nodo}}]{n}
+\end{DoxyParamCaption}
+) const}\hypertarget{classArbolGeneral_a3b985141d1998318085003885912b349}{}\label{classArbolGeneral_a3b985141d1998318085003885912b349}
+
+
+Hijo más a la izquierda. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em n} & Nodo del que se quiere obtener el hijo más a la izquierda. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondición}
+{\itshape n} no es nulo 
+\end{DoxyPrecond}
+\begin{DoxyReturn}{Devuelve}
+Nodo hijo más a la izquierda
+\end{DoxyReturn}
+Devuelve el nodo hijo más a la izquierda de {\itshape n}, que valdrá 0 (nulo) si no tiene hijo más a la izquierda. La operación se realiza en tiempo O(1). \index{Arbol\+General@{Arbol\+General}!insertar\+\_\+hermanoderecha@{insertar\+\_\+hermanoderecha}}
+\index{insertar\+\_\+hermanoderecha@{insertar\+\_\+hermanoderecha}!Arbol\+General@{Arbol\+General}}
+\paragraph[{\texorpdfstring{insertar\+\_\+hermanoderecha(\+Nodo n, Arbol\+General$<$ Tbase $>$ \&rama)}{insertar_hermanoderecha(Nodo n, ArbolGeneral< Tbase > &rama)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Tbase $>$ void {\bf Arbol\+General}$<$ Tbase $>$\+::insertar\+\_\+hermanoderecha (
+\begin{DoxyParamCaption}
+\item[{{\bf Nodo}}]{n, }
+\item[{{\bf Arbol\+General}$<$ Tbase $>$ \&}]{rama}
+\end{DoxyParamCaption}
+)}\hypertarget{classArbolGeneral_a855d44f14a9ef638f8dd46376fc2f961}{}\label{classArbolGeneral_a855d44f14a9ef638f8dd46376fc2f961}
+
+
+Insertar subárbol hermano derecha. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em n} & Nodo al que se insertará el árbol {\itshape rama} como hermano a la derecha. \\
+\hline
+{\em rama} & Árbol que se insertará como hermano derecho. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondición}
+{\itshape n} no es nulo y es un nodo válido del árbol receptor
+\end{DoxyPrecond}
+El árbol {\itshape rama} se inserta como hermano derecho del nodo {\itshape n} del árbol receptor. El árbol {\itshape rama} queda vacío y los nodos que estaban a la derecha del nodo {\itshape n} pasan a la derecha del nuevo nodo. \index{Arbol\+General@{Arbol\+General}!insertar\+\_\+hijomasizquierda@{insertar\+\_\+hijomasizquierda}}
+\index{insertar\+\_\+hijomasizquierda@{insertar\+\_\+hijomasizquierda}!Arbol\+General@{Arbol\+General}}
+\paragraph[{\texorpdfstring{insertar\+\_\+hijomasizquierda(\+Nodo n, Arbol\+General$<$ Tbase $>$ \&rama)}{insertar_hijomasizquierda(Nodo n, ArbolGeneral< Tbase > &rama)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Tbase $>$ void {\bf Arbol\+General}$<$ Tbase $>$\+::insertar\+\_\+hijomasizquierda (
+\begin{DoxyParamCaption}
+\item[{{\bf Nodo}}]{n, }
+\item[{{\bf Arbol\+General}$<$ Tbase $>$ \&}]{rama}
+\end{DoxyParamCaption}
+)}\hypertarget{classArbolGeneral_acf95226edb2a4e4c7fba82aaa82d0ec9}{}\label{classArbolGeneral_acf95226edb2a4e4c7fba82aaa82d0ec9}
+
+
+Insertar subárbol hijo más a la izquierda. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em n} & Nodo al que se insertará el árbol {\itshape rama} como hijo más a la izquierda. \\
+\hline
+{\em rama} & Árbol que se insertará como hijo más a la izquierda. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondición}
+{\itshape n} no es nulo y es un nodo válido del árbol receptor
+\end{DoxyPrecond}
+El árbol {\itshape rama} se inserta como hijo más a la izquierda del nodo {\itshape n} del árbol receptor. El árbol {\itshape rama} queda vacío y los nodos que estaban en el subárbol hijo más a la izquierda de {\itshape n} se desplazan a la derecha, de forma que el anterior hijo más a la izquierda pasa a ser el hermano a la derecha del nuevo hijo más a la izquierda. \index{Arbol\+General@{Arbol\+General}!lee\+\_\+arbol@{lee\+\_\+arbol}}
+\index{lee\+\_\+arbol@{lee\+\_\+arbol}!Arbol\+General@{Arbol\+General}}
+\paragraph[{\texorpdfstring{lee\+\_\+arbol(std\+::istream \&in, nodo $\ast$\&nod)}{lee_arbol(std::istream &in, nodo *&nod)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Tbase$>$ void {\bf Arbol\+General}$<$ Tbase $>$\+::lee\+\_\+arbol (
+\begin{DoxyParamCaption}
+\item[{std\+::istream \&}]{in, }
+\item[{{\bf nodo} $\ast$\&}]{nod}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classArbolGeneral_a73927127a9f5c4e96eccb615ee09077a}{}\label{classArbolGeneral_a73927127a9f5c4e96eccb615ee09077a}
+
+
+Lee un subárbol. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em in} & Stream de entrada desde el que leer \\
+\hline
+{\em nod} & Referencia al nodo que contendrá el subárbol leído\\
+\hline
+\end{DoxyParams}
+Lee del flujo de entrada {\itshape in} los elementos de un árbol según el formato que se presenta en la función de escritura.
+
+\begin{DoxySeeAlso}{Ver también}
+\hyperlink{classArbolGeneral_a444845d1484fa66fb65d84cbf2ac2efd}{escribe\+\_\+arbol} 
+\end{DoxySeeAlso}
+\index{Arbol\+General@{Arbol\+General}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!Arbol\+General@{Arbol\+General}}
+\paragraph[{\texorpdfstring{operator"!=(const Arbol\+General$<$ Tbase $>$ \&v) const }{operator!=(const ArbolGeneral< Tbase > &v) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Tbase $>$ bool {\bf Arbol\+General}$<$ Tbase $>$\+::operator!= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Arbol\+General}$<$ Tbase $>$ \&}]{v}
+\end{DoxyParamCaption}
+) const}\hypertarget{classArbolGeneral_ab5b783cb068a394511f99e08a827cdda}{}\label{classArbolGeneral_ab5b783cb068a394511f99e08a827cdda}
+
+
+Operador de comparación (diferencia) 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em v} & \hyperlink{classArbolGeneral}{Arbol\+General} con el que se desea comparar. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Devuelve {\itshape true} si el árbol receptor no tiene los mismos elementos y en el mismo orden, {\itshape false} en caso contrario.
+\end{DoxyReturn}
+La operación se realiza en tiempo O(n). \index{Arbol\+General@{Arbol\+General}!operator=@{operator=}}
+\index{operator=@{operator=}!Arbol\+General@{Arbol\+General}}
+\paragraph[{\texorpdfstring{operator=(const Arbol\+General$<$ Tbase $>$ \&v)}{operator=(const ArbolGeneral< Tbase > &v)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Tbase $>$ {\bf Arbol\+General}$<$ Tbase $>$ \& {\bf Arbol\+General}$<$ Tbase $>$\+::operator= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Arbol\+General}$<$ Tbase $>$ \&}]{v}
+\end{DoxyParamCaption}
+)}\hypertarget{classArbolGeneral_aebd3723e9929b905445127a754a26759}{}\label{classArbolGeneral_aebd3723e9929b905445127a754a26759}
+
+
+Operador de asignación. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em v} & \hyperlink{classArbolGeneral}{Arbol\+General} a copiar \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Referencia al árbol receptor.
+\end{DoxyReturn}
+Asigna el valor del árbol duplicando el contenido de {\itshape v} en el árbol receptor. La operación se realiza en tiempo O(n), donde {\itshape n} es el número de elementos de {\itshape v}. \index{Arbol\+General@{Arbol\+General}!operator==@{operator==}}
+\index{operator==@{operator==}!Arbol\+General@{Arbol\+General}}
+\paragraph[{\texorpdfstring{operator==(const Arbol\+General$<$ Tbase $>$ \&v) const }{operator==(const ArbolGeneral< Tbase > &v) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Tbase $>$ bool {\bf Arbol\+General}$<$ Tbase $>$\+::operator== (
+\begin{DoxyParamCaption}
+\item[{const {\bf Arbol\+General}$<$ Tbase $>$ \&}]{v}
+\end{DoxyParamCaption}
+) const}\hypertarget{classArbolGeneral_a5c7db1c3f26d29b887ba906d02397a8d}{}\label{classArbolGeneral_a5c7db1c3f26d29b887ba906d02397a8d}
+
+
+Operador de comparación (igualdad) 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em v} & \hyperlink{classArbolGeneral}{Arbol\+General} con el que se desea comparar. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Devuelve {\itshape true} si el árbol receptor tiene los mismos elementos y en el mismo orden, {\itshape false} en caso contrario.
+\end{DoxyReturn}
+La operación se realiza en tiempo O(n). \begin{DoxySeeAlso}{Ver también}
+\hyperlink{classArbolGeneral_a47e7ab8321b8ae2e11fc279caabf72de}{soniguales} 
+\end{DoxySeeAlso}
+\index{Arbol\+General@{Arbol\+General}!padre@{padre}}
+\index{padre@{padre}!Arbol\+General@{Arbol\+General}}
+\paragraph[{\texorpdfstring{padre(const Nodo n) const }{padre(const Nodo n) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Tbase $>$ {\bf Arbol\+General}$<$ Tbase $>$\+::{\bf Nodo} {\bf Arbol\+General}$<$ Tbase $>$\+::padre (
+\begin{DoxyParamCaption}
+\item[{const {\bf Nodo}}]{n}
+\end{DoxyParamCaption}
+) const}\hypertarget{classArbolGeneral_a7be3261ec252df6456acf5524e732b7c}{}\label{classArbolGeneral_a7be3261ec252df6456acf5524e732b7c}
+
+
+Nodo padre. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em n} & Nodo del que se quiere obtener el padre. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondición}
+{\itshape n} no es nulo 
+\end{DoxyPrecond}
+\begin{DoxyReturn}{Devuelve}
+Nodo padre
+\end{DoxyReturn}
+Devuelve el nodo padre de {\itshape n}, que valdrá 0 (nulo) si es la raíz. La operación se realiza en tiempo O(1). \index{Arbol\+General@{Arbol\+General}!podar\+\_\+hermanoderecha@{podar\+\_\+hermanoderecha}}
+\index{podar\+\_\+hermanoderecha@{podar\+\_\+hermanoderecha}!Arbol\+General@{Arbol\+General}}
+\paragraph[{\texorpdfstring{podar\+\_\+hermanoderecha(\+Nodo n, Arbol\+General$<$ Tbase $>$ \&dest)}{podar_hermanoderecha(Nodo n, ArbolGeneral< Tbase > &dest)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Tbase $>$ void {\bf Arbol\+General}$<$ Tbase $>$\+::podar\+\_\+hermanoderecha (
+\begin{DoxyParamCaption}
+\item[{{\bf Nodo}}]{n, }
+\item[{{\bf Arbol\+General}$<$ Tbase $>$ \&}]{dest}
+\end{DoxyParamCaption}
+)}\hypertarget{classArbolGeneral_a81282ccc37494f1e13042e06ea475fb6}{}\label{classArbolGeneral_a81282ccc37494f1e13042e06ea475fb6}
+
+
+Podar subárbol hermano derecha. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em n} & Nodo al que se le podará la rama hermano derecha. \\
+\hline
+{\em dest} & Árbol que recibe la rama cortada \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondición}
+{\itshape n} no es nulo y es un nodo válido del árbol receptor.
+\end{DoxyPrecond}
+Asigna un nuevo valor al árbol {\itshape dest}, con todos los elementos del subárbol hermano derecho del nodo {\itshape n} en el árbol receptor. Éste se queda sin dichos nodos. La operación se realiza en tiempo O(1). \index{Arbol\+General@{Arbol\+General}!podar\+\_\+hijomasizquierda@{podar\+\_\+hijomasizquierda}}
+\index{podar\+\_\+hijomasizquierda@{podar\+\_\+hijomasizquierda}!Arbol\+General@{Arbol\+General}}
+\paragraph[{\texorpdfstring{podar\+\_\+hijomasizquierda(\+Nodo n, Arbol\+General$<$ Tbase $>$ \&dest)}{podar_hijomasizquierda(Nodo n, ArbolGeneral< Tbase > &dest)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Tbase $>$ void {\bf Arbol\+General}$<$ Tbase $>$\+::podar\+\_\+hijomasizquierda (
+\begin{DoxyParamCaption}
+\item[{{\bf Nodo}}]{n, }
+\item[{{\bf Arbol\+General}$<$ Tbase $>$ \&}]{dest}
+\end{DoxyParamCaption}
+)}\hypertarget{classArbolGeneral_a7f2fa2d9be4af4b7be1c334819a04c39}{}\label{classArbolGeneral_a7f2fa2d9be4af4b7be1c334819a04c39}
+
+
+Podar subárbol hijo más a la izquierda. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em n} & Nodo al que se le podará la rama hijo más a la izquierda. \\
+\hline
+{\em dest} & Árbol que recibe la rama cortada \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondición}
+{\itshape n} no es nulo y es un nodo válido del árbol receptor.
+\end{DoxyPrecond}
+Asigna un nuevo valor al árbol {\itshape dest}, con todos los elementos del subárbol izquierdo del nodo {\itshape n} en el árbol receptor. Éste se queda sin dichos nodos. La operación se realiza en tiempo O(1). \index{Arbol\+General@{Arbol\+General}!raiz@{raiz}}
+\index{raiz@{raiz}!Arbol\+General@{Arbol\+General}}
+\paragraph[{\texorpdfstring{raiz() const }{raiz() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Tbase $>$ {\bf Arbol\+General}$<$ Tbase $>$\+::{\bf Nodo} {\bf Arbol\+General}$<$ Tbase $>$\+::raiz (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classArbolGeneral_ae33520448eb3f38a597b8c27579b5ec8}{}\label{classArbolGeneral_ae33520448eb3f38a597b8c27579b5ec8}
+
+
+Raíz del árbol. 
+
+\begin{DoxyReturn}{Devuelve}
+Nodo raíz del árbol receptor
+\end{DoxyReturn}
+Devuelve el nodo raíz, que es 0 (nulo) si el árbol está vacío. La operación se realiza en tiempo O(1). \index{Arbol\+General@{Arbol\+General}!recorrer\+\_\+inorden@{recorrer\+\_\+inorden}}
+\index{recorrer\+\_\+inorden@{recorrer\+\_\+inorden}!Arbol\+General@{Arbol\+General}}
+\paragraph[{\texorpdfstring{recorrer\+\_\+inorden() const }{recorrer_inorden() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Tbase $>$ void {\bf Arbol\+General}$<$ Tbase $>$\+::recorrer\+\_\+inorden (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classArbolGeneral_a8d849a679a3eb1d87265a63cc6b71a88}{}\label{classArbolGeneral_a8d849a679a3eb1d87265a63cc6b71a88}
+
+
+Recorrido en inorden.  Muestra el árbol recorriendolo en inorden usando iteradores. 
+
+\index{Arbol\+General@{Arbol\+General}!recorrer\+\_\+inorden2@{recorrer\+\_\+inorden2}}
+\index{recorrer\+\_\+inorden2@{recorrer\+\_\+inorden2}!Arbol\+General@{Arbol\+General}}
+\paragraph[{\texorpdfstring{recorrer\+\_\+inorden2(\+Nodo t) const }{recorrer_inorden2(Nodo t) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Tbase $>$ void {\bf Arbol\+General}$<$ Tbase $>$\+::recorrer\+\_\+inorden2 (
+\begin{DoxyParamCaption}
+\item[{{\bf Nodo}}]{t}
+\end{DoxyParamCaption}
+) const}\hypertarget{classArbolGeneral_ae491ca4389de3ee7112fc0008ae4cbe9}{}\label{classArbolGeneral_ae491ca4389de3ee7112fc0008ae4cbe9}
+
+
+Recorrido en inorden. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em t} & Nodo a partir del cual se hará el recorrido.  Muestra el árbol recorriendolo en inorden sin usar iteradores. \\
+\hline
+\end{DoxyParams}
+\index{Arbol\+General@{Arbol\+General}!recorrer\+\_\+por\+\_\+niveles@{recorrer\+\_\+por\+\_\+niveles}}
+\index{recorrer\+\_\+por\+\_\+niveles@{recorrer\+\_\+por\+\_\+niveles}!Arbol\+General@{Arbol\+General}}
+\paragraph[{\texorpdfstring{recorrer\+\_\+por\+\_\+niveles(\+Nodo t) const }{recorrer_por_niveles(Nodo t) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Tbase $>$ void {\bf Arbol\+General}$<$ Tbase $>$\+::recorrer\+\_\+por\+\_\+niveles (
+\begin{DoxyParamCaption}
+\item[{{\bf Nodo}}]{t}
+\end{DoxyParamCaption}
+) const}\hypertarget{classArbolGeneral_a63c818bcabf7e606b3a2c8181a8d77d3}{}\label{classArbolGeneral_a63c818bcabf7e606b3a2c8181a8d77d3}
+
+
+Recorrido por niveles. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em t} & Nodo a partir del cual se va a hacer el recorrido.  Muestra el recorrido por niveles del Árbol. \\
+\hline
+\end{DoxyParams}
+\index{Arbol\+General@{Arbol\+General}!recorrer\+\_\+postorden@{recorrer\+\_\+postorden}}
+\index{recorrer\+\_\+postorden@{recorrer\+\_\+postorden}!Arbol\+General@{Arbol\+General}}
+\paragraph[{\texorpdfstring{recorrer\+\_\+postorden() const }{recorrer_postorden() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Tbase $>$ void {\bf Arbol\+General}$<$ Tbase $>$\+::recorrer\+\_\+postorden (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classArbolGeneral_a6ccd5970d275254bff8ed8d0fce0ffde}{}\label{classArbolGeneral_a6ccd5970d275254bff8ed8d0fce0ffde}
+
+
+Recorrido en postorden.  Recorre el árbol en postorden. Desde la raíz. 
+
+\index{Arbol\+General@{Arbol\+General}!recorrer\+\_\+postorden2@{recorrer\+\_\+postorden2}}
+\index{recorrer\+\_\+postorden2@{recorrer\+\_\+postorden2}!Arbol\+General@{Arbol\+General}}
+\paragraph[{\texorpdfstring{recorrer\+\_\+postorden2(\+Nodo t) const }{recorrer_postorden2(Nodo t) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Tbase $>$ void {\bf Arbol\+General}$<$ Tbase $>$\+::recorrer\+\_\+postorden2 (
+\begin{DoxyParamCaption}
+\item[{{\bf Nodo}}]{t}
+\end{DoxyParamCaption}
+) const}\hypertarget{classArbolGeneral_aaadd1c2a5867da8cdfa899b6648ffad0}{}\label{classArbolGeneral_aaadd1c2a5867da8cdfa899b6648ffad0}
+
+
+Recorrido postorden. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em t} & Nodo a partir del cual se va a hacer el recorrido.  Muestra el recorrido en postorden sin iteradores. \\
+\hline
+\end{DoxyParams}
+\index{Arbol\+General@{Arbol\+General}!recorrer\+\_\+preorden@{recorrer\+\_\+preorden}}
+\index{recorrer\+\_\+preorden@{recorrer\+\_\+preorden}!Arbol\+General@{Arbol\+General}}
+\paragraph[{\texorpdfstring{recorrer\+\_\+preorden() const }{recorrer_preorden() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Tbase $>$ void {\bf Arbol\+General}$<$ Tbase $>$\+::recorrer\+\_\+preorden (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classArbolGeneral_ab610d28639d09112ab38e4c7b5806cc6}{}\label{classArbolGeneral_ab610d28639d09112ab38e4c7b5806cc6}
+
+
+Recorrido en preorden.  Muestra el recorrido del árbol en preorden usando iteradores. 
+
+\index{Arbol\+General@{Arbol\+General}!recorrer\+\_\+preorden2@{recorrer\+\_\+preorden2}}
+\index{recorrer\+\_\+preorden2@{recorrer\+\_\+preorden2}!Arbol\+General@{Arbol\+General}}
+\paragraph[{\texorpdfstring{recorrer\+\_\+preorden2(\+Nodo t) const }{recorrer_preorden2(Nodo t) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Tbase $>$ void {\bf Arbol\+General}$<$ Tbase $>$\+::recorrer\+\_\+preorden2 (
+\begin{DoxyParamCaption}
+\item[{{\bf Nodo}}]{t}
+\end{DoxyParamCaption}
+) const}\hypertarget{classArbolGeneral_acd4224d4e3cf3df4e7f35c8e07b926cf}{}\label{classArbolGeneral_acd4224d4e3cf3df4e7f35c8e07b926cf}
+
+
+Recorrido en preorden. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em t} & Nodo a partir del cual se va a hacer el recorrido.  Muestra el el recorrido del árbol en preorden sin usar iteradores. De forma iterativa. \\
+\hline
+\end{DoxyParams}
+\index{Arbol\+General@{Arbol\+General}!recorrer\+\_\+preorden\+\_\+al\+\_\+reves@{recorrer\+\_\+preorden\+\_\+al\+\_\+reves}}
+\index{recorrer\+\_\+preorden\+\_\+al\+\_\+reves@{recorrer\+\_\+preorden\+\_\+al\+\_\+reves}!Arbol\+General@{Arbol\+General}}
+\paragraph[{\texorpdfstring{recorrer\+\_\+preorden\+\_\+al\+\_\+reves() const }{recorrer_preorden_al_reves() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Tbase $>$ void {\bf Arbol\+General}$<$ Tbase $>$\+::recorrer\+\_\+preorden\+\_\+al\+\_\+reves (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classArbolGeneral_a9f964d17519959e7b2db2ca9804929a8}{}\label{classArbolGeneral_a9f964d17519959e7b2db2ca9804929a8}
+
+
+Recorrido en preorden al reves.  Muestra el recorrido del árbol en preorden, pero al reves. Utilizando iteradores preorden. 
+
+\index{Arbol\+General@{Arbol\+General}!recorrer\+\_\+reverse\+\_\+preorden@{recorrer\+\_\+reverse\+\_\+preorden}}
+\index{recorrer\+\_\+reverse\+\_\+preorden@{recorrer\+\_\+reverse\+\_\+preorden}!Arbol\+General@{Arbol\+General}}
+\paragraph[{\texorpdfstring{recorrer\+\_\+reverse\+\_\+preorden() const }{recorrer_reverse_preorden() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Tbase $>$ void {\bf Arbol\+General}$<$ Tbase $>$\+::recorrer\+\_\+reverse\+\_\+preorden (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classArbolGeneral_a7830b2566ef7611aa2fc6f7b4d07ad52}{}\label{classArbolGeneral_a7830b2566ef7611aa2fc6f7b4d07ad52}
+
+
+Recorrido en preorden invertido.  Muestra el recorrido del árbol en preorden invertido usando iteradores. 
+
+\index{Arbol\+General@{Arbol\+General}!recorrer\+\_\+reverse\+\_\+preorden\+\_\+al\+\_\+reves@{recorrer\+\_\+reverse\+\_\+preorden\+\_\+al\+\_\+reves}}
+\index{recorrer\+\_\+reverse\+\_\+preorden\+\_\+al\+\_\+reves@{recorrer\+\_\+reverse\+\_\+preorden\+\_\+al\+\_\+reves}!Arbol\+General@{Arbol\+General}}
+\paragraph[{\texorpdfstring{recorrer\+\_\+reverse\+\_\+preorden\+\_\+al\+\_\+reves() const }{recorrer_reverse_preorden_al_reves() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Tbase $>$ void {\bf Arbol\+General}$<$ Tbase $>$\+::recorrer\+\_\+reverse\+\_\+preorden\+\_\+al\+\_\+reves (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classArbolGeneral_ad4b95219bb5b0cb512719edb1406fd71}{}\label{classArbolGeneral_ad4b95219bb5b0cb512719edb1406fd71}
+
+
+Recorrido en preorden invertido, al reves.  Recorrido en preorden normal. 
+
+\index{Arbol\+General@{Arbol\+General}!recuperar\+\_\+arbol@{recuperar\+\_\+arbol}}
+\index{recuperar\+\_\+arbol@{recuperar\+\_\+arbol}!Arbol\+General@{Arbol\+General}}
+\paragraph[{\texorpdfstring{recuperar\+\_\+arbol(string preorden, string inorden, string postorden, Nodo nuevo)}{recuperar_arbol(string preorden, string inorden, string postorden, Nodo nuevo)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Tbase $>$ void {\bf Arbol\+General}$<$ Tbase $>$\+::recuperar\+\_\+arbol (
+\begin{DoxyParamCaption}
+\item[{string}]{preorden, }
+\item[{string}]{inorden, }
+\item[{string}]{postorden, }
+\item[{{\bf Nodo}}]{nuevo}
+\end{DoxyParamCaption}
+)}\hypertarget{classArbolGeneral_a5fd1c0acc26d4229042ecd9af6e3a24e}{}\label{classArbolGeneral_a5fd1c0acc26d4229042ecd9af6e3a24e}
+
+
+Crea un arbol a partir de sus tres recorridos. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em preorden} & Recorrido en preorden. \\
+\hline
+{\em inorden} & Recorrido en inorden. \\
+\hline
+{\em postorden} & Recorrido en postorden. \\
+\hline
+{\em nuevo} & Árbol que vamos a crear. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Devuelve un arbol cuyos recorridos son esos tres.
+\end{DoxyReturn}
+Dados tres recorridos exite tan solo 1 árbol que concuerda con esos tres recorridos. \index{Arbol\+General@{Arbol\+General}!reflejado@{reflejado}}
+\index{reflejado@{reflejado}!Arbol\+General@{Arbol\+General}}
+\paragraph[{\texorpdfstring{reflejado(\+Nodo t)}{reflejado(Nodo t)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Tbase $>$ void {\bf Arbol\+General}$<$ Tbase $>$\+::reflejado (
+\begin{DoxyParamCaption}
+\item[{{\bf Nodo}}]{t}
+\end{DoxyParamCaption}
+)}\hypertarget{classArbolGeneral_a9b498b5302c63aa8ad0cd847d77a6315}{}\label{classArbolGeneral_a9b498b5302c63aa8ad0cd847d77a6315}
+
+
+Arbol reflejado. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em t} & Nodo a partir del cual se hará su reflejado. \\
+\hline
+\end{DoxyParams}
+\index{Arbol\+General@{Arbol\+General}!size@{size}}
+\index{size@{size}!Arbol\+General@{Arbol\+General}}
+\paragraph[{\texorpdfstring{size() const }{size() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Tbase $>$ int {\bf Arbol\+General}$<$ Tbase $>$\+::size (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classArbolGeneral_a69a2c10bedbf77dbc23baea0a731a02d}{}\label{classArbolGeneral_a69a2c10bedbf77dbc23baea0a731a02d}
+
+
+Número de elementos. 
+
+\begin{DoxyReturn}{Devuelve}
+El número de elementos del árbol receptor.
+\end{DoxyReturn}
+La operación se realiza en tiempo O(n). \begin{DoxySeeAlso}{Ver también}
+\hyperlink{classArbolGeneral_ac53afcc4c99179132bf593781d7c927f}{contar} 
+\end{DoxySeeAlso}
+\index{Arbol\+General@{Arbol\+General}!soniguales@{soniguales}}
+\index{soniguales@{soniguales}!Arbol\+General@{Arbol\+General}}
+\paragraph[{\texorpdfstring{soniguales(const nodo $\ast$n1, const nodo $\ast$n2) const }{soniguales(const nodo *n1, const nodo *n2) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Tbase $>$ bool {\bf Arbol\+General}$<$ Tbase $>$\+::soniguales (
+\begin{DoxyParamCaption}
+\item[{const {\bf nodo} $\ast$}]{n1, }
+\item[{const {\bf nodo} $\ast$}]{n2}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classArbolGeneral_a47e7ab8321b8ae2e11fc279caabf72de}{}\label{classArbolGeneral_a47e7ab8321b8ae2e11fc279caabf72de}
+
+
+Comprueba igualdad de dos subárboles. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em n1} & Primer subárbol a comparar \\
+\hline
+{\em n2} & Segundo subárbol a comparar\\
+\hline
+\end{DoxyParams}
+Comprueba si son iguales los subárboles que cuelgan de {\itshape n1} y {\itshape n2}. Para ello deberán tener los mismos nodos en las mismas posiciones y con las mismas etiquetas. 
+
+\subsubsection{Documentación de las funciones relacionadas y clases amigas}
+\index{Arbol\+General@{Arbol\+General}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Arbol\+General@{Arbol\+General}}
+\paragraph[{\texorpdfstring{operator$<$$<$}{operator<<}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Tbase$>$ template$<$class T $>$ ostream\& operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{ostream \&}]{out, }
+\item[{const {\bf Arbol\+General}$<$ T $>$ \&}]{v}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [friend]}}\hypertarget{classArbolGeneral_a2b19e120d650b0363eed1bfd8c7f5351}{}\label{classArbolGeneral_a2b19e120d650b0363eed1bfd8c7f5351}
+
+
+Operador de inserción en flujo. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em out} & Stream de salida \\
+\hline
+{\em v} & Árbol que escribir \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Referencia al stream de salida
+\end{DoxyReturn}
+Escribe en la salida todos los nodos del árbol {\itshape v} siguiendo un recorrido en preorden. La forma de impresión de cada nodo es\+:
+
+
+\begin{DoxyItemize}
+\item Si el nodo es nulo, imprime el carácter \textquotesingle{}x\textquotesingle{}.
+\item Si el nodo no es nulo, imprime el carácter \textquotesingle{}n\textquotesingle{} seguido de un espacio, al que sigue la impresión de la etiqueta.
+\end{DoxyItemize}
+
+\begin{DoxySeeAlso}{Ver también}
+\hyperlink{classArbolGeneral_a444845d1484fa66fb65d84cbf2ac2efd}{escribe\+\_\+arbol} 
+\end{DoxySeeAlso}
+\index{Arbol\+General@{Arbol\+General}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!Arbol\+General@{Arbol\+General}}
+\paragraph[{\texorpdfstring{operator$>$$>$}{operator>>}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Tbase$>$ template$<$class T $>$ std\+::istream\& operator$>$$>$ (
+\begin{DoxyParamCaption}
+\item[{std\+::istream \&}]{in, }
+\item[{{\bf Arbol\+General}$<$ T $>$ \&}]{v}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [friend]}}\hypertarget{classArbolGeneral_ab1318141f030856da7dcfc1c7a162565}{}\label{classArbolGeneral_ab1318141f030856da7dcfc1c7a162565}
+
+
+Operador de extracción de flujo. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em in} & Stream de entrada \\
+\hline
+{\em v} & Árbol que leer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Referencia al stream de entrada
+\end{DoxyReturn}
+Lee de {\itshape in} un árbol y lo almacena en {\itshape v}. El formato aceptado para la lectura se puede consultar en la función de salida. \begin{DoxySeeAlso}{Ver también}
+\hyperlink{classArbolGeneral_a73927127a9f5c4e96eccb615ee09077a}{lee\+\_\+arbol} 
+\end{DoxySeeAlso}
+
+
+\subsubsection{Documentación de los datos miembro}
+\index{Arbol\+General@{Arbol\+General}!laraiz@{laraiz}}
+\index{laraiz@{laraiz}!Arbol\+General@{Arbol\+General}}
+\paragraph[{\texorpdfstring{laraiz}{laraiz}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Tbase$>$ struct {\bf nodo}$\ast$ {\bf Arbol\+General}$<$ Tbase $>$\+::laraiz\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classArbolGeneral_a14a859dc79b8df4d5a77b5c871713c9e}{}\label{classArbolGeneral_a14a859dc79b8df4d5a77b5c871713c9e}
+
+
+Puntero a la raíz. 
+
+Este miembro es un puntero al primer nodo, que corresponde a la raíz del árbol. Vale 0 sin el árbol es vacío. 
+
+La documentación para esta clase fue generada a partir del siguiente fichero\+:\begin{DoxyCompactItemize}
+\item 
+include/\hyperlink{ArbolGeneral_8h}{Arbol\+General.\+h}\end{DoxyCompactItemize}

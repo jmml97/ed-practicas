@@ -1,0 +1,185 @@
+\hypertarget{classMando}{}\subsection{Referencia de la Clase Mando}
+\label{classMando}\index{Mando@{Mando}}
+
+
+T\+DA \hyperlink{classMando}{Mando}.  
+
+
+
+
+{\ttfamily \#include $<$mando.\+h$>$}
+
+\subsubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classMando_a2e2ed3e8f3502f7d99cee3e1278cafb9}{Mando} (\hyperlink{classTablero}{Tablero} t)
+\begin{DoxyCompactList}\small\item\em Constructor. Inicializa las variables dado un tablero. No se puede generar una \hyperlink{classMando}{Mando} sin un tablero. Para que no cause problemas de incongruencias de tamaño. \end{DoxyCompactList}\item 
+bool \hyperlink{classMando_ac65c5bfbd7c268e1916c96b9e71e66f9}{actualizar\+Juego} (char c, \hyperlink{classTablero}{Tablero} \&t)
+\begin{DoxyCompactList}\small\item\em Actualiza el tablero del juego\+: la posición del jugador y si se ha introducido alguna pieza en el tablero. Esta función es la encargada de controlar la entrada del teclado. \end{DoxyCompactList}\item 
+string \hyperlink{classMando_abcc813b0881e56ed976eea2ce6b7fd12}{Get\+Base} () const 
+\begin{DoxyCompactList}\small\item\em Representación gráfica de la base. \end{DoxyCompactList}\item 
+string \hyperlink{classMando_aaf8c918ecbce5c8173fcf40e04c8b0b7}{Get\+Jugador} () const 
+\begin{DoxyCompactList}\small\item\em Representación gráfica del jugador. \end{DoxyCompactList}\item 
+string \hyperlink{classMando_a7e02a04343208f949a88e720ba63a281}{Get\+Mando} () const 
+\begin{DoxyCompactList}\small\item\em Representación gráfica del mando. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Atributos públicos estáticos}
+\begin{DoxyCompactItemize}
+\item 
+static const char \hyperlink{classMando_a61277e93015f5d44d37416f1475be542}{K\+B\+\_\+\+L\+E\+FT} = \textquotesingle{}a\textquotesingle{}
+\item 
+static const char \hyperlink{classMando_a75b32aa31a64931f62c5737b8f09bf39}{K\+B\+\_\+\+R\+I\+G\+HT} = \textquotesingle{}d\textquotesingle{}
+\item 
+static const char \hyperlink{classMando_ade68606cf2abf043c08e281d1531c78a}{K\+B\+\_\+\+S\+P\+A\+CE} = \textquotesingle{} \textquotesingle{}
+\item 
+static const char \hyperlink{classMando_a3c4e7465d5b25fcaf8f3b50b444421a3}{K\+B\+\_\+\+E\+S\+C\+A\+PE} = 27
+\end{DoxyCompactItemize}
+\subsubsection*{Atributos privados}
+\begin{DoxyCompactItemize}
+\item 
+string \hyperlink{classMando_a156e71bce6ea523dccbce03021bee4dd}{mando}
+\begin{DoxyCompactList}\small\item\em Señala dónde está colocado el jugador. Representada con \textquotesingle{}$^\wedge$\textquotesingle{}. \end{DoxyCompactList}\item 
+string \hyperlink{classMando_ab4791c4f5bb306c1bbcf95047e010163}{jugador}
+\begin{DoxyCompactList}\small\item\em Indica la ficha del jugador. \end{DoxyCompactList}\item 
+string \hyperlink{classMando_ad914a93d7fb6c085a26d5d70bbb7fecd}{base}
+\begin{DoxyCompactList}\small\item\em Base del tablero. \end{DoxyCompactList}\item 
+int \hyperlink{classMando_a7971a6eaa8b936977be7460ffa28530f}{posicion}
+\begin{DoxyCompactList}\small\item\em Indica la posición actual en la que está el jugador. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Descripción detallada}
+T\+DA \hyperlink{classMando}{Mando}. 
+
+Este T\+DA sirve para representar la parte gráfica del juego. 
+
+\subsubsection{Documentación del constructor y destructor}
+\index{Mando@{Mando}!Mando@{Mando}}
+\index{Mando@{Mando}!Mando@{Mando}}
+\paragraph[{\texorpdfstring{Mando(\+Tablero t)}{Mando(Tablero t)}}]{\setlength{\rightskip}{0pt plus 5cm}Mando\+::\+Mando (
+\begin{DoxyParamCaption}
+\item[{{\bf Tablero}}]{t}
+\end{DoxyParamCaption}
+)}\hypertarget{classMando_a2e2ed3e8f3502f7d99cee3e1278cafb9}{}\label{classMando_a2e2ed3e8f3502f7d99cee3e1278cafb9}
+
+
+Constructor. Inicializa las variables dado un tablero. No se puede generar una \hyperlink{classMando}{Mando} sin un tablero. Para que no cause problemas de incongruencias de tamaño. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em t} & \+: \hyperlink{classTablero}{Tablero} sobre el que se va a inicialiar la parte gráfica. El mando, el indicador de la ficha del jugador y la base del tablero. \\
+\hline
+\end{DoxyParams}
+
+
+\subsubsection{Documentación de las funciones miembro}
+\index{Mando@{Mando}!actualizar\+Juego@{actualizar\+Juego}}
+\index{actualizar\+Juego@{actualizar\+Juego}!Mando@{Mando}}
+\paragraph[{\texorpdfstring{actualizar\+Juego(char c, Tablero \&t)}{actualizarJuego(char c, Tablero &t)}}]{\setlength{\rightskip}{0pt plus 5cm}bool Mando\+::actualizar\+Juego (
+\begin{DoxyParamCaption}
+\item[{char}]{c, }
+\item[{{\bf Tablero} \&}]{t}
+\end{DoxyParamCaption}
+)}\hypertarget{classMando_ac65c5bfbd7c268e1916c96b9e71e66f9}{}\label{classMando_ac65c5bfbd7c268e1916c96b9e71e66f9}
+
+
+Actualiza el tablero del juego\+: la posición del jugador y si se ha introducido alguna pieza en el tablero. Esta función es la encargada de controlar la entrada del teclado. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em c} & \+: Caracter leído por el teclado. \\
+\hline
+{\em t} & \+: \hyperlink{classTablero}{Tablero}. Si el caracter leido es el de colocar ficha y hay hueco modifica el tablero. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Devuelve true si se ha colocado una ficha en la actualización del juego. 
+\end{DoxyReturn}
+\index{Mando@{Mando}!Get\+Base@{Get\+Base}}
+\index{Get\+Base@{Get\+Base}!Mando@{Mando}}
+\paragraph[{\texorpdfstring{Get\+Base() const }{GetBase() const }}]{\setlength{\rightskip}{0pt plus 5cm}string Mando\+::\+Get\+Base (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classMando_abcc813b0881e56ed976eea2ce6b7fd12}{}\label{classMando_abcc813b0881e56ed976eea2ce6b7fd12}
+
+
+Representación gráfica de la base. 
+
+\begin{DoxyReturn}{Devuelve}
+Devuelve una cadena representado la base del tablero. 
+\end{DoxyReturn}
+\index{Mando@{Mando}!Get\+Jugador@{Get\+Jugador}}
+\index{Get\+Jugador@{Get\+Jugador}!Mando@{Mando}}
+\paragraph[{\texorpdfstring{Get\+Jugador() const }{GetJugador() const }}]{\setlength{\rightskip}{0pt plus 5cm}string Mando\+::\+Get\+Jugador (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classMando_aaf8c918ecbce5c8173fcf40e04c8b0b7}{}\label{classMando_aaf8c918ecbce5c8173fcf40e04c8b0b7}
+
+
+Representación gráfica del jugador. 
+
+\begin{DoxyReturn}{Devuelve}
+Devuelve una cadena representado del jugador. 
+\end{DoxyReturn}
+\index{Mando@{Mando}!Get\+Mando@{Get\+Mando}}
+\index{Get\+Mando@{Get\+Mando}!Mando@{Mando}}
+\paragraph[{\texorpdfstring{Get\+Mando() const }{GetMando() const }}]{\setlength{\rightskip}{0pt plus 5cm}string Mando\+::\+Get\+Mando (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classMando_a7e02a04343208f949a88e720ba63a281}{}\label{classMando_a7e02a04343208f949a88e720ba63a281}
+
+
+Representación gráfica del mando. 
+
+\begin{DoxyReturn}{Devuelve}
+Devuelve la representación gráfica del mando. 
+\end{DoxyReturn}
+
+
+\subsubsection{Documentación de los datos miembro}
+\index{Mando@{Mando}!base@{base}}
+\index{base@{base}!Mando@{Mando}}
+\paragraph[{\texorpdfstring{base}{base}}]{\setlength{\rightskip}{0pt plus 5cm}string Mando\+::base\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classMando_ad914a93d7fb6c085a26d5d70bbb7fecd}{}\label{classMando_ad914a93d7fb6c085a26d5d70bbb7fecd}
+
+
+Base del tablero. 
+
+\index{Mando@{Mando}!jugador@{jugador}}
+\index{jugador@{jugador}!Mando@{Mando}}
+\paragraph[{\texorpdfstring{jugador}{jugador}}]{\setlength{\rightskip}{0pt plus 5cm}string Mando\+::jugador\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classMando_ab4791c4f5bb306c1bbcf95047e010163}{}\label{classMando_ab4791c4f5bb306c1bbcf95047e010163}
+
+
+Indica la ficha del jugador. 
+
+\index{Mando@{Mando}!K\+B\+\_\+\+E\+S\+C\+A\+PE@{K\+B\+\_\+\+E\+S\+C\+A\+PE}}
+\index{K\+B\+\_\+\+E\+S\+C\+A\+PE@{K\+B\+\_\+\+E\+S\+C\+A\+PE}!Mando@{Mando}}
+\paragraph[{\texorpdfstring{K\+B\+\_\+\+E\+S\+C\+A\+PE}{KB_ESCAPE}}]{\setlength{\rightskip}{0pt plus 5cm}const char Mando\+::\+K\+B\+\_\+\+E\+S\+C\+A\+PE = 27\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{classMando_a3c4e7465d5b25fcaf8f3b50b444421a3}{}\label{classMando_a3c4e7465d5b25fcaf8f3b50b444421a3}
+\index{Mando@{Mando}!K\+B\+\_\+\+L\+E\+FT@{K\+B\+\_\+\+L\+E\+FT}}
+\index{K\+B\+\_\+\+L\+E\+FT@{K\+B\+\_\+\+L\+E\+FT}!Mando@{Mando}}
+\paragraph[{\texorpdfstring{K\+B\+\_\+\+L\+E\+FT}{KB_LEFT}}]{\setlength{\rightskip}{0pt plus 5cm}const char Mando\+::\+K\+B\+\_\+\+L\+E\+FT = \textquotesingle{}a\textquotesingle{}\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{classMando_a61277e93015f5d44d37416f1475be542}{}\label{classMando_a61277e93015f5d44d37416f1475be542}
+\index{Mando@{Mando}!K\+B\+\_\+\+R\+I\+G\+HT@{K\+B\+\_\+\+R\+I\+G\+HT}}
+\index{K\+B\+\_\+\+R\+I\+G\+HT@{K\+B\+\_\+\+R\+I\+G\+HT}!Mando@{Mando}}
+\paragraph[{\texorpdfstring{K\+B\+\_\+\+R\+I\+G\+HT}{KB_RIGHT}}]{\setlength{\rightskip}{0pt plus 5cm}const char Mando\+::\+K\+B\+\_\+\+R\+I\+G\+HT = \textquotesingle{}d\textquotesingle{}\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{classMando_a75b32aa31a64931f62c5737b8f09bf39}{}\label{classMando_a75b32aa31a64931f62c5737b8f09bf39}
+\index{Mando@{Mando}!K\+B\+\_\+\+S\+P\+A\+CE@{K\+B\+\_\+\+S\+P\+A\+CE}}
+\index{K\+B\+\_\+\+S\+P\+A\+CE@{K\+B\+\_\+\+S\+P\+A\+CE}!Mando@{Mando}}
+\paragraph[{\texorpdfstring{K\+B\+\_\+\+S\+P\+A\+CE}{KB_SPACE}}]{\setlength{\rightskip}{0pt plus 5cm}const char Mando\+::\+K\+B\+\_\+\+S\+P\+A\+CE = \textquotesingle{} \textquotesingle{}\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{classMando_ade68606cf2abf043c08e281d1531c78a}{}\label{classMando_ade68606cf2abf043c08e281d1531c78a}
+\index{Mando@{Mando}!mando@{mando}}
+\index{mando@{mando}!Mando@{Mando}}
+\paragraph[{\texorpdfstring{mando}{mando}}]{\setlength{\rightskip}{0pt plus 5cm}string Mando\+::mando\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classMando_a156e71bce6ea523dccbce03021bee4dd}{}\label{classMando_a156e71bce6ea523dccbce03021bee4dd}
+
+
+Señala dónde está colocado el jugador. Representada con \textquotesingle{}$^\wedge$\textquotesingle{}. 
+
+\index{Mando@{Mando}!posicion@{posicion}}
+\index{posicion@{posicion}!Mando@{Mando}}
+\paragraph[{\texorpdfstring{posicion}{posicion}}]{\setlength{\rightskip}{0pt plus 5cm}int Mando\+::posicion\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classMando_a7971a6eaa8b936977be7460ffa28530f}{}\label{classMando_a7971a6eaa8b936977be7460ffa28530f}
+
+
+Indica la posición actual en la que está el jugador. 
+
+
+
+La documentación para esta clase fue generada a partir del siguiente fichero\+:\begin{DoxyCompactItemize}
+\item 
+include/\hyperlink{mando_8h}{mando.\+h}\end{DoxyCompactItemize}

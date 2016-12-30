@@ -1,0 +1,359 @@
+\hypertarget{classTablero}{}\subsection{Referencia de la Clase Tablero}
+\label{classTablero}\index{Tablero@{Tablero}}
+
+
+T.\+D.\+A. \hyperlink{classTablero}{Tablero}.  
+
+
+
+
+{\ttfamily \#include $<$tablero.\+h$>$}
+
+\subsubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classTablero_ab4912f28f1db392e1dd44ddc98bd4f59}{Tablero} ()
+\begin{DoxyCompactList}\small\item\em Constructor por defecto. Crea un tablero de tamaño predefinido. \end{DoxyCompactList}\item 
+\hyperlink{classTablero_a51ae562c7dee2909d0fa335b8c3eaf71}{Tablero} (const int \hyperlink{classTablero_a6b1f04a8502106c33bf5469f791320e6}{filas}, const int \hyperlink{classTablero_ac70289ec91b44d05da648770cc46801d}{columnas})
+\begin{DoxyCompactList}\small\item\em Constructor. Crea un tablero introduciendo el tamaño del mismo. El estado inicial del tablero es todo 0, es decir, todo el tablero está libre. El turno inicial es el del jugador 1. \end{DoxyCompactList}\item 
+\hyperlink{classTablero_a95ccd1353038a966ad3304ead106c0d4}{Tablero} (const \hyperlink{classTablero}{Tablero} \&t)
+\begin{DoxyCompactList}\small\item\em Constructor de copia. Crea un tablero a partir de otro dado. \end{DoxyCompactList}\item 
+\hyperlink{classTablero_a7d4a64967ce0bbe2cce49ec846834c84}{$\sim$\+Tablero} ()
+\item 
+int \hyperlink{classTablero_ada687d3c234c4fb416ca76461adf6ba4}{hay\+Hueco} (int pos)
+\begin{DoxyCompactList}\small\item\em Comprueba si hay hueco en una columna \textquotesingle{}pos\textquotesingle{}. \end{DoxyCompactList}\item 
+bool \hyperlink{classTablero_a24bbcc0cf0a9e464f37a261cd9c6ff45}{colocar\+Ficha} (int pos)
+\begin{DoxyCompactList}\small\item\em Coloca una ficha en la columna especificada del jugador correspondiente. Si le toca al jugador 1, inserta la ficha en esa posición. (Si hay hueco) \end{DoxyCompactList}\item 
+int \hyperlink{classTablero_a6a07659599bca3442cce101d7bf42b9a}{cambiar\+Turno} ()
+\begin{DoxyCompactList}\small\item\em Cambia el turno del jugador que toca. \end{DoxyCompactList}\item 
+const int \hyperlink{classTablero_a3cc99292123bdc0c33fcede9ce79e1bf}{Get\+Columnas} () const 
+\begin{DoxyCompactList}\small\item\em Devuelve la anchura del tablero. \end{DoxyCompactList}\item 
+const int \hyperlink{classTablero_ae8807f83521eb77c8e7b762f9122f51a}{Get\+Filas} () const 
+\begin{DoxyCompactList}\small\item\em Devuelve la altura del tablero. \end{DoxyCompactList}\item 
+vector$<$ vector$<$ int $>$ $>$ \hyperlink{classTablero_ad9ddec339ebecf5e081433b0509c8c47}{Get\+Tablero} () const 
+\begin{DoxyCompactList}\small\item\em Función que devuelve el atributo tablero. \end{DoxyCompactList}\item 
+void \hyperlink{classTablero_a811481680b64300b21fb4d1e9619e795}{Set\+Tablero} (vector$<$ vector$<$ int $>$ $>$ \hyperlink{classTablero_a5df607d108c0c0a14aa4f393b7f43030}{tablero})
+\begin{DoxyCompactList}\small\item\em Asigna un tablero introducido como parámetro. \end{DoxyCompactList}\item 
+int \hyperlink{classTablero_abf7a05a4b7463c1bd605d0b0a04add4f}{Get\+Turno} ()
+\begin{DoxyCompactList}\small\item\em Turno del estado actual. \end{DoxyCompactList}\item 
+\hyperlink{classTablero}{Tablero} \& \hyperlink{classTablero_abd7c6bb5bc26c0500308848399e1fd4f}{operator=} (const \hyperlink{classTablero}{Tablero} \&derecha)
+\begin{DoxyCompactList}\small\item\em Operador de igualdad. Asigna los valores del tablero de la derecha al de la izquierda. \end{DoxyCompactList}\item 
+int \hyperlink{classTablero_a5de543f8186142731ab3ac77944a11b1}{quien\+Gana} ()
+\begin{DoxyCompactList}\small\item\em Función que calcula en un estado concreto del tablero, quién gana. En cualquier estado del tablero, se puede decidir por el estado del juego\+: gana el jugador 1, empate o gana el jugador 2. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Atributos públicos estáticos}
+\begin{DoxyCompactItemize}
+\item 
+static const int \hyperlink{classTablero_aa38ed353bef45bd6c5a2e3aa4a897720}{N\+\_\+\+F\+I\+C\+H\+A\+S\+\_\+\+G\+A\+N\+AR} = 4
+\end{DoxyCompactItemize}
+\subsubsection*{Métodos privados}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classTablero_ac2a20883f540c4d010dafab236390cb3}{reserve} ()
+\begin{DoxyCompactList}\small\item\em Crea el tablero de tamaño filas/columnas. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Atributos privados}
+\begin{DoxyCompactItemize}
+\item 
+vector$<$ vector$<$ int $>$ $>$ \hyperlink{classTablero_a5df607d108c0c0a14aa4f393b7f43030}{tablero}
+\begin{DoxyCompactList}\small\item\em Matriz que representa un estado del juego. \end{DoxyCompactList}\item 
+const int \hyperlink{classTablero_a6b1f04a8502106c33bf5469f791320e6}{filas}
+\begin{DoxyCompactList}\small\item\em Número de filas que tiene el tablero. \end{DoxyCompactList}\item 
+const int \hyperlink{classTablero_ac70289ec91b44d05da648770cc46801d}{columnas}
+\begin{DoxyCompactList}\small\item\em Número de columnas que tiene el tablero. \end{DoxyCompactList}\item 
+int \hyperlink{classTablero_ae460b4a3245da075dd381365abf158bc}{turno}
+\begin{DoxyCompactList}\small\item\em Indica a qué jugador le toca poner ficha. 1 para el jugador 1, 2 para el jugador 2. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Amigas}
+\begin{DoxyCompactItemize}
+\item 
+ostream \& \hyperlink{classTablero_a320d149883604290d56f857c9b5bcf1d}{operator$<$$<$} (ostream \&os, const \hyperlink{classTablero}{Tablero} \&t)
+\begin{DoxyCompactList}\small\item\em Operador flujo de salida. Imprime el tablero por el flujo de salida. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Descripción detallada}
+T.\+D.\+A. \hyperlink{classTablero}{Tablero}. 
+
+\subsubsection{Documentación del constructor y destructor}
+\index{Tablero@{Tablero}!Tablero@{Tablero}}
+\index{Tablero@{Tablero}!Tablero@{Tablero}}
+\paragraph[{\texorpdfstring{Tablero()}{Tablero()}}]{\setlength{\rightskip}{0pt plus 5cm}Tablero\+::\+Tablero (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classTablero_ab4912f28f1db392e1dd44ddc98bd4f59}{}\label{classTablero_ab4912f28f1db392e1dd44ddc98bd4f59}
+
+
+Constructor por defecto. Crea un tablero de tamaño predefinido. 
+
+\index{Tablero@{Tablero}!Tablero@{Tablero}}
+\index{Tablero@{Tablero}!Tablero@{Tablero}}
+\paragraph[{\texorpdfstring{Tablero(const int filas, const int columnas)}{Tablero(const int filas, const int columnas)}}]{\setlength{\rightskip}{0pt plus 5cm}Tablero\+::\+Tablero (
+\begin{DoxyParamCaption}
+\item[{const int}]{filas, }
+\item[{const int}]{columnas}
+\end{DoxyParamCaption}
+)}\hypertarget{classTablero_a51ae562c7dee2909d0fa335b8c3eaf71}{}\label{classTablero_a51ae562c7dee2909d0fa335b8c3eaf71}
+
+
+Constructor. Crea un tablero introduciendo el tamaño del mismo. El estado inicial del tablero es todo 0, es decir, todo el tablero está libre. El turno inicial es el del jugador 1. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em filas} & \+: Número de filas que tendrá el tablero. \\
+\hline
+{\em columnas} & \+: Nümero de columnas del tablero. \\
+\hline
+\end{DoxyParams}
+\index{Tablero@{Tablero}!Tablero@{Tablero}}
+\index{Tablero@{Tablero}!Tablero@{Tablero}}
+\paragraph[{\texorpdfstring{Tablero(const Tablero \&t)}{Tablero(const Tablero &t)}}]{\setlength{\rightskip}{0pt plus 5cm}Tablero\+::\+Tablero (
+\begin{DoxyParamCaption}
+\item[{const {\bf Tablero} \&}]{t}
+\end{DoxyParamCaption}
+)}\hypertarget{classTablero_a95ccd1353038a966ad3304ead106c0d4}{}\label{classTablero_a95ccd1353038a966ad3304ead106c0d4}
+
+
+Constructor de copia. Crea un tablero a partir de otro dado. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em t} & \+: \hyperlink{classTablero}{Tablero} origen que se va a copiar. \\
+\hline
+\end{DoxyParams}
+\index{Tablero@{Tablero}!````~Tablero@{$\sim$\+Tablero}}
+\index{````~Tablero@{$\sim$\+Tablero}!Tablero@{Tablero}}
+\paragraph[{\texorpdfstring{$\sim$\+Tablero()}{~Tablero()}}]{\setlength{\rightskip}{0pt plus 5cm}Tablero\+::$\sim$\+Tablero (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classTablero_a7d4a64967ce0bbe2cce49ec846834c84}{}\label{classTablero_a7d4a64967ce0bbe2cce49ec846834c84}
+
+
+\subsubsection{Documentación de las funciones miembro}
+\index{Tablero@{Tablero}!cambiar\+Turno@{cambiar\+Turno}}
+\index{cambiar\+Turno@{cambiar\+Turno}!Tablero@{Tablero}}
+\paragraph[{\texorpdfstring{cambiar\+Turno()}{cambiarTurno()}}]{\setlength{\rightskip}{0pt plus 5cm}int Tablero\+::cambiar\+Turno (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classTablero_a6a07659599bca3442cce101d7bf42b9a}{}\label{classTablero_a6a07659599bca3442cce101d7bf42b9a}
+
+
+Cambia el turno del jugador que toca. 
+
+\begin{DoxyReturn}{Devuelve}
+Devuelve el turno que toca. 
+\end{DoxyReturn}
+\index{Tablero@{Tablero}!colocar\+Ficha@{colocar\+Ficha}}
+\index{colocar\+Ficha@{colocar\+Ficha}!Tablero@{Tablero}}
+\paragraph[{\texorpdfstring{colocar\+Ficha(int pos)}{colocarFicha(int pos)}}]{\setlength{\rightskip}{0pt plus 5cm}bool Tablero\+::colocar\+Ficha (
+\begin{DoxyParamCaption}
+\item[{int}]{pos}
+\end{DoxyParamCaption}
+)}\hypertarget{classTablero_a24bbcc0cf0a9e464f37a261cd9c6ff45}{}\label{classTablero_a24bbcc0cf0a9e464f37a261cd9c6ff45}
+
+
+Coloca una ficha en la columna especificada del jugador correspondiente. Si le toca al jugador 1, inserta la ficha en esa posición. (Si hay hueco) 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em pos} & \+: Columna en la que se va a intentar colocar la ficha. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Devuelve true si se ha introducido la ficha en la posición. False en otro caso. 
+\end{DoxyReturn}
+\index{Tablero@{Tablero}!Get\+Columnas@{Get\+Columnas}}
+\index{Get\+Columnas@{Get\+Columnas}!Tablero@{Tablero}}
+\paragraph[{\texorpdfstring{Get\+Columnas() const }{GetColumnas() const }}]{\setlength{\rightskip}{0pt plus 5cm}const int Tablero\+::\+Get\+Columnas (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classTablero_a3cc99292123bdc0c33fcede9ce79e1bf}{}\label{classTablero_a3cc99292123bdc0c33fcede9ce79e1bf}
+
+
+Devuelve la anchura del tablero. 
+
+\begin{DoxyReturn}{Devuelve}
+Número de columnas del tablero (anchura). 
+\end{DoxyReturn}
+\index{Tablero@{Tablero}!Get\+Filas@{Get\+Filas}}
+\index{Get\+Filas@{Get\+Filas}!Tablero@{Tablero}}
+\paragraph[{\texorpdfstring{Get\+Filas() const }{GetFilas() const }}]{\setlength{\rightskip}{0pt plus 5cm}const int Tablero\+::\+Get\+Filas (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classTablero_ae8807f83521eb77c8e7b762f9122f51a}{}\label{classTablero_ae8807f83521eb77c8e7b762f9122f51a}
+
+
+Devuelve la altura del tablero. 
+
+\begin{DoxyReturn}{Devuelve}
+Número de filas del tablero (altura). 
+\end{DoxyReturn}
+\index{Tablero@{Tablero}!Get\+Tablero@{Get\+Tablero}}
+\index{Get\+Tablero@{Get\+Tablero}!Tablero@{Tablero}}
+\paragraph[{\texorpdfstring{Get\+Tablero() const }{GetTablero() const }}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$vector$<$int$>$ $>$ Tablero\+::\+Get\+Tablero (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classTablero_ad9ddec339ebecf5e081433b0509c8c47}{}\label{classTablero_ad9ddec339ebecf5e081433b0509c8c47}
+
+
+Función que devuelve el atributo tablero. 
+
+\begin{DoxyReturn}{Devuelve}
+Devuelve un vector de vectores de enteros (una matriz) de enteros representando un tablero. 
+\end{DoxyReturn}
+\index{Tablero@{Tablero}!Get\+Turno@{Get\+Turno}}
+\index{Get\+Turno@{Get\+Turno}!Tablero@{Tablero}}
+\paragraph[{\texorpdfstring{Get\+Turno()}{GetTurno()}}]{\setlength{\rightskip}{0pt plus 5cm}int Tablero\+::\+Get\+Turno (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classTablero_abf7a05a4b7463c1bd605d0b0a04add4f}{}\label{classTablero_abf7a05a4b7463c1bd605d0b0a04add4f}
+
+
+Turno del estado actual. 
+
+\begin{DoxyReturn}{Devuelve}
+Devuelve el turno del jugador. \{1, 2\} 
+\end{DoxyReturn}
+\index{Tablero@{Tablero}!hay\+Hueco@{hay\+Hueco}}
+\index{hay\+Hueco@{hay\+Hueco}!Tablero@{Tablero}}
+\paragraph[{\texorpdfstring{hay\+Hueco(int pos)}{hayHueco(int pos)}}]{\setlength{\rightskip}{0pt plus 5cm}int Tablero\+::hay\+Hueco (
+\begin{DoxyParamCaption}
+\item[{int}]{pos}
+\end{DoxyParamCaption}
+)}\hypertarget{classTablero_ada687d3c234c4fb416ca76461adf6ba4}{}\label{classTablero_ada687d3c234c4fb416ca76461adf6ba4}
+
+
+Comprueba si hay hueco en una columna \textquotesingle{}pos\textquotesingle{}. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em pos} & \+: Columna sobre la que se va a comprobar si hay hueco para introducir una ficha. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Devuelve la fila en la que hay hueco (en esa columna). Si no hay hueco devuelve -\/1. 
+\end{DoxyReturn}
+\index{Tablero@{Tablero}!operator=@{operator=}}
+\index{operator=@{operator=}!Tablero@{Tablero}}
+\paragraph[{\texorpdfstring{operator=(const Tablero \&derecha)}{operator=(const Tablero &derecha)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Tablero}\& Tablero\+::operator= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Tablero} \&}]{derecha}
+\end{DoxyParamCaption}
+)}\hypertarget{classTablero_abd7c6bb5bc26c0500308848399e1fd4f}{}\label{classTablero_abd7c6bb5bc26c0500308848399e1fd4f}
+
+
+Operador de igualdad. Asigna los valores del tablero de la derecha al de la izquierda. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em derecha} & \+: \hyperlink{classTablero}{Tablero} origen que se va a copiar. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Devuelve la referencia al tablero destino que se ha copiado. 
+\end{DoxyReturn}
+\index{Tablero@{Tablero}!quien\+Gana@{quien\+Gana}}
+\index{quien\+Gana@{quien\+Gana}!Tablero@{Tablero}}
+\paragraph[{\texorpdfstring{quien\+Gana()}{quienGana()}}]{\setlength{\rightskip}{0pt plus 5cm}int Tablero\+::quien\+Gana (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classTablero_a5de543f8186142731ab3ac77944a11b1}{}\label{classTablero_a5de543f8186142731ab3ac77944a11b1}
+
+
+Función que calcula en un estado concreto del tablero, quién gana. En cualquier estado del tablero, se puede decidir por el estado del juego\+: gana el jugador 1, empate o gana el jugador 2. 
+
+\begin{DoxyReturn}{Devuelve}
+Devuelve \{0, 1, 2\} 0 si no ha ganado nadie. 1 si ha ganado el jugador 1 y 2 si ha ganado el jugador 2. 
+\end{DoxyReturn}
+\index{Tablero@{Tablero}!reserve@{reserve}}
+\index{reserve@{reserve}!Tablero@{Tablero}}
+\paragraph[{\texorpdfstring{reserve()}{reserve()}}]{\setlength{\rightskip}{0pt plus 5cm}void Tablero\+::reserve (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classTablero_ac2a20883f540c4d010dafab236390cb3}{}\label{classTablero_ac2a20883f540c4d010dafab236390cb3}
+
+
+Crea el tablero de tamaño filas/columnas. 
+
+\index{Tablero@{Tablero}!Set\+Tablero@{Set\+Tablero}}
+\index{Set\+Tablero@{Set\+Tablero}!Tablero@{Tablero}}
+\paragraph[{\texorpdfstring{Set\+Tablero(vector$<$ vector$<$ int $>$ $>$ tablero)}{SetTablero(vector< vector< int > > tablero)}}]{\setlength{\rightskip}{0pt plus 5cm}void Tablero\+::\+Set\+Tablero (
+\begin{DoxyParamCaption}
+\item[{vector$<$ vector$<$ int $>$ $>$}]{tablero}
+\end{DoxyParamCaption}
+)}\hypertarget{classTablero_a811481680b64300b21fb4d1e9619e795}{}\label{classTablero_a811481680b64300b21fb4d1e9619e795}
+
+
+Asigna un tablero introducido como parámetro. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em tablero} & \+: Matriz (vector de vectores de enteros) representante de un estado del juego. \\
+\hline
+\end{DoxyParams}
+
+
+\subsubsection{Documentación de las funciones relacionadas y clases amigas}
+\index{Tablero@{Tablero}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Tablero@{Tablero}}
+\paragraph[{\texorpdfstring{operator$<$$<$}{operator<<}}]{\setlength{\rightskip}{0pt plus 5cm}ostream\& operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{ostream \&}]{os, }
+\item[{const {\bf Tablero} \&}]{t}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [friend]}}\hypertarget{classTablero_a320d149883604290d56f857c9b5bcf1d}{}\label{classTablero_a320d149883604290d56f857c9b5bcf1d}
+
+
+Operador flujo de salida. Imprime el tablero por el flujo de salida. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em os} & \+: Flujo de salida. \\
+\hline
+{\em t} & \+: \hyperlink{classTablero}{Tablero} que se va a imprimir. \\
+\hline
+\end{DoxyParams}
+
+
+\subsubsection{Documentación de los datos miembro}
+\index{Tablero@{Tablero}!columnas@{columnas}}
+\index{columnas@{columnas}!Tablero@{Tablero}}
+\paragraph[{\texorpdfstring{columnas}{columnas}}]{\setlength{\rightskip}{0pt plus 5cm}const int Tablero\+::columnas\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classTablero_ac70289ec91b44d05da648770cc46801d}{}\label{classTablero_ac70289ec91b44d05da648770cc46801d}
+
+
+Número de columnas que tiene el tablero. 
+
+\index{Tablero@{Tablero}!filas@{filas}}
+\index{filas@{filas}!Tablero@{Tablero}}
+\paragraph[{\texorpdfstring{filas}{filas}}]{\setlength{\rightskip}{0pt plus 5cm}const int Tablero\+::filas\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classTablero_a6b1f04a8502106c33bf5469f791320e6}{}\label{classTablero_a6b1f04a8502106c33bf5469f791320e6}
+
+
+Número de filas que tiene el tablero. 
+
+\index{Tablero@{Tablero}!N\+\_\+\+F\+I\+C\+H\+A\+S\+\_\+\+G\+A\+N\+AR@{N\+\_\+\+F\+I\+C\+H\+A\+S\+\_\+\+G\+A\+N\+AR}}
+\index{N\+\_\+\+F\+I\+C\+H\+A\+S\+\_\+\+G\+A\+N\+AR@{N\+\_\+\+F\+I\+C\+H\+A\+S\+\_\+\+G\+A\+N\+AR}!Tablero@{Tablero}}
+\paragraph[{\texorpdfstring{N\+\_\+\+F\+I\+C\+H\+A\+S\+\_\+\+G\+A\+N\+AR}{N_FICHAS_GANAR}}]{\setlength{\rightskip}{0pt plus 5cm}const int Tablero\+::\+N\+\_\+\+F\+I\+C\+H\+A\+S\+\_\+\+G\+A\+N\+AR = 4\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{classTablero_aa38ed353bef45bd6c5a2e3aa4a897720}{}\label{classTablero_aa38ed353bef45bd6c5a2e3aa4a897720}
+\index{Tablero@{Tablero}!tablero@{tablero}}
+\index{tablero@{tablero}!Tablero@{Tablero}}
+\paragraph[{\texorpdfstring{tablero}{tablero}}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$vector$<$int$>$ $>$ Tablero\+::tablero\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classTablero_a5df607d108c0c0a14aa4f393b7f43030}{}\label{classTablero_a5df607d108c0c0a14aa4f393b7f43030}
+
+
+Matriz que representa un estado del juego. 
+
+\index{Tablero@{Tablero}!turno@{turno}}
+\index{turno@{turno}!Tablero@{Tablero}}
+\paragraph[{\texorpdfstring{turno}{turno}}]{\setlength{\rightskip}{0pt plus 5cm}int Tablero\+::turno\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classTablero_ae460b4a3245da075dd381365abf158bc}{}\label{classTablero_ae460b4a3245da075dd381365abf158bc}
+
+
+Indica a qué jugador le toca poner ficha. 1 para el jugador 1, 2 para el jugador 2. 
+
+
+
+La documentación para esta clase fue generada a partir del siguiente fichero\+:\begin{DoxyCompactItemize}
+\item 
+include/\hyperlink{tablero_8h}{tablero.\+h}\end{DoxyCompactItemize}

@@ -1,0 +1,119 @@
+\hypertarget{structArbolGeneral_1_1nodo}{}\subsection{Referencia de la Estructura Arbol\+General$<$ Tbase $>$\+:\+:nodo}
+\label{structArbolGeneral_1_1nodo}\index{Arbol\+General$<$ Tbase $>$\+::nodo@{Arbol\+General$<$ Tbase $>$\+::nodo}}
+
+
+rep\+Conjunto Rep del T\+DA \hyperlink{classArbolGeneral}{Arbol\+General}  
+
+
+\subsubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structArbolGeneral_1_1nodo_aa217b530d586a4f7908df98083c697ff}{nodo} ()
+\begin{DoxyCompactList}\small\item\em Constructor. Crea un nodo vacio. \end{DoxyCompactList}\item 
+\hyperlink{structArbolGeneral_1_1nodo_a858436a6f4cf67e88dcea51708871de9}{nodo} (const Tbase \&elemento)
+\begin{DoxyCompactList}\small\item\em Constructor con parametros. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Atributos públicos}
+\begin{DoxyCompactItemize}
+\item 
+Tbase \hyperlink{structArbolGeneral_1_1nodo_ab7223965c5a62aa93895f3decd7a109a}{etiqueta}
+\begin{DoxyCompactList}\small\item\em Elemento almacenado. \end{DoxyCompactList}\item 
+\hyperlink{structArbolGeneral_1_1nodo}{nodo} $\ast$ \hyperlink{structArbolGeneral_1_1nodo_a3b8075b9fd0dc27c2272ba48bd9a9221}{izqda}
+\begin{DoxyCompactList}\small\item\em Puntero al hijo más a la izquierda. \end{DoxyCompactList}\item 
+\hyperlink{structArbolGeneral_1_1nodo}{nodo} $\ast$ \hyperlink{structArbolGeneral_1_1nodo_a8d0a58447171461212942f9308ef4f36}{drcha}
+\begin{DoxyCompactList}\small\item\em Puntero al hermano derecho. \end{DoxyCompactList}\item 
+\hyperlink{structArbolGeneral_1_1nodo}{nodo} $\ast$ \hyperlink{structArbolGeneral_1_1nodo_ab4d70a0179e8450b2842bbf1a6481402}{padre}
+\begin{DoxyCompactList}\small\item\em Puntero al padre. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Descripción detallada}
+\subsubsection*{template$<$class Tbase$>$\\*
+struct Arbol\+General$<$ Tbase $>$\+::nodo}
+
+rep\+Conjunto Rep del T\+DA \hyperlink{classArbolGeneral}{Arbol\+General} 
+
+$\vert$b Invariante de la representación
+
+Sea {\itshape T} un Árbol General sobre el tipo {\itshape Tbase}. Entonces el invariante de la representación es
+
+Si {\itshape T} es vacío, entonces T.\+laraiz vale 0. Si no\+:
+\begin{DoxyItemize}
+\item T.\+laraiz-\/$>$padre = 0 y
+\item $ \forall $ n nodo de {\itshape T}, n-\/$>$izqda $ \neq $ n-\/$>$drch y
+\item $ \forall $ n, m nodos de {\itshape T}, si n-\/$>$izqda = m, entonces m-\/$>$padre = n y
+\item Número de elementos = número elementos de la raiz, donde N(n) = 1 + N(n-\/$>$izqda) + (N-\/$>$drcha), con N(0) = 0.
+\end{DoxyItemize}
+
+{\bfseries Función} de abstracción
+
+Sea {\itshape T} un Árbol General sobre el tipo {\itshape Tbase}. Entonces, si lo denotamos también Árbol(T.\+laraiz), es decir, como el árbol que cuelga de su raíz, entonces este árbol del conjunto de valores en la representación se aplica al árbol.
+
+\{ T.\+laraiz-\/$>$etiqueta, \{Arbol(T.\+laraiz-\/$>$izqda)\}, \{Arbol(T.\+laraiz-\/$>$drcha)\} \}
+
+donde \{0\} es el árbol vacío. nodo
+
+En cada estructura {\itshape nodo} se almacena una etiqueta del árbol, que se implementa como un conjunto de nodos enlazados según la relación padre-\/hijo más a la izquierda-\/hermano derecha. 
+
+\subsubsection{Documentación del constructor y destructor}
+\index{Arbol\+General\+::nodo@{Arbol\+General\+::nodo}!nodo@{nodo}}
+\index{nodo@{nodo}!Arbol\+General\+::nodo@{Arbol\+General\+::nodo}}
+\paragraph[{\texorpdfstring{nodo()}{nodo()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Tbase$>$ {\bf Arbol\+General}$<$ Tbase $>$\+::nodo\+::nodo (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structArbolGeneral_1_1nodo_aa217b530d586a4f7908df98083c697ff}{}\label{structArbolGeneral_1_1nodo_aa217b530d586a4f7908df98083c697ff}
+
+
+Constructor. Crea un nodo vacio. 
+
+\index{Arbol\+General\+::nodo@{Arbol\+General\+::nodo}!nodo@{nodo}}
+\index{nodo@{nodo}!Arbol\+General\+::nodo@{Arbol\+General\+::nodo}}
+\paragraph[{\texorpdfstring{nodo(const Tbase \&elemento)}{nodo(const Tbase &elemento)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Tbase$>$ {\bf Arbol\+General}$<$ Tbase $>$\+::nodo\+::nodo (
+\begin{DoxyParamCaption}
+\item[{const Tbase \&}]{elemento}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structArbolGeneral_1_1nodo_a858436a6f4cf67e88dcea51708871de9}{}\label{structArbolGeneral_1_1nodo_a858436a6f4cf67e88dcea51708871de9}
+
+
+Constructor con parametros. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em e} & elemento que se le va a asignar. Crea un nodo a con un elemento. \\
+\hline
+\end{DoxyParams}
+
+
+\subsubsection{Documentación de los datos miembro}
+\index{Arbol\+General\+::nodo@{Arbol\+General\+::nodo}!drcha@{drcha}}
+\index{drcha@{drcha}!Arbol\+General\+::nodo@{Arbol\+General\+::nodo}}
+\paragraph[{\texorpdfstring{drcha}{drcha}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Tbase$>$ {\bf nodo}$\ast$ {\bf Arbol\+General}$<$ Tbase $>$\+::nodo\+::drcha}\hypertarget{structArbolGeneral_1_1nodo_a8d0a58447171461212942f9308ef4f36}{}\label{structArbolGeneral_1_1nodo_a8d0a58447171461212942f9308ef4f36}
+
+
+Puntero al hermano derecho. 
+
+En este campo se almacena un puntero al nodo raíz del subárbol hermano derecho, o el valor 0 si no tiene. \index{Arbol\+General\+::nodo@{Arbol\+General\+::nodo}!etiqueta@{etiqueta}}
+\index{etiqueta@{etiqueta}!Arbol\+General\+::nodo@{Arbol\+General\+::nodo}}
+\paragraph[{\texorpdfstring{etiqueta}{etiqueta}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Tbase$>$ Tbase {\bf Arbol\+General}$<$ Tbase $>$\+::nodo\+::etiqueta}\hypertarget{structArbolGeneral_1_1nodo_ab7223965c5a62aa93895f3decd7a109a}{}\label{structArbolGeneral_1_1nodo_ab7223965c5a62aa93895f3decd7a109a}
+
+
+Elemento almacenado. 
+
+En este campo se almacena la etiqueta que corresponde a este nodo. \index{Arbol\+General\+::nodo@{Arbol\+General\+::nodo}!izqda@{izqda}}
+\index{izqda@{izqda}!Arbol\+General\+::nodo@{Arbol\+General\+::nodo}}
+\paragraph[{\texorpdfstring{izqda}{izqda}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Tbase$>$ {\bf nodo}$\ast$ {\bf Arbol\+General}$<$ Tbase $>$\+::nodo\+::izqda}\hypertarget{structArbolGeneral_1_1nodo_a3b8075b9fd0dc27c2272ba48bd9a9221}{}\label{structArbolGeneral_1_1nodo_a3b8075b9fd0dc27c2272ba48bd9a9221}
+
+
+Puntero al hijo más a la izquierda. 
+
+En este campo se almacena un puntero al nodo raíz del subárbol más a la izquierda, o el valor 0 si no tiene. \index{Arbol\+General\+::nodo@{Arbol\+General\+::nodo}!padre@{padre}}
+\index{padre@{padre}!Arbol\+General\+::nodo@{Arbol\+General\+::nodo}}
+\paragraph[{\texorpdfstring{padre}{padre}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Tbase$>$ {\bf nodo}$\ast$ {\bf Arbol\+General}$<$ Tbase $>$\+::nodo\+::padre}\hypertarget{structArbolGeneral_1_1nodo_ab4d70a0179e8450b2842bbf1a6481402}{}\label{structArbolGeneral_1_1nodo_ab4d70a0179e8450b2842bbf1a6481402}
+
+
+Puntero al padre. 
+
+En este campo se almacena un puntero al nodo padre, o el valor 0 si es la raíz. 
+
+La documentación para esta estructura fue generada a partir del siguiente fichero\+:\begin{DoxyCompactItemize}
+\item 
+include/\hyperlink{ArbolGeneral_8h}{Arbol\+General.\+h}\end{DoxyCompactItemize}

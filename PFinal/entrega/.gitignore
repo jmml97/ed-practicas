@@ -1,0 +1,7 @@
+bin/*
+obj/*
+lib/*
+*~
+src/*~
+include/*~
+.clang_complete

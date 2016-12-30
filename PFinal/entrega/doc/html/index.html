@@ -1,0 +1,222 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.11"/>
+<title>CONECTA 4: Práctica Final: CONECTA4</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">CONECTA 4
+   &#160;<span id="projectnumber">V1.0</span>
+   </div>
+   <div id="projectbrief">CONECTA 4: Explorando el espacio de soluciones con Árboles</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.8.11 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Buscar');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li class="current"><a href="index.html"><span>Página&#160;principal</span></a></li>
+      <li><a href="annotated.html"><span>Clases</span></a></li>
+      <li><a href="files.html"><span>Archivos</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Buscar" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">Práctica Final: CONECTA4 </div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="toc"><h3>Tabla de contenidos</h3>
+<ul><li class="level1"><a href="#introduccion">Introducción</a></li>
+<li class="level1"><a href="#objetivos">Objetivos</a></li>
+<li class="level1"><a href="#problema">Problema</a></li>
+<li class="level1"><a href="#tareas">Tareas a realizar</a></li>
+<li class="level1"><a href="#jugador_automatico">Implementar un jugador automático</a></li>
+<li class="level1"><a href="#partida">Implementar una partida de Conecta 4</a></li>
+<li class="level1"><a href="#ArbolGeneral">Manejo del T.D.A. ArbolGeneral</a></li>
+<li class="level1"><a href="#recomendaciones">Recomendaciones</a></li>
+<li class="level1"><a href="#entrega">Entrega</a></li>
+<li class="level1"><a href="#referencias">Referencias</a></li>
+</ul>
+</div>
+<div class="textblock"><dl class="section version"><dt>Versión</dt><dd>v1 </dd></dl>
+<dl class="section author"><dt>Autor</dt><dd>Luis Baca, Óscar Gómez, Carmen Navarro y Carlos Cano</dd></dl>
+<h1><a class="anchor" id="introduccion"></a>
+Introducción</h1>
+<p>Los objetivos de este guión de prácticas son los siguientes:</p><ul>
+<li>Resolver un problema eligiendo la mejor estructura de datos para las operaciones que se solicitan.</li>
+</ul>
+<p>Los requisitos para poder realizar esta práctica son:</p><ol type="1">
+<li>Haber estudiado el Tema 1: Introducción a la eficiencia de los algoritmos</li>
+<li>Haber estudiado el Tema 2: Abstracción de datos. Templates.</li>
+<li>Haber estudiado el Tema 3: T.D.A. Lineales.</li>
+<li>Haber estudiado el Tema 4: STL e Iteradores.</li>
+<li>Haber estudiado estructuras de datos jerárquicas: Árboles</li>
+</ol>
+<h1><a class="anchor" id="objetivos"></a>
+Objetivos</h1>
+<p>El objetivo de esta práctica es llevar a cabo el análisis, diseño e implementación de un proyecto. Con tal fin, el estudiante abordará un problema donde se requieren estructuras de datos que permiten almacenar grandes volúmenes de datos y poder acceder a ellos de la forma más eficiente.</p>
+<h1><a class="anchor" id="problema"></a>
+Problema</h1>
+<p>El estudiante debe implementar un programa que simule el juego "Conecta 4" [Conecta4]. El objetivo de Conecta 4 es alinear cuatro fichas sobre un tablero formado por seis filas y siete columnas. Cada jugador dispone de 21 fichas de un color (por lo general, rojas o amarillas). En nuestro caso, las fichas de los jugadores se indicarán con los caracteres "X" y "O". Por turnos, los jugadores deben introducir una ficha en la columna que prefieran (siempre que no esté completa) y ésta caerá a la posición más baja. Gana la partida el primero que consiga alinear cuatro fichas consecutivas de un mismo color en horizontal, vertical o diagonal. Si todas las columnas están llenas pero nadie ha hecho una fila válida, hay empate.</p>
+<p>El estudiante debe implementar una versión de este juego en el que los movimientos de uno de los jugadores se efectúan de forma automática. Esta modalidad, que llamaremos "Player VS. Computer" o "1 jugador automático", requiere implementar un mecanismo de decisión automática basado en la disposición actual del tablero. Para implementar este mecanismo de decisión automática, debemos representar todos los posibles movimientos a partir del tablero actual y definir una "métrica" que nos permita "evaluar" cuál de los movimientos posibles deriva un tablero con más posibilidad de éxito para el jugador automático. Cuanto mejor sea esta métrica, más difícil será batir al jugador automático en una partida de Conecta 4.</p>
+<p>Por ejemplo, la métrica más sencilla consistiría en evaluar si alguno de los movimientos posibles para el jugador automático produce directamente un tablero donde el jugador automático consigue 4 en línea (y, por tanto, gana la partida) o evita un 4 en línea del rival (y, por tanto, evita perder la partida). Sin embargo, esta métrica sólo nos permitiría evaluar ciertos tableros, dejándonos "a ciegas" para tomar una decisión en tableros que no derivan una victoria o derrota en un sólo movimiento. <b>Otras métricas más sofisticadas requieren evaluar todos los posibles movimientos a partir de un tablero dado, contemplando varios turnos de los dos jugadores. Una representación natural para almacenar esta información es un Árbol</b>. El nodo raíz representa el tablero actual y le añadimos un hijo por cada posible tablero que se deriva del padre con un movimiento del jugador que tiene el turno. De este modo, el nivel 1 del árbol representa todos los movimientos posibles de uno de los jugadores, el nivel 2 todos movimientos posibles del otro jugador para cada uno de los tableros de nivel 1, y así sucesivamente. Cada rama del árbol termina en una hoja en la que, o bien se da la victoria de uno de los jugadores, o bien hay empate (no quedan movimientos posibles). Las siguientes figuras ilustran la estructura interna de un TDA Árbol General que almacena los tableros de Conecta 4 con la disposición de la partida en cada momento. La primera figura incide en la estructura interna del árbol y la segunda en posibles tableros almacenados en el árbol.</p>
+<div class="image">
+<img src="connect4-tree.jpg" alt="connect4-tree.jpg"/>
+<div class="caption">
+Estructura interna de un TDA Árbol General para representar el espacio de soluciones de Conecta 4</div></div>
+<hr/>
+<div class="image">
+<img src="connect4-tree-YR.jpg" alt="connect4-tree-YR.jpg"/>
+<div class="caption">
+Detalle de posibles movimientos en el espacio de soluciones de Conecta 4</div></div>
+<p>El tamaño real de un tablero de Conecta 4 es de 6 filas x 7 columnas, con lo que cada nodo del árbol tiene hasta 7 hijos. Si una columna del tablero estuviera completa, habría menos movimientos posibles y por tanto menos hijos para ese nodo. Los nodos en los que la partida ya está resuelta (por victoria de uno de los jugadores o por no quedar movimientos posibles) serían los nodos hoja del árbol.</p>
+<p>De este modo, en el primer nivel del árbol (considerando 1 turno desde el tablero actual), almacenaríamos hasta 7 jugadas posibles o tableros diferentes. En el segundo nivel (considerando 2 turnos desde el actual), almacenaríamos hasta 7^2 tableros posibles. En el tercero, hasta 7^3. Y así sucesivamente. El estudiante debe ser consciente del coste de almacenar y recorrer este volumen de tableros para implementar métricas de recomendación de movimientos que sean viables (coste razonable en tiempo y memoria). Por ejemplo, se recomienda implementar métricas que utilicen un árbol de movimientos para los próximos N turnos desde el tablero actual, donde N queda a elección del estudiante, para acotar el consumo en tiempo y memoria de la implementación de estas métricas.</p>
+<p>Además, a medida que el juego va avanzando, se recomienda reutilizar las ramas del árbol de soluciones que siguen siendo posibles y utilizar mecanismos de poda (ya implementados en el TDA <a class="el" href="classArbolGeneral.html" title="T.D.A. ArbolGeneral. ">ArbolGeneral</a>) para liberar espacio en memoria eliminando las ramas con movimientos que no se han tomado.</p>
+<p>En esta práctica, el estudiante deberá proponer e implementar distintas métricas para guiar la decisión del jugador automático, representando todas las jugadas posibles para los próximos N turnos utilizando un T.D.A. Árbol General.</p>
+<h1><a class="anchor" id="tareas"></a>
+Tareas a realizar</h1>
+<p>Se proprocionan:</p><ol type="1">
+<li>T.D.A. <a class="el" href="classTablero.html" title="T.D.A. Tablero. ">Tablero</a>: representación del tablero de Conecta 4. Un objeto tablero representa un instante dado de una partida del Conecta 4, es decir, la disposición de las fichas de ambos jugadores sobre el tablero y el turno del jugador al que le corresponde hacer el próximo movimiento.</li>
+<li>T.D.A. <a class="el" href="classMando.html" title="TDA Mando. ">Mando</a>: representación gráfica del tablero de Conecta 4. Incluye la gestión de Entrada/Salida que permite jugar a Conecta 4 de forma interactiva.</li>
+<li>T.D.A. <a class="el" href="classArbolGeneral.html" title="T.D.A. ArbolGeneral. ">ArbolGeneral</a>.</li>
+</ol>
+<p>Se deberán llevar a cabo las siguientes tareas:</p>
+<ol type="1">
+<li>Construir el T.D.A. Conecta4, que almacena todos los tableros posibles de Conecta 4 generados en los próximos N turnos a partir de un tablero inicial utilizando las clases T.D.A. <a class="el" href="classArbolGeneral.html" title="T.D.A. ArbolGeneral. ">ArbolGeneral</a> y T.D.A. <a class="el" href="classTablero.html" title="T.D.A. Tablero. ">Tablero</a>.</li>
+<li>Definir los métodos del T.D.A. Conecta4 para la solución de los problemas propuestos, en particular, para la implementación de un jugador automático.</li>
+<li>Probar los módulos con programas test. Se puede usar la STL en todos los módulos excepto en la implementación del TDA <a class="el" href="classArbolGeneral.html" title="T.D.A. ArbolGeneral. ">ArbolGeneral</a>.</li>
+</ol>
+<p>A continuación se detallan los programas que se deberán desarrollar.</p>
+<h1><a class="anchor" id="jugador_automatico"></a>
+Implementar un jugador automático</h1>
+<p>Conecta 4 es un juego de estrategia abstracta donde los contrincantes disponen de información perfecta [Conecta4]. Por norma general, el primer jugador tiene más posibilidades de ganar si introduce la primera ficha en la columna central. Si lo hace en las contiguas se puede forzar un empate, mientras que si la mete en las más alejadas del centro su rival puede vencerle con mayor facilidad. Existen libros y webs donde se explican las mejores estrategias para ganar en el Conecta 4, por ejemplo puede consultarse [Allen13].</p>
+<p>El estudiante debe implementar distintas "métricas" que permitan al jugador automático decidir qué movimiento realizar dada una disposición del tablero. Las métricas implementadas analizarán el espacio de soluciones posible a partir del tablero actual para evaluar cuál es el movimiento más beneficioso para el jugador automático (esto es, el movimiento que más aumente las expectativas de ganar la partida). La calidad de estas métricas dependerá, en parte, de la cantidad de información de que dispongan. De este modo, una métrica que sólo considere dos niveles en profundidad a partir del tablero actual (esto es, todos los movimientos posibles del jugador y todas las repuestas inmediatas del rival) tendrá más limitaciones que una métrica que disponga de todo el árbol de soluciones a partir del tablero actual. Evidentemente, la contrapartida es que una métrica que dispone de todo el árbol de soluciones requiere de un alto consumo en memoria y en tiempo de cómputo (según el tamaño del tablero, almacenar todo el árbol de soluciones puede ser directamente inviable). De este modo, se propone diseñar distintas métricas utilizando un árbol de soluciones con N niveles en profundidad a partir del tablero actual, donde N es variable y su elección se deja al estudiante.</p>
+<p>El estudiante debe implementar la clase TDA Conecta4 utilizando como tipo rep. el TDA. <a class="el" href="classArbolGeneral.html" title="T.D.A. ArbolGeneral. ">ArbolGeneral</a> para representar el espacio de soluciones con profundidad N e implementar distintas métricas que, haciendo uso de esta representación del espacio de soluciones, recomienden un movimiento al jugador automático. Anteriormente se ha descrito una posible métrica inicial que sólo requiere explorar un nivel del espacio de soluciones: evaluar si alguno de los movimientos posibles para el jugador automático produce directamente un tablero donde el jugador automático consigue 4 en línea (y, por tanto, gana la partida) o evita un 4 en línea del rival (y, por tanto, evita perder la partida). Otra métrica sencilla que requiere explorar todo el árbol de búsqueda hasta profundidad N consiste en hacer recuento de cuántos nodos a profundidad &lt;=N son favorables/desfavorables (victorias/empates/derrotas) al jugador automático para cada nodo hijo del tablero actual, de modo que el hijo con mejores métricas indicará el mejor movimiento posible. Otras métricas más sofisticadas podrían explorar este espacio de búsqueda para considerar no sólo victorias o derrotas, sino también recontar el número de secuencias de tres/dos fichas del jugador automático no rodeadas por fichas del rival en cada uno de los tableros.</p>
+<p>Es importante destacar que, para aliviar el costo de almacenamiento de las métricas basadas en árboles de búsqueda, una vez realizado un movimiento, el árbol debe podarse para eliminar los nodos asociados a movimientos alternativos que finalmente no fueron tomados. El TDA <a class="el" href="classArbolGeneral.html" title="T.D.A. ArbolGeneral. ">ArbolGeneral</a> incluye métodos de poda facilitan esta tarea.</p>
+<p>El estudiante tiene libertad para implementar las métricas sugeridas o cualquier otra para guiar los movimientos del jugador automático. La documentación final a entregar debe recoger una descripción completa de cada métrica implementada y una justificación de sus resultados. Se valorará la dificultad para batir al jugador automático guiado por las métricas implementadas por el estudiante.</p>
+<p>En la siguiente sección se detalla cómo implementar este programa principal para jugar a Conecta 4.</p>
+<h1><a class="anchor" id="partida"></a>
+Implementar una partida de Conecta 4</h1>
+<p>Se adjunta un programa de ejemplo (<code>src/conecta4.cpp</code>) que utiliza los TDA <a class="el" href="classTablero.html" title="T.D.A. Tablero. ">Tablero</a> y TDA <a class="el" href="classMando.html" title="TDA Mando. ">Mando</a> para implementar una partida de Conecta 4 interactiva entre dos jugadores (no automáticos). Nótese que este programa va pidiendo por teclado sucesivamente cada movimiento de ambos jugadores, y no hace uso del TDA <a class="el" href="classArbolGeneral.html" title="T.D.A. ArbolGeneral. ">ArbolGeneral</a> (no representa el espacio de soluciones posibles para emitir recomendaciones sobre el mejor movimiento o tomar decisiones automáticas).</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span></div><div class="line"><span class="preprocessor">#include &lt;vector&gt;</span></div><div class="line"><span class="preprocessor">#include &lt;ctime&gt;</span></div><div class="line"><span class="preprocessor">#include &lt;cstdlib&gt;</span></div><div class="line"><span class="preprocessor">#include &lt;stdio.h&gt;</span></div><div class="line"><span class="preprocessor">#include &lt;unistd.h&gt;</span></div><div class="line"><span class="preprocessor">#include &lt;termio.h&gt;</span>         <span class="comment">// Linux/Windows users</span></div><div class="line"><span class="comment">//#include &lt;termios.h&gt;      // Mac OSX users</span></div><div class="line"></div><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="ArbolGeneral_8h.html">ArbolGeneral.h</a>&quot;</span></div><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="tablero_8h.html">tablero.h</a>&quot;</span></div><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="mando_8h.html">mando.h</a>&quot;</span></div><div class="line"></div><div class="line"><span class="keyword">using namespace </span><a class="code" href="namespacestd.html">std</a>;</div><div class="line"></div><div class="line"><span class="comment">// Captura el caracter pulsado por teclado (sin necesidad de pulsar, a continuación, Enter).</span></div><div class="line"><span class="comment">// Devuelve: Caracter pulsado.</span></div><div class="line"></div><div class="line"><span class="keywordtype">char</span> getch() {</div><div class="line"> ...</div><div class="line">}</div><div class="line"></div><div class="line"><span class="comment">// Imprime en pantalla el tablero completo, con el mando y el jugador.</span></div><div class="line"><span class="comment">// t : Tablero que se va a imprimir.</span></div><div class="line"><span class="comment">// m : Mando indicando la posición del jugador.</span></div><div class="line"></div><div class="line"><span class="keywordtype">void</span> imprimeTablero(<a class="code" href="classTablero.html">Tablero</a> &amp; t, <a class="code" href="classMando.html">Mando</a> &amp; m){</div><div class="line">    cout &lt;&lt; m.<a class="code" href="classMando.html#aaf8c918ecbce5c8173fcf40e04c8b0b7">GetJugador</a>() &lt;&lt; endl;</div><div class="line">    cout &lt;&lt; t ;</div><div class="line">    cout &lt;&lt; m.<a class="code" href="classMando.html#abcc813b0881e56ed976eea2ce6b7fd12">GetBase</a>() &lt;&lt; endl;</div><div class="line">    cout &lt;&lt; m.<a class="code" href="classMando.html#a7e02a04343208f949a88e720ba63a281">GetMando</a>() &lt;&lt; endl;</div><div class="line">}</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">// Implementa el desarrollo de una partida de Conecta 4 con dos jugadores humanos</span></div><div class="line"><span class="comment">// Devuelve: identificador (int) del jugador que gana la partida</span></div><div class="line"><span class="keywordtype">int</span> jugar_partida() {</div><div class="line"></div><div class="line">    <a class="code" href="classTablero.html">Tablero</a> tablero(5, 7);      <span class="comment">//Tablero 5x7</span></div><div class="line">    <a class="code" href="classMando.html">Mando</a> mando(tablero);       <span class="comment">//Mando para controlar E/S de tablero</span></div><div class="line">    <span class="keywordtype">char</span> c = 1;</div><div class="line">    <span class="keywordtype">int</span> quienGana = tablero.quienGana();</div><div class="line">    <span class="comment">//mientras no haya ganador y no se pulse tecla de terminación</span></div><div class="line">    <span class="keywordflow">while</span>(c != <a class="code" href="classMando.html#a3c4e7465d5b25fcaf8f3b50b444421a3">Mando::KB_ESCAPE</a> &amp;&amp; quienGana == 0) {</div><div class="line">        system(<span class="stringliteral">&quot;clear&quot;</span>);</div><div class="line">        mando.actualizarJuego(c, tablero);  <span class="comment">// actualiza tablero según comando c </span></div><div class="line">        imprimeTablero(tablero, mando);     <span class="comment">// muestra tablero y mando en pantalla</span></div><div class="line">        quienGana = tablero.quienGana();    <span class="comment">// hay ganador?</span></div><div class="line">        <span class="keywordflow">if</span>(quienGana==0) c = getch();       <span class="comment">// Capturamos la tecla pulsada.    </span></div><div class="line">    }</div><div class="line"></div><div class="line">    <span class="keywordflow">return</span> tablero.quienGana();</div><div class="line">}</div><div class="line"></div><div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> *argv[]){</div><div class="line">    <span class="keywordtype">int</span> ganador = jugar_partida();</div><div class="line">    cout &lt;&lt; <span class="stringliteral">&quot;Ha ganado el jugador &quot;</span> &lt;&lt; ganador &lt;&lt; endl;</div><div class="line">}  </div></div><!-- fragment --><p>El estudiante debe implementar una partida de Conecta 4 en la que uno de los jugadores realiza sus movimientos automáticamente y el otro jugador introduce sus movimientos por teclado. Utilice el código de <code>src/conecta4.cpp</code> como base para programar este módulo. El programa debe permitir elegir cuál es el jugador que inicia la partida: el jugador automático o el humano.</p>
+<p>Además, en caso de implementar distintas métricas que guían al jugador automático, el programa contará con un argumento entero que permite identificar la métrica utilizada por el jugador automático (métrica 1, métrica 2, y así sucesivamente). La métrica 1 será, por defecto, la que mejor resultados haya obtenido para el estudiante.</p>
+<p>Finalmente, el programa debe también permitir definir el tamaño del tablero.</p>
+<p>En resumen, el módulo a desarrollar por el estudiante debe tener los siguientes argumentos:</p>
+<p><code>prompt %&gt; conecta4 &lt;filas_tablero&gt; &lt;cols_tablero&gt; &lt;metrica&gt; &lt;turno&gt;</code></p>
+<p>Donde:</p>
+<ul>
+<li><code>&lt;filas_tablero&gt;, &lt;cols_tablero&gt;</code>: especifica las dimensiones del tablero (por defecto, 4 en ambas opciones para tablero 4x4)</li>
+<li><code>&lt;metrica&gt;</code>: indica la métrica a utilizar para guiar al jugador automático. Comenzar a numerar con 1 y en adelante, en orden de mejores a peores resultados obtenidos con esa métrica para el jugador automático. 1 es la opción por defecto (la métrica con mejores resultados). 0 para que la partida se desarrolle entre dos jugadores humanos (sin jugador automático).</li>
+<li><code>&lt;turno&gt;</code> indica qué jugador tiene el primer turno:<ul>
+<li>1: primer turno para el jugador humano</li>
+<li>2: primer turno para el jugador automático</li>
+</ul>
+</li>
+</ul>
+<h1><a class="anchor" id="ArbolGeneral"></a>
+Manejo del T.D.A. ArbolGeneral</h1>
+<p>Se adjunta un programa de ejemplo (<code>src/arboltablero_test.cpp</code>) en el que se exhibe alguna funcionalidad asociada a los TDA <a class="el" href="classTablero.html" title="T.D.A. Tablero. ">Tablero</a> y <a class="el" href="classArbolGeneral.html" title="T.D.A. ArbolGeneral. ">ArbolGeneral</a>. En este programa se crean distintos objetos <a class="el" href="classTablero.html" title="T.D.A. Tablero. ">Tablero</a> con distintas jugadas posibles de Conecta 4 y una estructura <a class="el" href="classArbolGeneral.html" title="T.D.A. ArbolGeneral. ">ArbolGeneral</a> que almacena jerárquicamente estos tableros.</p>
+<p>En particular, se muestra como:</p>
+<p>Para TDA <a class="el" href="classTablero.html" title="T.D.A. Tablero. ">Tablero</a>:</p><ul>
+<li>crear de tableros con las dimensiones deseadas</li>
+<li>colocar ficha para el jugador que dispone del turno</li>
+<li>cambiar turno entre jugadores</li>
+</ul>
+<p>Para TDA <a class="el" href="classArbolGeneral.html" title="T.D.A. ArbolGeneral. ">ArbolGeneral</a>:</p><ul>
+<li>crear de árboles con TDA <a class="el" href="classTablero.html" title="T.D.A. Tablero. ">Tablero</a> como nodos</li>
+<li>obtener el nodo raiz de un <a class="el" href="classArbolGeneral.html" title="T.D.A. ArbolGeneral. ">ArbolGeneral</a></li>
+<li>insertar nodos como hijomasizquierda</li>
+<li>insertar nodos como hermanoderecha</li>
+<li>imprimir <a class="el" href="classArbolGeneral.html" title="T.D.A. ArbolGeneral. ">ArbolGeneral</a> en preorden</li>
+<li>podar una rama del <a class="el" href="classArbolGeneral.html" title="T.D.A. ArbolGeneral. ">ArbolGeneral</a></li>
+</ul>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span></div><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="ArbolGeneral_8h.html">ArbolGeneral.h</a>&quot;</span></div><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="tablero_8h.html">tablero.h</a>&quot;</span></div><div class="line"><span class="preprocessor">#include &lt;string&gt;</span></div><div class="line"></div><div class="line"><span class="keyword">using namespace </span><a class="code" href="namespacestd.html">std</a>;</div><div class="line"></div><div class="line"></div><div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> *argv[]){</div><div class="line"></div><div class="line">  <span class="comment">//Tablero vacío 5x7</span></div><div class="line">    <a class="code" href="classTablero.html">Tablero</a> tablero(5, 7);</div><div class="line"></div><div class="line">    <span class="comment">//Manualmente se insertan algunos movimientos: </span></div><div class="line">    tablero.colocarFicha(3);  <span class="comment">//Jugador 1 inserta ficha en columna 3</span></div><div class="line">    tablero.cambiarTurno();</div><div class="line">    tablero.colocarFicha(1);  <span class="comment">//Jugador 2 inserta ficha en columna 1</span></div><div class="line">    tablero.cambiarTurno();</div><div class="line">    tablero.colocarFicha(3);  <span class="comment">//Jugador 1 inserta ficha en columna 3.</span></div><div class="line">    tablero.cambiarTurno();</div><div class="line">    </div><div class="line">    <span class="comment">//Se muestra el tablero </span></div><div class="line">    cout &lt;&lt; <span class="stringliteral">&quot;Tablero obtenido tras tres movimientos: \n&quot;</span>&lt;&lt;tablero; </div><div class="line"></div><div class="line">    <span class="comment">//A partir de la situación actual del tablero, montamos un árbol para estudiar algunas posibilidades. </span></div><div class="line"></div><div class="line">    <span class="comment">// Éste es el árbol que queremos montar: </span></div><div class="line">    <span class="comment">//        tablero</span></div><div class="line">    <span class="comment">//          |</span></div><div class="line">    <span class="comment">//      |---------------|</span></div><div class="line">    <span class="comment">//    tablero1      tablero2</span></div><div class="line">    <span class="comment">//                      |</span></div><div class="line">    <span class="comment">//                  tablero3</span></div><div class="line"></div><div class="line"></div><div class="line">    <span class="comment">//Árbol &#39;partida&#39;, con &#39;tablero&#39; como nodo raíz</span></div><div class="line">    <a class="code" href="classArbolGeneral.html">ArbolGeneral&lt;Tablero&gt;</a> partida(tablero);</div><div class="line"></div><div class="line">    <span class="comment">//Estudio opciones a partir de tablero: Jugador 2 coloca ficha en columna 1. (tablero1)</span></div><div class="line">    <a class="code" href="classTablero.html">Tablero</a> tablero1(tablero);          <span class="comment">//tablero queda sin modificar</span></div><div class="line">    tablero1.colocarFicha(1);   </div><div class="line">    <a class="code" href="classArbolGeneral.html">ArbolGeneral&lt;Tablero&gt;</a> arbol1 (tablero1);  <span class="comment">//creo árbol con un nodo (tablero1)</span></div><div class="line"></div><div class="line">    <span class="comment">//Otra opción: Jugador 2 coloca ficha en columna 2. (tablero2)</span></div><div class="line">    <a class="code" href="classTablero.html">Tablero</a> tablero2(tablero);          <span class="comment">//tablero queda sin modificar</span></div><div class="line">    tablero2.colocarFicha(2);</div><div class="line">    <a class="code" href="classArbolGeneral.html">ArbolGeneral&lt;Tablero&gt;</a> arbol2(tablero2);   <span class="comment">//creo árbol con un nodo</span></div><div class="line"></div><div class="line">    <span class="comment">// Sobre la última opción, ahora contemplo la posibilidad de que </span></div><div class="line">    <span class="comment">//  Jugador 1 coloque ficha también en columna 2. </span></div><div class="line">    tablero2.cambiarTurno();          <span class="comment">//modifico tablero2 (esta modificación sería tablero3)</span></div><div class="line">    tablero2.colocarFicha(2); </div><div class="line">    <a class="code" href="classArbolGeneral.html">ArbolGeneral&lt;Tablero&gt;</a> arbol3 (tablero2);  <span class="comment">//creo árbol con un nodo</span></div><div class="line">    arbol2.insertar_hijomasizquierda(arbol2.raiz(), arbol3);  <span class="comment">//añado este árbol como hijo de arbol2</span></div><div class="line"></div><div class="line">    <span class="comment">// Inserto arbol1 y arbol2 como hijos de partida. </span></div><div class="line">    <span class="comment">// arbol1 es el hijo más a la izquierda y arbol2 es hermano a la derecha de arbol1</span></div><div class="line">  </div><div class="line">    <span class="comment">//  Forma de hacerlo A: inserto varios hijomasizquierda en el orden inverso al deseado</span></div><div class="line">    <span class="comment">//  partida.insertar_hijomasizquierda(partida.raiz(), arbol2);</span></div><div class="line">    <span class="comment">//  partida.insertar_hijomasizquierda(partida.raiz(), arbol1);  //hijomasizquierda desplaza al anterior a la derecha</span></div><div class="line">  </div><div class="line">    <span class="comment">// Forma de hacerlo B: inserto un hijomasizquierda y hermanoderecha</span></div><div class="line">    partida.insertar_hijomasizquierda(partida.raiz(), arbol1);              <span class="comment">//inserto un hijomasizquierda</span></div><div class="line">    partida.insertar_hermanoderecha(partida.hijomasizquierda(partida.raiz()), arbol2);  <span class="comment">//le inserto un hermanoderecha</span></div><div class="line">    </div><div class="line"></div><div class="line">    <span class="comment">// Recorremos en preorden para comprobar el arbol &#39;partida&#39; resultante</span></div><div class="line">    cout &lt;&lt; <span class="stringliteral">&quot;\nÁrbol en preorden: \n&quot;</span>&lt;&lt;endl; </div><div class="line">    partida.recorrer_preorden();</div><div class="line"></div><div class="line">    <span class="comment">// Podamos el hijomasizquierda y recorremos en preorden: </span></div><div class="line">    <a class="code" href="classArbolGeneral.html">ArbolGeneral&lt;Tablero&gt;</a> rama_podada;</div><div class="line">    partida.<a class="code" href="classArbolGeneral.html#a7f2fa2d9be4af4b7be1c334819a04c39">podar_hijomasizquierda</a>(partida.raiz(), rama_podada);</div><div class="line"></div><div class="line">    cout &lt;&lt; <span class="stringliteral">&quot;\nRecorrido preorden después de podar hijomasizquierda: \n&quot;</span>&lt;&lt;endl; </div><div class="line">    partida.recorrer_preorden();</div><div class="line"></div><div class="line">    <span class="keywordflow">return</span> 0;</div><div class="line">}</div></div><!-- fragment --><p>El estudiante deber revisar detenidamente este código y la documentación completa asociada a las clases TDA <a class="el" href="classTablero.html" title="T.D.A. Tablero. ">Tablero</a> y TDA <a class="el" href="classArbolGeneral.html" title="T.D.A. ArbolGeneral. ">ArbolGeneral</a> para familiarizarse con su manejo y sacarles el máximo partido para la implementación del T.D.A. Conecta4.</p>
+<h1><a class="anchor" id="recomendaciones"></a>
+Recomendaciones</h1>
+<ul>
+<li>Analice con detenimiento la documentación de las clases proporcionadas: T.D.A. <a class="el" href="classArbolGeneral.html" title="T.D.A. ArbolGeneral. ">ArbolGeneral</a>, T.D.A. <a class="el" href="classTablero.html" title="T.D.A. Tablero. ">Tablero</a> y T.D.A. <a class="el" href="classMando.html" title="TDA Mando. ">Mando</a>. Parte importante del esfuerzo que debe realizar en esta práctica es entender cómo debe utilizar estas clases para su proyecto. Esta práctica es habitual en empresas: para el desarrollo de un proyecto se cuenta con parte del código desarrollado previamente por otro equipo.</li>
+<li>Para acotar el espacio de búsqueda y el tamaño de los objetos <a class="el" href="classArbolGeneral.html" title="T.D.A. ArbolGeneral. ">ArbolGeneral</a>, comience el desarrollo de su proyecto considerando tableros más pequeños (por ejemplo, 4x4). Cuando el funcionamiento sea correcto, amplíe progresivamente el tamaño de los tableros. Del mismo modo, considere con cautela la profundidad máxima N que va a explorar en el árbol de soluciones. Comience con un valor bajo de N y estudie hasta qué valor de N (depende del tamaño del tablero) es viable el cálculo de sus métricas.</li>
+</ul>
+<h1><a class="anchor" id="entrega"></a>
+Entrega</h1>
+<p>El estudiante deberá empaquetar todos los archivos relacionados en el proyecto en un archivo con nombre “conecta4.tgz” y entregarlo antes de la fecha que se publicará en la página web de la asignatura. Tenga en cuenta que no se incluirán ficheros objeto, ni ejecutables, ni la carpeta datos. Es recomendable que haga una “limpieza” para eliminar los archivos temporales o que se puedan generar a partir de los fuentes. El estudiante debe incluir el archivo Makefile para realizar la compilación. Tenga en cuenta que los archivos deben estar distribuidos en directorios:</p>
+<p>conecta4</p><ul>
+<li>Makefile</li>
+<li>include &ndash; Carpeta con ficheros de cabecera (.h)</li>
+<li>src &ndash;Carpeta con código fuente (.cpp)</li>
+<li>doc &ndash;Carpeta con Documentación</li>
+<li>obj &ndash; Carpeta para código objeto (.o)</li>
+<li>bin &ndash; Carpeta para ejecutables</li>
+<li>datos &ndash; Carpeta para ficheros de datos</li>
+</ul>
+<p>Para realizar la entrega, en primer lugar, realice la limpieza de archivos que no se incluirán en ella, y sitúese en la carpeta superior (en el mismo nivel de la carpeta "conecta4") para ejecutar: </p><div class="fragment"><div class="line">prompt% tar zcv conecta4.tgz conecta4</div></div><!-- fragment --><p> tras lo cual, dispondrá de un nuevo archivo conecta4.tgz que contiene la carpeta conecta4 así como todas las carpetas y archivos que cuelgan de ella.</p>
+<p>La fecha límite de entrega es el día 22 de Enero de 2017 a las 23:59.</p>
+<h1><a class="anchor" id="referencias"></a>
+Referencias</h1>
+<p>[Allen13] James D. Allen. "Expert Play in Connect-Four" (en inglés). Archivado desde el original el 4 de noviembre de 2015. <a href="http://web.archive.org/web/20141125065033/http://homepages.cwi.nl/~tromp/c4.html">http://web.archive.org/web/20141125065033/http://homepages.cwi.nl/~tromp/c4.html</a></p>
+<p>[Conecta4] <a href="https://es.wikipedia.org/wiki/Conecta_4">https://es.wikipedia.org/wiki/Conecta_4</a></p>
+<p>[GAR06b] Garrido, A. Fdez-Valdivia, J. "Abstracción y estructuras de datos en C++". Delta publicaciones, 2006. </p>
+</div></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.11
+</small></address>
+</body>
+</html>

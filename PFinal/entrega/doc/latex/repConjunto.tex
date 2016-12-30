@@ -1,0 +1,15 @@
+\hypertarget{repConjunto_invConjunto}{}\subsection{Invariante de la representación}\label{repConjunto_invConjunto}
+Sea {\itshape T} un Árbol General sobre el tipo {\itshape Tbase}. Entonces el invariante de la representación es
+
+Si {\itshape T} es vacío, entonces T.\+laraiz vale 0. Si no\+:
+\begin{DoxyItemize}
+\item T.\+laraiz-\/$>$padre = 0 y
+\item $ \forall $ n nodo de {\itshape T}, n-\/$>$izqda $ \neq $ n-\/$>$drch y
+\item $ \forall $ n, m nodos de {\itshape T}, si n-\/$>$izqda = m, entonces m-\/$>$padre = n y
+\item Número de elementos = número elementos de la raiz, donde N(n) = 1 + N(n-\/$>$izqda) + (N-\/$>$drcha), con N(0) = 0.
+\end{DoxyItemize}\hypertarget{repConjunto_faConjunto}{}\subsection{Función de abstracción}\label{repConjunto_faConjunto}
+Sea {\itshape T} un Árbol General sobre el tipo {\itshape Tbase}. Entonces, si lo denotamos también Árbol(T.\+laraiz), es decir, como el árbol que cuelga de su raíz, entonces este árbol del conjunto de valores en la representación se aplica al árbol.
+
+\{ T.\+laraiz-\/$>$etiqueta, \{Arbol(T.\+laraiz-\/$>$izqda)\}, \{Arbol(T.\+laraiz-\/$>$drcha)\} \}
+
+donde \{0\} es el árbol vacío. 

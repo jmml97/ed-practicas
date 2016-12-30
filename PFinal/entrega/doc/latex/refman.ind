@@ -1,0 +1,484 @@
+\begin{theindex}
+
+  \item {$\sim$\+Arbol\+General}
+    \subitem {Arbol\+General}, \hyperpage{16}
+  \item {$\sim$\+Tablero}
+    \subitem {Tablero}, \hyperpage{47}
+
+  \indexspace
+
+  \item {actualizar\+Juego}
+    \subitem {Mando}, \hyperpage{32}
+  \item {altura}
+    \subitem {Arbol\+General}, \hyperpage{16}
+  \item {Arbol\+General}
+    \subitem {$\sim$\+Arbol\+General}, \hyperpage{16}
+    \subitem {altura}, \hyperpage{16}
+    \subitem {Arbol\+General}, \hyperpage{15}
+    \subitem {Arbol\+General\+::inorden\+\_\+iterador}, \hyperpage{31}
+    \subitem {Arbol\+General\+::postorden\+\_\+iterador}, 
+		\hyperpage{38}
+    \subitem {Arbol\+General\+::preorden\+\_\+iterador}, \hyperpage{42}
+    \subitem {Arbol\+General\+::reverse\+\_\+preorden\+\_\+iterador}, 
+		\hyperpage{45}
+    \subitem {Asigna\+Raiz}, \hyperpage{16}
+    \subitem {asignar\+\_\+subarbol}, \hyperpage{16}
+    \subitem {begininorden}, \hyperpage{17}
+    \subitem {beginpostorden}, \hyperpage{17}
+    \subitem {beginpreorden}, \hyperpage{17}
+    \subitem {beginreverse\+\_\+preorden}, \hyperpage{17}
+    \subitem {clear}, \hyperpage{17}
+    \subitem {contar}, \hyperpage{17}
+    \subitem {contar\+\_\+\+Hijos}, \hyperpage{18}
+    \subitem {copiar}, \hyperpage{18}
+    \subitem {destruir}, \hyperpage{18}
+    \subitem {empty}, \hyperpage{18}
+    \subitem {endinorden}, \hyperpage{18}
+    \subitem {endpostorden}, \hyperpage{19}
+    \subitem {endpreorden}, \hyperpage{19}
+    \subitem {endreverse\+\_\+preorden}, \hyperpage{19}
+    \subitem {escribe\+\_\+arbol}, \hyperpage{19}
+    \subitem {etiqueta}, \hyperpage{20}
+    \subitem {hermanoderecha}, \hyperpage{20}
+    \subitem {hijomasizquierda}, \hyperpage{21}
+    \subitem {insertar\+\_\+hermanoderecha}, \hyperpage{21}
+    \subitem {insertar\+\_\+hijomasizquierda}, \hyperpage{21}
+    \subitem {laraiz}, \hyperpage{28}
+    \subitem {lee\+\_\+arbol}, \hyperpage{22}
+    \subitem {Nodo}, \hyperpage{15}
+    \subitem {operator!=}, \hyperpage{22}
+    \subitem {operator$<$$<$}, \hyperpage{27}
+    \subitem {operator$>$$>$}, \hyperpage{27}
+    \subitem {operator=}, \hyperpage{22}
+    \subitem {operator==}, \hyperpage{23}
+    \subitem {padre}, \hyperpage{23}
+    \subitem {podar\+\_\+hermanoderecha}, \hyperpage{23}
+    \subitem {podar\+\_\+hijomasizquierda}, \hyperpage{24}
+    \subitem {raiz}, \hyperpage{24}
+    \subitem {recorrer\+\_\+inorden}, \hyperpage{24}
+    \subitem {recorrer\+\_\+inorden2}, \hyperpage{24}
+    \subitem {recorrer\+\_\+por\+\_\+niveles}, \hyperpage{25}
+    \subitem {recorrer\+\_\+postorden}, \hyperpage{25}
+    \subitem {recorrer\+\_\+postorden2}, \hyperpage{25}
+    \subitem {recorrer\+\_\+preorden}, \hyperpage{25}
+    \subitem {recorrer\+\_\+preorden2}, \hyperpage{25}
+    \subitem {recorrer\+\_\+preorden\+\_\+al\+\_\+reves}, 
+		\hyperpage{25}
+    \subitem {recorrer\+\_\+reverse\+\_\+preorden}, \hyperpage{25}
+    \subitem {recorrer\+\_\+reverse\+\_\+preorden\+\_\+al\+\_\+reves}, 
+		\hyperpage{25}
+    \subitem {recuperar\+\_\+arbol}, \hyperpage{26}
+    \subitem {reflejado}, \hyperpage{26}
+    \subitem {size}, \hyperpage{26}
+    \subitem {soniguales}, \hyperpage{26}
+  \item {Arbol\+General$<$ Tbase $>$}, \hyperpage{11}
+  \item {Arbol\+General$<$ Tbase $>$\+::inorden\+\_\+iterador}, 
+		\hyperpage{28}
+  \item {Arbol\+General$<$ Tbase $>$\+::nodo}, \hyperpage{34}
+  \item {Arbol\+General$<$ Tbase $>$\+::postorden\+\_\+iterador}, 
+		\hyperpage{35}
+  \item {Arbol\+General$<$ Tbase $>$\+::preorden\+\_\+iterador}, 
+		\hyperpage{39}
+  \item {Arbol\+General$<$ Tbase $>$\+::reverse\+\_\+preorden\+\_\+iterador}, 
+		\hyperpage{42}
+  \item {Arbol\+General.\+h}
+    \subitem {operator$<$$<$}, \hyperpage{51}
+    \subitem {operator$>$$>$}, \hyperpage{51}
+  \item {Arbol\+General\+::inorden\+\_\+iterador}
+    \subitem {Arbol\+General}, \hyperpage{31}
+    \subitem {derecha}, \hyperpage{29}
+    \subitem {inorden\+\_\+iterador}, \hyperpage{29}
+    \subitem {izquierda}, \hyperpage{29}
+    \subitem {nulo}, \hyperpage{29}
+    \subitem {operator!=}, \hyperpage{30}
+    \subitem {operator$\ast$}, \hyperpage{30}
+    \subitem {operator++}, \hyperpage{30}
+    \subitem {operator==}, \hyperpage{30}
+    \subitem {p}, \hyperpage{31}
+    \subitem {padre}, \hyperpage{31}
+  \item {Arbol\+General\+::nodo}
+    \subitem {drcha}, \hyperpage{35}
+    \subitem {etiqueta}, \hyperpage{35}
+    \subitem {izqda}, \hyperpage{35}
+    \subitem {nodo}, \hyperpage{35}
+    \subitem {padre}, \hyperpage{35}
+  \item {Arbol\+General\+::postorden\+\_\+iterador}
+    \subitem {Arbol\+General}, \hyperpage{38}
+    \subitem {derecha}, \hyperpage{37}
+    \subitem {izquierda}, \hyperpage{37}
+    \subitem {nulo}, \hyperpage{37}
+    \subitem {operator!=}, \hyperpage{37}
+    \subitem {operator$\ast$}, \hyperpage{38}
+    \subitem {operator++}, \hyperpage{38}
+    \subitem {operator==}, \hyperpage{38}
+    \subitem {p}, \hyperpage{38}
+    \subitem {padre}, \hyperpage{38}
+    \subitem {postorden\+\_\+iterador}, \hyperpage{36, 37}
+  \item {Arbol\+General\+::preorden\+\_\+iterador}
+    \subitem {Arbol\+General}, \hyperpage{42}
+    \subitem {hermano}, \hyperpage{40}
+    \subitem {izquierda}, \hyperpage{40}
+    \subitem {nulo}, \hyperpage{40}
+    \subitem {operator!=}, \hyperpage{40}
+    \subitem {operator$\ast$}, \hyperpage{41}
+    \subitem {operator++}, \hyperpage{41}
+    \subitem {operator-\/-\/}, \hyperpage{41}
+    \subitem {operator==}, \hyperpage{41}
+    \subitem {p}, \hyperpage{42}
+    \subitem {padre}, \hyperpage{41}
+    \subitem {preorden\+\_\+iterador}, \hyperpage{39, 40}
+    \subitem {reverse\+\_\+preorden\+\_\+iterador}, \hyperpage{42}
+  \item {Arbol\+General\+::reverse\+\_\+preorden\+\_\+iterador}
+    \subitem {Arbol\+General}, \hyperpage{45}
+    \subitem {hermano}, \hyperpage{43}
+    \subitem {izquierda}, \hyperpage{43}
+    \subitem {nulo}, \hyperpage{44}
+    \subitem {operator!=}, \hyperpage{44}
+    \subitem {operator$\ast$}, \hyperpage{44}
+    \subitem {operator++}, \hyperpage{44}
+    \subitem {operator-\/-\/}, \hyperpage{44}
+    \subitem {operator==}, \hyperpage{45}
+    \subitem {p}, \hyperpage{45}
+    \subitem {padre}, \hyperpage{45}
+    \subitem {preorden\+\_\+iterador}, \hyperpage{45}
+    \subitem {reverse\+\_\+preorden\+\_\+iterador}, \hyperpage{43}
+  \item {Asigna\+Raiz}
+    \subitem {Arbol\+General}, \hyperpage{16}
+  \item {asignar\+\_\+subarbol}
+    \subitem {Arbol\+General}, \hyperpage{16}
+
+  \indexspace
+
+  \item {base}
+    \subitem {Mando}, \hyperpage{33}
+  \item {begininorden}
+    \subitem {Arbol\+General}, \hyperpage{17}
+  \item {beginpostorden}
+    \subitem {Arbol\+General}, \hyperpage{17}
+  \item {beginpreorden}
+    \subitem {Arbol\+General}, \hyperpage{17}
+  \item {beginreverse\+\_\+preorden}
+    \subitem {Arbol\+General}, \hyperpage{17}
+
+  \indexspace
+
+  \item {cambiar\+Turno}
+    \subitem {Tablero}, \hyperpage{47}
+  \item {clear}
+    \subitem {Arbol\+General}, \hyperpage{17}
+  \item {colocar\+Ficha}
+    \subitem {Tablero}, \hyperpage{47}
+  \item {columnas}
+    \subitem {Tablero}, \hyperpage{50}
+  \item {contar}
+    \subitem {Arbol\+General}, \hyperpage{17}
+  \item {contar\+\_\+\+Hijos}
+    \subitem {Arbol\+General}, \hyperpage{18}
+  \item {copiar}
+    \subitem {Arbol\+General}, \hyperpage{18}
+
+  \indexspace
+
+  \item {derecha}
+    \subitem {Arbol\+General\+::inorden\+\_\+iterador}, \hyperpage{29}
+    \subitem {Arbol\+General\+::postorden\+\_\+iterador}, 
+		\hyperpage{37}
+  \item {destruir}
+    \subitem {Arbol\+General}, \hyperpage{18}
+  \item {doc/doxys/guion.\+dox}, \hyperpage{50}
+  \item {drcha}
+    \subitem {Arbol\+General\+::nodo}, \hyperpage{35}
+
+  \indexspace
+
+  \item {empty}
+    \subitem {Arbol\+General}, \hyperpage{18}
+  \item {endinorden}
+    \subitem {Arbol\+General}, \hyperpage{18}
+  \item {endpostorden}
+    \subitem {Arbol\+General}, \hyperpage{19}
+  \item {endpreorden}
+    \subitem {Arbol\+General}, \hyperpage{19}
+  \item {endreverse\+\_\+preorden}
+    \subitem {Arbol\+General}, \hyperpage{19}
+  \item {escribe\+\_\+arbol}
+    \subitem {Arbol\+General}, \hyperpage{19}
+  \item {etiqueta}
+    \subitem {Arbol\+General}, \hyperpage{20}
+    \subitem {Arbol\+General\+::nodo}, \hyperpage{35}
+
+  \indexspace
+
+  \item {filas}
+    \subitem {Tablero}, \hyperpage{50}
+
+  \indexspace
+
+  \item {Get\+Base}
+    \subitem {Mando}, \hyperpage{32}
+  \item {Get\+Columnas}
+    \subitem {Tablero}, \hyperpage{48}
+  \item {Get\+Filas}
+    \subitem {Tablero}, \hyperpage{48}
+  \item {Get\+Jugador}
+    \subitem {Mando}, \hyperpage{33}
+  \item {Get\+Mando}
+    \subitem {Mando}, \hyperpage{33}
+  \item {Get\+Tablero}
+    \subitem {Tablero}, \hyperpage{48}
+  \item {Get\+Turno}
+    \subitem {Tablero}, \hyperpage{48}
+
+  \indexspace
+
+  \item {hay\+Hueco}
+    \subitem {Tablero}, \hyperpage{48}
+  \item {hermano}
+    \subitem {Arbol\+General\+::preorden\+\_\+iterador}, \hyperpage{40}
+    \subitem {Arbol\+General\+::reverse\+\_\+preorden\+\_\+iterador}, 
+		\hyperpage{43}
+  \item {hermanoderecha}
+    \subitem {Arbol\+General}, \hyperpage{20}
+  \item {hijomasizquierda}
+    \subitem {Arbol\+General}, \hyperpage{21}
+
+  \indexspace
+
+  \item {include/\+Arbol\+General.\+h}, \hyperpage{50}
+  \item {include/mando.\+h}, \hyperpage{51}
+  \item {include/tablero.\+h}, \hyperpage{51}
+  \item {inorden\+\_\+iterador}
+    \subitem {Arbol\+General\+::inorden\+\_\+iterador}, \hyperpage{29}
+  \item {insertar\+\_\+hermanoderecha}
+    \subitem {Arbol\+General}, \hyperpage{21}
+  \item {insertar\+\_\+hijomasizquierda}
+    \subitem {Arbol\+General}, \hyperpage{21}
+  \item {izqda}
+    \subitem {Arbol\+General\+::nodo}, \hyperpage{35}
+  \item {izquierda}
+    \subitem {Arbol\+General\+::inorden\+\_\+iterador}, \hyperpage{29}
+    \subitem {Arbol\+General\+::postorden\+\_\+iterador}, 
+		\hyperpage{37}
+    \subitem {Arbol\+General\+::preorden\+\_\+iterador}, \hyperpage{40}
+    \subitem {Arbol\+General\+::reverse\+\_\+preorden\+\_\+iterador}, 
+		\hyperpage{43}
+
+  \indexspace
+
+  \item {jugador}
+    \subitem {Mando}, \hyperpage{33}
+
+  \indexspace
+
+  \item {K\+B\+\_\+\+E\+S\+C\+A\+PE}
+    \subitem {Mando}, \hyperpage{33}
+  \item {K\+B\+\_\+\+L\+E\+FT}
+    \subitem {Mando}, \hyperpage{33}
+  \item {K\+B\+\_\+\+R\+I\+G\+HT}
+    \subitem {Mando}, \hyperpage{33}
+  \item {K\+B\+\_\+\+S\+P\+A\+CE}
+    \subitem {Mando}, \hyperpage{33}
+
+  \indexspace
+
+  \item {laraiz}
+    \subitem {Arbol\+General}, \hyperpage{28}
+  \item {lee\+\_\+arbol}
+    \subitem {Arbol\+General}, \hyperpage{22}
+
+  \indexspace
+
+  \item {Mando}, \hyperpage{31}
+    \subitem {actualizar\+Juego}, \hyperpage{32}
+    \subitem {base}, \hyperpage{33}
+    \subitem {Get\+Base}, \hyperpage{32}
+    \subitem {Get\+Jugador}, \hyperpage{33}
+    \subitem {Get\+Mando}, \hyperpage{33}
+    \subitem {jugador}, \hyperpage{33}
+    \subitem {K\+B\+\_\+\+E\+S\+C\+A\+PE}, \hyperpage{33}
+    \subitem {K\+B\+\_\+\+L\+E\+FT}, \hyperpage{33}
+    \subitem {K\+B\+\_\+\+R\+I\+G\+HT}, \hyperpage{33}
+    \subitem {K\+B\+\_\+\+S\+P\+A\+CE}, \hyperpage{33}
+    \subitem {Mando}, \hyperpage{32}
+    \subitem {mando}, \hyperpage{33}
+    \subitem {posicion}, \hyperpage{33}
+  \item {mando}
+    \subitem {Mando}, \hyperpage{33}
+
+  \indexspace
+
+  \item {N\+\_\+\+F\+I\+C\+H\+A\+S\+\_\+\+G\+A\+N\+AR}
+    \subitem {Tablero}, \hyperpage{50}
+  \item {Nodo}
+    \subitem {Arbol\+General}, \hyperpage{15}
+  \item {nodo}
+    \subitem {Arbol\+General\+::nodo}, \hyperpage{35}
+  \item {nulo}
+    \subitem {Arbol\+General\+::inorden\+\_\+iterador}, \hyperpage{29}
+    \subitem {Arbol\+General\+::postorden\+\_\+iterador}, 
+		\hyperpage{37}
+    \subitem {Arbol\+General\+::preorden\+\_\+iterador}, \hyperpage{40}
+    \subitem {Arbol\+General\+::reverse\+\_\+preorden\+\_\+iterador}, 
+		\hyperpage{44}
+
+  \indexspace
+
+  \item {operator!=}
+    \subitem {Arbol\+General}, \hyperpage{22}
+    \subitem {Arbol\+General\+::inorden\+\_\+iterador}, \hyperpage{30}
+    \subitem {Arbol\+General\+::postorden\+\_\+iterador}, 
+		\hyperpage{37}
+    \subitem {Arbol\+General\+::preorden\+\_\+iterador}, \hyperpage{40}
+    \subitem {Arbol\+General\+::reverse\+\_\+preorden\+\_\+iterador}, 
+		\hyperpage{44}
+  \item {operator$<$$<$}
+    \subitem {Arbol\+General}, \hyperpage{27}
+    \subitem {Arbol\+General.\+h}, \hyperpage{51}
+    \subitem {Tablero}, \hyperpage{49}
+    \subitem {tablero.\+h}, \hyperpage{51, 52}
+  \item {operator$>$$>$}
+    \subitem {Arbol\+General}, \hyperpage{27}
+    \subitem {Arbol\+General.\+h}, \hyperpage{51}
+  \item {operator$\ast$}
+    \subitem {Arbol\+General\+::inorden\+\_\+iterador}, \hyperpage{30}
+    \subitem {Arbol\+General\+::postorden\+\_\+iterador}, 
+		\hyperpage{38}
+    \subitem {Arbol\+General\+::preorden\+\_\+iterador}, \hyperpage{41}
+    \subitem {Arbol\+General\+::reverse\+\_\+preorden\+\_\+iterador}, 
+		\hyperpage{44}
+  \item {operator++}
+    \subitem {Arbol\+General\+::inorden\+\_\+iterador}, \hyperpage{30}
+    \subitem {Arbol\+General\+::postorden\+\_\+iterador}, 
+		\hyperpage{38}
+    \subitem {Arbol\+General\+::preorden\+\_\+iterador}, \hyperpage{41}
+    \subitem {Arbol\+General\+::reverse\+\_\+preorden\+\_\+iterador}, 
+		\hyperpage{44}
+  \item {operator-\/-\/}
+    \subitem {Arbol\+General\+::preorden\+\_\+iterador}, \hyperpage{41}
+    \subitem {Arbol\+General\+::reverse\+\_\+preorden\+\_\+iterador}, 
+		\hyperpage{44}
+  \item {operator=}
+    \subitem {Arbol\+General}, \hyperpage{22}
+    \subitem {Tablero}, \hyperpage{49}
+  \item {operator==}
+    \subitem {Arbol\+General}, \hyperpage{23}
+    \subitem {Arbol\+General\+::inorden\+\_\+iterador}, \hyperpage{30}
+    \subitem {Arbol\+General\+::postorden\+\_\+iterador}, 
+		\hyperpage{38}
+    \subitem {Arbol\+General\+::preorden\+\_\+iterador}, \hyperpage{41}
+    \subitem {Arbol\+General\+::reverse\+\_\+preorden\+\_\+iterador}, 
+		\hyperpage{45}
+
+  \indexspace
+
+  \item {p}
+    \subitem {Arbol\+General\+::inorden\+\_\+iterador}, \hyperpage{31}
+    \subitem {Arbol\+General\+::postorden\+\_\+iterador}, 
+		\hyperpage{38}
+    \subitem {Arbol\+General\+::preorden\+\_\+iterador}, \hyperpage{42}
+    \subitem {Arbol\+General\+::reverse\+\_\+preorden\+\_\+iterador}, 
+		\hyperpage{45}
+  \item {padre}
+    \subitem {Arbol\+General}, \hyperpage{23}
+    \subitem {Arbol\+General\+::inorden\+\_\+iterador}, \hyperpage{31}
+    \subitem {Arbol\+General\+::nodo}, \hyperpage{35}
+    \subitem {Arbol\+General\+::postorden\+\_\+iterador}, 
+		\hyperpage{38}
+    \subitem {Arbol\+General\+::preorden\+\_\+iterador}, \hyperpage{41}
+    \subitem {Arbol\+General\+::reverse\+\_\+preorden\+\_\+iterador}, 
+		\hyperpage{45}
+  \item {podar\+\_\+hermanoderecha}
+    \subitem {Arbol\+General}, \hyperpage{23}
+  \item {podar\+\_\+hijomasizquierda}
+    \subitem {Arbol\+General}, \hyperpage{24}
+  \item {posicion}
+    \subitem {Mando}, \hyperpage{33}
+  \item {postorden\+\_\+iterador}
+    \subitem {Arbol\+General\+::postorden\+\_\+iterador}, 
+		\hyperpage{36, 37}
+  \item {preorden\+\_\+iterador}
+    \subitem {Arbol\+General\+::preorden\+\_\+iterador}, 
+		\hyperpage{39, 40}
+    \subitem {Arbol\+General\+::reverse\+\_\+preorden\+\_\+iterador}, 
+		\hyperpage{45}
+
+  \indexspace
+
+  \item {quien\+Gana}
+    \subitem {Tablero}, \hyperpage{49}
+
+  \indexspace
+
+  \item {raiz}
+    \subitem {Arbol\+General}, \hyperpage{24}
+  \item {recorrer\+\_\+inorden}
+    \subitem {Arbol\+General}, \hyperpage{24}
+  \item {recorrer\+\_\+inorden2}
+    \subitem {Arbol\+General}, \hyperpage{24}
+  \item {recorrer\+\_\+por\+\_\+niveles}
+    \subitem {Arbol\+General}, \hyperpage{25}
+  \item {recorrer\+\_\+postorden}
+    \subitem {Arbol\+General}, \hyperpage{25}
+  \item {recorrer\+\_\+postorden2}
+    \subitem {Arbol\+General}, \hyperpage{25}
+  \item {recorrer\+\_\+preorden}
+    \subitem {Arbol\+General}, \hyperpage{25}
+  \item {recorrer\+\_\+preorden2}
+    \subitem {Arbol\+General}, \hyperpage{25}
+  \item {recorrer\+\_\+preorden\+\_\+al\+\_\+reves}
+    \subitem {Arbol\+General}, \hyperpage{25}
+  \item {recorrer\+\_\+reverse\+\_\+preorden}
+    \subitem {Arbol\+General}, \hyperpage{25}
+  \item {recorrer\+\_\+reverse\+\_\+preorden\+\_\+al\+\_\+reves}
+    \subitem {Arbol\+General}, \hyperpage{25}
+  \item {recuperar\+\_\+arbol}
+    \subitem {Arbol\+General}, \hyperpage{26}
+  \item {reflejado}
+    \subitem {Arbol\+General}, \hyperpage{26}
+  \item {reserve}
+    \subitem {Tablero}, \hyperpage{49}
+  \item {reverse\+\_\+preorden\+\_\+iterador}
+    \subitem {Arbol\+General\+::preorden\+\_\+iterador}, \hyperpage{42}
+    \subitem {Arbol\+General\+::reverse\+\_\+preorden\+\_\+iterador}, 
+		\hyperpage{43}
+
+  \indexspace
+
+  \item {Set\+Tablero}
+    \subitem {Tablero}, \hyperpage{49}
+  \item {size}
+    \subitem {Arbol\+General}, \hyperpage{26}
+  \item {soniguales}
+    \subitem {Arbol\+General}, \hyperpage{26}
+
+  \indexspace
+
+  \item {Tablero}, \hyperpage{45}
+    \subitem {$\sim$\+Tablero}, \hyperpage{47}
+    \subitem {cambiar\+Turno}, \hyperpage{47}
+    \subitem {colocar\+Ficha}, \hyperpage{47}
+    \subitem {columnas}, \hyperpage{50}
+    \subitem {filas}, \hyperpage{50}
+    \subitem {Get\+Columnas}, \hyperpage{48}
+    \subitem {Get\+Filas}, \hyperpage{48}
+    \subitem {Get\+Tablero}, \hyperpage{48}
+    \subitem {Get\+Turno}, \hyperpage{48}
+    \subitem {hay\+Hueco}, \hyperpage{48}
+    \subitem {N\+\_\+\+F\+I\+C\+H\+A\+S\+\_\+\+G\+A\+N\+AR}, 
+		\hyperpage{50}
+    \subitem {operator$<$$<$}, \hyperpage{49}
+    \subitem {operator=}, \hyperpage{49}
+    \subitem {quien\+Gana}, \hyperpage{49}
+    \subitem {reserve}, \hyperpage{49}
+    \subitem {Set\+Tablero}, \hyperpage{49}
+    \subitem {Tablero}, \hyperpage{47}
+    \subitem {tablero}, \hyperpage{50}
+    \subitem {turno}, \hyperpage{50}
+  \item {tablero}
+    \subitem {Tablero}, \hyperpage{50}
+  \item {tablero.\+h}
+    \subitem {operator$<$$<$}, \hyperpage{51, 52}
+  \item {turno}
+    \subitem {Tablero}, \hyperpage{50}
+
+\end{theindex}
