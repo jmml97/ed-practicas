@@ -1,23 +1,31 @@
-SRC = src
-INC = include
-OBJ = obj
-LIB = lib
-BIN = bin
-CXX = g++
-AR = ar rvs		
-AR_MACOSX = libtool -static -o  
-CPPFLAGS = -Wall -g  -I$(INC) -c
+# ***** Variables *****
+LIBNAME   = cronologia
+#HPP_FILES = $(wildcard $(INCLUDE)/*.hpp)
 
+# ****** Directorios ********
+INCLUDE   = include
+LIB       = lib
+OBJ       = obj
+SRC       = src
+BIN       = bin
+DOC       = doc
+TEST      = $(SRC)/test
 
+# ****** Opciones de compilación ********
+AR        = ar
+CXX       = g++
+CXXFLAGS  = -Wall -g -std=c++11 -c -I./$(INCLUDE) -DNDEBUG
+LDFLAGS   = -L./$(LIB)
+LDLIBS    = -l$(LIBNAME)
+RM				= rm -f
+
+# ****** Compilación de módulos **********
+
+.PHONY: all test docs clean mrproper
 
 all: $(BIN)/conecta4 $(BIN)/arboltablero_test
-# ************ Generación de documentación ******************
-documentacion:
-	doxygen doc/doxys/Doxyfile
 
-	
-# ************ Compilación de módulos ************
-$(BIN)/arboltablero_test: $(OBJ)/arboltablero_test.o $(LIB)/libtablero.a 
+$(BIN)/arboltablero_test: $(OBJ)/arboltablero_test.o $(LIB)/libtablero.a
 	$(CXX) -o $(BIN)/arboltablero_test $(OBJ)/arboltablero_test.o -I$(INC) -L$(LIB) -ltablero
 
 $(BIN)/conecta4: $(OBJ)/conecta4.o $(LIB)/libtablero.a $(LIB)/libmando.a
@@ -41,9 +49,17 @@ $(OBJ)/arboltablero_test.o: $(SRC)/arboltablero_test.cpp $(INC)/tablero.h
 $(OBJ)/mando.o: $(SRC)/mando.cpp $(INC)/mando.h $(INC)/tablero.h
 	$(CXX) $(CPPFLAGS)  -o $(OBJ)/mando.o $(SRC)/mando.cpp -I$(INC)
 
-# ************ Limpieza ************
-clean :
-	-rm $(OBJ)/* $(SRC)/*~ $(INC)/*~ ./*~
+# ************ Generación de documentación **************
+docs:
+	@doxygen $(DOC)/doxys/Doxyfile
+	@echo "Documentación disponible en $(DOC)/html"
 
-mrproper : clean
-	-rm $(BIN)/* doc/html/*
+# ************ Limpieza ************
+
+clean:
+	-@$(RM) $(OBJ)/* $(SRC)/*~ $(INC)/*~ ./*~
+	@echo "Limpiando..."
+
+mrproper: clean
+	-@$(RM) $(BIN)/* $(LIB)/* $(DOC)/html/*
+	@echo "Limpieza completada."
