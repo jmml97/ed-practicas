@@ -10,12 +10,15 @@
 #include "arbol_general.h"
 #include "tablero.h"
 
+//TODO documentar
+
 /**
  * @brief T.D.A. JugadorAuto
  *
  */
 class JugadorAuto
 {
+  //TODO: definir métodos
   private:
     ArbolGeneral<Tablero> partida;
 
