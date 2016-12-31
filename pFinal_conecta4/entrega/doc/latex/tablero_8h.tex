@@ -1,0 +1,71 @@
+\hypertarget{tablero_8h}{}\subsection{Referencia del Archivo include/tablero.h}
+\label{tablero_8h}\index{include/tablero.\+h@{include/tablero.\+h}}
+
+
+Fichero de cabecera para el T\+DA \hyperlink{classTablero}{Tablero}.  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\subsubsection*{Clases}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classTablero}{Tablero}
+\begin{DoxyCompactList}\small\item\em T.\+D.\+A. \hyperlink{classTablero}{Tablero}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$class T $>$ }\\ostream \& \hyperlink{tablero_8h_a4d58208ce7b3bd2482ac460d5612870d}{operator$<$$<$} (ostream \&s, const vector$<$ T $>$ \&c)
+\begin{DoxyCompactList}\small\item\em Imprime un conjunto de tipo T sobre el flujo de salida. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class T $>$ }\\ostream \& \hyperlink{tablero_8h_ae960aa6a420e99f83a7261696372ef26}{operator$<$$<$} (ostream \&s, const vector$<$ vector$<$ T $>$ $>$ \&c)
+\begin{DoxyCompactList}\small\item\em Imprime una matriz de tipo T sobre el flujo de salida. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Descripción detallada}
+Fichero de cabecera para el T\+DA \hyperlink{classTablero}{Tablero}. 
+
+
+
+\subsubsection{Documentación de las funciones}
+\hypertarget{tablero_8h_a4d58208ce7b3bd2482ac460d5612870d}{}\label{tablero_8h_a4d58208ce7b3bd2482ac460d5612870d} 
+\index{tablero.\+h@{tablero.\+h}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!tablero.\+h@{tablero.\+h}}
+\paragraph{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+ostream\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{ostream \&}]{s,  }\item[{const vector$<$ T $>$ \&}]{c }\end{DoxyParamCaption})}
+
+
+
+Imprime un conjunto de tipo T sobre el flujo de salida. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em s} & Flujo de salida. \\
+\hline
+{\em c} & Conjunto con los elementos a imprimir. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Devuelve el flujo de salida. 
+\end{DoxyReturn}
+\hypertarget{tablero_8h_ae960aa6a420e99f83a7261696372ef26}{}\label{tablero_8h_ae960aa6a420e99f83a7261696372ef26} 
+\index{tablero.\+h@{tablero.\+h}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!tablero.\+h@{tablero.\+h}}
+\paragraph{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+ostream\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{ostream \&}]{s,  }\item[{const vector$<$ vector$<$ T $>$ $>$ \&}]{c }\end{DoxyParamCaption})}
+
+
+
+Imprime una matriz de tipo T sobre el flujo de salida. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em s} & Flujo de salida. \\
+\hline
+{\em c} & Vector de vectores (matriz) de tipo T a imprimir. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Devuelve el flujo de salida. 
+\end{DoxyReturn}
