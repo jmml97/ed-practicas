@@ -1,11 +1,17 @@
-#ifndef __ArbolGeneral_h__
-#define __ArbolGeneral_h__
+/**
+ * @file arbol_general.h
+ * @brief Fichero de cabecera para el TDA ArbolGeneral
+ *
+ */
 
+#ifndef __ARBOL_GENERAL_H__
+#define __ARBOL_GENERAL_H__
+
+#include <iostream>
 #include <cassert>
 #include <algorithm>
 #include <queue>
 #include <string>
-#include <string.h>
 
 using namespace std;
 
@@ -28,7 +34,7 @@ using namespace std;
 
    Para poder usar el tipo de dato ArbolGeneral se debe incluir el fichero
 
-   <tt>\#include ArbolGeneral.h</tt>
+   <tt>\#include arbol_general.h</tt>
 
    El espacio requerido para el almacenamiento es O(n), donde n es el número de
    nodos del árbol.
@@ -1767,5 +1773,6 @@ typename ArbolGeneral<Tbase>::postorden_iterador ArbolGeneral<Tbase>::endpostord
     return nuevo;
 }
 
-
 #endif
+
+/* Fin fichero: arbol_general.h */
