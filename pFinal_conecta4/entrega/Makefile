@@ -22,20 +22,20 @@ LDLIBS    = -l$(LIBNAME)
 
 .PHONY: all test docs clean mrproper
 
-all: $(BIN)/partida_conecta4
+all: $(BIN)/conecta4
 
 # --- Ejecutables ---
-$(BIN)/partida_conecta4: $(OBJ)/partida_conecta4.o $(LIB)/lib$(LIBNAME).a
+$(BIN)/conecta4: $(OBJ)/conecta4.o $(LIB)/lib$(LIBNAME).a
 	$(CXX) $(LDFLAGS) -o $@ $< $(LDLIBS)
 
-$(OBJ)/partida_conecta4.o: $(SRC)/partida_conecta4.cpp $(INC)/conecta4.h $(INC)/mando.h
+$(OBJ)/conecta4.o: $(SRC)/conecta4.cpp $(INC)/jugador_auto.h $(INC)/mando.h
 	$(CXX) $(CXXFLAGS) -o $@ $<
 
 # --- Librería ---
-$(LIB)/lib$(LIBNAME).a : $(OBJ)/conecta4.o $(OBJ)/mando.o $(OBJ)/tablero.o
+$(LIB)/lib$(LIBNAME).a : $(OBJ)/jugador_auto.o $(OBJ)/mando.o $(OBJ)/tablero.o
 	$(AR) rvs $@ $?
 
-$(OBJ)/conecta4.o: $(SRC)/conecta4.cpp $(INC)/conecta4.h $(INC)/tablero.h $(INC)/arbol_general.h
+$(OBJ)/jugador_auto.o: $(SRC)/jugador_auto.cpp $(INC)/jugador_auto.h $(INC)/tablero.h $(INC)/arbol_general.h
 	$(CXX) $(CXXFLAGS) -o $@ $<
 
 $(OBJ)/mando.o: $(SRC)/mando.cpp $(INC)/mando.h $(INC)/tablero.h
