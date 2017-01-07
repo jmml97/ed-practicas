@@ -67,32 +67,62 @@ void imprimeTablero(Tablero& t, Mando& m)
 /**
  * @brief Implementa el desarrollo de una partida de Conecta 4 sobre un tablero 5x7,
  *        pidiendo por teclado los movimientos de ambos jugadores según turno.
+ *
  * @return : Identificador (int) del jugador que gana la partida (1 o 2).
  */
-int jugar_partida()
+int jugar_partida(int primerJugador)
 {
   Tablero tablero(5, 7);      //Tablero 5x7
   Mando mando(tablero);       //Mando para controlar E/S de tablero
   char c = 1;
   int quienGana = 0;
+  bool colocada = false;
+  bool juegaIA = primerJugador == 2;
 
-  //mientras no haya ganador y no se pulse tecla de terminación
-  while (c != Mando::KB_ESCAPE && quienGana == 0)
+
+  // mientras el tablero no esté lleno ni haya ganador
+  while (c != Mando::KB_ESCAPE && !tablero.estaLleno() && quienGana == 0)
   {
-    system("clear");
-    mando.actualizarJuego(c, tablero);  // actualiza tablero según comando c
-    imprimeTablero(tablero, mando);     // muestra tablero y mando en pantalla
-    quienGana = tablero.quienGana();    // hay ganador?
-    if (quienGana == 0)
-      c = getch();                      // Capturamos la tecla pulsada.
+    if (juegaIA)
+    {
+      // POSFIX: implementar en IA para pasarle un tablero y que lo haga por dentro?
+      tablero.colocarFicha(IA.elegirMovimiento());
+      tablero.cambiarTurno();
+      c = 1;
+      juegaIA = false;
+    }
+    else
+    {
+      bool colocada = mando.actualizarJuego(c,tablero);
+      system("clear");
+      imprimeTablero(tablero, mando);
+      if (!colocada)
+        c = getch();
+      else
+        juegaIA = true;
+    }
+
+    quienGana = talbero.quienGana();      // hay ganador?
   }
+
+  // Imprimer el tablero final
+  c = 1;
+  system("clear");
+  mando.actualizarJuego(c, tablero);
+  imprimeTablero(tablero, mando);
 
   return tablero.quienGana();
 }
 
 int main(int argc, char **argv)
 {
-  int ganador = jugar_partida();
+  int primerJugador = 1;
+  // POSFIX 1: falta filtrado
+  // POSFIX 2A: implementar si se quiere IA o sin IA ¿?
+  cout << "Bienvenido al Conecta4. Quién empieza primero:\n1.Tú.\n2.IA\n";
+  cin >> primerJugador;
+
+  int ganador = jugar_partida(primerJugador);
 
   if (ganador == 0)
     cout << "\nSe ha producido un empate.\n";

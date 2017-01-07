@@ -47,6 +47,17 @@ Tablero::Tablero(const Tablero& t)
 
 /* _________________________________________________________________________ */
 
+bool Tablero::estaLleno()
+{
+  bool sinHuecos = true;
+  for (int i = 0; i < filas && sinHuecos; i++)
+    for (int j = 0; j < columnas && sinHuecos; j++)
+      sinHuecos = this->tablero[i][j];
+  return sinHuecos;
+}
+
+/* _________________________________________________________________________ */
+
 int Tablero::hayHueco(int pos)
 {
   int i = 0;               // Recorremos la matriz de arriba hacia abajo.

@@ -74,6 +74,14 @@ public:
     int hayHueco(int pos);
 
     /**
+     * @brief Comprueba si el tablero está lleno
+
+     * @return Devuelve true si el tablero está lleno, sino false.
+     */
+    bool estaLleno();
+
+
+    /**
      * @brief Coloca una ficha en la columna especificada del jugador correspondiente.
      *        Si le toca al jugador 1, inserta la ficha en esa posición. (Si hay hueco)
      * @param pos : Columna en la que se va a intentar colocar la ficha.
