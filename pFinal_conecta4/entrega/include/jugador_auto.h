@@ -24,6 +24,7 @@ class JugadorAuto
 
   public:
     JugadorAuto();
+    ElegirMovimiento();
 };
 
 #endif
