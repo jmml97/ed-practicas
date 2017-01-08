@@ -22,10 +22,9 @@ void Tablero::reserve()
 
 /* _________________________________________________________________________ */
 
-Tablero::Tablero() : filas(5), columnas(7)
+Tablero::Tablero() : filas(0), columnas(0)
 {
   turno = 1;
-  reserve();
 }
 
 /* _________________________________________________________________________ */
@@ -121,11 +120,19 @@ void Tablero::SetTablero(vector<vector<int> > tablero)
   columnas1 = GetColumnas();
   columnas2 = tablero[1].size();
 
-  // Si tiene la misma dimensión.
-  if (filas1 == filas2 && columnas1 == columnas2)
+  if (filas1 == 0 || columnas1 == 0)
+  {
     this->tablero = tablero;
+  }
+
   else
-    cout << "Se han intentado igualar tableros de distintas dimensiones." << endl;
+  {
+    // Si tiene la misma dimensión.
+    if (filas1 == filas2 && columnas1 == columnas2)
+      this->tablero = tablero;
+    else
+      cout << "Se han intentado igualar tableros de distintas dimensiones." << endl;
+  }
 }
 
 /* _________________________________________________________________________ */

@@ -13,8 +13,8 @@ using namespace std;
 
 int main(int argc, char **argv)
 {
-  //Tablero vacío 5x7
-  Tablero tablero(5, 7);
+  //Tablero vacío 6x7
+  Tablero tablero(6, 7);
 
   //Manualmente se insertan algunos movimientos:
   tablero.colocarFicha(3);	//Jugador 1 inserta ficha en columna 3
@@ -54,7 +54,7 @@ int main(int argc, char **argv)
   // 	Jugador 1 coloque ficha también en columna 2.
   tablero2.cambiarTurno();					//modifico tablero2 (esta modificación sería tablero3)
   tablero2.colocarFicha(2);
-  ArbolGeneral<Tablero> arbol3 (tablero2);	//creo árbol con un nodo
+  ArbolGeneral<Tablero> arbol3(tablero2);	//creo árbol con un nodo
   arbol2.insertar_hijomasizquierda(arbol2.raiz(), arbol3);	//añado este árbol como hijo de arbol2
 
   // Inserto arbol1 y arbol2 como hijos de partida.
@@ -72,12 +72,23 @@ int main(int argc, char **argv)
   cout << "\nÁrbol en preorden:\n" << endl;
   partida.recorrer_preorden();
 
-  // Podamos el hijomasizquierda y recorremos en preorden:
+	// Podamos el hijomasizquierda y recorremos en preorden:
   ArbolGeneral<Tablero> rama_podada;
-  partida.podar_hijomasizquierda(partida.raiz(), rama_podada);
+  partida.podar_hermanoderecha(partida.hijomasizquierda(partida.raiz()), rama_podada);
 
-	cout << "\nRecorrido preorden después de podar hijomasizquierda: \n"<<endl;
+	cout << "\nRecorrido preorden después de podar arbol2: \n" << endl;
   partida.recorrer_preorden();
+
+  cout << "\nRecorrido preorden de la rama podada: \n" << endl;
+  rama_podada.recorrer_preorden();
+
+  // Probamos ArbolGeneral::asignar_subarbol. Asignamos a partida la rama_podada:
+  partida.asignar_subarbol(rama_podada, rama_podada.raiz());
+  cout << "\nRecorrido preorden después de asignar a la raiz la rama_podada: \n" << endl;
+  partida.recorrer_preorden();
+
+  cout << "\nRecorrido postorden después de asignar a la raiz la rama_podada: \n" << endl;
+  partida.recorrer_postorden();
 
   return 0;
 }

@@ -86,14 +86,14 @@ int jugar_partida(int primerJugador)
     if (juegaIA)
     {
       // POSFIX: implementar en IA para pasarle un tablero y que lo haga por dentro?
-      tablero.colocarFicha(IA.elegirMovimiento());
+      //tablero.colocarFicha(IA.elegirMovimiento());
       tablero.cambiarTurno();
       c = 1;
       juegaIA = false;
     }
     else
     {
-      bool colocada = mando.actualizarJuego(c,tablero);
+      colocada = mando.actualizarJuego(c,tablero);
       system("clear");
       imprimeTablero(tablero, mando);
       if (!colocada)
@@ -102,7 +102,7 @@ int jugar_partida(int primerJugador)
         juegaIA = true;
     }
 
-    quienGana = talbero.quienGana();      // hay ganador?
+    quienGana = tablero.quienGana();      // hay ganador?
   }
 
   // Imprimer el tablero final

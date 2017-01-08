@@ -124,7 +124,16 @@ class ArbolGeneral{
         * @param e elemento que se le va a asignar.
         * Crea un nodo a con un elemento.
         */
-       nodo(const Tbase & elemento){padre = drcha = izqda = 0; etiqueta = elemento;}
+       nodo(const Tbase & elemento) : etiqueta(elemento) {padre = drcha = izqda = 0;}
+
+      /**
+       * @brief Destructor.
+       */
+       ~nodo(){
+           padre = 0;
+           izqda = 0;
+           drcha = 0;
+       }
     };
 
     /**
@@ -361,6 +370,8 @@ class ArbolGeneral{
       * @param orig Árbol desde el que se va a copiar una rama
       * @param nod Nodo raíz del subárbol que se copia.
       * @pre \e nod es un nodo del árbol \e orig y no es nulo
+      * @pre \e nod no debe ser un nodo del árbol receptor del mensaje
+      * @pre \e orig no debe ser un subárbol del árbol receptor del mensaje
       *
       * El árbol receptor acaba con un valor copia del subárbol que cuelga del
       * nodo \e nod en el árbol \e orig. La operación se realiza en tiempo
@@ -939,6 +950,7 @@ class ArbolGeneral{
     class postorden_iterador{
     private:
         Nodo p;
+    public:
         /**
          * @brief Constructor por defecto.
          */
@@ -1093,10 +1105,12 @@ void ArbolGeneral <Tbase>::destruir (nodo * n){
 
 template <class Tbase>
 void ArbolGeneral<Tbase>::copiar(nodo * & dest, nodo * orig){
+  if(dest == 0)                                   //Si destino no tiene nada.
+        dest = new nodo;                            //Creamos un nuevo nodo.
     if(orig != 0){                                  //Nos aseguramos de que tenga algo.
         if(dest->izqda != 0)                        //Si tiene cosas las borramos.
             destruir(dest->izqda);
-        dest->izqda = new nodo(orig->etiqueta);     //Copiamos etiqueta.
+        dest = new nodo(orig->etiqueta);            //Copiamos etiqueta.
 
         copiar(dest->izqda, orig->izqda);           //Copiamos hijos.
         if(dest->izqda != 0)
@@ -1282,7 +1296,7 @@ const Tbase& ArbolGeneral<Tbase>::etiqueta(const Nodo n) const{
 template <class Tbase>
 void ArbolGeneral<Tbase>::
 asignar_subarbol(const ArbolGeneral<Tbase>& orig, const Nodo nod){
-    if(this != &nod){                               //Nos aseguramos que no vamos a copiar el mismo árbol.
+    if(laraiz != nod){                               //Nos aseguramos que no vamos a copiar el mismo árbol.
         destruir(laraiz);                           //Borramos desde la raiz, lo que teníamos.
         copiar(laraiz, nod);                        //Copiamos el subárbol.
         laraiz->drcha = 0;
