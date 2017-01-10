@@ -18,13 +18,12 @@
  */
 class JugadorAuto
 {
-  //TODO: definir métodos
   private:
     ArbolGeneral<Tablero> partida;
 
   public:
     JugadorAuto();
-    ElegirMovimiento();
+    void elegirMovimiento();
 };
 
 #endif
