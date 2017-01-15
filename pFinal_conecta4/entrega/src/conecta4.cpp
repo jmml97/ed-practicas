@@ -3,20 +3,9 @@
  * @brief Implementa una partida del juego Conecta 4
  *
  * Este programa simula una partida del juego Conecta 4 en un tablero
- * de tamaño variable. Se trata de un juego de un único jugador, pues
- * se juega contra un jugador automático.
+ * de tamaño variable.
  *
- * El programa recibe como argumento el identificador del jugador que
- * iniciará la partida:
- *
- *   - 1. El jugador humano comienza.
- *   - 2. EL jugador automático comienza.
- *
- * Si no se proporciona ningún argumento, la partida la iniciará el
- * jugador definido por defecto.
- *
- * Además, también se pregunta por la entrada estándar el tamaño del
- * tablero deseado.
+ * //TODO documentar (argumentos)
  */
 
 #include <iostream>
@@ -25,8 +14,8 @@
 #include <cstdlib>
 #include <stdio.h>
 #include <unistd.h>
-#include "tablero.h"
 #include "mando.h"
+#include "jugador_auto.h"
 
 #ifdef __APPLE__
   #include <termios.h>  // macOS
@@ -84,35 +73,35 @@ void ImprimeTablero(Tablero& t, Mando& m)
 
 /**
  * @brief Implementa el desarrollo de una partida de Conecta 4 sobre un tablero de
- *        tamaño variable, pidiendo por teclado los movimientos de ambos jugadores
- *        según el turno.
- * @param primerJugador Jugador que empieza la partida.
- * @param f Número de filas del tablero
- * @param c Número de columnas del tablero
+ *        tamaño variable, pidiendo por teclado los movimientos de el/los jugador(es)
+ *        humano(s).
+ * @param tablero Tablero inicial de la partida
+ * @param metrica Métrica para aplicar al jugador automático (0 si los dos jugadores son
+ *                humanos).
  * @return Identificador (int) del jugador que gana la partida (1 o 2), o 0 en
  *         caso de empate o partida sin finalizar.
  */
-int JugarPartida(int primerJugador, int filas, int cols)
+int JugarPartida(Tablero& tablero, int metrica)
 {
-  Tablero tablero(filas, cols);
   Mando mando(tablero);
   char c = 1;
   int quienGana = 0;
-  bool colocada = false;
-  bool juegaIA = primerJugador == 2;
-
+  bool colocada;
 
   // mientras el tablero no esté lleno ni haya ganador
   while (c != Mando::KB_ESCAPE && !tablero.estaLleno() && quienGana == 0)
   {
-    if (juegaIA)
+    if (metrica != 0 && tablero.GetTurno() == 2)
     {
-      // POSFIX: implementar en IA para pasarle un tablero y que lo haga por dentro?
-      //tablero.colocarFicha(IA.elegirMovimiento());
+      JugadorAuto j2(tablero, metrica);
+      while(!tablero.colocarFicha(j2.elegirMovimiento()));
       tablero.cambiarTurno();
+      j2.actualizarSoluciones(tablero);
+      system("clear");
+      ImprimeTablero(tablero, mando);
       c = 1;
-      juegaIA = false;
     }
+
     else
     {
       colocada = mando.actualizarJuego(c,tablero);
@@ -120,15 +109,13 @@ int JugarPartida(int primerJugador, int filas, int cols)
       ImprimeTablero(tablero, mando);
       if (!colocada)
         c = getch();
-      else
-        juegaIA = true;
     }
 
     // Comprobar si hay ganador
     quienGana = tablero.quienGana();
   }
 
-  // Imprimer el tablero final
+  // Imprimir el tablero final
   c = 1;
   system("clear");
   mando.actualizarJuego(c, tablero);
@@ -137,20 +124,19 @@ int JugarPartida(int primerJugador, int filas, int cols)
   return tablero.quienGana();
 }
 
-/// Jugador que empieza la partida por defecto
-const int PRIMER_JUGADOR_DEFAULT = 1;
-
 int main(int argc, char **argv)
 {
-  int primerJugador, filas, cols;
+  int primerJugador, metrica, filas, cols;
 
   // Presentación y tamaño del tablero
   cout << "Bienvenido a Conecta4.\n";
 
+  //TODO cambiar para que sean argumentos del programa (pág 7 guión.pdf)
+
   do
   {
-  cout << "Introduce las filas: ";
-  cin >> filas;
+    cout << "Introduce las filas: ";
+    cin >> filas;
   } while (filas < 0);
 
   do
@@ -160,21 +146,20 @@ int main(int argc, char **argv)
   } while (cols < 0);
 
   // Elegir primer turno
-  if (argc < 2)
-  {
-    primerJugador = PRIMER_JUGADOR_DEFAULT;
-  }
-  else
-  {
-    cout << "¿Quién empieza primero?:\n1.Tú.\n2.IA\n";
-    do {
-      cout << "Elección: ";
-      cin >> primerJugador;
-    } while(primerJugador != 1 && primerJugador != 2);
-  }
+  cout << "¿Quién empieza primero?:\n1.Tú.\n2.Jugador automático.\n";
+  do {
+    cout << "Elección: ";
+    cin >> primerJugador;
+  } while (primerJugador != 1 && primerJugador != 2);
+
+  // Métrica
+  metrica = stoi(argv[1]);
 
   // Jugar partida
-  int ganador = JugarPartida(primerJugador, filas, cols);
+  Tablero tablero(filas,cols);
+  if (primerJugador == 2)
+    tablero.cambiarTurno();
+  int ganador = JugarPartida(tablero, metrica);
 
   // Mostrar ganador
   if (ganador == 0)
