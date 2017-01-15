@@ -9,6 +9,9 @@
 
 using namespace std;
 
+const string Tablero::COLOR_J1 = "\033[0;31m";  // Rojo
+const string Tablero::COLOR_J2 = "\033[0;33m";  // Amarillo
+
 void Tablero::reserve()
 {
   this->tablero.resize(filas);
@@ -157,7 +160,6 @@ ostream& operator<<(ostream& os, const Tablero& t)
 
 /* _________________________________________________________________________ */
 
-//TODO quitar aux, aux2 (no se usan (?))
 int Tablero::quienGana()
 {
   int ganador = 0;
@@ -328,15 +330,16 @@ template <class T>
 ostream& operator<<(ostream& s, const vector<T>& c)
 {
   typename vector<T>::const_iterator i;
+  const string DEFAULT_COLOR = "\033[0m";
 
   for (i = c.begin(); i != c.end(); i++)
   {
     if ((*i) == 0)
       s << "  ";
     else if ((*i) == 1)
-      s << Tablero::CHAR_J1 << ' ';
+      s << Tablero::COLOR_J1 << Tablero::CHAR_J1 << DEFAULT_COLOR << ' ';
     else if ((*i) == 2)
-      s << Tablero::CHAR_J2 << ' ';
+      s << Tablero::COLOR_J2 << Tablero::CHAR_J2 << DEFAULT_COLOR << ' ';
     else
       s << ' ';
   }

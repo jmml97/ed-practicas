@@ -3,9 +3,11 @@
  * @brief Implementa una partida del juego Conecta 4
  *
  * Este programa simula una partida del juego Conecta 4 en un tablero
- * de tamaño variable.
+ * de tamaño variable, ya sea entre dos jugadores humanos, o entre
+ * un jugador humano y un jugador automático.
  *
- * //TODO documentar (argumentos)
+ * Para ver la lista de argumentos que admite, ejecutar el programa
+ * con el modificador -h para ver la ayuda.
  */
 
 #include <iostream>

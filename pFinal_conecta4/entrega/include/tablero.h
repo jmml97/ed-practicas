@@ -9,6 +9,7 @@
 
 #include <iosfwd>
 #include <vector>
+#include <string>
 
 using namespace std;
 
@@ -37,6 +38,10 @@ public:
     const static char CHAR_J1 = 'x';
     /// Carácter que representa una ficha del Jugador 2
     const static char CHAR_J2 = 'o';
+    /// Color de la ficha del Jugador 1 (ANSI escape code)
+    const static string COLOR_J1;
+    /// Color de la ficha del Jugador 2 (ANSI escape code)
+    const static string COLOR_J2;
 
     /**
      * @brief Constructor por defecto. Crea un tablero de tamaño predefinido.
