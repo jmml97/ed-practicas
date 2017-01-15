@@ -104,11 +104,13 @@ int JugarPartida(Tablero& tablero, int metrica)
 
     else
     {
-      colocada = mando.actualizarJuego(c,tablero);
       system("clear");
+      colocada = mando.actualizarJuego(c,tablero);
       ImprimeTablero(tablero, mando);
-      if (!colocada)
+      if (!colocada || metrica == 0)
         c = getch();
+      else
+        c = 1;
     }
 
     // Comprobar si hay ganador
@@ -126,49 +128,51 @@ int JugarPartida(Tablero& tablero, int metrica)
 
 int main(int argc, char **argv)
 {
-  int primerJugador = 1, metrica = 0, filas = 4, cols = 4;
+  int primerJugador = 1, metrica = 1, filas = 4, cols = 4;
   bool opc_ayuda = false;
 
-  // Presentación y tamaño del tablero
-  cout << "Bienvenido a Conecta4.\n";
-
-  //TODO cambiar para que sean argumentos del programa (pág 7 guión.pdf)
-
-  for (int i = 1; i < argc; i++) {
-    if (string(argv[i]) == "-f") {
-      if (i + 1 < argc) {
-	filas = stoi(argv[i+1]);
-      }
-    } else if (string(argv[i]) == "-c") {
-      if (i + 1 < argc) {
-	cols  = stoi(argv[i+1]);
-      }
-    } else if (string(argv[i]) == "-m") {
-      if (i + 1 < argc) {
-	metrica  = stoi(argv[i+1]);
-      }
-    } else if (string(argv[i]) == "-t") {
-      if (i + 1 < argc) {
-	primerJugador = stoi(argv[i+1]);
-      }
-    } else if (string(argv[i]) == "-h") {
-	opc_ayuda = true;
-    }
-    
-  }
-
+  // Argumentos del programa
   if (argc > 9) {
     cout << "Error en los argumentos, utiliza -h para ver la ayuda." << endl;
     return 1;
   }
 
-  if (opc_ayuda) {
+  for (int i = 1; i < argc; i++)
+  {
+    if (string(argv[i]) == "-f")
+    {
+      if (i + 1 < argc)
+	      filas = stoi(argv[i+1]);
+    }
+    else if (string(argv[i]) == "-c")
+    {
+      if (i + 1 < argc)
+	      cols  = stoi(argv[i+1]);
+    }
+    else if (string(argv[i]) == "-m")
+    {
+      if (i + 1 < argc)
+	      metrica  = stoi(argv[i+1]);
+    }
+    else if (string(argv[i]) == "-t")
+    {
+      if (i + 1 < argc)
+	      primerJugador = stoi(argv[i+1]);
+    }
+    else if (string(argv[i]) == "-h")
+    {
+	    opc_ayuda = true;
+    }
+  }
+
+  if (opc_ayuda)
+  {
     cout << "uso: conecta4 [-f número] [-c número] [-m número] [-t número]" << endl;
     cout << "f : especifica el número de filas" << endl;
     cout << "c : especifica el número de columnas" << endl;
     cout << "m : especifica la métrica a utilizar (0 para jugar sin IA, 1 la más eficiente)" << endl;
     cout << "t : especifica qué jugador tiene el primer turno (1, 2)" << endl;
-    return 1;
+    return 0;
   }
 
   // Jugar partida
