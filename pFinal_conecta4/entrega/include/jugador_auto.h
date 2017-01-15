@@ -28,13 +28,25 @@ class JugadorAuto
   private:
     ArbolGeneral<Tablero> partida;   ///< Espacio de soluciones
     int metrica;                     ///< Métrica escogida
-    static const int N = 5;          ///< Profundidad máxima a explorar
+    const static int N = 5;          ///< Profundidad máxima a explorar
 
     int metrica1(); // la mejor (?): explorar hasta profundidad N y asignar ponderaciones a jugadas
     int metrica2(); // comprobar jugadas con 3 o 2 fichas en línea de IA // evitar las del humano
-    int metrica3(); // comprobar unicamente si se gana o se pierde
-    int metrica4(); // la peor: elegir columna aleatoria
-    //int metrica5(); // (?????)
+    int metrica3(); // comprobar unicamente si se gana o se pierde; si no, insertar aleatoriamente
+    int metrica4(); // la peor (?): elegir columna aleatoria
+
+    /**
+     * @brief Genera el espacio de soluciones para un tablero vacío,
+     * explorando hasta una profundidad variable según la métrica.
+     * @param profundidad Profundidad hasta la que se explora
+     */
+    void generarArbolSoluciones(int profundidad);
+
+    /**
+     * @brief Actualiza el espacio de soluciones de la partida
+     * @param tablero Tablero actual
+     */
+    void actualizarSoluciones(const Tablero& tablero);
 
   public:
     /**
@@ -51,16 +63,20 @@ class JugadorAuto
     ArbolGeneral<Tablero> getArbol() { return partida; }
 
     /**
-     * @brief Decide el movimiento del jugador automático, según la métrica
-     * escogida. Si la métrica no es válida, escoge siempre la mejor.
-     * @return Columna donde insertar ficha.
+     * @brief Simula un movimiento del jugador automático según
+     * la métrica escogida. Es útil si queremos conocer la columna donde
+     * insertaría el jugador, sin necesidad de realizar la inserción.
+     * @param num_metrica Métrica elegida (0 significa la métrica asociada al jugador
+     * automático)
+     * @return Columna donde se insertaría la ficha del jugador automático
      */
-    int elegirMovimiento();
+    int elegirMovimiento(int num_metrica);
 
     /**
-     * @brief Actualiza el espacio de soluciones de la partida.
+     * @brief Procesa un turno del jugador automático.
+     * @param actual Tablero actual de la partida
      */
-    void actualizarSoluciones(const Tablero& actual);
+    void turnoAutomatico(Tablero& actual);
 };
 
 #endif

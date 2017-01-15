@@ -54,8 +54,19 @@ bool Tablero::estaLleno()
   bool sinHuecos = true;
   for (int i = 0; i < filas && sinHuecos; i++)
     for (int j = 0; j < columnas && sinHuecos; j++)
-      sinHuecos = this->tablero[i][j];
+      sinHuecos = this->tablero[i][j] != 0;
   return sinHuecos;
+}
+
+/* _________________________________________________________________________ */
+
+bool Tablero::estaVacio()
+{
+  bool vacio = true;
+  for (int i = 0; i < filas && vacio; i++)
+    for (int j = 0; j < columnas && vacio; j++)
+      vacio = this->tablero[i][j] == 0;
+  return vacio;
 }
 
 /* _________________________________________________________________________ */

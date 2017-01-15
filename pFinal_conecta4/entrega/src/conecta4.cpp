@@ -96,9 +96,7 @@ int JugarPartida(Tablero& tablero, int metrica)
     if (metrica != 0 && tablero.GetTurno() == 2)
     {
       JugadorAuto j2(tablero, metrica);
-      while(!tablero.colocarFicha(j2.elegirMovimiento()));
-      tablero.cambiarTurno();
-      j2.actualizarSoluciones(tablero);
+      j2.turnoAutomatico(tablero);
       system("clear");
       ImprimeTablero(tablero, mando);
       c = 1;
