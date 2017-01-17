@@ -42,7 +42,7 @@ class JugadorAuto
      * @param prof Profundidad actual del árbol
      * @param num_niveles Número de niveles nuevos a explorar
      */
-    void generarArbolSoluciones(ArbolGeneral<Tablero> padre, int prof, int num_niveles);
+    void generarArbolSoluciones(ArbolGeneral<Tablero>& padre, int prof, int num_niveles);
 
     /**
      * @brief Actualiza el espacio de soluciones de la partida

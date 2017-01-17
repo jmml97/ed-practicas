@@ -93,6 +93,7 @@ int JugarPartida(Tablero& tablero, int metrica)
   // Inicializar jugador automático
   if (metrica != 0)
     j2 = JugadorAuto(tablero, metrica);
+  cerr << "llega";
 
   // Mientras el tablero no esté lleno ni haya ganador
   while (c != Mando::KB_ESCAPE && !tablero.estaLleno() && quienGana == 0)

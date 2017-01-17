@@ -104,13 +104,16 @@ int JugadorAuto::metrica4()
 
 /* _________________________________________________________________________ */
 
-void JugadorAuto::generarArbolSoluciones(ArbolGeneral<Tablero> padre,
+void JugadorAuto::generarArbolSoluciones(ArbolGeneral<Tablero>& padre,
                                          int prof, int prof_max)
 {
-  if (prof <= prof_max)
+  //TODO: rehacer. Falla porque llamamos en la recursividad con un objeto local (hijo)
+  // y la función espera una referencia.
+  if (prof < prof_max)
   {
     int num_cols = partida.etiqueta(partida.raiz()).GetColumnas();
     Tablero original = padre.etiqueta(padre.raiz());
+    ArbolGeneral<Tablero> hijo;
     for (int col = 0; col < num_cols; col++)
     {
       if (original.hayHueco(col) && !original.quienGana())
@@ -118,7 +121,7 @@ void JugadorAuto::generarArbolSoluciones(ArbolGeneral<Tablero> padre,
         Tablero nuevo(original);
         nuevo.colocarFicha(col);
         nuevo.cambiarTurno();
-        ArbolGeneral<Tablero> hijo(nuevo);
+        hijo = ArbolGeneral<Tablero>(nuevo);
         padre.insertar_hijomasizquierda(padre.raiz(), hijo);
         generarArbolSoluciones(hijo, prof + 1, prof_max);
       }
@@ -143,6 +146,14 @@ void JugadorAuto::actualizarSoluciones(const Tablero& tablero)
     ArbolGeneral<Tablero> nuevo;
     nuevo.asignar_subarbol(partida, n);
     partida = nuevo;
+
+    //TODO explorar un nivel más
+    for (ArbolGeneral<Tablero>::preorden_iterador it = partida.beginpreorden();
+          it != partida.endpreorden(); ++it)
+    {
+      //if (it.izquierda() == it)
+        //generarArbolSoluciones(, 0, 1)
+    }
   }
 }
 
