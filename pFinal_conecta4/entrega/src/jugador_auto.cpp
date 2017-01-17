@@ -104,9 +104,26 @@ int JugadorAuto::metrica4()
 
 /* _________________________________________________________________________ */
 
-void JugadorAuto::generarArbolSoluciones(int profundidad)
+void JugadorAuto::generarArbolSoluciones(ArbolGeneral<Tablero> padre,
+                                         int prof, int prof_max)
 {
-  //TODO implementar (recursivo?)
+  if (prof <= prof_max)
+  {
+    int num_cols = partida.etiqueta(partida.raiz()).GetColumnas();
+    Tablero original = padre.etiqueta(padre.raiz());
+    for (int col = 0; col < num_cols; col++)
+    {
+      if (original.hayHueco(col) && !original.quienGana())
+      {
+        Tablero nuevo(original);
+        nuevo.colocarFicha(col);
+        nuevo.cambiarTurno();
+        ArbolGeneral<Tablero> hijo(nuevo);
+        padre.insertar_hijomasizquierda(padre.raiz(), hijo);
+        generarArbolSoluciones(hijo, prof + 1, prof_max);
+      }
+    }
+  }
 }
 
 /* _________________________________________________________________________ */
@@ -115,32 +132,46 @@ void JugadorAuto::actualizarSoluciones(const Tablero& tablero)
 {
   if (metrica != 4)
   {
-    //TODO implementar:
     /*
-     * 1. Podar ramas innecesarias (movimientos no realizados)
-     * 2. raiz = raiz->hijo, donde hijo=movimiento_realizado
-     * 3. Explorar un nivel siguiente al que estamos
-     *
-     * Restricciones para explorar:
-     * - que no sea hoja
-     * - ver si una columna está ya llena.
-     *
-     * //POSFIX método a parte para generar los tableros??
-     */
+    ArbolGeneral<Tablero>::Nodo n = partida.hijomasizquierda(partida.raiz());
+    ArbolGeneral<Tablero> aux;
+
+    while (partida.etiqueta(n).GetUltCol() != tablero.GetUltCol())
+    {
+      partida.podar_hijomasizquierda(partida.raiz(), aux);
+      n = partida.hijomasizquierda(partida.raiz());
+    }
+
+    while (partida.hermanoderecha(n))
+    {
+      partida.podar_hermanoderecha(n, aux);
+    }
+    */
+
+    // Localizar tablero actual entre las posibilidades (siempre está)
+    ArbolGeneral<Tablero>::Nodo n = partida.hijomasizquierda(partida.raiz());
+    while (partida.etiqueta(n).GetUltCol() != tablero.GetUltCol())
+    {
+      n = partida.hermanoderecha(n);
+    }
+
+    // Asignar subárbol que cuelga de n a partida
+    ArbolGeneral<Tablero> nuevo;
+    nuevo.asignar_subarbol(partida, n);
+    partida = nuevo;
   }
 }
 
 /* _________________________________________________________________________ */
 
-//TODO tener en cuenta el jugador al que le toca el primer turno????
 JugadorAuto::JugadorAuto(const Tablero& inicial, int num_metrica)
   : partida(inicial), metrica(num_metrica)
 {
-  // Métricas que exploran hasta profundidad N
+  // Métricas que exploran hasta una cierta profundidad (excepto aleatoria)
   if (metrica != 4)
   {
-    int profundidad = metrica == 3 ? 2 : N;
-    generarArbolSoluciones(profundidad);
+    int num_niveles = metrica == 3 ? 2 : N;
+    generarArbolSoluciones(partida, 0, num_niveles);
   }
 }
 
