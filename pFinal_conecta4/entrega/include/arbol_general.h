@@ -1098,6 +1098,7 @@ void ArbolGeneral <Tbase>::destruir (nodo * n){
             destruir(aux);
         }
         delete n;
+        n = 0;
     }
 }
 
@@ -1105,24 +1106,26 @@ void ArbolGeneral <Tbase>::destruir (nodo * n){
 
 template <class Tbase>
 void ArbolGeneral<Tbase>::copiar(nodo * & dest, nodo * orig){
-  if(dest == 0)                                   //Si destino no tiene nada.
-        dest = new nodo;                            //Creamos un nuevo nodo.
-    if(orig != 0){                                  //Nos aseguramos de que tenga algo.
-        if(dest->izqda != 0)                        //Si tiene cosas las borramos.
-            destruir(dest->izqda);
-        dest = new nodo(orig->etiqueta);            //Copiamos etiqueta.
+ try {
+        if (dest != 0) // si destino tiene algo lo destruyo.
+            destruir(dest);
+    }
+    catch (exception e) {}
 
-        copiar(dest->izqda, orig->izqda);           //Copiamos hijos.
-        if(dest->izqda != 0)
-            dest->izqda->padre = dest;              //Copiamos su padre,
+    dest = new nodo(orig->etiqueta);
 
-        if(orig->drcha != 0){                       //Nos aseguramos que tiene hermanos.
-            dest->drcha = new nodo(orig->drcha->etiqueta);
+    if (orig->izqda != 0) {
+       copiar(dest->izqda, orig->izqda);
+       if (dest->izqda != 0)
+          dest->izqda->padre = dest;
+    }
 
-            copiar(dest->drcha, orig->drcha);       //Copiamos hermanos.
-            if(dest->drcha != 0)
-                dest->drcha->padre = dest;          //Copiamos el padre.
-        }
+    if (orig->drcha != 0) {
+       dest->drcha = new nodo(orig->drcha->etiqueta);
+       copiar(dest->drcha, orig->drcha);
+       if (dest->drcha != 0) {
+          dest->drcha->padre = dest->padre; // padre porque copia los hermanos del nodo origen. El padre de estos esta un nivel por encima
+       }
     }
 }
 
