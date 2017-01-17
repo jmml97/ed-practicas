@@ -132,22 +132,6 @@ void JugadorAuto::actualizarSoluciones(const Tablero& tablero)
 {
   if (metrica != 4)
   {
-    /*
-    ArbolGeneral<Tablero>::Nodo n = partida.hijomasizquierda(partida.raiz());
-    ArbolGeneral<Tablero> aux;
-
-    while (partida.etiqueta(n).GetUltCol() != tablero.GetUltCol())
-    {
-      partida.podar_hijomasizquierda(partida.raiz(), aux);
-      n = partida.hijomasizquierda(partida.raiz());
-    }
-
-    while (partida.hermanoderecha(n))
-    {
-      partida.podar_hermanoderecha(n, aux);
-    }
-    */
-
     // Localizar tablero actual entre las posibilidades (siempre está)
     ArbolGeneral<Tablero>::Nodo n = partida.hijomasizquierda(partida.raiz());
     while (partida.etiqueta(n).GetUltCol() != tablero.GetUltCol())

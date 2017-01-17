@@ -150,7 +150,7 @@ class ArbolGeneral{
       *
       * Libera los recursos que ocupan \e n y sus descendientes.
       */
-    void destruir(nodo * n);
+    void destruir(nodo *& n);
 
     /**
       * @brief Copia un subárbol
@@ -1087,8 +1087,8 @@ class ArbolGeneral{
 /*____________________________________________________________ */
 
 template <class Tbase>
-void ArbolGeneral <Tbase>::destruir (nodo * n){
-    if(n != 0){                                     //Si no es nulo.
+void ArbolGeneral <Tbase>::destruir (nodo *& n){
+   if(n != 0){                                     //Si no es nulo.
         Nodo t, aux;
 
         t = n->izqda;                               //Vamos recorriendo los hijos
