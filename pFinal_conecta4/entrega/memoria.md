@@ -1,13 +1,13 @@
 ---
-title: Estructuras de Datos - Práctica Final: IA Conecta4
-author: Antonio Coín Castro, Miguel Lentisco Ballesteros y José María Martín Luque
+title: Estructura de Datos - Práctica final, Conecta4
+author: José María Martín Luque
 header-includes:
     - \usepackage{pgfplots}
     - \usepackage{pgfplotstable}
     - \usepackage{graphicx}
     - \usepackage{adjustbox}
     - \usepackage[spanish]{babel}
-abstract: En este documento se recogen las consideraciones tomadas y los procedimientos seguidos en la realización de la práctica final.
+abstract: En este documento se recogen tanto las mediciones realizadas de los programas `popcount` y `paridades` como las respuestas a las preguntas de autocomprobación de la práctica 2.
 ---
 
 ### Métrica 4
