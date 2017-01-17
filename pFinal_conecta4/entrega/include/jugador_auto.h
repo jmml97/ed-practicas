@@ -50,6 +50,11 @@ class JugadorAuto
 
   public:
     /**
+     * @brief Constructor por defecto. Crea un árbol vacío.
+     */
+    JugadorAuto() { }
+
+    /**
      * @brief Construye un jugador automático, a partir de un tablero inicial
      * y una métrica dados.
      * @param inicial Tablero inicial de la partida
@@ -70,7 +75,7 @@ class JugadorAuto
      * automático)
      * @return Columna donde se insertaría la ficha del jugador automático
      */
-    int elegirMovimiento(int num_metrica);
+    int elegirMovimiento(int num_metrica = 0);
 
     /**
      * @brief Procesa un turno del jugador automático.

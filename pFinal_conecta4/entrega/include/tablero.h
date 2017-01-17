@@ -17,6 +17,8 @@ using namespace std;
 /**
  * @brief T.D.A. Tablero.
  *
+ * Diremos que un tablero está vacío cuando la última columna donde se insertó
+ * una ficha valga -1.
  */
 class Tablero
 {
@@ -25,6 +27,7 @@ class Tablero
     const int filas;               ///< Número de filas que tiene el tablero.
     const int columnas;            ///< Número de columnas que tiene el tablero.
     int turno;                     ///< Indica a qué jugador le toca poner ficha. 1 para el jugador 1, 2 para el jugador 2.
+    int ult_col;                   ///< Columna donde se insertó la última ficha
 
     /**
      * @brief Crea el tablero de tamaño filas/columnas
@@ -88,7 +91,7 @@ public:
      * @brief Comprueba si el tablero está vacío.
      * @return true si está vacío, false si no.
      */
-    bool estaVacio();
+    bool estaVacio() { return ult_col == -1; }
 
     /**
      * @brief Coloca una ficha en la columna especificada del jugador correspondiente.
@@ -118,6 +121,11 @@ public:
     const int GetFilas() const { return filas; }
 
     /**
+     * @brief Devuelve la columna donde se insertó la última ficha.
+     */
+    int GetUltCol() const { return ult_col; }
+
+    /**
      * @brief Función que devuelve el atributo tablero.
      * @return Devuelve un vector de vectores de enteros (una matriz) de enteros
      *         representando un tablero.
@@ -129,7 +137,7 @@ public:
      * @param tablero : Matriz (vector de vectores de enteros) representante de
      *        un estado del juego.
      */
-    void SetTablero(vector<vector<int> > tablero);
+    void SetTablero(vector<vector<int> > tablero, int ult_col);
 
     /**
      * @brief Turno del estado actual.
