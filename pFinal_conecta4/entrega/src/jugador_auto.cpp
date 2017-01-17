@@ -25,14 +25,13 @@ namespace
 
 int JugadorAuto::metrica1()
 {
-  static bool primerTurno = true;
+  int turno = partida.etiqueta(partida.raiz()).GetTurno();
   int num_cols = partida.etiqueta(partida.raiz()).GetColumnas();
 
   // Si se puede, inserto en el primer turno en el centro
-  if (primerTurno && partida.etiqueta(partida.raiz()).estaVacio()
+  if (turno == 2 && partida.etiqueta(partida.raiz()).estaVacio()
       && num_cols % 2 != 0)
   {
-    primerTurno = false;
     return num_cols / 2;
   }
 
@@ -43,14 +42,13 @@ int JugadorAuto::metrica1()
 
 int JugadorAuto::metrica2()
 {
-  static bool primerTurno = true;
+  int turno = partida.etiqueta(partida.raiz()).GetTurno();
   int num_cols = partida.etiqueta(partida.raiz()).GetColumnas();
 
   // Si se puede, inserto en el primer turno en el centro
-  if (primerTurno && partida.etiqueta(partida.raiz()).estaVacio()
+  if (turno == 2 && partida.etiqueta(partida.raiz()).estaVacio()
       && num_cols % 2 != 0)
   {
-    primerTurno = false;
     return num_cols / 2;
   }
 
@@ -61,28 +59,33 @@ int JugadorAuto::metrica2()
 
 int JugadorAuto::metrica3()
 {
-  ArbolGeneral<Tablero>::preorden_iterador it = ++(partida.beginpreorden());
-
-  int j = 0;
-  while (it != partida.endpreorden())
+  // Explorar nivel 1
+  for (ArbolGeneral<Tablero>::preorden_iterador it = ++(partida.beginpreorden());
+       it != it; it = it.hermano())
   {
-    Tablero aux = *it;
-
-    // Si se gana con la jugada
-    if (aux.quienGana() == 2)
-      return j;
-
-    // Si evitamos que el oponente gana
-    //TODO implementar
-
-    ++it;
-    ++j;
+    // Si se gana con la jugada, elegimos esa
+    if ((*it).quienGana() == 2)
+      return (*it).GetUltCol();
   }
 
+  // Explorar nivel 2
+  for (ArbolGeneral<Tablero>::preorden_iterador nivel1 = ++(partida.beginpreorden());
+        nivel1 != nivel1; nivel1 = nivel1.hermano())
+  {
+    bool no_gana = true;
+    for (ArbolGeneral<Tablero>::preorden_iterador it = ++nivel1;
+          it != it && no_gana; it = it.hermano())
+    {
+      if ((*it).quienGana() == 1)
+        no_gana = false;
+    }
 
+    if (no_gana)
+        return (*nivel1).GetUltCol();
+  }
 
-  // No se gana o se evita perder en la siguiente jugada: aleatorio
-  return metrica4();
+  // Caso trivial: el jugador automático pierde. Elegimos la primera columna
+  return (*(++(partida.beginpreorden()))).GetUltCol();
 }
 
 /* _________________________________________________________________________ */
@@ -101,9 +104,26 @@ int JugadorAuto::metrica4()
 
 /* _________________________________________________________________________ */
 
-void JugadorAuto::generarArbolSoluciones(int profundidad)
+void JugadorAuto::generarArbolSoluciones(ArbolGeneral<Tablero> padre,
+                                         int prof, int prof_max)
 {
-  //TODO implementar (recursivo?)
+  if (prof <= prof_max)
+  {
+    int num_cols = partida.etiqueta(partida.raiz()).GetColumnas();
+    Tablero original = padre.etiqueta(padre.raiz());
+    for (int col = 0; col < num_cols; col++)
+    {
+      if (original.hayHueco(col) && !original.quienGana())
+      {
+        Tablero nuevo(original);
+        nuevo.colocarFicha(col);
+        nuevo.cambiarTurno();
+        ArbolGeneral<Tablero> hijo(nuevo);
+        padre.insertar_hijomasizquierda(padre.raiz(), hijo);
+        generarArbolSoluciones(hijo, prof + 1, prof_max);
+      }
+    }
+  }
 }
 
 /* _________________________________________________________________________ */
@@ -112,43 +132,46 @@ void JugadorAuto::actualizarSoluciones(const Tablero& tablero)
 {
   if (metrica != 4)
   {
-    //TODO implementar:
     /*
-     * 1. Podar ramas innecesarias (movimientos no realizados)
-     * 2. raiz = raiz->hijo, donde hijo=movimiento_realizado
-     * 3. Explorar un nivel siguiente al que estamos
-     *
-     * Restricciones para explorar:
-     * - que no sea hoja
-     * - ver si una columna está ya llena.
-     *
-     * //POSFIX método a parte para generar los tableros??
-     */
+    ArbolGeneral<Tablero>::Nodo n = partida.hijomasizquierda(partida.raiz());
+    ArbolGeneral<Tablero> aux;
+
+    while (partida.etiqueta(n).GetUltCol() != tablero.GetUltCol())
+    {
+      partida.podar_hijomasizquierda(partida.raiz(), aux);
+      n = partida.hijomasizquierda(partida.raiz());
+    }
+
+    while (partida.hermanoderecha(n))
+    {
+      partida.podar_hermanoderecha(n, aux);
+    }
+    */
+
+    // Localizar tablero actual entre las posibilidades (siempre está)
+    ArbolGeneral<Tablero>::Nodo n = partida.hijomasizquierda(partida.raiz());
+    while (partida.etiqueta(n).GetUltCol() != tablero.GetUltCol())
+    {
+      n = partida.hermanoderecha(n);
+    }
+
+    // Asignar subárbol que cuelga de n a partida
+    ArbolGeneral<Tablero> nuevo;
+    nuevo.asignar_subarbol(partida, n);
+    partida = nuevo;
   }
 }
 
 /* _________________________________________________________________________ */
 
-//TODO tener en cuenta el jugador al que le toca el primer turno????
 JugadorAuto::JugadorAuto(const Tablero& inicial, int num_metrica)
   : partida(inicial), metrica(num_metrica)
 {
-  // Si elegimos una métrica aleatoria, inicializar semilla
-  if (metrica == 4 || metrica == 3)
-  {
-    static bool seeded = false;
-    if (!seeded)  // Solo inicializamos una vez por cada objeto
-    {
-      srand(time(0));
-      seeded = true;
-    }
-  }
-
-  // Métricas que exploran hasta profundidad N
+  // Métricas que exploran hasta una cierta profundidad (excepto aleatoria)
   if (metrica != 4)
   {
-    int profundidad = metrica == 3 ? 1 : N;  //TODO cuando metrica == 3, sería 1?
-    generarArbolSoluciones(profundidad);
+    int num_niveles = metrica == 3 ? 2 : N;
+    generarArbolSoluciones(partida, 0, num_niveles);
   }
 }
 
@@ -184,7 +207,7 @@ void JugadorAuto::turnoAutomatico(Tablero& actual)
   actualizarSoluciones(actual);
 
   // Elegimos jugada según la métrica
-  columna = elegirMovimiento(0);
+  columna = elegirMovimiento();
 
   // Insertamos ficha
   actual.colocarFicha(columna);

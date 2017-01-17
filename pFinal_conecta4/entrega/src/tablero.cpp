@@ -25,17 +25,17 @@ void Tablero::reserve()
 
 /* _________________________________________________________________________ */
 
-Tablero::Tablero() : filas(0), columnas(0)
+Tablero::Tablero()
+  : filas(0), columnas(0), turno(1), ult_col(-1)
 {
-  turno = 1;
 }
 
 /* _________________________________________________________________________ */
 
 Tablero::Tablero(const int filas, const int columnas)
-  : filas(filas), columnas(columnas)
+  : filas(filas), columnas(columnas),
+    turno(1), ult_col(-1)
 {
-  turno = 1;
   reserve();
 }
 
@@ -43,7 +43,8 @@ Tablero::Tablero(const int filas, const int columnas)
 
 Tablero::Tablero(const Tablero& t)
   : tablero(t.tablero), filas(t.filas),
-    columnas(t.columnas), turno(t.turno)
+    columnas(t.columnas), turno(t.turno),
+    ult_col(t.ult_col)
 {
 }
 
@@ -56,17 +57,6 @@ bool Tablero::estaLleno()
     for (int j = 0; j < columnas && sinHuecos; j++)
       sinHuecos = this->tablero[i][j] != 0;
   return sinHuecos;
-}
-
-/* _________________________________________________________________________ */
-
-bool Tablero::estaVacio()
-{
-  bool vacio = true;
-  for (int i = 0; i < filas && vacio; i++)
-    for (int j = 0; j < columnas && vacio; j++)
-      vacio = this->tablero[i][j] == 0;
-  return vacio;
 }
 
 /* _________________________________________________________________________ */
@@ -108,6 +98,7 @@ bool Tablero::colocarFicha(int pos)
   if (fila != -1)
   {
     this->tablero[fila][pos] = turno;
+    ult_col = pos;
     return true;
   }
   return false;
@@ -126,7 +117,7 @@ int Tablero::cambiarTurno()
 
 /* _________________________________________________________________________ */
 
-void Tablero::SetTablero(vector<vector<int> > tablero)
+void Tablero::SetTablero(vector<vector<int> > tablero, int ult_col)
 {
   int filas1, filas2, columnas1, columnas2;
   filas1 = GetFilas();
@@ -137,15 +128,21 @@ void Tablero::SetTablero(vector<vector<int> > tablero)
   if (filas1 == 0 || columnas1 == 0)
   {
     this->tablero = tablero;
+    this->ult_col = ult_col;
   }
 
   else
   {
     // Si tiene la misma dimensión.
     if (filas1 == filas2 && columnas1 == columnas2)
+    {
       this->tablero = tablero;
+      this->ult_col = ult_col;
+    }
     else
+    {
       cout << "Se han intentado igualar tableros de distintas dimensiones." << endl;
+    }
   }
 }
 
@@ -157,7 +154,7 @@ Tablero& Tablero::operator=(const Tablero& derecha)
   if (this == &derecha)
     return *this;
   // Asignamos el tablero de la derecha en la igualdad.
-  SetTablero(derecha.GetTablero());
+  SetTablero(derecha.GetTablero(), derecha.GetUltCol());
   return *this;
 }
 

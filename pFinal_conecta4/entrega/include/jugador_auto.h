@@ -38,9 +38,11 @@ class JugadorAuto
     /**
      * @brief Genera el espacio de soluciones para un tablero vacío,
      * explorando hasta una profundidad variable según la métrica.
-     * @param profundidad Profundidad hasta la que se explora
+     * @param padre Tablero actual (padre)
+     * @param prof Profundidad actual del árbol
+     * @param num_niveles Número de niveles nuevos a explorar
      */
-    void generarArbolSoluciones(int profundidad);
+    void generarArbolSoluciones(ArbolGeneral<Tablero> padre, int prof, int num_niveles);
 
     /**
      * @brief Actualiza el espacio de soluciones de la partida
@@ -50,8 +52,13 @@ class JugadorAuto
 
   public:
     /**
+     * @brief Constructor por defecto. Crea un árbol vacío.
+     */
+    JugadorAuto() { }
+
+    /**
      * @brief Construye un jugador automático, a partir de un tablero inicial
-     * y una métrica dados.
+     * y una métrica dados. Genera el árbol de soluciones.
      * @param inicial Tablero inicial de la partida
      * @param metrica Número de métrica elegida (por defecto la mejor)
      */
@@ -70,7 +77,7 @@ class JugadorAuto
      * automático)
      * @return Columna donde se insertaría la ficha del jugador automático
      */
-    int elegirMovimiento(int num_metrica);
+    int elegirMovimiento(int num_metrica = 0);
 
     /**
      * @brief Procesa un turno del jugador automático.

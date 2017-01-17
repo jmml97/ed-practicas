@@ -27,7 +27,6 @@
 
 using namespace std;
 
-
 /**
  * @brief Captura el caracter pulsado por teclado.
  * No hay necesidad de pulsar, a continuación, Enter.
@@ -86,16 +85,20 @@ void ImprimeTablero(Tablero& t, Mando& m)
 int JugarPartida(Tablero& tablero, int metrica)
 {
   Mando mando(tablero);
+  JugadorAuto j2;
   char c = 1;
   int quienGana = 0;
   bool colocada;
 
-  // mientras el tablero no esté lleno ni haya ganador
+  // Inicializar jugador automático
+  if (metrica != 0)
+    j2 = JugadorAuto(tablero, metrica);
+
+  // Mientras el tablero no esté lleno ni haya ganador
   while (c != Mando::KB_ESCAPE && !tablero.estaLleno() && quienGana == 0)
   {
     if (metrica != 0 && tablero.GetTurno() == 2)
     {
-      JugadorAuto j2(tablero, metrica);
       j2.turnoAutomatico(tablero);
       system("clear");
       ImprimeTablero(tablero, mando);
@@ -123,7 +126,7 @@ int JugarPartida(Tablero& tablero, int metrica)
   mando.actualizarJuego(c, tablero);
   ImprimeTablero(tablero, mando);
 
-  return tablero.quienGana();
+  return quienGana;
 }
 
 int main(int argc, char **argv)
