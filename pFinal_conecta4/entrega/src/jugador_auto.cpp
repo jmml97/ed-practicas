@@ -52,7 +52,24 @@ int JugadorAuto::metrica2()
     return num_cols / 2;
   }
 
-  //TODO implementar
+  vector<int> puntuaje;
+  for (ArbolGeneral<Tablero>::Nodo n = partida.hijomasizquierda(partida.raiz()));
+    n; n = partida.hermanoderecha(n))
+  {
+    puntuaje.push_back(calcularPartidasGanadas(n));
+  }
+
+  int max_pos = 0;
+  for (int i = 0; i < puntuaje.size(); ++i)
+  {
+    if (puntuaje[max_pos] < puntuaje[i])
+      max_pos = i;
+  }
+
+  ArbolGeneral<Tablero>::Nodo n = partida.hijomasizquierda(partida.raiz());
+  for (int i = 0; i < max_pos; n = partida.hermanoderecha(n));
+
+  return partida.etiqueta(n).GetUltCol();
 }
 
 /* _________________________________________________________________________ */
@@ -152,6 +169,37 @@ void JugadorAuto::generarHijos(ArbolGeneral<Tablero>& padre, int profundidad)
   }
 }
 
+/* _________________________________________________________________________ */
+
+int JugadorAuto::calcularPartidasGanadas(ArbolGeneral<Tablero>::Nodo n)
+{
+  int n_ganadas = 0;
+  while (n)
+  {
+    if (partida.hijomasizquierda(n))
+    {
+      n = partida.hijomasizquierda(n);
+    }
+    else if(partida.hermanoderecha(n))
+    {
+      n_ganadas += partida.etiqueta(n).quienGana() == 2;
+      n = partida.hermanoderecha(n);
+    }
+    else
+    {
+        n_ganadas += partida.etiqueta(n).quienGana() == 2;
+        while((partida.padre(n)) && (partida.hermanoderecha(partida.padre(n)) == 0))
+            n = partida.padre(n);
+        if (partida.padre(n) == 0)
+            n = 0;
+        else
+            n = partida.hermanoderecha(partida.padre(n));
+    }
+  }
+}
+
+/* _________________________________________________________________________ */
+
 // TODO: forma1 (muy parecida a la recurisva - se puede fusionar con ella ??)
 // funciona solo poniendo al padre, que en realidad es la hoja original
 void JugadorAuto::funcion1(ArbolGeneral<Tablero>::Nodo padre, int profundidad)
@@ -175,6 +223,8 @@ void JugadorAuto::funcion1(ArbolGeneral<Tablero>::Nodo padre, int profundidad)
     }
   }
 }
+
+/* _________________________________________________________________________ */
 
 // TODO: forma2 (muy tonto el podar e insertar en el árbol ?)
 // funciona con el padre de la hoja, que rellena todos sus hermanos también
@@ -211,6 +261,7 @@ void JugadorAuto::funcion2(Nodo padre, int profundidad)
 
 
 }*/
+/* _________________________________________________________________________ */
 
 void JugadorAuto::generarArbolSoluciones(int profundidad)
 {
@@ -238,32 +289,6 @@ void JugadorAuto::generarArbolSoluciones(int profundidad)
     }
   }
 }
-/*
-void JugadorAuto::generarArbolSoluciones(ArbolGeneral<Tablero>& padre,
-                                         int prof, int prof_max)
-{
-  //TODO: rehacer. Falla porque llamamos en la recursividad con un objeto local (hijo)
-  // y la función espera una referencia.
-  if (prof < prof_max)
-  {
-    int num_cols = partida.etiqueta(partida.raiz()).GetColumnas();
-    Tablero original = padre.etiqueta(padre.raiz());
-    ArbolGeneral<Tablero> hijo;
-    for (int col = 0; col < num_cols; col++)
-    {
-      if (original.hayHueco(col) && !original.quienGana())
-      {
-        Tablero nuevo(original);
-        nuevo.colocarFicha(col);
-        nuevo.cambiarTurno();
-        hijo = ArbolGeneral<Tablero>(nuevo);
-        generarArbolSoluciones(hijo, prof + 1, prof_max);
-        padre.insertar_hijomasizquierda(padre.raiz(), hijo);
-      }
-    }
-  }
-}*/
-
 /* _________________________________________________________________________ */
 
 void JugadorAuto::actualizarSoluciones(const Tablero& tablero)

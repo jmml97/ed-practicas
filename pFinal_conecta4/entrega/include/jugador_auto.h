@@ -37,6 +37,7 @@ class JugadorAuto
 
     void generarHijos(ArbolGeneral<Tablero>& padre, int profundidad);
     void funcion1(ArbolGeneral<Tablero>::Nodo padre, int profundidad);
+    int JugadorAuto::calcularPartidasGanadas(ArbolGeneral<Tablero>::Nodo n);
 
 
 
