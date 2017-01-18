@@ -35,6 +35,11 @@ class JugadorAuto
     int metrica3(); // comprobar unicamente si se gana o se pierde; si no, insertar aleatoriamente
     int metrica4(); // la peor (?): elegir columna aleatoria
 
+    void generarHijos(ArbolGeneral<Tablero>& padre, int profundidad);
+    void funcion1(ArbolGeneral<Tablero>::Nodo padre, int profundidad);
+
+
+
     /**
      * @brief Genera el espacio de soluciones para un tablero vacío,
      * explorando hasta una profundidad variable según la métrica.
@@ -42,7 +47,7 @@ class JugadorAuto
      * @param prof Profundidad actual del árbol
      * @param num_niveles Número de niveles nuevos a explorar
      */
-    void generarArbolSoluciones(ArbolGeneral<Tablero>& padre, int prof, int num_niveles);
+    void generarArbolSoluciones(int profundidad);
 
     /**
      * @brief Actualiza el espacio de soluciones de la partida

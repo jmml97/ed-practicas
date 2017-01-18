@@ -85,15 +85,14 @@ void ImprimeTablero(Tablero& t, Mando& m)
 int JugarPartida(Tablero& tablero, int metrica)
 {
   Mando mando(tablero);
-  JugadorAuto j2;
+  JugadorAuto j2(tablero, metrica);
   char c = 1;
   int quienGana = 0;
   bool colocada;
 
   // Inicializar jugador automático
   if (metrica != 0)
-    j2 = JugadorAuto(tablero, metrica);
-  cerr << "llega";
+    cerr << "llega";
 
   // Mientras el tablero no esté lleno ni haya ganador
   while (c != Mando::KB_ESCAPE && !tablero.estaLleno() && quienGana == 0)
