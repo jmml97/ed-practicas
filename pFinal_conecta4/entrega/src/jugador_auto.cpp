@@ -51,7 +51,7 @@ int JugadorAuto::metrica2()
   // Almacenar el número de partidas ganadas (por el jugador auto) de cada nodo
   vector<int> puntuaje;
   for (ArbolGeneral<Tablero>::Nodo n = partida.hijomasizquierda(partida.raiz());
-    n; n = partida.hermanoderecha(n))
+       n; n = partida.hermanoderecha(n))
   {
     puntuaje.push_back(calcularPartidasGanadas(n));
   }
@@ -84,11 +84,11 @@ int JugadorAuto::metrica3()
   }
 
   for (ArbolGeneral<Tablero>::Nodo n1 = partida.hijomasizquierda(partida.raiz());
-      n1; n1 = partida.hermanoderecha(n1))
+       n1; n1 = partida.hermanoderecha(n1))
   {
     bool no_gana = true;
     for (ArbolGeneral<Tablero>::Nodo n2 = partida.hijomasizquierda(n1);
-          n2; n2 = partida.hermanoderecha(n2))
+         n2; n2 = partida.hermanoderecha(n2))
     {
       if (partida.etiqueta(n2).quienGana() == 1)
         no_gana = false;
@@ -235,20 +235,17 @@ void JugadorAuto::generarArbolSoluciones(int profundidad)
 
 void JugadorAuto::actualizarSoluciones(const Tablero& tablero)
 {
-  // Si comienza jugando el jugador automático
-  if (partida.etiqueta(partida.raiz()).estaVacio())
+  // Si comienza jugando el jugador automático, no hacemos nada
+  if (tablero.estaVacio())
     return;
 
   if (metrica != 4)
   {
     // Localizar tablero actual entre las posibilidades (siempre está)
     ArbolGeneral<Tablero>::Nodo n = partida.hijomasizquierda(partida.raiz());
-    if (!partida.etiqueta(n).estaVacio())
+    while (partida.etiqueta(n).GetUltCol() != tablero.GetUltCol())
     {
-      while (partida.etiqueta(n).GetUltCol() != tablero.GetUltCol())
-      {
-        n = partida.hermanoderecha(n);
-      }
+      n = partida.hermanoderecha(n);
     }
 
     // Asignar subárbol que cuelga de n a partida
