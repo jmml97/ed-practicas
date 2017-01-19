@@ -53,7 +53,7 @@ int JugadorAuto::metrica2()
   }
 
   vector<int> puntuaje;
-  for (ArbolGeneral<Tablero>::Nodo n = partida.hijomasizquierda(partida.raiz()));
+  for (ArbolGeneral<Tablero>::Nodo n = partida.hijomasizquierda(partida.raiz());
     n; n = partida.hermanoderecha(n))
   {
     puntuaje.push_back(calcularPartidasGanadas(n));
@@ -67,7 +67,8 @@ int JugadorAuto::metrica2()
   }
 
   ArbolGeneral<Tablero>::Nodo n = partida.hijomasizquierda(partida.raiz());
-  for (int i = 0; i < max_pos; n = partida.hermanoderecha(n));
+  for (int i = 0; i < max_pos; ++i)
+    n = partida.hermanoderecha(n);
 
   return partida.etiqueta(n).GetUltCol();
 }
@@ -196,6 +197,7 @@ int JugadorAuto::calcularPartidasGanadas(ArbolGeneral<Tablero>::Nodo n)
             n = partida.hermanoderecha(partida.padre(n));
     }
   }
+  return n_ganadas;
 }
 
 /* _________________________________________________________________________ */
@@ -324,6 +326,8 @@ void JugadorAuto::actualizarSoluciones(const Tablero& tablero)
 
     generarArbolSoluciones(1);
   }
+
+  // Métrica aleatoria: solo cambiamos la raíz
   else
   {
     partida = tablero;
@@ -338,7 +342,7 @@ JugadorAuto::JugadorAuto(const Tablero& inicial, int num_metrica)
   // Métricas que exploran hasta una cierta profundidad (excepto aleatoria)
   if (metrica != 4)
   {
-    int num_niveles = ((metrica == 3) ? 2 : N);
+    int num_niveles = (metrica == 3) ? 2 : N;
     generarArbolSoluciones(num_niveles);
   }
 }

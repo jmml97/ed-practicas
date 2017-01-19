@@ -37,16 +37,12 @@ class JugadorAuto
 
     void generarHijos(ArbolGeneral<Tablero>& padre, int profundidad);
     void funcion1(ArbolGeneral<Tablero>::Nodo padre, int profundidad);
-    int JugadorAuto::calcularPartidasGanadas(ArbolGeneral<Tablero>::Nodo n);
-
-
+    int calcularPartidasGanadas(ArbolGeneral<Tablero>::Nodo n);
 
     /**
      * @brief Genera el espacio de soluciones para un tablero vacío,
      * explorando hasta una profundidad variable según la métrica.
-     * @param padre Tablero actual (padre)
-     * @param prof Profundidad actual del árbol
-     * @param num_niveles Número de niveles nuevos a explorar
+     * @param profundidad Profundidad hasta la que generar hijos
      */
     void generarArbolSoluciones(int profundidad);
 
@@ -58,9 +54,10 @@ class JugadorAuto
 
   public:
     /**
-     * @brief Constructor por defecto. Crea un árbol vacío.
+     * @brief Constructor por defecto. Crea un árbol vacío,
+     * con la métrica por defecto
      */
-    JugadorAuto() { }
+    JugadorAuto() : metrica(1) { }
 
     /**
      * @brief Construye un jugador automático, a partir de un tablero inicial
