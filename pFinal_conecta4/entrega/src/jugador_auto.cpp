@@ -140,6 +140,96 @@ void JugadorAuto::generarHijos(ArbolGeneral<Tablero>& padre, int profundidad)
   }
 }
 
+
+vector<ArbolGeneral<Tablero>::Nodo> JugadorAuto::actualizaHojas (ArbolGeneral<Tablero>::Nodo nodo)
+{
+  vector<ArbolGeneral<Tablero>::Nodo> hojas;
+  ArbolGeneral<Tablero>::nodo n = nodo;
+
+  while (n)
+  {
+    if (partida.hijomasizquierda(n))
+      n = partida.hijomasizquierda(n);
+    else if(partida.hermanoderecha(n))
+    {
+      hojas.push_back(n);
+      n = partida.hermanoderecha(n);
+    }
+    else
+    {
+        hojas.push_back(n);
+        while((partida.padre(n)) && (partida.hermanoderecha(partida.padre(n)) == 0))
+            n = partida.padre(n);
+        if (partida.padre(n) == 0)
+            n = 0;
+        else
+            n = partida.hermanoderecha(partida.padre(n));
+    }
+  }
+}
+
+/* _________________________________________________________________________ */
+
+// TODO: a ver si funciona esto
+void JugadorAuto::generarArbolSoluciones(int profundidad)
+{
+  vector<ArbolGeneral<Tablero>::Nodo> hojas;
+  ArbolGeneral<Tablero>::Nodo n = partida.raiz();
+
+  // Busca las hojas iniciales y las mete en el vector hojas
+  while (n)
+  {
+    if (partida.hijomasizquierda(n))
+      n = partida.hijomasizquierda(n);
+    else if(partida.hermanoderecha(n))
+    {
+      hojas.push_back(n);
+      n = partida.hermanoderecha(n);
+    }
+    else
+    {
+        hojas.push_back(n);
+        while((partida.padre(n)) && (partida.hermanoderecha(partida.padre(n)) == 0))
+            n = partida.padre(n);
+        if (partida.padre(n) == 0)
+            n = 0;
+        else
+            n = partida.hermanoderecha(partida.padre(n));
+    }
+  }
+
+  // Crea tantos niveles como se pida
+  for (int p = 0; p < profundidad; ++p)
+  {
+    // Aqui almacenaremos los nuevas hojas resultantes
+    vector<ArbolGeneral<Tablero>::Nodo> aux;
+    // En cada iteración crea los hijos para cada hoja
+    for (int i = 0, size = hojas.size(); i < size; ++i)
+    {
+      Tablero original = partida.etiqueta(hojas[i]);
+      int num_cols = original.GetColumnas();
+      // Crea tantos hijos como columnas (movimientos posibles)
+      for (int col = 0; col < num_cols; ++col)
+      {
+        if ((original.hayHueco() > -1) && !original.quienGana())
+        {
+          // Creamos un nuevo tablero con el movimiento posible
+          Tablero nuevo(original);
+          nuevo.colocarFicha(col);
+          nuevo.cambiarTurno();
+          // Creamos un arbol de un solo nodo y lo insertamos
+          ArbolGeneral<Tablero> hijo(nuevo);
+          partida.insertar_hijomasizquierda(hojas[i], hijo);
+          // Lo añadimos como nueva hoja
+          aux.push_back(partida.hijomasizquierda(hojas[i]));
+        }
+      }
+    }
+    // Actualizamos el vector de hojas
+    hojas = aux;
+  }
+}
+
 /* _________________________________________________________________________ */
 
 // TODO: forma1 (muy parecida a la recurisva - se puede fusionar con ella ??)
@@ -248,6 +338,7 @@ void JugadorAuto::actualizarSoluciones(const Tablero& tablero)
       n = partida.hermanoderecha(n);
     }
 
+    // TODO: probar de nuevo con asignar_subarbol a ver si funciona
     // Asignar subárbol que cuelga de n a partida
     ArbolGeneral<Tablero> nuevo;
     ArbolGeneral<Tablero>::Nodo aux = partida.raiz();
