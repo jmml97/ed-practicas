@@ -287,7 +287,13 @@ int JugadorAuto::calcularPartidasGanadas(ArbolGeneral<Tablero>::Nodo n)
 {
   if (!partida.hijomasizquierda(n))
   {
-    return (partida.etiqueta(n).quienGana() == 2 ? 1 : 0);
+    int ganador = partida.etiqueta(n).quienGana();
+    if (ganador == 1)
+      return -2;
+    else if (ganador == 2)
+      return 2;
+    else
+      return 1;
   }
 
   int n_ganadas = 0;
@@ -296,6 +302,8 @@ int JugadorAuto::calcularPartidasGanadas(ArbolGeneral<Tablero>::Nodo n)
 
   return n_ganadas;
 }
+
+// OTRA FORMA: iterativa
 /*
 int JugadorAuto::calcularPartidasGanadas(ArbolGeneral<Tablero>::Nodo n)
 {
