@@ -1,2 +1,10 @@
 ---- Makefile ----
 - Quitar DNDEBUG de CXXFLAGS para entregar
+
+----- Métrica 3 -----
+No insertar en la primera que el jugador humano no gane, sino aleatorizarlo
+de alguna manera. Es predecible.
+NO FUNCIONA: NO INSERTA CUANDO SE AGOTA UNA COLUMNA
+
+---- Métrica 2 -----
+No produce buenos resultados.

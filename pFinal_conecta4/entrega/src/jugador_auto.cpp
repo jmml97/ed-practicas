@@ -25,12 +25,10 @@ namespace
 
 int JugadorAuto::metrica1()
 {
-  int turno = partida.etiqueta(partida.raiz()).GetTurno();
   int num_cols = partida.etiqueta(partida.raiz()).GetColumnas();
 
   // Si se puede, inserto en el primer turno en el centro
-  if (turno == 2 && partida.etiqueta(partida.raiz()).estaVacio()
-      && num_cols % 2 != 0)
+  if (partida.etiqueta(partida.raiz()).estaVacio())
   {
     return num_cols / 2;
   }
@@ -42,16 +40,15 @@ int JugadorAuto::metrica1()
 
 int JugadorAuto::metrica2()
 {
-  int turno = partida.etiqueta(partida.raiz()).GetTurno();
   int num_cols = partida.etiqueta(partida.raiz()).GetColumnas();
 
-  // Si se puede, inserto en el primer turno en el centro
-  if (turno == 2 && partida.etiqueta(partida.raiz()).estaVacio()
-      && num_cols % 2 != 0)
+  // Si se puede, inserto en el primer turno en el centro (o lo más cerca posible)
+  if (partida.etiqueta(partida.raiz()).estaVacio())
   {
     return num_cols / 2;
   }
 
+  // Almacenar el número de partidas ganadas (por el jugador auto) de cada nodo
   vector<int> puntuaje;
   for (ArbolGeneral<Tablero>::Nodo n = partida.hijomasizquierda(partida.raiz());
     n; n = partida.hermanoderecha(n))
@@ -59,6 +56,7 @@ int JugadorAuto::metrica2()
     puntuaje.push_back(calcularPartidasGanadas(n));
   }
 
+  // Calcular el nodo con mayor número de partidas ganadas
   int max_pos = 0;
   for (int i = 0; i < puntuaje.size(); ++i)
   {
@@ -66,6 +64,7 @@ int JugadorAuto::metrica2()
       max_pos = i;
   }
 
+  // Obtener el nodo con mayor puntuación
   ArbolGeneral<Tablero>::Nodo n = partida.hijomasizquierda(partida.raiz());
   for (int i = 0; i < max_pos; ++i)
     n = partida.hermanoderecha(n);
@@ -78,22 +77,12 @@ int JugadorAuto::metrica2()
 int JugadorAuto::metrica3()
 {
   for (ArbolGeneral<Tablero>::Nodo n = partida.hijomasizquierda(partida.raiz());
-      n; n = partida.hermanoderecha(n))
+       n; n = partida.hermanoderecha(n))
   {
     if (partida.etiqueta(n).quienGana() == 2)
       return partida.etiqueta(n).GetUltCol();
   }
 
-  /*
-  // Explorar nivel 1
-  for (ArbolGeneral<Tablero>::preorden_iterador it = ++(partida.beginpreorden());
-       it != it; it = it.hermano())
-  {
-    // Si se gana con la jugada, elegimos esa
-    if ((*it).quienGana() == 2)
-      return (*it).GetUltCol();
-  }
-*/
   for (ArbolGeneral<Tablero>::Nodo n1 = partida.hijomasizquierda(partida.raiz());
       n1; n1 = partida.hermanoderecha(n1))
   {
@@ -109,28 +98,9 @@ int JugadorAuto::metrica3()
       return partida.etiqueta(n1).GetUltCol();
   }
 
+  // Caso trivial: el jugador automático pierde. Elegimos la primera columna
   return partida.etiqueta(partida.hijomasizquierda(partida.raiz())).GetUltCol();
 }
-/*
-  // Explorar nivel 2
-  for (ArbolGeneral<Tablero>::preorden_iterador nivel1 = ++(partida.beginpreorden());
-        nivel1 != nivel1; nivel1 = nivel1.hermano())
-  {
-    bool no_gana = true;
-    for (ArbolGeneral<Tablero>::preorden_iterador it = ++nivel1;
-          it != it && no_gana; it = it.hermano())
-    {
-      if ((*it).quienGana() == 1)
-        no_gana = false;
-    }
-
-    if (no_gana)
-        return (*nivel1).GetUltCol();
-  }
-
-  // Caso trivial: el jugador automático pierde. Elegimos la primera columna
-  return (*(++(partida.beginpreorden()))).GetUltCol();
-}*/
 
 /* _________________________________________________________________________ */
 
@@ -168,36 +138,6 @@ void JugadorAuto::generarHijos(ArbolGeneral<Tablero>& padre, int profundidad)
       }
     }
   }
-}
-
-/* _________________________________________________________________________ */
-
-int JugadorAuto::calcularPartidasGanadas(ArbolGeneral<Tablero>::Nodo n)
-{
-  int n_ganadas = 0;
-  while (n)
-  {
-    if (partida.hijomasizquierda(n))
-    {
-      n = partida.hijomasizquierda(n);
-    }
-    else if(partida.hermanoderecha(n))
-    {
-      n_ganadas += partida.etiqueta(n).quienGana() == 2;
-      n = partida.hermanoderecha(n);
-    }
-    else
-    {
-        n_ganadas += partida.etiqueta(n).quienGana() == 2;
-        while((partida.padre(n)) && (partida.hermanoderecha(partida.padre(n)) == 0))
-            n = partida.padre(n);
-        if (partida.padre(n) == 0)
-            n = 0;
-        else
-            n = partida.hermanoderecha(partida.padre(n));
-    }
-  }
-  return n_ganadas;
 }
 
 /* _________________________________________________________________________ */
@@ -295,13 +235,20 @@ void JugadorAuto::generarArbolSoluciones(int profundidad)
 
 void JugadorAuto::actualizarSoluciones(const Tablero& tablero)
 {
+  // Si comienza jugando el jugador automático
+  if (partida.etiqueta(partida.raiz()).estaVacio())
+    return;
+
   if (metrica != 4)
   {
     // Localizar tablero actual entre las posibilidades (siempre está)
     ArbolGeneral<Tablero>::Nodo n = partida.hijomasizquierda(partida.raiz());
-    while (partida.etiqueta(n).GetUltCol() != tablero.GetUltCol())
+    if (!partida.etiqueta(n).estaVacio())
     {
-      n = partida.hermanoderecha(n);
+      while (partida.etiqueta(n).GetUltCol() != tablero.GetUltCol())
+      {
+        n = partida.hermanoderecha(n);
+      }
     }
 
     // Asignar subárbol que cuelga de n a partida
@@ -316,6 +263,8 @@ void JugadorAuto::actualizarSoluciones(const Tablero& tablero)
         aux = partida.hermanoderecha(aux);
       partida.podar_hermanoderecha(aux, nuevo);
     }
+
+    // Asignamos la raíz a n, e insertamos los hijos de n
     partida.AsignaRaiz(nuevo.etiqueta(nuevo.raiz()));
     while (nuevo.hijomasizquierda(nuevo.raiz()))
     {
@@ -324,6 +273,7 @@ void JugadorAuto::actualizarSoluciones(const Tablero& tablero)
       partida.insertar_hijomasizquierda(partida.raiz(), arbol);
     }
 
+    // Explorar el siguiente nivel
     generarArbolSoluciones(1);
   }
 
@@ -336,14 +286,65 @@ void JugadorAuto::actualizarSoluciones(const Tablero& tablero)
 
 /* _________________________________________________________________________ */
 
+int JugadorAuto::calcularPartidasGanadas(ArbolGeneral<Tablero>::Nodo n)
+{
+  if (!partida.hijomasizquierda(n))
+  {
+    return (partida.etiqueta(n).quienGana() == 2 ? 1 : 0);
+  }
+
+  int n_ganadas = 0;
+  for (n = partida.hijomasizquierda(n); n; n = partida.hermanoderecha(n))
+    n_ganadas += calcularPartidasGanadas(n);
+
+  return n_ganadas;
+}
+/*
+int JugadorAuto::calcularPartidasGanadas(ArbolGeneral<Tablero>::Nodo n)
+{
+  int n_ganadas = 0;
+  while (n)
+  {
+    if (partida.hijomasizquierda(n))
+    {
+      n = partida.hijomasizquierda(n);
+    }
+    else if(partida.hermanoderecha(n))
+    {
+      n_ganadas += partida.etiqueta(n).quienGana() == 2;
+      n = partida.hermanoderecha(n);
+    }
+    else
+    {
+      n_ganadas += partida.etiqueta(n).quienGana() == 2;
+      while((partida.padre(n)) && (partida.hermanoderecha(partida.padre(n)) == 0))
+        n = partida.padre(n);
+      if (partida.padre(n) == 0)
+        n = 0;
+      else
+        n = partida.hermanoderecha(partida.padre(n));
+    }
+  }
+
+  return n_ganadas;
+}
+*/
+/* _________________________________________________________________________ */
+
 JugadorAuto::JugadorAuto(const Tablero& inicial, int num_metrica)
   : partida(inicial), metrica(num_metrica)
 {
   // Métricas que exploran hasta una cierta profundidad (excepto aleatoria)
   if (metrica != 4)
   {
-    int num_niveles = (metrica == 3) ? 2 : N;
-    generarArbolSoluciones(num_niveles);
+    int profundidad = (metrica == 3) ? 2 : N;
+    generarArbolSoluciones(profundidad);
+  }
+
+  // Métrica aleatoria
+  else
+  {
+    srand(time(0));
   }
 }
 
