@@ -88,7 +88,13 @@ public:
     bool estaLleno();
 
     /**
-     * @brief Comprueba si el tablero está vacío.
+     * @brief Comprueba si un tablero constante está vacío.
+     * @return true si está vacío, false si no.
+     */
+    bool estaVacio() const { return ult_col == -1; }
+
+    /**
+     * @brief Comprueba si un tablero está vacío
      * @return true si está vacío, false si no.
      */
     bool estaVacio() { return ult_col == -1; }

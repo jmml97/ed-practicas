@@ -28,21 +28,22 @@ class JugadorAuto
   private:
     ArbolGeneral<Tablero> partida;   ///< Espacio de soluciones
     int metrica;                     ///< Métrica escogida
-    const static int N = 5;          ///< Profundidad máxima a explorar
+    const static int N = 6;          ///< Profundidad máxima a explorar
 
     int metrica1(); // la mejor (?): explorar hasta profundidad N y asignar ponderaciones a jugadas
     int metrica2(); // comprobar jugadas con 3 o 2 fichas en línea de IA // evitar las del humano
     int metrica3(); // comprobar unicamente si se gana o se pierde; si no, insertar aleatoriamente
     int metrica4(); // la peor (?): elegir columna aleatoria
 
+    void generarHijos(ArbolGeneral<Tablero>& padre, int profundidad);
+    void funcion1(ArbolGeneral<Tablero>::Nodo padre, int profundidad);
+
     /**
      * @brief Genera el espacio de soluciones para un tablero vacío,
      * explorando hasta una profundidad variable según la métrica.
-     * @param padre Tablero actual (padre)
-     * @param prof Profundidad actual del árbol
-     * @param num_niveles Número de niveles nuevos a explorar
+     * @param profundidad Profundidad hasta la que se explora
      */
-    void generarArbolSoluciones(ArbolGeneral<Tablero> padre, int prof, int num_niveles);
+    void generarArbolSoluciones(int profundidad);
 
     /**
      * @brief Actualiza el espacio de soluciones de la partida
@@ -50,11 +51,20 @@ class JugadorAuto
      */
     void actualizarSoluciones(const Tablero& tablero);
 
+    /**
+     * @brief Calcula el número de partidas ganadas por el jugador automático
+     * en el subárbol que cuelga de un nodo.
+     * @param n Nodo donde mirar.
+     * @return Número de partidas ganadas por el jugador auto
+     */
+    int calcularPartidasGanadas(ArbolGeneral<Tablero>::Nodo n);
+
   public:
     /**
-     * @brief Constructor por defecto. Crea un árbol vacío.
+     * @brief Constructor por defecto. Crea un árbol vacío,
+     * con la métrica por defecto
      */
-    JugadorAuto() { }
+    JugadorAuto() : metrica(1) { }
 
     /**
      * @brief Construye un jugador automático, a partir de un tablero inicial

@@ -1,2 +1,23 @@
 ---- Makefile ----
 - Quitar DNDEBUG de CXXFLAGS para entregar
+
+----- Métrica 3 -----
+No insertar en la primera que el jugador humano no gane, sino aleatorizarlo
+de alguna manera. Es predecible.
+
+---- Métrica 2 -----
+No produce buenos resultados, es muy fácil ganar al comienzo. ¿Solución?
+Parece como que no "quiere" ganar: le dejas huecos libres (muy obvios) y
+no pone ahí la ficha. Ocurre casi siempre.
+TODO: variar la puntuación de ganadas/empates/perdidas
+
+----- Valor de N ------
+Con N=7 ya tarda unos 10s en cargar al inicio: ¿merece la pena subirlo?
+
+--- Memoria ----
+Explicar métricas 1 y 2:
+  - métrica 2: damos peso a ...
+Actualizar métrica 3, si es que la Cambiamos
+Comentar la introducción de una nueva variable en Tablero: ult_col
+Dos funciones calcularPartidasGanadas: una recursiva y otra iterativa. Comentar pros y contras (simplicidad vs eficiencia)
+...
