@@ -285,22 +285,27 @@ void JugadorAuto::actualizarSoluciones(const Tablero& tablero)
 
 int JugadorAuto::calcularPartidasGanadas(ArbolGeneral<Tablero>::Nodo n)
 {
+  int puntos;
+  int ganador = partida.etiqueta(n).quienGana();
+
+  if (ganador == 1)
+    puntos = -2;
+  else if (ganador == 2)
+    puntos = 2;
+  else
+    puntos = 1;
+
+  // Caso base
   if (!partida.hijomasizquierda(n))
   {
-    int ganador = partida.etiqueta(n).quienGana();
-    if (ganador == 1)
-      return -2;
-    else if (ganador == 2)
-      return 2;
-    else
-      return 1;
+    return puntos;
   }
 
-  int n_ganadas = 0;
+  // Caso general
   for (n = partida.hijomasizquierda(n); n; n = partida.hermanoderecha(n))
-    n_ganadas += calcularPartidasGanadas(n);
+    puntos += calcularPartidasGanadas(n);
 
-  return n_ganadas;
+  return puntos;
 }
 
 // OTRA FORMA: iterativa
