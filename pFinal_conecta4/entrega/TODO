@@ -7,3 +7,8 @@ de alguna manera. Es predecible.
 
 ---- Métrica 2 -----
 No produce buenos resultados, es muy fácil ganar al comienzo. ¿Solución?
+Parece como que no "quiere" ganar: le dejas huecos libres (muy obvios) y
+no pone ahí la ficha. Ocurre casi siempre.
+
+----- Valor de N ------
+Con N=7 ya tarda unos 10s en cargar al inicio: ¿merece la pena subirlo?

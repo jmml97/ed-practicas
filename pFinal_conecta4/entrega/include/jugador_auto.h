@@ -28,7 +28,7 @@ class JugadorAuto
   private:
     ArbolGeneral<Tablero> partida;   ///< Espacio de soluciones
     int metrica;                     ///< Métrica escogida
-    const static int N = 5;          ///< Profundidad máxima a explorar
+    const static int N = 6;          ///< Profundidad máxima a explorar
 
     int metrica1(); // la mejor (?): explorar hasta profundidad N y asignar ponderaciones a jugadas
     int metrica2(); // comprobar jugadas con 3 o 2 fichas en línea de IA // evitar las del humano
