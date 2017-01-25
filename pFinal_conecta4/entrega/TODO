@@ -16,8 +16,7 @@ Con N=7 ya tarda unos 10s en cargar al inicio: ¿merece la pena subirlo?
 
 --- Memoria ----
 Explicar métricas 1 y 2:
-  - métrica 2: damos peso a ...
-Actualizar métrica 3, si es que la Cambiamos
+  - métrica 2: damos peso al nivel donde stá
+  Actualizar métrica 3, si es que la Cambiamos
 Comentar la introducción de una nueva variable en Tablero: ult_col
-Dos funciones calcularPartidasGanadas: una recursiva y otra iterativa. Comentar pros y contras (simplicidad vs eficiencia)
 ...

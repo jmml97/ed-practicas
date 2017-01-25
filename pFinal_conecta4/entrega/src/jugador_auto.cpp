@@ -100,11 +100,17 @@ int JugadorAuto::metrica3()
       posibilidades.push_back(n1);
   }
 
+
   if (posibilidades.size())
+  {
+    // Introducimos aleatoriamente donde el jugador humano no gane
     return partida.etiqueta(posibilidades[GeneraEnteroAleatorio(0, posibilidades.size() - 1)]).GetUltCol();
+  }
   else
-    // Caso trivial: el jugador automático pierde. Elegimos la primera columna
+  {
+    // Caso trivial: el jugador automático pierde. Elegimos la primera columna libre
     return partida.etiqueta(partida.hijomasizquierda(partida.raiz())).GetUltCol();
+  }
 }
 
 /* _________________________________________________________________________ */
@@ -123,183 +129,38 @@ int JugadorAuto::metrica4()
 
 /* _________________________________________________________________________ */
 
-void JugadorAuto::generarHijos(ArbolGeneral<Tablero>& padre, int profundidad)
-{
-  if (profundidad)
-  {
-    Tablero original = padre.etiqueta(padre.raiz());
-    int num_cols = original.GetColumnas();
-
-    for (int col = 0; col < num_cols; ++col)
-    {
-      if ((original.hayHueco(col) > -1) && !original.quienGana())
-      {
-        Tablero nuevo(original);
-        nuevo.colocarFicha(col);
-        nuevo.cambiarTurno();
-        ArbolGeneral<Tablero> hijo(nuevo);
-        generarHijos(hijo, profundidad - 1);
-        padre.insertar_hijomasizquierda(padre.raiz(), hijo);
-      }
-    }
-  }
-}
-
-/* _________________________________________________________________________ */
-
-// TODO: Método vectorial, crea directamente en nodos pero los tienen que almacenar
-// Ineficiente en cuestiones
 void JugadorAuto::generarArbolSoluciones(int profundidad)
-{
-  vector<ArbolGeneral<Tablero>::Nodo> hojas;
-  ArbolGeneral<Tablero>::Nodo n = partida.raiz();
-
-  // Busca las hojas iniciales y las mete en el vector hojas
-  while (n)
-  {
-    if (partida.hijomasizquierda(n))
-      n = partida.hijomasizquierda(n);
-    else if(partida.hermanoderecha(n))
-    {
-      hojas.push_back(n);
-      n = partida.hermanoderecha(n);
-    }
-    else
-    {
-        hojas.push_back(n);
-        while((partida.padre(n)) && (partida.hermanoderecha(partida.padre(n)) == 0))
-            n = partida.padre(n);
-        if (partida.padre(n) == 0)
-            n = 0;
-        else
-            n = partida.hermanoderecha(partida.padre(n));
-    }
-  }
-
-  // Crea tantos niveles como se pida
-  for (int p = 0; p < profundidad; ++p)
-  {
-    // Para evitar guardar la última iteración
-    if (p + 1 == profundidad)
-      // Aqui almacenaremos los nuevas hojas resultantes
-      vector<ArbolGeneral<Tablero>::Nodo> aux;
-    // En cada iteración crea los hijos para cada hoja
-    for (int i = 0, size = hojas.size(); i < size; ++i)
-    {
-      Tablero original = partida.etiqueta(hojas[i]);
-      int num_cols = original.GetColumnas();
-      // Crea tantos hijos como columnas (movimientos posibles)
-      for (int col = 0; col < num_cols; ++col)
-      {
-        if ((original.hayHueco() > -1) && !original.quienGana())
-        {
-          // Creamos un nuevo tablero con el movimiento posible
-          Tablero nuevo(original);
-          nuevo.colocarFicha(col);
-          nuevo.cambiarTurno();
-          // Creamos un arbol de un solo nodo y lo insertamos
-          ArbolGeneral<Tablero> hijo(nuevo);
-          partida.insertar_hijomasizquierda(hojas[i], hijo);
-          // Lo añadimos como nueva hoja
-          if (p + 1 == profundidad)
-            aux.push_back(partida.hijomasizquierda(hojas[i]));
-        }
-      }
-    }
-    // Actualizamos el vector de hojas
-    hojas = aux;
-  }
-}
-
-/* _________________________________________________________________________ */
-
-// TODO: poner la cabeza en el .h y poner el paramétro por defecto en ese y quitarlo aquí
-// Este método iterativo puede llamarse directo, solo con la profundidad, e iría
-// creando NIVEL por NIVEL (no empieza el siguiente sin haber terinado el anterior)
-// O bien se puede llamar con un nodo hoja, en ese caso habría que aplicar la función
-// a todos los nodos hoja
-void JugadorAuto::iterativo(int profundidad, ArbolGeneral<Tablero>::Nodo raiz = partida.raiz())
-{
-  ArbolGeneral<Tablero>::Nodo n = raiz;
-  ArbolGeneral<Tablero>::Nodo primera_hoja = raiz;
-  // Por si empezamos en general en un arbol entero
-  while (partida.hijomasizquierda(primera_hoja))
-    primera_hoja = partida.hijomasizquierda(primera_hoja);
-
-  for (int p = 0; p < profundidad; ++p)
-  {
-    n = primera_hoja;
-    do
-    {
-      Tablero tablero_original(partida.etiqueta(n));
-      int num_cols = tablero_nuevo.GetColumnas();
-      for (int col = 0; col < num_cols; ++col)
-      {
-        if ((tablero_nuevo.hayHueco() > -1) && !tablero_nuevo.quienGana())
-        {
-          Tablero tablero_nuevo(tablero_original);
-          tablero_nuevo.colocarFicha(col);
-          tablero_nuevo.cambiarTurno();
-          ArbolGeneral<Tablero> hijo(tablero_nuevo);
-          partida.insertar_hijomasizquierda(n, hijo);
-        }
-      }
-
-      // Si tengo hermanos a la derecha
-      if (partida.hermanoderecha(n))
-      {
-        n = partida.hermanoderecha(n);
-        // Me desplazo a una hoja si tengo hijos
-        while (partida.hijomasizquierda(n))
-          n = partida.hijomasizquierda();
-      }
-      else
-      {
-        // Si mi padre no tiene hermanos subo
-        while (n != raiz && !partida.hermanoderecha(partida.padre(n)))
-          n = partida.padre(n);
-        // Si no es la hoja me paso al hermano del padre
-        if (n != raiz)
-        {
-            n = partida.hermanoderecha(partida.padre(n));
-            // Bajo a una hoja si tiene hijos
-            while (partida.hijomasizquierda(n))
-              n = partida.hijomasizquierda(n);
-        }
-      }
-    } while (n != raiz);
-
-    // Preparamos la primera hoja
-    while (partida.hijomasizquierda(primera_hoja))
-      primera_hoja = partida.hijomasizquierda(primera_hoja);
-  }
-}
-
-/* _________________________________________________________________________ */
-
-// TODO: función DEFINITIVA, DESTROYER
-void JugadorAuto::creacionHojas(int profundidad)
 {
   ArbolGeneral<Tablero>::Nodo raiz = partida.raiz();
   ArbolGeneral<Tablero>::Nodo n = raiz;
+
+  // Bajar hasta el hijo más a la izquierda
   while (partida.hijomasizquierda(n))
     n = partida.hijomasizquierda(n);
+
   do
   {
     ArbolGeneral<Tablero>::Nodo hoja = n;
+
+    // Nivel relativo al primero
     int i = 0;
     do
     {
       bool creado = true;
+
+      // Crear los hijos del nodo
       while (i < profundidad && creado)
       {
         creado = false;
         Tablero tablero_original(partida.etiqueta(n));
-        int num_cols = tablero_nuevo.GetColumnas();
+        int num_cols = tablero_original.GetColumnas();
+
+        // Generar todos los tableros posibles
         for (int col = 0; col < num_cols; ++col)
         {
-          if ((tablero_nuevo.hayHueco() > -1) && !tablero_nuevo.quienGana())
+          if ((tablero_original.hayHueco(col) > -1) && !tablero_original.quienGana())
           {
+            // Crear tablero, meter ficha, cambiar turno e insertar
             creado = true;
             Tablero tablero_nuevo(tablero_original);
             tablero_nuevo.colocarFicha(col);
@@ -308,107 +169,67 @@ void JugadorAuto::creacionHojas(int profundidad)
             partida.insertar_hijomasizquierda(n, hijo);
           }
         }
-        ++i;
-        if (i < profundidad && creado)
+        // Si ya no hay más que crear
+        if (i + 1 < profundidad && creado)
+        {
           n = partida.hijomasizquierda(n);
+          ++i;  // Aumentar el nivel
+        }
       }
-      --i;
 
+      // Nivel profundidad - 1: mirar si hay hermano derecha
       if (partida.hermanoderecha(n))
       {
         n = partida.hermanoderecha(n);
-        while (partida.hijomasizquierda(n))
-          n = partida.hijomasizquierda();
       }
       else
       {
+        // Subir hasta que haya hermano derecha o lleguemos a la hoja original
         while (n != hoja && !partida.hermanoderecha(partida.padre(n)))
         {
-          --i;
+          --i;  // Disminuye el nivel
           n = partida.padre(n);
         }
+
+        // Si no he llegado al tope
         if (n != hoja)
         {
-            --i;
-            n = partida.hermanoderecha(partida.padre(n));
-            while (partida.hijomasizquierda(n))
-              n = partida.hijomasizquierda(n);
+          // Nos posicionamos en el hermano a la derecha del padre
+          n = partida.hermanoderecha(partida.padre(n));
+          --i;  // Disminuye el nivel (porque subimos al padre)
         }
       }
-    } while (n != hoja)
+    } while (n != hoja);  // Mientras que no llegue a la hoja original
 
+    // Mirar hermanos a la derecha de la hoja original
     if (partida.hermanoderecha(n))
     {
       n = partida.hermanoderecha(n);
+      // Bajar hasta el hijo más a la izquierda de todos
       while (partida.hijomasizquierda(n))
-        n = partida.hijomasizquierda();
+        n = partida.hijomasizquierda(n);
     }
+
+    // No hay hermanos a la derecha de la hoja
     else
     {
+      // Subir mientras que no llegue a la raíz y no haya hermanos a la derecha
       while (n != raiz && !partida.hermanoderecha(partida.padre(n)))
         n = partida.padre(n);
+
+      // Si no he llegado al tope
       if (n != raiz)
       {
-          n = partida.hermanoderecha(partida.padre(n));
-          while (partida.hijomasizquierda(n))
-            n = partida.hijomasizquierda(n);
-      }
-  } while (n != raiz);
-}
-
-/* _________________________________________________________________________ */
-
-// TODO: forma1 (muy parecida a la recurisva - se puede fusionar con ella ??)
-// funciona solo poniendo al padre, que en realidad es la hoja original
-void JugadorAuto::funcion1(ArbolGeneral<Tablero>::Nodo padre, int profundidad)
-{
-  if (profundidad)
-  {
-    Tablero original = partida.etiqueta(padre);
-    int num_cols = original.GetColumnas();
-
-    for (int col = 0; col < num_cols; ++col)
-    {
-      if ((original.hayHueco(col) > -1) && !original.quienGana())
-      {
-        Tablero nuevo(original);
-        nuevo.colocarFicha(col);
-        nuevo.cambiarTurno();
-        ArbolGeneral<Tablero> hijo(nuevo);
-        generarHijos(hijo, profundidad - 1);
-        partida.insertar_hijomasizquierda(padre, hijo);
+        // Me posiciono en el hermano a la derecha del padre
+        n = partida.hermanoderecha(partida.padre(n));
+        // Bajo hasta el hijo más a la izquierda de todos
+        while (partida.hijomasizquierda(n))
+          n = partida.hijomasizquierda(n);
       }
     }
-  }
+  } while (n != raiz);  // Mientras que no llegue a la raíz
 }
-/* _________________________________________________________________________ */
 
-void JugadorAuto::generarArbolSoluciones(int profundidad)
-{
-  ArbolGeneral<Tablero>::Nodo n = partida.raiz();
-  while (n)
-  {
-    if (partida.hijomasizquierda(n))
-    {
-      n = partida.hijomasizquierda(n);
-    }
-    else if(partida.hermanoderecha(n))
-    {
-      funcion1(n, profundidad);
-      n = partida.hermanoderecha(n);
-    }
-    else
-    {
-        funcion1(n, profundidad);
-        while((partida.padre(n)) && (partida.hermanoderecha(partida.padre(n)) == 0))
-            n = partida.padre(n);
-        if (partida.padre(n) == 0)
-            n = 0;
-        else
-            n = partida.hermanoderecha(partida.padre(n));
-    }
-  }
-}
 /* _________________________________________________________________________ */
 
 void JugadorAuto::actualizarSoluciones(const Tablero& tablero)
@@ -476,9 +297,7 @@ int JugadorAuto::calcularPartidasGanadas(ArbolGeneral<Tablero>::Nodo n, int lvl)
 
   // Caso base
   if (!partida.hijomasizquierda(n))
-  {
     return puntos;
-  }
 
   // Caso general
   for (n = partida.hijomasizquierda(n); n; n = partida.hermanoderecha(n))
@@ -487,37 +306,6 @@ int JugadorAuto::calcularPartidasGanadas(ArbolGeneral<Tablero>::Nodo n, int lvl)
   return puntos;
 }
 
-// OTRA FORMA: iterativa
-/*
-int JugadorAuto::calcularPartidasGanadas(ArbolGeneral<Tablero>::Nodo n)
-{
-  int n_ganadas = 0;
-  while (n)
-  {
-    if (partida.hijomasizquierda(n))
-    {
-      n = partida.hijomasizquierda(n);
-    }
-    else if(partida.hermanoderecha(n))
-    {
-      n_ganadas += partida.etiqueta(n).quienGana() == 2;
-      n = partida.hermanoderecha(n);
-    }
-    else
-    {
-      n_ganadas += partida.etiqueta(n).quienGana() == 2;
-      while((partida.padre(n)) && (partida.hermanoderecha(partida.padre(n)) == 0))
-        n = partida.padre(n);
-      if (partida.padre(n) == 0)
-        n = 0;
-      else
-        n = partida.hermanoderecha(partida.padre(n));
-    }
-  }
-
-  return n_ganadas;
-}
-*/
 /* _________________________________________________________________________ */
 
 JugadorAuto::JugadorAuto(const Tablero& inicial, int num_metrica)
@@ -561,6 +349,8 @@ int JugadorAuto::elegirMovimiento(int num_metrica)
   return columna;
 }
 
+/* _________________________________________________________________________ */
+
 void JugadorAuto::turnoAutomatico(Tablero& actual)
 {
   int columna;
@@ -580,5 +370,94 @@ void JugadorAuto::turnoAutomatico(Tablero& actual)
   // Actualizamos de nuevo espacio de soluciones
   actualizarSoluciones(actual);
 }
+
+/* _________________________________________________________________________ */
+
+///// ANTIGUAS
+
+/*
+void JugadorAuto::generarHijos(ArbolGeneral<Tablero>& padre, int profundidad)
+{
+  if (profundidad)
+  {
+    Tablero original = padre.etiqueta(padre.raiz());
+    int num_cols = original.GetColumnas();
+
+    for (int col = 0; col < num_cols; ++col)
+    {
+      if ((original.hayHueco(col) > -1) && !original.quienGana())
+      {
+        Tablero nuevo(original);
+        nuevo.colocarFicha(col);
+        nuevo.cambiarTurno();
+        ArbolGeneral<Tablero> hijo(nuevo);
+        generarHijos(hijo, profundidad - 1);
+        padre.insertar_hijomasizquierda(padre.raiz(), hijo);
+      }
+    }
+  }
+}
+*/
+
+/* _________________________________________________________________________ */
+
+/*
+// TODO: forma1 (muy parecida a la recurisva - se puede fusionar con ella ??)
+// funciona solo poniendo al padre, que en realidad es la hoja original
+void JugadorAuto::funcion1(ArbolGeneral<Tablero>::Nodo padre, int profundidad)
+{
+  if (profundidad)
+  {
+    Tablero original = partida.etiqueta(padre);
+    int num_cols = original.GetColumnas();
+
+    for (int col = 0; col < num_cols; ++col)
+    {
+      if ((original.hayHueco(col) > -1) && !original.quienGana())
+      {
+        Tablero nuevo(original);
+        nuevo.colocarFicha(col);
+        nuevo.cambiarTurno();
+        ArbolGeneral<Tablero> hijo(nuevo);
+        generarHijos(hijo, profundidad - 1);
+        partida.insertar_hijomasizquierda(padre, hijo);
+      }
+    }
+  }
+}
+*/
+/* _________________________________________________________________________ */
+
+// CalcularPartidasGanadas iterativa
+/*
+int JugadorAuto::calcularPartidasGanadas(ArbolGeneral<Tablero>::Nodo n)
+{
+  int n_ganadas = 0;
+  while (n)
+  {
+    if (partida.hijomasizquierda(n))
+    {
+      n = partida.hijomasizquierda(n);
+    }
+    else if(partida.hermanoderecha(n))
+    {
+      n_ganadas += partida.etiqueta(n).quienGana() == 2;
+      n = partida.hermanoderecha(n);
+    }
+    else
+    {
+      n_ganadas += partida.etiqueta(n).quienGana() == 2;
+      while((partida.padre(n)) && (partida.hermanoderecha(partida.padre(n)) == 0))
+        n = partida.padre(n);
+      if (partida.padre(n) == 0)
+        n = 0;
+      else
+        n = partida.hermanoderecha(partida.padre(n));
+    }
+  }
+
+  return n_ganadas;
+}
+*/
 
 /* Fin fichero: jugador_auto.cpp */

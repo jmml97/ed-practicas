@@ -40,7 +40,7 @@ class JugadorAuto
 
     /**
      * @brief Genera el espacio de soluciones para un tablero vacío,
-     * explorando hasta una profundidad variable según la métrica.
+     * explorando hasta una profundidad variable.
      * @param profundidad Profundidad hasta la que se explora
      */
     void generarArbolSoluciones(int profundidad);
@@ -55,9 +55,10 @@ class JugadorAuto
      * @brief Calcula el número de partidas ganadas por el jugador automático
      * en el subárbol que cuelga de un nodo.
      * @param n Nodo donde mirar.
+     * @lvl Nivel del nodo actual en el árbol.
      * @return Número de partidas ganadas por el jugador auto
      */
-    int calcularPartidasGanadas(ArbolGeneral<Tablero>::Nodo n);
+    int calcularPartidasGanadas(ArbolGeneral<Tablero>::Nodo n, int lvl);
 
   public:
     /**
