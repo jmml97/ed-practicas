@@ -169,16 +169,18 @@ void JugadorAuto::generarArbolSoluciones(int profundidad)
             partida.insertar_hijomasizquierda(n, hijo);
           }
         }
+        ++i;  // Aumentar el nivel
+
         // Si ya no hay más que crear
-        if (i + 1 < profundidad && creado)
+        if (i < profundidad && creado)
         {
           n = partida.hijomasizquierda(n);
-          ++i;  // Aumentar el nivel
+
         }
       }
-
+      --i;
       // Nivel profundidad - 1: mirar si hay hermano derecha
-      if (partida.hermanoderecha(n))
+      if (n != hoja && partida.hermanoderecha(n))
       {
         n = partida.hermanoderecha(n);
       }
@@ -247,8 +249,7 @@ void JugadorAuto::actualizarSoluciones(const Tablero& tablero)
       n = partida.hermanoderecha(n);
     }
 
-    // TODO: probar de nuevo con asignar_subarbol a ver si funciona
-    // Asignar subárbol que cuelga de n a partida
+    // Asignar subárbol que cuelga de n a partidac
     ArbolGeneral<Tablero> nuevo;
     ArbolGeneral<Tablero>::Nodo aux = partida.raiz();
     if (partida.hijomasizquierda(aux) == n)
@@ -288,6 +289,7 @@ int JugadorAuto::calcularPartidasGanadas(ArbolGeneral<Tablero>::Nodo n, int lvl)
   int puntos;
   int ganador = partida.etiqueta(n).quienGana();
 
+  // Calcular puntuación del nodo
   if (ganador == 1)
     puntos = -2 - (N - lvl);
   else if (ganador == 2)
