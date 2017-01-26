@@ -1,4 +1,4 @@
-% Created 2017-01-26 jue 23:54
+% Created 2017-01-27 vie 00:03
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -93,7 +93,7 @@ JugadorAuto::generarHijos(ArbolGeneral<Tablero>::Nodo& n, int profundidad)
 }
 \end{verbatim}
 
-Finalmente se desechó este código, pues a la hora de ampliar el árbol de soluciones teníamos algunos problemas. En el código final, hemos optado versión iterativa, que funciona sin problemas.
+Finalmente se desechó este código, pues a la hora de ampliar el árbol de soluciones teníamos algunos problemas. En el código final, hemos optado por una versión iterativa, que funciona sin problemas.
 
 \subsection{Profundidad del árbol generado}
 \label{sec-1-4}
@@ -154,7 +154,7 @@ En esta métrica, el jugador automático decide en qué columna debe insertar un
 \item Para los nodos de este vector, comprueba si existe un tablero asociado en el que tiene una alineación de 3 fichas. En caso afirmativo, elige la columna cuyo tablero asociado tenga \textbf{\textbf{el mayor número}} de alineaciones de 3 fichas.
 \item En caso negativo, descarta del vector de nodos posibles, aquellos nodos que desemboquen en la siguiente jugada en una alineación de 3 fichas por parte del jugador humano.
 \item Ahora, repite los últimos dos pasos, pero buscando alineaciones de 2 fichas.
-\item Si aún así no ha elegido aún dónde insertar, se elige la columna utilizando el mismo criterio que en la \textbf{\textbf{métrica 2}}, pero eligiendo únicamente de entre los nodos presentes en el vector de posibilidades.
+\item Si aún así no ha elegido aún dónde insertar, se elige la columna utilizando el mismo criterio de puntuaciones que en la \textbf{\textbf{métrica 2}}, pero eligiendo únicamente de entre los nodos presentes en el vector de posibilidades.
 \end{itemize}
 
 \section{Posibles mejoras}
@@ -163,6 +163,6 @@ En esta métrica, el jugador automático decide en qué columna debe insertar un
 \subsection{Mejorar el sistema de puntuaciones}
 \label{sec-3-1}
 
-El sistema elegido para puntuar un tablero es muy simple: únicamente tiene en cuenta si se gana, empata o pierde, y en qué nivel del árbol de soluciones sucede la jugada. Una posible mejora para la \textbf{\textbf{métrica 1}} sería conseguir un sistema de puntuaciones que mirase, en un tablero dado, el número de alineaciones de 3 fichas y de 2 fichas, además de lo que ya comprueba con el sistema antiguo. 
+El sistema elegido para puntuar un tablero es muy simple: únicamente tiene en cuenta si se gana, empata o pierde, y en qué nivel del árbol de soluciones sucede la jugada. Una posible mejora para la \textbf{\textbf{métrica 1}} sería conseguir un sistema de puntuaciones que mirase, en un tablero dado, el número de alineaciones de 3 fichas y de 2 fichas, además de lo que ya comprueba con el sistema antiguo. Asignando a cada tablero una puntuación ponderada según estos nuevos parámetros, creemos que conseguiríamos una mejora significativa en la elección de columna.
 % Emacs 25.1.1 (Org mode 8.2.10)
 \end{document}
