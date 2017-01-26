@@ -162,7 +162,7 @@ int JugadorAuto::metrica1()
         if (cantidadAlineada(partida.etiqueta(*it), 2) > 0)
           humano_alinea = true;
       }
-      // Si hemos provocado que el humano alinee 3, eliminamos esa posibilidad
+      // Si hemos provocado que el humano alinee 2, eliminamos esa posibilidad
       if (humano_alinea)
         posibilidades.erase(it);
     }
@@ -371,36 +371,11 @@ void JugadorAuto::actualizarSoluciones(const Tablero& tablero)
       n = partida.hermanoderecha(n);
     }
 
-    // Asignar subárbol que cuelga de n a partida
-    ArbolGeneral<Tablero> nuevo;
-    ArbolGeneral<Tablero>::Nodo aux = partida.raiz();
-    if (partida.hijomasizquierda(aux) == n)
-      partida.podar_hijomasizquierda(aux, nuevo);
-    else
-    {
-      aux = partida.hijomasizquierda(aux);
-      while (partida.hermanoderecha(aux) != n)
-        aux = partida.hermanoderecha(aux);
-      partida.podar_hermanoderecha(aux, nuevo);
-    }
+    // El nodo n, y el subárbol que cuelga de él, se convierte en el nuevo árbol
+    partida.asignar_subarbol(n);
 
-    // Asignamos la raíz a n, e insertamos los hijos de n
-    partida.AsignaRaiz(nuevo.etiqueta(nuevo.raiz()));
-    while (nuevo.hijomasizquierda(nuevo.raiz()))
-    {
-      ArbolGeneral<Tablero> arbol;
-      nuevo.podar_hijomasizquierda(nuevo.raiz(), arbol);
-      partida.insertar_hijomasizquierda(partida.raiz(), arbol);
-    }
-
-    // Explorar el siguiente nivel
+    // Explorar siguiente nivel del árbol de soluciones
     generarArbolSoluciones(1);
-  }
-
-  // Métrica aleatoria: solo cambiamos la raíz
-  else
-  {
-    partida = tablero;
   }
 }
 

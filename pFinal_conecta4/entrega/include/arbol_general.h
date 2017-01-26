@@ -380,6 +380,14 @@ class ArbolGeneral{
     void asignar_subarbol(const ArbolGeneral<Tbase>& orig, const Nodo nod);
 
     /**
+     * @brief Convierte a un hijo de la raíz, y el subárbol que cuelga de él,
+     * en el nuevo árbol. Poda el resto del árbol, eliminándolo.
+     * @param n Nodo que pasa a ser la nueva raíz
+     * @pre n es un Nodo hijo de laraíz
+     */
+    void asignar_subarbol(Nodo n);
+
+    /**
       * @brief Podar subárbol hijo más a la izquierda
       * @param n Nodo al que se le podará la rama hijo más a la izquierda.
       * @param dest Árbol que recibe la rama cortada
@@ -1306,6 +1314,30 @@ asignar_subarbol(const ArbolGeneral<Tbase>& orig, const Nodo nod){
         laraiz->drcha = 0;
         laraiz->padre = 0;
     }
+}
+
+template <class Tbase>
+void ArbolGeneral<Tbase>::
+asignar_subarbol(Nodo n)
+{
+  while (laraiz->izqda != n)
+  {
+    Nodo aux = laraiz->izqda;
+    laraiz->izqda = laraiz->izqda->drcha;
+    destruir(aux);
+  }
+  while (laraiz->izqda->drcha)
+  {
+    Nodo aux = laraiz->izqda->drcha;
+    laraiz->izqda->drcha = laraiz->izqda->drcha->drcha;
+    destruir(aux);
+  }
+
+  laraiz->izqda = 0;
+  delete laraiz;
+  laraiz = n;
+  laraiz->padre = 0;
+  laraiz->drcha = 0;
 }
 
 template <class Tbase>
