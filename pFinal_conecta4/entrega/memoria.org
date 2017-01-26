@@ -1,0 +1,6 @@
+* Estructura de Datos.
+
+*** Métrica 4
+
+Bajo esta métrica, el jugador automático insertará la ficha en una columna que tenga hueco, elegida aleatoriamente.
+
