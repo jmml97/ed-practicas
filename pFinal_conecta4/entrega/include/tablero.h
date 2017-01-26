@@ -143,7 +143,7 @@ public:
      * @param tablero : Matriz (vector de vectores de enteros) representante de
      *        un estado del juego.
      */
-    void SetTablero(vector<vector<int> > tablero, int ult_col);
+    void SetTablero(vector<vector<int> > tablero, int ult_col, int turno);
 
     /**
      * @brief Turno del estado actual.

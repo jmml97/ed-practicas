@@ -117,7 +117,7 @@ int Tablero::cambiarTurno()
 
 /* _________________________________________________________________________ */
 
-void Tablero::SetTablero(vector<vector<int> > tablero, int ult_col)
+void Tablero::SetTablero(vector<vector<int> > tablero, int ult_col, int turno)
 {
   int filas1, filas2, columnas1, columnas2;
   filas1 = GetFilas();
@@ -129,6 +129,7 @@ void Tablero::SetTablero(vector<vector<int> > tablero, int ult_col)
   {
     this->tablero = tablero;
     this->ult_col = ult_col;
+    this->turno = turno;
   }
 
   else
@@ -138,6 +139,7 @@ void Tablero::SetTablero(vector<vector<int> > tablero, int ult_col)
     {
       this->tablero = tablero;
       this->ult_col = ult_col;
+      this->turno = turno;
     }
     else
     {
@@ -154,7 +156,7 @@ Tablero& Tablero::operator=(const Tablero& derecha)
   if (this == &derecha)
     return *this;
   // Asignamos el tablero de la derecha en la igualdad.
-  SetTablero(derecha.GetTablero(), derecha.GetUltCol());
+  SetTablero(derecha.tablero, derecha.ult_col, derecha.turno);
   return *this;
 }
 
