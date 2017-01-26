@@ -19,6 +19,65 @@ namespace
     int tam = max - min + 1;
     return ((rand() % tam) + min);
   }
+
+  /**
+   * @brief Devuelve cuántas alineaciones de nRaya fichas hay en un tablero
+   * dado, para el último jugador que insertó ficha.
+   * @param tab Tablero donde buscar las alineaciones
+   * @param nRaya Número de fichas en línea a buscar
+   */
+  int cantidadAlineada(const Tablero& tab, int nRaya)
+  {
+    // Estructura para representar una dirección
+    struct Direccion
+    {
+      int i;
+      int j;
+    };
+
+    // Almaceno las 8 direcciones posibles
+    Direccion direccion[8] = {{-1,-1},{-1, 0},{-1, 1},{0, -1},{0, 1},{1, -1},{1, 0},{1, 1}};
+    // Nº de n-lineas encontradas (-1 si ha habido fallos)
+    int encontrados = -1;
+
+    if (!tab.estaVacio())
+    {
+      encontrados = 0;
+      int col = tab.GetUltCol();
+      int fil;
+
+      // Bajamos hasta llegar a la fila donde se insertó la última ficha
+      for (fil = 0; tab.GetElemento(fil,col) == 0; ++fil);
+
+      // Cogemos la ficha para buscar las alineaciones n-raya
+      int ficha = tab.GetElemento(fil,col);
+
+      // Recorro cada dirección, si hay n en línea suma 1 al nº de n-lineas que se han dado al poner la ficha en ult_pos
+      for (int d = 0; d < 8; d++)
+      {
+        // La propia ficha cuenta como una ficha alineada
+        int alineados = 1;
+        bool sigue = true;
+        // Fijo la i,j de la última posición
+        int i = fil;
+        int j = col;
+        while (sigue && alineados < nRaya)
+        {
+          //  Me muevo en la direccion que me dan
+          i += direccion[d].i;
+          j += direccion[d].j;
+          sigue = i >= 0 && i < tab.GetFilas() && j >= 0 && j < tab.GetColumnas()
+                  && ficha == tab.GetElemento(i, j);
+          if (sigue)
+            alineados++;
+          }
+          if (alineados == nRaya)
+            encontrados++;
+        }
+    }
+
+    return encontrados;
+  }
 }
 
 /* _________________________________________________________________________ */
@@ -27,13 +86,96 @@ int JugadorAuto::metrica1()
 {
   int num_cols = partida.etiqueta(partida.raiz()).GetColumnas();
 
-  // Si se puede, inserto en el primer turno en el centro
+  // Si se puede, insertar en el primer turno en el centro
   if (partida.etiqueta(partida.raiz()).estaVacio())
   {
     return num_cols / 2;
   }
 
-  // TODO implementar
+  // Ganar la partida, si es posble
+  int gana_IA = gana_inmediato();
+  if (gana_IA != -1)
+    return gana_IA;
+
+  // Evitar perder, si es posible
+  vector<ArbolGeneral<Tablero>::Nodo> posibilidades = evita_perder();
+  int num_nodos = posibilidades.size();
+
+  if (num_nodos)
+  {
+    int max_alineadas = 0;
+    int nodo_max = 0;
+    int alineadas;
+    bool humano_alinea;
+    int i;
+
+    // Ver si puedo conseguir el mayor número de 3-en-raya
+    for (i = 0; i < num_nodos; i++)
+    {
+      alineadas = cantidadAlineada(partida.etiqueta(posibilidades[i]), 3);
+      if (alineadas > max_alineadas)
+      {
+        max_alineadas = alineadas;
+        nodo_max = i;
+      }
+    }
+    if (max_alineadas > 0)
+      return partida.etiqueta(posibilidades[nodo_max]).GetUltCol();
+
+    // Ver si puedo evitar que el jugador humano consiga 3-en-raya
+    for (vector<ArbolGeneral<Tablero>::Nodo>::iterator it = posibilidades.begin();
+         it != posibilidades.end(); ++it)
+    {
+      humano_alinea = false;
+      for (ArbolGeneral<Tablero>::Nodo n = partida.hijomasizquierda(*it);
+           n && !humano_alinea; n = partida.hermanoderecha(n))
+      {
+        if (cantidadAlineada(partida.etiqueta(*it), 3) > 0)
+          humano_alinea = true;
+      }
+      // Si hemos provocado que el humano alinee 3, eliminamos esa posibilidad
+      if (humano_alinea)
+        posibilidades.erase(it);
+    }
+
+    // Ver si puedo conseguir el mayor número de 2-en-raya
+    for (i = 0; i < num_nodos; i++)
+    {
+      alineadas = cantidadAlineada(partida.etiqueta(posibilidades[i]), 2);
+      if (alineadas > max_alineadas)
+      {
+        max_alineadas = alineadas;
+        nodo_max = i;
+      }
+    }
+    if (max_alineadas > 0)
+      return partida.etiqueta(posibilidades[nodo_max]).GetUltCol();
+
+    // Ver si puedo evitar que el jugador humano consiga 2-en-raya
+    for (vector<ArbolGeneral<Tablero>::Nodo>::iterator it = posibilidades.begin();
+         it != posibilidades.end(); ++it)
+    {
+      humano_alinea = false;
+      for (ArbolGeneral<Tablero>::Nodo n = partida.hijomasizquierda(*it);
+           n && !humano_alinea; n = partida.hermanoderecha(n))
+      {
+        if (cantidadAlineada(partida.etiqueta(*it), 2) > 0)
+          humano_alinea = true;
+      }
+      // Si hemos provocado que el humano alinee 3, eliminamos esa posibilidad
+      if (humano_alinea)
+        posibilidades.erase(it);
+    }
+
+    // De las posibilidades restantes, insertar en la columna de mayor puntuación
+    return mayorPuntuacion(posibilidades);
+  }
+
+  // El jugador automático pierde, elegimos la primera columna libre
+  else
+  {
+    return partida.etiqueta(partida.hijomasizquierda(partida.raiz())).GetUltCol();
+  }
 }
 
 /* _________________________________________________________________________ */
@@ -48,64 +190,45 @@ int JugadorAuto::metrica2()
     return num_cols / 2;
   }
 
-  // Almacenar el número de partidas ganadas (por el jugador auto) de cada nodo
-  vector<int> puntuacion;
-  for (ArbolGeneral<Tablero>::Nodo n = partida.hijomasizquierda(partida.raiz());
-       n; n = partida.hermanoderecha(n))
+  // Ganar la partida si es posble
+  int gana_IA = gana_inmediato();
+  if (gana_IA != -1)
+    return gana_IA;
+
+  // Evitar perder, si es posible
+  vector<ArbolGeneral<Tablero>::Nodo> posibilidades = evita_perder();
+
+  // Calculamos de entre las posibilidades aquella con mayor puntuación
+  if (posibilidades.size())
   {
-    puntuacion.push_back(calcularPartidasGanadas(n, 0));
+    return mayorPuntuacion(posibilidades);
   }
 
-  // Calcular el nodo con mayor número de partidas ganadas
-  int max_pos = 0;
-  for (int i = 0; i < puntuacion.size(); ++i)
+  // El jugador automático pierde, elegimos la primera columna libre
+  else
   {
-    if (puntuacion[max_pos] < puntuacion[i])
-      max_pos = i;
+    return partida.etiqueta(partida.hijomasizquierda(partida.raiz())).GetUltCol();
   }
-
-  // Obtener el nodo con mayor puntuación
-  ArbolGeneral<Tablero>::Nodo n = partida.hijomasizquierda(partida.raiz());
-  for (int i = 0; i < max_pos; ++i)
-    n = partida.hermanoderecha(n);
-
-  return partida.etiqueta(n).GetUltCol();
 }
 
 /* _________________________________________________________________________ */
 
 int JugadorAuto::metrica3()
 {
-  for (ArbolGeneral<Tablero>::Nodo n = partida.hijomasizquierda(partida.raiz());
-       n; n = partida.hermanoderecha(n))
-  {
-    if (partida.etiqueta(n).quienGana() == 2)
-      return partida.etiqueta(n).GetUltCol();
-  }
+  // Ganar la partida si es posble
+  int gana_IA = gana_inmediato();
+  if (gana_IA != -1)
+    return gana_IA;
 
-  vector<ArbolGeneral<Tablero>::Nodo> posibilidades;
-
-  for (ArbolGeneral<Tablero>::Nodo n1 = partida.hijomasizquierda(partida.raiz());
-       n1; n1 = partida.hermanoderecha(n1))
-  {
-    bool no_gana = true;
-    for (ArbolGeneral<Tablero>::Nodo n2 = partida.hijomasizquierda(n1);
-         n2; n2 = partida.hermanoderecha(n2))
-    {
-      if (partida.etiqueta(n2).quienGana() == 1)
-        no_gana = false;
-    }
-
-    if (no_gana)
-      posibilidades.push_back(n1);
-  }
-
+  // Evitar perder, si es posible
+  vector<ArbolGeneral<Tablero>::Nodo> posibilidades = evita_perder();
 
   if (posibilidades.size())
   {
     // Introducimos aleatoriamente donde el jugador humano no gane
     return partida.etiqueta(posibilidades[GeneraEnteroAleatorio(0, posibilidades.size() - 1)]).GetUltCol();
   }
+
   else
   {
     // Caso trivial: el jugador automático pierde. Elegimos la primera columna libre
@@ -173,12 +296,11 @@ void JugadorAuto::generarArbolSoluciones(int profundidad)
 
         // Si ya no hay más que crear
         if (i < profundidad && creado)
-        {
           n = partida.hijomasizquierda(n);
 
-        }
       }
-      --i;
+      --i;  // Subimos un nivel
+
       // Nivel profundidad - 1: mirar si hay hermano derecha
       if (n != hoja && partida.hermanoderecha(n))
       {
@@ -249,7 +371,7 @@ void JugadorAuto::actualizarSoluciones(const Tablero& tablero)
       n = partida.hermanoderecha(n);
     }
 
-    // Asignar subárbol que cuelga de n a partidac
+    // Asignar subárbol que cuelga de n a partida
     ArbolGeneral<Tablero> nuevo;
     ArbolGeneral<Tablero>::Nodo aux = partida.raiz();
     if (partida.hijomasizquierda(aux) == n)
@@ -306,6 +428,65 @@ int JugadorAuto::calcularPartidasGanadas(ArbolGeneral<Tablero>::Nodo n, int lvl)
     puntos += calcularPartidasGanadas(n, lvl + 1);
 
   return puntos;
+}
+
+/* _________________________________________________________________________ */
+
+int JugadorAuto::gana_inmediato()
+{
+  for (ArbolGeneral<Tablero>::Nodo n = partida.hijomasizquierda(partida.raiz());
+       n; n = partida.hermanoderecha(n))
+  {
+    if (partida.etiqueta(n).quienGana() == 2)
+      return partida.etiqueta(n).GetUltCol();
+  }
+  return -1;
+}
+
+/* _________________________________________________________________________ */
+
+vector<ArbolGeneral<Tablero>::Nodo> JugadorAuto::evita_perder()
+{
+  vector<ArbolGeneral<Tablero>::Nodo> posibilidades;
+
+  for (ArbolGeneral<Tablero>::Nodo n1 = partida.hijomasizquierda(partida.raiz());
+       n1; n1 = partida.hermanoderecha(n1))
+  {
+    bool no_gana = true;
+    for (ArbolGeneral<Tablero>::Nodo n2 = partida.hijomasizquierda(n1);
+         n2; n2 = partida.hermanoderecha(n2))
+    {
+      if (partida.etiqueta(n2).quienGana() == 1)
+        no_gana = false;
+    }
+
+    if (no_gana)
+      posibilidades.push_back(n1);
+  }
+  return posibilidades;
+}
+
+/* _________________________________________________________________________ */
+
+int JugadorAuto::mayorPuntuacion(vector<ArbolGeneral<Tablero>::Nodo> v)
+{
+  // Almacenar el número de partidas ganadas (por el jugador auto) de cada nodo
+  // en el que podemos meter ficha sin miedo a perder
+  vector<int> puntuacion;
+  for (int i = 0; i < v.size(); i++)
+  {
+    puntuacion.push_back(calcularPartidasGanadas(v[i], 0));
+  }
+
+  // Calcular el nodo con mayor número de partidas ganadas
+  int max_pos = 0;
+  for (int i = 0; i < puntuacion.size(); ++i)
+  {
+    if (puntuacion[max_pos] < puntuacion[i])
+      max_pos = i;
+  }
+
+  return partida.etiqueta(v[max_pos]).GetUltCol();
 }
 
 /* _________________________________________________________________________ */
@@ -372,94 +553,5 @@ void JugadorAuto::turnoAutomatico(Tablero& actual)
   // Actualizamos de nuevo espacio de soluciones
   actualizarSoluciones(actual);
 }
-
-/* _________________________________________________________________________ */
-
-///// ANTIGUAS
-
-/*
-void JugadorAuto::generarHijos(ArbolGeneral<Tablero>& padre, int profundidad)
-{
-  if (profundidad)
-  {
-    Tablero original = padre.etiqueta(padre.raiz());
-    int num_cols = original.GetColumnas();
-
-    for (int col = 0; col < num_cols; ++col)
-    {
-      if ((original.hayHueco(col) > -1) && !original.quienGana())
-      {
-        Tablero nuevo(original);
-        nuevo.colocarFicha(col);
-        nuevo.cambiarTurno();
-        ArbolGeneral<Tablero> hijo(nuevo);
-        generarHijos(hijo, profundidad - 1);
-        padre.insertar_hijomasizquierda(padre.raiz(), hijo);
-      }
-    }
-  }
-}
-*/
-
-/* _________________________________________________________________________ */
-
-/*
-// TODO: forma1 (muy parecida a la recurisva - se puede fusionar con ella ??)
-// funciona solo poniendo al padre, que en realidad es la hoja original
-void JugadorAuto::funcion1(ArbolGeneral<Tablero>::Nodo padre, int profundidad)
-{
-  if (profundidad)
-  {
-    Tablero original = partida.etiqueta(padre);
-    int num_cols = original.GetColumnas();
-
-    for (int col = 0; col < num_cols; ++col)
-    {
-      if ((original.hayHueco(col) > -1) && !original.quienGana())
-      {
-        Tablero nuevo(original);
-        nuevo.colocarFicha(col);
-        nuevo.cambiarTurno();
-        ArbolGeneral<Tablero> hijo(nuevo);
-        generarHijos(hijo, profundidad - 1);
-        partida.insertar_hijomasizquierda(padre, hijo);
-      }
-    }
-  }
-}
-*/
-/* _________________________________________________________________________ */
-
-// CalcularPartidasGanadas iterativa
-/*
-int JugadorAuto::calcularPartidasGanadas(ArbolGeneral<Tablero>::Nodo n)
-{
-  int n_ganadas = 0;
-  while (n)
-  {
-    if (partida.hijomasizquierda(n))
-    {
-      n = partida.hijomasizquierda(n);
-    }
-    else if(partida.hermanoderecha(n))
-    {
-      n_ganadas += partida.etiqueta(n).quienGana() == 2;
-      n = partida.hermanoderecha(n);
-    }
-    else
-    {
-      n_ganadas += partida.etiqueta(n).quienGana() == 2;
-      while((partida.padre(n)) && (partida.hermanoderecha(partida.padre(n)) == 0))
-        n = partida.padre(n);
-      if (partida.padre(n) == 0)
-        n = 0;
-      else
-        n = partida.hermanoderecha(partida.padre(n));
-    }
-  }
-
-  return n_ganadas;
-}
-*/
 
 /* Fin fichero: jugador_auto.cpp */
