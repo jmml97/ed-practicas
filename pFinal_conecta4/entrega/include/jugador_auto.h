@@ -24,23 +24,20 @@
  */
 class JugadorAuto
 {
-  //TODO función de abstracción + representación
   private:
     ArbolGeneral<Tablero> partida;   ///< Espacio de soluciones
     int metrica;                     ///< Métrica escogida
-    const static int N = 6;          ///< Profundidad máxima a explorar
+    const static int N = 5;          ///< Profundidad máxima a explorar
 
-    int metrica1(); // la mejor (?): explorar hasta profundidad N y asignar ponderaciones a jugadas
-    int metrica2(); // comprobar jugadas con 3 o 2 fichas en línea de IA // evitar las del humano
-    int metrica3(); // comprobar unicamente si se gana o se pierde; si no, insertar aleatoriamente
-    int metrica4(); // la peor (?): elegir columna aleatoria
-
-    void generarHijos(ArbolGeneral<Tablero>& padre, int profundidad);
-    void funcion1(ArbolGeneral<Tablero>::Nodo padre, int profundidad);
+    /// Ver documentación adjunta: memoria.pdf
+    int metrica1();
+    int metrica2();
+    int metrica3();
+    int metrica4();
 
     /**
-     * @brief Genera el espacio de soluciones para un tablero vacío,
-     * explorando hasta una profundidad variable.
+     * @brief Amplía el espacio de soluciones hasta una profundidad
+     * dada.
      * @param profundidad Profundidad hasta la que se explora
      */
     void generarArbolSoluciones(int profundidad);
@@ -59,6 +56,30 @@ class JugadorAuto
      * @return Número de partidas ganadas por el jugador auto
      */
     int calcularPartidasGanadas(ArbolGeneral<Tablero>::Nodo n, int lvl);
+
+    /**
+     * @brief Comprueba si el jugador automático puede ganar la partida
+     * introduciendo una ficha.
+     * @return Columna donde debe introducir para ganar, o -1 si no se da
+     * el caso.
+     */
+    int gana_inmediato();
+
+    /**
+     * @brief Computa los casos en los que el jugador automático no
+     * pierde la partida al introducir su ficha
+     * @return Un vector de Nodo, con los nodos donde el jugador automático
+     * puede insertar ficha sin miedo a perder en el siguiente turno.
+     */
+    vector<ArbolGeneral<Tablero>::Nodo> evita_perder();
+
+    /**
+     * @brief Computa la columna donde se obtendría una mayor puntuación
+     * al insertar.
+     * @param v Vector de Nodo con los nodos donde buscar
+     * @see calcularPartidasGanadas
+     */
+    int mayorPuntuacion(vector<ArbolGeneral<Tablero>::Nodo> v);
 
   public:
     /**

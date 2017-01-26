@@ -139,6 +139,12 @@ public:
     vector<vector<int> > GetTablero() const { return tablero; }
 
     /**
+     * @brief Devuelve el elemento en la posición (i,j) del tablero.
+     * @pre 0 <= i < filas; 0 <= j < columnas
+     */
+    int GetElemento(int i, int j) const { return tablero[i][j]; }
+
+    /**
      * @brief Asigna un tablero introducido como parámetro.
      * @param tablero : Matriz (vector de vectores de enteros) representante de
      *        un estado del juego.
