@@ -49,13 +49,14 @@ class JugadorAuto
     void actualizarSoluciones(const Tablero& tablero);
 
     /**
-     * @brief Calcula el número de partidas ganadas por el jugador automático
-     * en el subárbol que cuelga de un nodo.
+     * @brief Calcula los puntos de un nodo según el sistema de
+     * puntos de la métrica del jugador automático.
      * @param n Nodo donde mirar.
-     * @lvl Nivel del nodo actual en el árbol.
-     * @return Número de partidas ganadas por el jugador auto
+     * @param lvl Nivel del nodo actual en el árbol.
+     * @return Puntuación total obtenida por el jugador auto en el subárbol que
+     * cuelga de n.
      */
-    int calcularPartidasGanadas(ArbolGeneral<Tablero>::Nodo n, int lvl);
+    int calcularPuntuacion(ArbolGeneral<Tablero>::Nodo n, int lvl);
 
     /**
      * @brief Comprueba si el jugador automático puede ganar la partida

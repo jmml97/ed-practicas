@@ -381,10 +381,11 @@ void JugadorAuto::actualizarSoluciones(const Tablero& tablero)
 
 /* _________________________________________________________________________ */
 
-int JugadorAuto::calcularPartidasGanadas(ArbolGeneral<Tablero>::Nodo n, int lvl)
+int JugadorAuto::calcularPuntuacion(ArbolGeneral<Tablero>::Nodo n, int lvl)
 {
-  int puntos;
-  int ganador = partida.etiqueta(n).quienGana();
+  float puntos;
+  Tablero aux = partida.etiqueta(n);
+  int ganador = aux.quienGana();
 
   // Calcular puntuación del nodo
   if (ganador == 1)
@@ -394,13 +395,20 @@ int JugadorAuto::calcularPartidasGanadas(ArbolGeneral<Tablero>::Nodo n, int lvl)
   else
     puntos = 1 + (N - lvl);
 
+  // Sistema puntuación métrica 1
+  if (metrica == 1)
+  {
+    puntos += 0.25 * cantidadAlineada(aux, 3) +
+              0.0625 * cantidadAlineada(aux, 2) + (N - lvl);
+  }
+
   // Caso base
   if (!partida.hijomasizquierda(n))
     return puntos;
 
   // Caso general
   for (n = partida.hijomasizquierda(n); n; n = partida.hermanoderecha(n))
-    puntos += calcularPartidasGanadas(n, lvl + 1);
+    puntos += calcularPuntuacion(n, lvl + 1);
 
   return puntos;
 }
@@ -450,7 +458,7 @@ int JugadorAuto::mayorPuntuacion(vector<ArbolGeneral<Tablero>::Nodo> v)
   vector<int> puntuacion;
   for (int i = 0; i < v.size(); i++)
   {
-    puntuacion.push_back(calcularPartidasGanadas(v[i], 0));
+    puntuacion.push_back(calcularPuntuacion(v[i], 0));
   }
 
   // Calcular el nodo con mayor número de partidas ganadas
